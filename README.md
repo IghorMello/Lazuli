@@ -31,8 +31,8 @@
 
 ## 💻 Sobre o projeto
 
- 🚀 Browser extension focused on monitoring the user's mental health 
- 
+🚀 Browser extension focused on monitoring the user's mental health
+
 <br>
 
 <a id="executar"></a>
@@ -43,7 +43,7 @@
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e o gerenciador de pacotes [Yarn](https://yarnpkg.com).
-Além disto é bom ter um editor para trabalhar com o código, como [VSCode](https://code.visualstudio.com/)
+Além disto é bom ter um editor para trabalhar com o código, o [VSCode](https://code.visualstudio.com/) por exemplo
 
 <br>
 
@@ -52,7 +52,7 @@ Além disto é bom ter um editor para trabalhar com o código, como [VSCode](htt
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/savio-2-lopes/lazuli.git
+$ git clone https://github.com/IghorMello/Lazuli.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd lazuli
