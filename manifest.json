@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["popup.js"]
+      "js": ["js/popup.js"]
     }
   ],
 
