@@ -40,8 +40,6 @@
 
 ## 🎨 Layout
 
-<br>
-
 - [Protótipo](#prototipo)
 
 <br>
