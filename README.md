@@ -32,7 +32,7 @@
 
 ## 💻 Sobre o projeto
 
-:tada: Browser extension focused on monitoring the user's mental health
+:rocket: Browser extension focused on monitoring the user's mental health
 
 <br>
 
