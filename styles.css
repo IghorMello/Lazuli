@@ -56,6 +56,12 @@ img {
   width: 30px;
 }
 
+/* Links */
+
+a .button-word {
+  text-decoration: none;
+}
+
 /* Container */
 
 .flex-container {
@@ -167,6 +173,7 @@ img {
 
 .button-word {
   background-color: var(--blue);
+  text-transform: none;
   border-color: var(--blue);
 }
 
