@@ -1,6 +1,6 @@
 /* Adicionar palavras-chaves padrões */
 
-var triggers = ["java", " violência ", " guerra "];
+var triggers = ["violência", "guerra"];
 
 function isLetter(str) {
     return str.length === 1 && str.match(/[a-z]/i);

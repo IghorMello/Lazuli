@@ -9,11 +9,13 @@
     "default_icon": "icons.png",
     "default_popup": "popup.html"
   },
+  "content_security_policy": "script-src 'self' https://maxcdn.bootstrapcdn.com; object-src 'self';",
   "content_scripts": [
     {
       "matches": ["*://*/*"],
       "js": ["popup.js"]
     }
   ],
+
   "permissions": ["storage", "activeTab"]
 }
