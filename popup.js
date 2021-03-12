@@ -1,4 +1,6 @@
-var triggers = ["java", "c#", " violência ", " guerra "];
+/* Adicionar palavras-chaves padrões */
+
+var triggers = ["java", " violência ", " guerra "];
 
 function isLetter(str) {
     return str.length === 1 && str.match(/[a-z]/i);
@@ -17,9 +19,9 @@ function getCustomWords() {
     });
 }
 
+/* Palavras gatilho encontradas */
 
 function findtrigs() {
-
     var found = 0;
     var message = "Aviso: esta página pode conter palavras como";
     var elements = document.getElementsByTagName('*');
@@ -80,7 +82,7 @@ window.onload = function () {
 document.addEventListener('DOMContentLoaded', function () {
     findtrigs();
     function addWord() {
-        var newWord = document.getElementById("myText").value;
+        var newWord = document.getElementById("myWord").value;
         newWord = newWord.replace(/[^a-zA-Z-]/g, '').toLowerCase();
         if (triggers.indexOf(newWord) === -1 && newWord !== "") {
             triggers.push(newWord);
@@ -91,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         }
-        document.getElementById("myText").value = " ";
+        document.getElementById("myWord").value = " ";
         getCustomWords();
     }
-    document.getElementById('add-Word').onclick = addWord;
+    document.getElementById('addWord').onclick = addWord;
 });
