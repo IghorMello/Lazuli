@@ -31,7 +31,7 @@
 
 ## 💻 Sobre o projeto
 
-🚀 Browser extension focused on monitoring the user's mental health
+:tada: Browser extension focused on monitoring the user's mental health
 
 <br>
 
