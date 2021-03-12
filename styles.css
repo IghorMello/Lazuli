@@ -11,6 +11,7 @@
   --blue: #26619c;
   --text-blue: #2f5876;
   --green: #5ce5b4;
+  --green-dark: #49b991;
   --text: #666666;
   --text-highlight: #b3b9ff;
   --title: #2e384d;
@@ -49,14 +50,7 @@ h1 {
   color: var(--white);
 }
 
-/* Links */
-
-a:link,
-a:visited {
-  color: #000000;
-  outline: 0;
-  text-decoration: none;
-}
+/* Image */
 
 img {
   width: 30px;
@@ -155,8 +149,8 @@ img {
 }
 
 .btn-info:hover {
-  background-color: var(--green) !important;
-  border-color: var(--green) !important;
+  background-color: var(--green-dark) !important;
+  border-color: var(--green-dark) !important;
 }
 
 .btn-primary,

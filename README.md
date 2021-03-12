@@ -21,6 +21,7 @@
 ## :pushpin: Índice
 
 - [Sobre](#sobre-o-projeto)
+- [Layout](#layout)
 - [Como Executar](#executar)
 - [Tecnologias](#tecnologias)
 - [Licença](#licenca)
@@ -32,6 +33,16 @@
 ## 💻 Sobre o projeto
 
 :tada: Browser extension focused on monitoring the user's mental health
+
+<br>
+
+<a id="layout"></a>
+
+## 🎨 Layout
+
+<p style="display: flex; align-items: flex-start; justify-content: center;">
+  <img alt="Lazuli" title="#Lazuli" src="./static/gif.gif" width="800px">
+</p>
 
 <br>
 
