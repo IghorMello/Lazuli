@@ -1,8 +1,8 @@
 <h3 align="center">
-    <img alt="Lazuli" title="Lazuli" src="./icon.png" width="150px" />
+    <img alt="Lazuli" title="Lazuli" src="./icons.png" width="150px" />
 </h3>
 
-<p align="center"> :tada: <strong>Lazuli - 4º ADS</strong> 🚧</p>
+<p align="center"> :rocket: <strong>Extension Browser Lazuli</strong> 🚧</p>
  
 <p align="center">
    <img src="https://img.shields.io/badge/version-0.0.1-yellow.svg" />
