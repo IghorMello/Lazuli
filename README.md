@@ -1,8 +1,8 @@
 <h3 align="center">
-    <img alt="Lazuli" title="Lazuli" src="./icon.png" width="150px" />
+    <img alt="Lazuli" title="Lazuli" src="./icons.png" width="150px" />
 </h3>
 
-<p align="center"> :tada: <strong>Lazuli - 4º ADS</strong> 🚧</p>
+<p align="center"> :rocket: <strong>Extension Browser Lazuli</strong> 🚧</p>
  
 <p align="center">
    <img src="https://img.shields.io/badge/version-0.0.1-yellow.svg" />
@@ -21,6 +21,7 @@
 ## :pushpin: Índice
 
 - [Sobre](#sobre-o-projeto)
+- [Layout](#layout)
 - [Como Executar](#executar)
 - [Tecnologias](#tecnologias)
 - [Licença](#licenca)
@@ -31,8 +32,28 @@
 
 ## 💻 Sobre o projeto
 
- 🚀 Browser extension focused on monitoring the user's mental health 
- 
+:rocket: Browser extension focused on monitoring the user's mental health
+
+<br>
+
+<a id="layout"></a>
+
+## 🎨 Layout
+
+- [Protótipo](#prototipo)
+
+<br>
+
+<a id="prototipo"></a>
+
+### :tada: Protótipo
+
+<br>
+
+<p style="display: flex; align-items: flex-start; justify-content: center;">
+  <img alt="Lazuli" title="#Lazuli" src="./static/gif.gif" width="800px">
+</p>
+
 <br>
 
 <a id="executar"></a>
@@ -43,7 +64,7 @@
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e o gerenciador de pacotes [Yarn](https://yarnpkg.com).
-Além disto é bom ter um editor para trabalhar com o código, como [VSCode](https://code.visualstudio.com/)
+Além disto é bom ter um editor para trabalhar com o código, o [VSCode](https://code.visualstudio.com/) por exemplo
 
 <br>
 
@@ -52,7 +73,7 @@ Além disto é bom ter um editor para trabalhar com o código, como [VSCode](htt
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/savio-2-lopes/lazuli.git
+$ git clone https://github.com/IghorMello/Lazuli.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd lazuli

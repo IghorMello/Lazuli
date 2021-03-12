@@ -1,4 +1,4 @@
-/* A extensão funciona no tamnaho - 289px*/
+/* Corpo */
 
 * {
   margin: 0;
@@ -11,6 +11,7 @@
   --blue: #26619c;
   --text-blue: #2f5876;
   --green: #5ce5b4;
+  --green-dark: #49b991;
   --text: #666666;
   --text-highlight: #b3b9ff;
   --title: #2e384d;
@@ -49,75 +50,19 @@ h1 {
   color: var(--white);
 }
 
-a:link,
-a:visited {
-  color: #000000;
-  outline: 0;
-  text-decoration: none;
-}
+/* Image */
 
 img {
   width: 30px;
 }
 
-.button-word {
-  background-color: var(--blue);
-  border-color: var(--blue);
+/* Links */
+
+a .button-word {
+  text-decoration: none;
 }
 
-.button-word-click:hover {
-  color: var(--green);
-}
-
-.border {
-  border-style: solid;
-  height: 100%;
-}
-
-.button-word-click {
-  color: var(--white);
-  font-size: 18px;
-}
-
-.click {
-  color: var(--white);
-}
-
-.modal-header {
-  align-items: center;
-  border-bottom: 0.5px solid #dadada;
-}
-
-.check-modal {
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content {
-  padding: 0 22px;
-}
-
-.modal-icons {
-  justify-content: center;
-  align-items: center;
-  border-top: 0.5px solid #dadada;
-  height: 50px;
-  width: 100%;
-}
-
-.logo {
-  padding: 16px;
-}
-
-.logo-icon {
-  vertical-align: text-bottom;
-  margin-right: 12px;
-}
-
-.version {
-  color: #444;
-  font-size: 18px;
-}
+/* Container */
 
 .flex-container {
   display: flex;
@@ -131,6 +76,66 @@ img {
   width: 120px;
 }
 
+/* Bordas */
+
+.border {
+  border-style: solid;
+  height: 100%;
+}
+
+/* Spans */
+
+.button-word-click {
+  color: var(--white);
+  font-size: 18px;
+}
+
+.text-click {
+  color: var(--white);
+}
+
+.click {
+  color: var(--white);
+  text-align: justify;
+}
+
+/* Modal */
+
+.modal-content {
+  padding: 0 22px;
+}
+
+.modal-icons {
+  justify-content: center;
+  align-items: center;
+  border-top: 0.5px solid var(--white);
+  height: 50px;
+  width: 100%;
+}
+
+.check-modal {
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-header {
+  align-items: center;
+  border-bottom: 0.5px solid var(--white);
+}
+
+/* Logo */
+
+.logo {
+  padding: 16px;
+}
+
+.logo-icon {
+  vertical-align: text-bottom;
+  margin-right: 12px;
+}
+
+/* Ícones de mídias sociais */
+
 .flex .fa {
   font-size: 40px;
   color: var(--white);
@@ -140,6 +145,8 @@ img {
   color: var(--green);
 }
 
+/* Buttons */
+
 .btn-info,
 .btn-info:active,
 .btn-info:visited {
@@ -148,8 +155,8 @@ img {
 }
 
 .btn-info:hover {
-  background-color: var(--green) !important;
-  border-color: var(--green) !important;
+  background-color: var(--green-dark) !important;
+  border-color: var(--green-dark) !important;
 }
 
 .btn-primary,
@@ -162,4 +169,75 @@ img {
 .btn-primary:hover {
   background-color: var(--blue) !important;
   border-color: var(--blue) !important;
+}
+
+.button-word {
+  background-color: var(--blue);
+  text-transform: none;
+  border-color: var(--blue);
+}
+
+.button-word-click:hover {
+  color: var(--green);
+}
+
+/* Switch Toogle */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--green);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--green);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

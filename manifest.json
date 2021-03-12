@@ -1,19 +1,21 @@
 {
   "manifest_version": 2,
-  "name": "lazuli",
+  "name": "lazuli ",
   "short_name": "lazuli",
   "description": "Extensão focada no monitoramente de sua saúde mental",
   "version": "1.0",
-  "icons": { "128": "icon.png" },
+  "icons": { "128": "icons.png" },
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "icons.png",
     "default_popup": "popup.html"
   },
+  "content_security_policy": "script-src 'self' https://maxcdn.bootstrapcdn.com; object-src 'self';",
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["popup.js"]
+      "js": ["js/popup.js"]
     }
   ],
+
   "permissions": ["storage", "activeTab"]
 }
