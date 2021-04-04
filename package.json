@@ -1,5 +1,5 @@
 {
-  "name": "chrome-extension-react-typescript-boilerplate",
+  "name": "lazuli",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "webpack --watch"
   },
   "keywords": [],
-  "author": "sivertschou",
+  "author": "Lazuli",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.3",
