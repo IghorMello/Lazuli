@@ -1,0 +1,36 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="star-display.html">
+
+<link rel="import" href="reward-display-playgif.html">
+<link rel="import" href="badges-earned-display.html">
+
+<dom-module id="reward-display">
+  <style>
+    :host {
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      display: none;
+      opacity: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: white;
+      color: black;
+      z-index: 9007199254740991; /* Number.MAX_SAFE_INTEGER */
+    }
+    #playgif {
+      opacity: 0;
+      display: none;
+    }
+    #showbadge {
+      opacity: 0;
+      display: none;
+    }
+  </style>
+  <template>
+    <reward-display-playgif id="playgif" seconds_saved="{{seconds_saved}}" no_autoclose="{{no_autoclose}}" url_of_next_page="[[url_of_next_page]]"></reward-display-playgif>
+    <badges-earned-display id="showbadge" url_of_next_page="[[url_of_next_page]]"></badges-earned-display>
+  </template>
+  <script src="reward-display.js"></script>
+</dom-module>

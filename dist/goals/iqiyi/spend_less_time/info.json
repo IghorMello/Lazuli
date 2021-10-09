@@ -1,0 +1,27 @@
+{
+  "description": "Gaste menos tempo em Iqiyi",
+  "goal_statement_to_fill_in": "Gaste não mais do que TARGET UNITS em Iqiyi por dia",
+  "progress_description": "Tempo gasto no Iqiyi",
+  "call_to_action": "Fechar Iqiyi",
+  "interventions": [
+    "generic/toast_notifications",
+    "generic/show_timer_banner",
+    "iqiyi/prompt_before_watch",
+    "iqiyi/remove_sidebar_links"
+  ],
+  "default_interventions": [
+    "generic/toast_notifications",
+    "generic/show_timer_banner",
+    "iqiyi/prompt_before_watch",
+    "iqiyi/remove_sidebar_links"
+  ],
+  "measurement": "time_spent_on_domain",
+  "domain": "www.iqiyi.com",
+  "preview": "https://www.iqiyi.com/v_19rrb6fwsg.html",
+  "target": {
+    "default": 20,
+    "units": "minutes"
+  },
+  "icon": "icon.svg",
+  "color": "#7cad3e"
+}

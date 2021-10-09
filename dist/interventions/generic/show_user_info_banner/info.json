@@ -1,0 +1,11 @@
+{
+  "description": "Mostra o tempo gasto e conta a cada visita",
+  "displayname": "Stat Banner",
+  "difficulty": "medium",
+  "content_scripts": [
+    {
+      "path": "frontend.js",
+      "run_at": "document_start"
+    }
+  ]
+}

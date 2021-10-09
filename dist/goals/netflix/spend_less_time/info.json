@@ -1,0 +1,31 @@
+{
+  "description": "Gaste menos tempo em Netflix",
+  "goal_statement_to_fill_in": "Gaste não mais do que TARGET UNITS em Netflix por dia",
+  "progress_description": "Tempo gasto no Netflix",
+  "call_to_action": "Fechar Netflix",
+  "interventions": [
+    "generic/toast_notifications",
+    "generic/show_timer_banner",
+    "netflix/link_articles",
+    "netflix/infinite_alarm",
+    "netflix/stop_autoplay",
+    "video/prompt_before_watch"
+  ],
+  "default_interventions": [
+    "generic/toast_notifications",
+    "generic/show_timer_banner",
+    "netflix/link_articles",
+    "netflix/infinite_alarm",
+    "netflix/stop_autoplay",
+    "video/prompt_before_watch"
+  ],
+  "measurement": "time_spent_on_domain",
+  "domain": "www.netflix.com",
+  "target": {
+    "default": 20,
+    "units": "minutes"
+  },
+  "icon": "icon.svg",
+  "preview": "https://www.netflix.com",
+  "color": "#b90018"
+}

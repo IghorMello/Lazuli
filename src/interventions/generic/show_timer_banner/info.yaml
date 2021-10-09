@@ -1,0 +1,6 @@
+description: Mostra o tempo gasto no local na parte superior da tela
+displayname: Supervisor
+difficulty: easy
+content_scripts:
+  - path: frontend.js
+    run_at: document_start

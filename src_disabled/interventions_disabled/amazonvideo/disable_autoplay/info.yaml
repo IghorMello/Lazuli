@@ -1,0 +1,6 @@
+description: Disable Autoplay
+displayname: Stop Autoplay
+matches:
+  - www.amazon.com
+content_scripts:
+  - frontend.js

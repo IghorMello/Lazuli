@@ -1,0 +1,84 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../bower_components/gold-email-input/gold-email-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../bower_components/html-echo/html-echo.html">
+
+<dom-module id="feedback-form">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        height: 38px;
+        cursor: pointer;
+      }
+
+      #feedback_button {
+        width: 38px;
+        height: 38px;
+      }
+    </style>
+
+    <paper-dialog id="feedback_dialog" with-backdrop style="z-index: 9007199254740991;">
+      <paper-dialog-scrollable>
+        <div>
+          <div>
+            Obrigado por fornecer seus comentários! Ele nos será enviado por e-mail, junto com uma captura de tela desta
+            página, em
+            <a href="mailto:{{mailing_list}}" target="_blank">{{mailing_list}}</a>
+          </div>
+
+          <form>
+            <paper-textarea on-change="textarea_changed" on-keydown="textarea_keydown" on-keyup="textarea_keydown"
+              on-keypress="textarea_keypress" value="{{feedback}}" label="Seu retorno"></paper-textarea>
+
+            <gold-email-input on-change="save_email" on-keydown="email_changed_keydown" on-keyup="email_changed_keyup"
+              on-keypress="email_changed_keypress" auto-validate value="{{email}}"
+              label="Email (opcional, para que possamos enviar uma resposta)"
+              error-message="Por favor digite um email válido">
+            </gold-email-input>
+          </form>
+
+          <paper-checkbox checked="{{submit_to_gitter}}">
+            Publique no fórum da comunidade Lazuli em
+            <a href="https://gitter.im/lazuli/lazuli" target="_blank">Gitter</a>
+          </paper-checkbox>
+
+          <br>
+
+          <paper-checkbox checked="{{submit_to_github}}">
+            Envie para o rastreador de bugs do Lazuli em
+            <a href="https://github.com/lazuli/lazuli/issues" target="_blank">GitHub Issues</a>
+          </paper-checkbox>
+
+          <br>
+
+          <paper-checkbox checked="{{submit_screenshot}}">Incluir captura de tela desta página</paper-checkbox>
+
+          <br>
+
+        </div>
+      </paper-dialog-scrollable>
+
+      <div class="buttons">
+        <paper-button dialog-dismiss>Cancelar</paper-button>
+        <paper-button on-click="submit_feedback">Enviar Feedback</paper-button>
+      </div>
+    </paper-dialog>
+
+    <paper-dialog id="submitting_wait_dialog" with-backdrop style="z-index: 9007199254740991;">
+      <paper-dialog-scrollable>
+        <div style="margin: 20px">
+          <html-echo html="{{wait_dialog_html}}"></html-echo>
+        </div>
+      </paper-dialog-scrollable>
+    </paper-dialog>
+
+  </template>
+  <script src="feedback-form.js"></script>
+</dom-module>

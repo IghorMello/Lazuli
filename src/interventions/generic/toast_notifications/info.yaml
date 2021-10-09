@@ -1,0 +1,6 @@
+description: Notifica você sobre o tempo gasto a cada minuto
+displayname: Minute Watch
+difficulty: easy
+content_scripts:
+  - path: frontend.js
+    run_at: document_start

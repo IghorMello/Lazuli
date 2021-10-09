@@ -1,0 +1,12 @@
+{
+  "description": "Remove o feed de notícias do Twitter",
+  "displayname": "Remover Feed",
+  "difficulty": "medium",
+  "matches": [
+    "twitter.com"
+  ],
+  "content_scripts": [
+    "frontend.js"
+  ],
+  "preview": "https://www.twitter.com"
+}

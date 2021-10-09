@@ -1,0 +1,9 @@
+{
+  "main": "dist/jquery.js",
+  "format": "amd",
+  "meta": {
+    "*.json": {
+      "format": "json"
+    }
+  }
+}

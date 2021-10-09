@@ -1,0 +1,14 @@
+{
+  "description": "Remover clickbait",
+  "displayname": "Clickbait",
+  "difficulty": "easy",
+  "matches": [
+    "www.facebook.com"
+  ],
+  "content_scripts": [
+    {
+      "path": "frontend.js",
+      "run_at": "document_start"
+    }
+  ]
+}

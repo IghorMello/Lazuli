@@ -1,0 +1,75 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="update-check">
+  <template>
+    <style>
+      .card-content {
+        font-size: 20px;
+      }
+
+      .button {
+        color: white;
+        background-color: #415D67;
+        padding: 5px;
+        font-size: 16px;
+        text-transform: none;
+        -webkit-font-smoothing: subpixel-antialiased;
+      }
+    </style>
+
+    <div class="card-content">
+      <div>Você está executando a versão Lazuli {{current_version}}</div>
+      <template is="dom-if" if="{{devmode}}">
+        <div>Você está executando o Lazuli no modo de desenvolvedor.</div>
+        <div>Para obter atualizações, desinstale o Lazuli e <a href="https://lazuli.github.io/chrome" target="_blank"
+            style="color: black; text-decoration: underline;">instale a versão estável</a></div>
+      </template>
+
+      <template is="dom-if" if="{{preview}}">
+        <div>Você está executando uma versão prévia do Lazuli.</div>
+        <div>Se tiver problemas, desinstale e mude para a <a href="https://lazuli.github.io/chrome" target="_blank"
+            style="color: black; text-decoration: underline;">versão estável</a></div>
+      </template>
+
+      <template is="dom-if" if="{{unofficial}}">
+        <div>Você está executando um lançamento não oficial.</div>
+        <div>Para obter atualizações, desinstale o Lazuli e <a href="https://lazuli.github.io/chrome" target="_blank"
+            style="color: black; text-decoration: underline;">instale uma versão estável</a></div>
+      </template>
+
+      <template is="dom-if" if="{{is_update_available_or_installable}}">
+        <div>Uma nova versão do Lazuli está disponível ({{available_update_version}})</div>
+        <template is="dom-if" if="{{is_update_installable}}">
+          <div style="height: 10px"></div>
+          <paper-button class="button" on-click="install_update_now">Instale as atualizações agora</paper-button>
+        </template>
+
+        <template is="dom-if" if="{{!is_update_installable}}">
+          <div>O Chrome instalará automaticamente a atualização em algumas horas. Ou você pode forçar uma atualização
+            indo para
+            <span style="font-family: Courier New, Courier, monospace">chrome://extensions</span> checando <span
+              style="font-family: Courier New, Courier, monospace">Modo de desenvolvedor </span>e clicando
+            <span style="font-family: Courier New, Courier, monospace">Atualize as extensões agora</span>.
+          </div>
+        </template>
+      </template>
+
+      <template is="dom-if" if="{{!is_update_available_or_installable}}">
+        <template is="dom-if" if="{{have_checked_for_updates}}">
+          <template is="dom-if" if="{{!is_update_available}}">
+            <div> Você está executando a última versão do Lazuli </div>
+          </template>
+        </template>
+
+        <div style="height: 10px"></div>
+        <paper-button class="button" on-click="check_for_updates_now">
+          {{check_for_updates_button_text}}
+        </paper-button>
+      </template>
+  </template>
+  </div>
+
+  </template>
+  <script src="update-check.js"></script>
+</dom-module>

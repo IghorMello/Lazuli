@@ -1,0 +1,6 @@
+description: Remove recommendations on Iqiyi
+displayname: No Recs
+matches:
+  - www.iqiyi.com
+content_scripts:
+  - frontend.js

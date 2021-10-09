@@ -1,0 +1,152 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
+
+<dom-module id="interstitial-screen-choose-difficulty-v4">
+  <template>
+    <style>
+      :host {
+        --call-to-action-button-height: 38px;
+        --call-to-action-button-padding: 5px;
+        --call-to-action-button-margin: 0px 0px 10px 0px;
+      }
+
+
+      .contentContainer {
+        margin-top: 20x;
+      }
+
+      .titleText {
+
+        font-size: 1.5em;
+        text-align: center;
+      }
+
+      #messagetext {
+        font-size: 1.3em;
+        text-align: center;
+      }
+
+      .whiteDiv {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: #f2fcff;
+        opacity: 1;
+        z-index: 35000000;
+      }
+
+      #block_container {
+        text-align: center;
+      }
+
+      .difficultybutton {
+        cursor: pointer;
+        padding: 5px;
+        background-color: #415D67;
+        color: white;
+        font-size: 14px;
+        box-shadow: 2px 2px 2px #888888;
+        width: 100%;
+      }
+
+      .buttoncontainer {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .buttontop {
+        font-size: 30px;
+        text-transform: none;
+      }
+
+      .buttonbottom {
+        font-size: 14px;
+      }
+    </style>
+
+    <paper-toast id="sample_toast" text="" duration="0" vertical-align="top" horizontal-align="right">
+      <div style="width: 530px">
+        <div id="block_container" style="width: 100%; font-size: 30px">
+          Quão agressivo você gostaria que o Lazuli fosse para ajudá-lo a reduzir seu tempo online?
+        </div>
+
+        <br><br>
+
+        <div>
+          <div style="text-align: left; display: inline-block">
+            <paper-button on-click="difficulty_chosen" class="difficultybutton" difficulty="nothing">
+              <div class="buttoncontainer" difficulty="nothing">
+                <div class="buttontop" difficulty="nothing">Não faça nada</div>
+
+                <br difficulty="nothing">
+
+                <div class="buttonbottom" difficulty="nothing">
+                  Apenas controle o tempo
+                </div>
+              </div>
+            </paper-button>
+
+            <br><br>
+
+            <paper-button on-click="difficulty_chosen" class="difficultybutton" difficulty="easy">
+              <div class="buttoncontainer" difficulty="easy">
+                <div class="buttontop" difficulty="easy">Toque leve</div>
+
+                <br difficulty="easy">
+
+                <div class="buttonbottom" difficulty="easy">
+                  Por exemplo, mostre um cronômetro quando você visitar o Facebook
+                </div>
+              </div>
+            </paper-button>
+
+            <br><br>
+
+            <paper-button on-click="difficulty_chosen" class="difficultybutton" difficulty="medium">
+              <div class="buttoncontainer" difficulty="medium">
+                <div class="buttontop" difficulty="medium">Médio</div>
+
+                <br difficulty="medium">
+
+                <div class="buttonbottom" difficulty="medium">
+                  Por exemplo, remova seu feed do Facebook até clicar para mostrá-lo
+                </div>
+              </div>
+            </paper-button>
+
+            <br><br>
+
+            <paper-button on-click="difficulty_chosen" class="difficultybutton" difficulty="hard">
+              <div class="buttoncontainer" difficulty="hard">
+                <div class="buttontop" difficulty="hard">Mão pesada</div>
+
+                <br difficulty="hard">
+
+                <div class="buttonbottom" difficulty="hard">
+                  Por exemplo, feche o site após 60 segundos
+                </div>
+              </div>
+            </paper-button>
+
+            <br><br>
+
+            <div style="text-align: center; font-size: 30px; margin-top: 10px">
+              Se você não escolher, uma opção será
+              escolhido aleatoriamente em {{seconds_remaining}} segundos
+            </div>
+          </div>
+        </div>
+      </div>
+    </paper-toast>
+  </template>
+
+  <script src="interstitial-screen-choose-difficulty-v4.js"></script>
+
+</dom-module>

@@ -1,0 +1,21 @@
+{
+  "description": "Verifique a New York Times por dia",
+  "goal_statement_to_fill_in": "Visite a página do New York Times pelo menos TARGET UNITS por dia",
+  "progress_description": "Visitas ao site do New York Times",
+  "call_to_action": "Verifique o New York Times",
+  "interventions": [
+    "generic_positive/feed_injection_positive_goal_widget",
+    "generic_positive/suggest_positive_site_interstitial"
+  ],
+  "measurement": "visits_to_domain",
+  "domain": "www.nytimes.com",
+  "goal_statement_units": "times",
+  "target": {
+    "default": 1,
+    "units": "visits"
+  },
+  "is_positive": true,
+  "sitename_printable": "New York Times",
+  "icon": "icon.png",
+  "color": "rgb(41,41,41)"
+}

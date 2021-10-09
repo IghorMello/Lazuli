@@ -1,0 +1,115 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="star-display.html">
+
+<dom-module id="reward-display-playgif">
+  <style>
+    :host {
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      display: none;
+      opacity: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: white;
+      color: black;
+      z-index: 9007199254740991; /* Number.MAX_SAFE_INTEGER */
+    }
+    #rewardvideocontainer {
+      position: fixed;
+      /*
+      width: 100vw;
+      height: 100vh;
+      */
+      /*
+      margin: auto;
+      left: 0;
+      right: 0;
+      transform: perspective(1px) translateY(-50%);
+      */
+      /*
+      left: 50%;
+      top: 50%;
+      transform: perspective(1px) translate(-50%, -50%);
+      */
+      top: 110px;
+      left: 50%;
+      transform: perspective(1px) translate(-50%, 0%);
+    }
+    #rewardvideo {
+      display: none;
+      opacity: 0;
+      height: 300px;
+    }
+    #timesaved_message {
+      position: fixed;
+      top: 00px;
+      left: 0%;
+      width: 100vw;
+      display: inline-block;
+      text-align: center;
+      line-height: 100px;
+      height: 100px;
+      color: black;
+      font-size: 48px;
+    }
+    #unlock_features_message {
+      position: fixed;
+      top: 80px;
+      left: 0%;
+      width: 100vw;
+      display: inline-block;
+      text-align: center;
+      color: black;
+      font-size: 18px;
+    }
+    .progress_bubble_green {
+      --progress-bubble-stroke-color: rgba(0, 255, 0, 0.8);
+      --progress-bubble-bg-stroke-color: rgba(193, 193, 193, 0.2);
+    }
+    .progress_bubble_red {
+      --progress-bubble-stroke-color: rgba(255, 0, 0, 0.8);
+      --progress-bubble-bg-stroke-color: rgba(193, 193, 193, 0.2);
+    }
+    .progress_bubble_blue {
+      --progress-bubble-stroke-color: rgba(0, 0, 255, 0.8);
+      --progress-bubble-bg-stroke-color: rgba(193, 193, 193, 0.2);
+    }
+    #left_message_block {
+      position: fixed;
+      text-align: center;
+      width: 33vw;
+      left: 0%;
+      top: 100px;
+      color: black;
+    }
+    #right_message_block {
+      position: fixed;
+      text-align: center;
+      width: 33vw;
+      right: 0%;
+      top: 100px;
+      color: black;
+    }
+    #below_gif_section {
+      position: fixed;
+      top: 420px;
+      text-align: center;
+      width: 100vw;
+      color: black;
+    }
+  </style>
+  <template>
+    <div id="timesaved_message">
+      <span style="vertical-align: middle; font-size: 48px">You just saved <span>{{time_saved_message}}</span>!</span>
+    </div>
+
+<div id="unlock_features_message">
+</div>
+    <div id="rewardvideocontainer">
+      <video id="rewardvideo" on-ended="video_ended" src="{{video_url}}"></video>
+    </div>
+  </template>
+  <script src="reward-display-playgif.js"></script>
+</dom-module>

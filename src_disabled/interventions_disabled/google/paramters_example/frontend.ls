@@ -1,0 +1,7 @@
+console.log(intervention)
+console.log(intervention.params.message.description)
+console.log(intervention.params.message.value)
+console.log(intervention.params.message2.description)
+console.log(intervention.params.message2.value)
+console.log(window.loaded_interventions)
+console.log(window.loaded_content_scripts)

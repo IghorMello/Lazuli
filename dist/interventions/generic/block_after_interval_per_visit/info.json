@@ -1,0 +1,22 @@
+{
+  "description": "Pergunta quanto tempo você deseja passar no local nesta visita",
+  "displayname": "Bouncer",
+  "difficulty": "hard",
+  "content_scripts": [
+    {
+      "path": "frontend.js",
+      "run_at": "document_start"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "cheatseconds",
+      "description": "Segundos para trapacear depois que o tempo acabar",
+      "default": 30,
+      "type": "int"
+    }
+  ],
+  "categories": [
+    "interstitial"
+  ]
+}

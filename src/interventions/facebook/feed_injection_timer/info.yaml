@@ -1,0 +1,10 @@
+description: Injetar cronômetro no feed do Facebook
+displayname: Injeção de tempo
+difficulty: easy
+
+matches:
+  - www.facebook.com
+
+content_scripts:
+  - path: frontend.js
+    run_at: document_start

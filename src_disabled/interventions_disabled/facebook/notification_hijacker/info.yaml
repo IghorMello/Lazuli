@@ -1,0 +1,11 @@
+description: Gives you facebook messages to remind you to be aware of your usage time
+displayname: Reminder Message
+matches:
+  - www.facebook.com
+content_scripts:
+  - frontend.js
+parameters:
+  - name: minutes
+    description: The amount of minutes between notification injections
+    default: 10
+    type: int

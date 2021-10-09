@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="nudge-incubator">
+  <template>
+    <style>
+      .card-content {
+        font-size: 20px;
+      }
+
+      .open-nudge-incubator-button {
+        color: white;
+        background-color: #415D67;
+        font-size: 20px;
+        border-radius: 10px;
+        text-transform: none;
+        -webkit-font-smoothing: subpixel-antialiased;
+      }
+    </style>
+    <div class="card-content">
+      <div>
+        Vote em novos estímulos e objetivos que deseja adicionar ao Lazuli ou envie suas próprias ideias e designs no
+        <a href="https://www.reddit.com/r/lazuli/" target="_blank"
+          style="color: black; text-decoration: underline;">Lazuli subreddit</a>
+      </div>
+
+      <div style="height: 12px"></div>
+
+      <paper-button class="open-nudge-incubator-button" on-click="open_nudge_incubator">
+        Vote em novos alertas
+      </paper-button>
+    </div>
+  </template>
+  <script src="nudge-incubator.js"></script>
+</dom-module>

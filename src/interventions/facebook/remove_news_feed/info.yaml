@@ -1,0 +1,10 @@
+description: Remover seu feed do Facebook
+displayname: Remover Feed
+difficulty: medium
+
+matches:
+  - www.facebook.com
+  
+content_scripts:
+  - path: frontend.js
+    run_at: document_start

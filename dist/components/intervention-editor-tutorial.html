@@ -1,0 +1,240 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/marked-element/marked-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="intervention-editor-tutorial">
+  <template>
+    <style>
+      #outer-wrapper {
+        margin: 20px;
+      }
+
+      .editor {
+        width: 100%;
+        height: 300px;
+      }
+
+      paper-button {
+        color: white;
+        background-color: #4279BD;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 30px;
+        box-shadow: 2px 2px 2px #888888;
+        font-weight: bold;
+      }
+
+      paper-button[raised] {
+        color: white;
+        background-color: #4279BD;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 30px;
+        box-shadow: 2px 2px 2px #888888;
+        font-weight: bold;
+      }
+
+      h2 {
+        color: black;
+      }
+
+      code {
+        color: blue;
+      }
+    </style>
+
+    <div id="outer-wrapper">
+      <p>
+
+        Você pode encontrar o código para intervenções integradas em <a
+          href="https://github.com/lazuli/lazuli/tree/master/src/interventions/">src/interventions</a>
+        e ver as intervenções que outros compartilharam
+        <a href="https://www.dropbox.com/sh/l1kfqfqdrwhowhz/AAAaelBVB29fxdvxpG3Jj7cca?dl=0">aqui</a>
+      </p>
+
+      <p>
+        As intervenções são escritas em JavaScript. Você pode encontrar tutoriais que ensinam JavaScript e
+        desenvolvimento web
+        <a href="https://github.com/lazuli/lazuli/wiki/Technologies">aqui</a>.
+      </p>
+
+      <h3 id="showanalert">Mostrar alerta</h3>
+      <p> Essa intervenção mostrará um alerta dizendo "Olá, mundo" quando você visitar o site. </p>
+
+      <div class="editor" id="hello_world_editor"></div>
+      <paper-button raised on-click="demo_clicked" srcname="hello_world_editor">Rodar alerta</paper-button>
+
+      <h3 id="flippageupsidedown">Virar a página de cabeça para baixo</h3>
+      <p> Esta intervenção (testada no youtube e no buzzfeed) vai virar a página de cabeça para baixo. </p>
+
+      <div class="editor" id="flip_page_editor"></div>
+      <paper-button raised on-click="demo_clicked" srcname="flip_page_editor">Rodar alerta</paper-button>
+
+      <h3 id="flippageupsidedownusingastylesheet">Virar a página de cabeça para baixo usando uma folha de estilo</h3>
+      <p>Esta é a mesma intervenção acima, mas implementada pela injeção de código CSS na página.</p>
+
+      <div class="editor" id="flip_page_css_editor"></div>
+      <paper-button raised on-click="demo_clicked" srcname="flip_page_css_editor">Rodar alerta</paper-button>
+      <p> Aqui, <a href="require_style"> <code> require_style </code> </a> permite que você injete o código CSS na
+        página. </p>
+
+      <h3 id="flippageupsidedownusingjquery">Virar a página de cabeça para baixo usando jquery</h3>
+      <p>
+        Esta é a mesma intervenção acima, mas implementada com <a href="http://api.jquery.com/">jquery</a>.
+      </p>
+
+      <div class="editor" id="flip_page_jquery_editor"></div>
+      <paper-button raised on-click="demo_clicked" srcname="flip_page_jquery_editor">Rodar alerta</paper-button>
+
+      <p> Aqui, <a href="https://github.com/lazuli/lazuli/wiki/require"> <code> require </code> </a> permite que
+        você use <a href="https://github.com/lazuli/lazuli/wiki/Libraries"> bibliotecas </a> (como <a
+          href="http://api.jquery.com/"> jquery </a>) que estão incluídos no Lazuli para facilitar a escrita
+        intervenções. </p>
+
+      <h3 id="changeopacityeverysecondusingjquery">Altere a opacidade a cada segundo usando jquery</h3>
+      <p> Essa intervenção altera a opacidade da página para um valor aleatório a cada segundo. </p>
+
+      <div class="editor" id="change_opacity_editor"></div>
+      <paper-button raised on-click="demo_clicked" srcname="change_opacity_editor">Rodar alerta</paper-button>
+
+      <h3 id="showadialogusingsweetalert2">Mostrar uma caixa de diálogo usando sweetalert2</h3>
+      <p>Aqui está outro exemplo de intervenção (testado no youtube e no buzzfeed) que mostra um
+        <a href="https://limonte.github.io/sweetalert2/">alerta sweetalert2</a>
+      </p>
+      <div class="editor" id="show_sw_dialog_editor"></div>
+      <paper-button raised on-click="demo_clicked" srcname="show_sw_dialog_editor">Rodar alerta</paper-button>
+
+      <h3 id="displayinginformationabouttimespentonsitetoday">
+        Exibindo informações sobre o tempo gasto no site hoje
+      </h3>
+
+      <p>Esta intervenção mostrará um alerta exibindo quanto tempo você gastou em um site hoje.</p>
+      <div class="editor" id="display_time_spent_editor"></div>
+      <paper-button raised on-click="demo_clicked" srcname="display_time_spent_editor">Rodar alerta</paper-button>
+      <p> Aqui, <code> get_seconds_spent_on_current_domain_today </code> é uma função fornecida por <a
+          href="https://github.com/lazuli/lazuli/blob/master/src/libs_common/time_spent_utils.ls"><code>libs_common/time_spent_utils</code></a>,
+        que é uma das [[bibliotecas]] internas que o Lazuli oferece. Porque é um <a
+          href="https://github.com/lazuli/lazuli/wiki/async-functions">função assíncrona</a> that returns a
+        <code>Prometo </code>, precisamos usar <code> await </code> ao chamá-lo.
+      </p>
+
+      <h3 id="insertamessageintothepageusingjquery">Insira uma mensagem na página usando jquery</h3>
+      <p> Este exemplo usa jquery para inserir uma mensagem "Olá, mundo" na página. A mensagem inserida será mostrada em
+        a
+        canto superior esquerdo da página e terá um fundo vermelho. Clicar na mensagem mostrará um alerta. </p>
+      <div class="editor" id="insert_msg_jquery_editor"></div>
+      <paper-button raised on-click="demo_clicked" srcname="insert_msg_jquery_editor">Rodar alerta</paper-button>
+
+      <h3 id="showabuttonusingpaperbutton">Mostrar um botão usando o botão de papel</h3>
+      <p>Esta intervenção usa um <a href="https://www.polymer-project.org/1.0/">Polymer</a> componente (<a
+          href="https://www.webcomponents.org/element/PolymerElements/paper-button"><code>paper-button</code></a>)
+        para mostrar um botão no canto superior esquerdo da página. Quando clicado, o botão mostrará um alerta.</p>
+      <div class="editor" id="show_paper_button_editor"></div>
+
+      <paper-button raised on-click="demo_clicked" srcname="show_paper_button_editor">Rodar alerta</paper-button>
+      <p>Here, <a href="https://github.com/lazuli/lazuli/wiki/require_component"><code>require_component </code>
+        </a>
+        permite
+        usar o Polymer [[componentes]] (que são essencialmente tags HTML personalizadas). A lista de componentes
+        disponíveis é
+        no <a href="https://github.com/lazuli/lazuli/wiki/components">[[components]]</a>.
+      </p>
+
+      <h3 id="showabuttonbydefiningyourownpolymercomponent">
+        Mostre um botão definindo seu próprio componente Polymer
+      </h3>
+
+      <p>
+        Esta intervenção é igual à anterior. Mas, desta vez, vamos implementá-lo definindo um padrão
+        <a href="https://www.polymer-project.org/1.0/"> Polymer </a> componente intitulado <code> my-button </code> e
+        usando-o
+        dentro da intervenção.
+      </p>
+
+      <div class="editor" id="show_custom_polymer_button_editor"></div>
+
+      <paper-button raised on-click="demo_clicked" srcname="show_custom_polymer_button_editor">
+        Rodar alerta
+      </paper-button>
+
+
+      <p> Aqui,
+        <a href="https://github.com/lazuli/lazuli/wiki/define_component">
+          <code>define_component </code>
+        </a> é
+        usado
+        para definir um componente Polímero personalizado. Leva como primeiro argumento uma string que descreve o HTML
+        (estilo e
+        modelo)
+        que o componente deve conter, e o segundo argumento é um objeto com campos que definem seu nome,
+        propriedades,
+        métodos e eventos.
+      </p>
+
+      <h3 id="acustompolymercomponentthatdisplayssecondselapsed">
+        Um componente de polímero personalizado que exibe os segundos decorridos
+      </h3>
+
+      <p>
+        Este é outro exemplo de definição de um componente Polímero personalizado, este denominado
+        <code> banner do contador de tempo gasto </code>.
+        Esta intervenção exibirá um contador exibindo o número de segundos gastos na página com texto em branco em um
+        fundo preto no canto superior esquerdo:
+      </p>
+
+      <div class="editor" id="display_time_spent_custom_polymer_editor"></div>
+
+      <paper-button raised on-click="demo_clicked" srcname="display_time_spent_custom_polymer_editor">
+        Rodar alerta
+      </paper-button>
+
+      <h3 id="acustompolymercomponentthatdisplayssecondselapsedandshowsthelazulilogoandaclosebutton">A Custom Polymer
+        Componente que exibe os segundos decorridos e mostra o logotipo do Lazuli e um botão Fechar
+      </h3>
+
+      <p>
+        Este é um aprimoramento da intervenção anterior, que exibe os componentes
+        <a
+          href="https://github.com/lazuli/lazuli/blob/master/src/components/lazuli-logo-v2.html"><code>lazuli-logo</code></a>
+        e
+        <a
+          href="https://github.com/lazuli/lazuli/blob/master/src/components/close-tab-button.html"><code>close-tab-button</code></a>
+        que são ambos <a href="components">
+          componentes personalizados integrados ao Lazuli</a>
+      </p>
+
+      <div class="editor" id="display_time_spent_logo_close_editor"></div>
+      <paper-button raised on-click="demo_clicked" srcname="display_time_spent_logo_close_editor">
+        Rodar alerta
+      </paper-button>
+
+      <h2 id="usingexternallibraries">Usar bibliotecas externas</h2>
+      <p>
+        Você pode usar bibliotecas externas usando <a
+          href="https://github.com/lazuli/lazuli/wiki/require_remote"><code>require_remote</code></a></p>
+      <div class="editor" id="use_external_library_editor"></div>
+
+      <paper-button raised on-click="demo_clicked" srcname="use_external_library_editor">
+        Rodar alerta
+      </paper-button>
+
+      <h2 id="advanced_templates">Templates avançados</h2>
+      <p>Abaixo estão alguns empurrões embutidos.</p>
+
+      <template is="dom-repeat" items="{{templates_info_list}}" as="template_info">
+        <span>
+          <a href="https://github.com/lazuli/lazuli/blob/master/src/interventions/{{template_info.name}}/frontend.js"
+            style="font-size:large">{{template_info.displayname}}</a></span>
+        <paper-button raised on-click="advanced_demo_clicked" id="demo_{{template_info.name}}">
+          Rodar alerta
+        </paper-button>
+        <p>{{template_info.description}}</p>
+      </template>
+    </div>
+  </template>
+  <script src="intervention-editor-tutorial.js"></script>
+</dom-module>

@@ -1,0 +1,23 @@
+description: Complete a lesson on Duolingo por dia
+goal_statement_to_fill_in: Complete at least TARGET UNITS on Duolingo por dia
+progress_description: Lessons completed
+call_to_action: Start a Duolingo lesson
+interventions:
+  - duolingo/facebook_replace_ads_with_lesson
+  - duolingo/facebook_feed_lesson_injection
+  #- duolingo/youtube_sidebar_lesson
+  - duolingo/iqiyi_sidebar_lesson
+default_interventions:
+  - duolingo/facebook_replace_ads_with_lesson
+  - duolingo/facebook_feed_lesson_injection
+  #- duolingo/youtube_sidebar_lesson
+  - duolingo/iqiyi_sidebar_lesson
+disabled: false
+domain: www.duolingo.com
+goal_statement_units: lessons
+target:
+  default: 1
+  units: lessons
+is_positive: true
+icon: icon.svg
+color: '#4db8ec'

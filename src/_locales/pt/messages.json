@@ -1,0 +1,44 @@
+{
+  "Close_Tab": {
+    "message": "Close Tab"
+  },
+  "Below_are_some_popular_options_along_with_how_much_time_you_spend_on_them_per_day_on_average": {
+    "message": "Abaixo estão algumas opções populares, junto com quanto tempo você gasta nelas por dia (em média)."
+  },
+  "Which_sites_would_you_like_to_spend_less_time_on": {
+    "message": "Em quais sites você gostaria de passar menos tempo?"
+  },
+  "Help__FAQ": {
+    "message": "Ajuda / FAQ"
+  },
+  "Overview": {
+    "message": "Visão Geral"
+  },
+  "Settings": {
+    "message": "Configurações"
+  },
+  "What_sites_would_you_like_to_use_more": {
+    "message": "Quais sites você gostaria de usar mais?"
+  },
+  "Spend_less_time_on_the_following_sites": {
+    "message": "Gaste menos tempo nos seguintes sites:"
+  },
+  "Spend_more_time_on_the_following_sites": {
+    "message": "Passe mais tempo nos seguintes sites:"
+  },
+  "Turn_off": {
+    "message": "Desativar"
+  },
+  "Previous": {
+    "message": "Anterior"
+  },
+  "Next": {
+    "message": "Próximo"
+  },
+  "Start_Using_HabitLab": {
+    "message": "Utilizando Lazuli"
+  },
+  "Feedback": {
+    "message": "Feedback"
+  }
+}

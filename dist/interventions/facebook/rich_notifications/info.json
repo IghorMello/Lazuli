@@ -1,0 +1,19 @@
+{
+  "description": "Notifica você sobre o tempo gasto no canto da sua área de trabalho",
+  "displayname": "Cronometro",
+  "difficulty": "easy",
+  "matches": [
+    "www.facebook.com"
+  ],
+  "content_scripts": [
+    "frontend.js"
+  ],
+  "parameters": [
+    {
+      "name": "minutes",
+      "description": "A quantidade de minutos entre as notificações",
+      "default": 1,
+      "type": "int"
+    }
+  ]
+}
