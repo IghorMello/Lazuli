@@ -1,3 +1,0 @@
-#!/bin/bash
-
-tx pull -a --minimum-perc=1

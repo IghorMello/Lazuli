@@ -1,3 +1,0 @@
-window.lazuli_content_script = true;
-
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{"./src/libs_common/common_libs.ls":function(n,e,r){var t,o=e||this;o.sleep=t=async function(n){return new Promise(function(e){return setTimeout(e,n)})},o.once_true=async function(n,e){var r;for(r=n();!r;)r=n(),await t(100);null!=e&&e()},o.run_only_one_at_a_time=function(n){var e;return e=!1,function(){if(!e)return e=!0,n(function(){return e=!1})}},o.run_every_timeperiod=function(n,e){var r;return r=Date.now(),n(),setInterval(function(){var t;if(t=Date.now(),r+e<t)return r=t,n()},1e3)}}}]);

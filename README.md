@@ -10,7 +10,7 @@
 
 ## 💻 Sobre o projeto
 
-:rocket: Baseado na plataforma [habitlab](https://github.com/habitlab/habitlab-chrome). 
+:rocket: Baseado no projeto open source da [app-generator](https://github.com/app-generator/f), disponível [aqui](https://github.com/app-generator/flask-dashboard-atlantis-dark). 
 
 <br>
 
@@ -20,32 +20,32 @@
 
 ### Pré-requisitos
 
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e o gerenciador de pacotes [Yarn](https://yarnpkg.com).
-Além disto é bom ter um editor para trabalhar como o código, o [VSCode](https://code.visualstudio.com/) por exemplo
-
-<br>
-
-#### 🧭 Rodando a aplicação web (Extensão)
+#### 🧭 Rodando a aplicação 
 
 ```bash
 
 # Clone este repositório
-$ git clone -b developer https://github.com/IghorMello/Lazuli.git
+$ git clone -b dashboard_doctor https://github.com/IghorMello/Lazuli.git
 
 # Acesse a pasta do projeto 
 $ cd lazuli
 
-# Instale o gulp
-$ npm install -g gulp-cli
+# Caso não esteja em ambiente virtual, certifique-se de criá-lo dentro da pasta (em Linux/macOS) e ativá-lo
+$ python3 -m venv venv
+$ . venv/bin/activate
 
-# Instale as depedências
-$ yarn
+# Para criar o ambiente virtual em Windows e ativá-lo, utilize o comando abaixo
+$ py -3 -m venv venv
+$ venv\Scripts\activate
 
-# Realize o build do código
-$ gulp release --max-old-space-size=8192
+# Na pasta, instale as depedências
+$ pip install -r requirements.txt
 
-# Entre na aba de extensão do navegador e habilite o modo desenvolvedor e importe a pasta dist, dentro da pasta lazuli
+# Após isso inicie os arquivos dentro de sua respectiva pastas
+$ python3 app.py
+
+# Se não ocorrer erro, acesse o navegador e digite:
+$ http://localhost:5000/
 
 ```
 
@@ -55,4 +55,4 @@ $ gulp release --max-old-space-size=8192
 
 ## :memo: Licença
 
-Este projeto está sob a licença GNU e é baseado na plataforma [habitlab](https://github.com/habitlab/habitlab-chrome).
+Este projeto está sob a licença MIT e é baseado no [projeto open-source](https://github.com/app-generator/flask-dashboard-atlantis-dark). .

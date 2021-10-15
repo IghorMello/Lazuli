@@ -1,6 +1,0 @@
-description: Avisar o usuário antes de assistir a um vídeo
-displayname: Pense duas vezes
-difficulty: medium
-content_scripts:
-  - path: frontend.js
-    run_at: document_start

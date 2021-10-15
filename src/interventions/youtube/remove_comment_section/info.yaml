@@ -1,8 +1,0 @@
-description: Remover seção de comentários
-displayname: Sem comentários
-difficulty: easy
-matches:
-  - www.youtube.com
-content_scripts:
-  - path: frontend.js
-    run_at: document_start

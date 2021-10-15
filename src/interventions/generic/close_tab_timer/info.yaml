@@ -1,6 +1,0 @@
-description: Fecha a guia após 60 segundos
-displayname: 1Min Assassin
-difficulty: hard
-content_scripts:
-  - path: frontend.js
-    run_at: document_start

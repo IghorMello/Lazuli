@@ -1,9 +1,0 @@
-{
-  "main": "parse-headers.js",
-  "format": "cjs",
-  "meta": {
-    "*.json": {
-      "format": "json"
-    }
-  }
-}

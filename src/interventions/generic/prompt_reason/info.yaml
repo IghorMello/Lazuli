@@ -1,8 +1,0 @@
-description: Pergunta o que você pretende fazer com esta visita e o lembra
-displayname: Mission Goal
-difficulty: hard
-content_scripts:
-  - path: frontend.js
-    run_at: document_start
-categories:
-  - interstitial

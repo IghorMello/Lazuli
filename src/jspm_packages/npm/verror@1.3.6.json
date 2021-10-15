@@ -1,9 +1,0 @@
-{
-  "main": "lib/verror.js",
-  "format": "cjs",
-  "meta": {
-    "*.json": {
-      "format": "json"
-    }
-  }
-}

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-rm -rf src/jspm_packages/npm/public-encrypt@4.0.0/test/
-

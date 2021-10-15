@@ -1,8 +1,0 @@
-description: Impede que o site reproduza automaticamente o próximo vídeo
-displayname: Parar a reprodução automática
-difficulty: medium
-matches:
-  - www.netflix.com
-content_scripts:
-  - frontend.js
-

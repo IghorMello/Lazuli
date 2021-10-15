@@ -1,9 +1,0 @@
-{
-  "main": "stringify.js",
-  "format": "cjs",
-  "meta": {
-    "*.json": {
-      "format": "json"
-    }
-  }
-}
