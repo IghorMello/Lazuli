@@ -8,7 +8,12 @@ def hash_pass(password):
     pwdhash = binascii.hexlify(pwdhash)
     return (salt + pwdhash) 
 
+#-----------------------------------------------
+# Enviar email após o funcionário realizar login
+#-----------------------------------------------
 
+def send_email(id):
+    # Enviar email para o funcionário
 
 
 def verify_pass(provided_password, stored_password):
