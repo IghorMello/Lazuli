@@ -157,6 +157,7 @@ def login():
     date = datetime.now()
     time = date.strftime('%H:%M')
     data = date.strftime('%d/%m/%Y') 
+
     codigo_usuario = request.json['codigo_usuario']
     user_found = employees.find_one({"codigo_usuario": codigo_usuario})
 
@@ -169,8 +170,8 @@ def login():
       codigo_usuario_val = user_found['codigo_usuario']
       session["codigo_usuario"] = codigo_usuario_val
 
-      send_email_user(result)
-      print('Email enviado', send_email_user(result))
+      send_email_employees(result)
+      print('Email enviado', send_email_employees(result))
 
       response = json_util.dumps(result)
       return Response(response, mimetype='application/json')
@@ -279,8 +280,8 @@ def update_employees(_id):
 # Enviar email
 
 def send_email_employees(result, charset='utf-8'):
-    msg = Message("Programador com ID {} habilitou a extensão as {}!".format(result['code'], result['time']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
-    Mensagem = "Boa tarde.<br>O programador com ID '{}' habilitou a extensão as {}, do dia {}".format(result['code'], result['time'], result['data'])
+    msg = Message("Programador com ID {} habilitou a extensão as {}!".format(result['codigo_usuario'], result['time']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
+    Mensagem = "Boa tarde.<br>O programador com ID '{}' habilitou a extensão as {}, do dia {}".format(result['codigo_usuario'], result['time'], result['data'])
     msg.html = Mensagem.encode('ascii', 'xmlcharrefreplace')
     mail.send(msg)
 
