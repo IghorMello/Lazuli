@@ -157,7 +157,6 @@ def login():
     date = datetime.now()
     time = date.strftime('%H:%M')
     data = date.strftime('%d/%m/%Y') 
-
     codigo_usuario = request.json['codigo_usuario']
     user_found = employees.find_one({"codigo_usuario": codigo_usuario})
 
