@@ -166,7 +166,7 @@ def register_medical_file():
 
     response.status_code = 201
     # response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
+    return jsonify(response)
 
   else:
     return not_found()
@@ -175,7 +175,7 @@ def register_medical_file():
 # Fazer login do funcionário
 #---------------------------
 
-@app.route('/login', methods=['POST'])
+@app.route('/', methods=['POST'])
 def login():
   employees = mongo.db.employees
   data_search = mongo.db.employees.find()
