@@ -103,7 +103,6 @@ $(function () {
         console.log(resp);
         $addUserForm.hide();
         $addUserSuccess.show();
-        alert('Código do usuário é: ', resp.codigo_usuario)
       },
       error: function (error) {
         console.error(error);
