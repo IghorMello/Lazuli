@@ -10,9 +10,9 @@ $.ajax({
     var html = '';
     var count = data
     var total = Object.keys(count).length;
-    for (var i = 0; i <= total; i++) {
-      console.log(data[0]['_id']['$oid'])
-      html += "<tr><th>'" + data[0]['_id']['$oid'] + "'</th><th>'" + data[0]['nome'] + "'</th><th>'" + data[0]['email'] + "'</th><th>'" + data[0]['codigo_usuario'] + "'</th></tr>"
+    for (var i in data) {
+      console.log(data[i]['_id']['$oid'])
+      html += "<tr><th>'" + data[i]['_id']['$oid'] + "'</th><th>'" + data[i]['nome'] + "'</th><th>'" + data[i]['email'] + "'</th><th>'" + data[i]['codigo_usuario'] + "'</th></tr>"
     }
     $('#exibir').html(html)
   },
