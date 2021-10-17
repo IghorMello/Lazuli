@@ -58,7 +58,9 @@ def register_medical():
   email_found = employees.find_one({"email": email})
 
   if email_found:
-    flash('email já existente')
+    response = jsonify({'message': 'Email já existente'})
+    response.status_code = 200
+    return response
 
   elif crm and nome and email and codigo_usuario:
     id = mongo.db.medical.insert({ 
@@ -108,10 +110,13 @@ def register_medical_file():
   createdAt = date.strftime('%d/%m/%Y %H:%M') 
   codigo_usuario = ''.join(random.choice(letters) for i in range(10))
 
-  email_found = employees.find_one({"email": email})
+  employees_data = mongo.db.employees
+  email_found = employees_data.find_one({"email": email})
 
   if email_found:
-    flash("email duplicado", 'info')
+    response = jsonify({'message': 'Email já existente'})
+    response.status_code = 200
+    return response
     
   elif nome and sexo and email and data_nascimento and endereco and telefone and tipo_sanguineo and deficiencia and horario and disturbio_detectado and acompanhamento_medico and uso_medicacao_controlada and codigo_usuario:
     id = mongo.db.employees.insert({ 
@@ -163,35 +168,37 @@ def register_medical_file():
 
 @app.route('/login', methods=['POST'])
 def login():
-    employees = mongo.db.employees
-    date = datetime.now()
-    time = date.strftime('%H:%M')
-    data = date.strftime('%d/%m/%Y') 
+  employees = mongo.db.employees
+  date = datetime.now()
+  time = date.strftime('%H:%M')
+  data = date.strftime('%d/%m/%Y') 
 
-    codigo_usuario = request.json['codigo_usuario']
-    user_found = employees.find_one({"codigo_usuario": codigo_usuario})
+  codigo_usuario = request.json['codigo_usuario']
+  user_found = employees.find_one({"codigo_usuario": codigo_usuario})
 
-    if user_found:
-      user = mongo.db.employees.find()
-      for data_verify in user:
-        if codigo_usuario == data_verify['codigo_usuario']:
-          new_data = data_verify
+  if user_found:
+    result = {}
 
-      session['_id']=new_data['_id']
-      
-      result = {}
-      result['codigo_usuario'] = request.json['codigo_usuario']
-      result['data'] = data
-      result['time'] = time
-      result['email'] = new_data['email']
-      result['nome'] = new_data['nome']
-      
-      print('Dados para serem enviados por email', result)
+    user = mongo.db.employees.find()
+    for data_verify in user:
+      if codigo_usuario == data_verify['codigo_usuario']:
+        new_data = data_verify
 
-      send_email_employees(result)
-      print('\n\nEnviou?')
-      response = json_util.dumps(result)
-      return Response(response, mimetype='application/json')
+    # Obtendo seção atual
+    session['_id']=new_data['_id']
+
+    # Dados a serem enviados por email
+    result['data']=data
+    result['time']=time
+    result['nome']=new_data['nome']
+    result['email']=new_data['email']
+    result['codigo_usuario']=codigo_usuario
+
+    print('Dados para serem enviados por email', result)
+    send_email_employees(result)
+  
+    response = json_util.dumps(result)
+    return Response(response, mimetype='application/json')
 
 #----------------------------------
 # Fazer login do responsável médico
@@ -199,32 +206,32 @@ def login():
 
 @app.route('/admin', methods=['POST'])
 def login_admin():
-    medical = mongo.db.medical
-    date = datetime.now()
-    time = date.strftime('%H:%M')
-    data = date.strftime('%d/%m/%Y') 
+  medical = mongo.db.medical
+  date = datetime.now()
+  time = date.strftime('%H:%M')
+  data = date.strftime('%d/%m/%Y') 
 
-    email = request.json['email']
-    crm = request.json['crm']
-    email_found = medical.find_one({"email": email})
-    crm_found = medical.find_one({"crm": crm})
+  email = request.json['email']
+  crm = request.json['crm']
+  email_found = medical.find_one({"email": email})
+  crm_found = medical.find_one({"crm": crm})
 
-    if email_found and crm_found:
-      user = mongo.db.medical.find()
-      for data_verify in user:
-        if crm == data_verify['crm']:
-          new_data = data_verify
+  if email_found and crm_found:
+    user = mongo.db.medical.find()
+    for data_verify in user:
+      if crm == data_verify['crm']:
+        new_data = data_verify
 
-      session['_id']=new_data['_id']
+    session['_id']=new_data['_id']
 
-      result = {}
-      result['email'] = request.json['email']
-      result['crm'] = request.json['crm']
-      result['data'] = data
-      result['time'] = time
+    result = {}
+    result['email'] = request.json['email']
+    result['crm'] = request.json['crm']
+    result['data'] = data
+    result['time'] = time
 
-      response = json_util.dumps(result)
-      return Response(response, mimetype='application/json')
+  response = json_util.dumps(result)
+  return Response(response, mimetype='application/json')
 
 #---------------
 # Listar usuário
