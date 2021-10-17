@@ -81,8 +81,7 @@ $ cd api
 # Após isso inicie os arquivos dentro de sua respectiva pastas
 $ python3 app.py
 
-# Se não ocorrer erro, acesse o navegador e digite:
-$ http://localhost:5000/
+# Para testar a API, abra no navegador o arquivo index.html dentro da pasta web, ou importe no Insomnia o arquivo api-backend.json e teste as funcionalidades
 
 ```
 
