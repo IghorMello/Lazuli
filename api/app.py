@@ -3,6 +3,7 @@ import string
 import json
 
 from datetime import date, datetime
+from bson import ObjectId
 from flask import Flask, flash, jsonify, request, Response, session
 from flask_pymongo import PyMongo
 from bson import json_util
@@ -169,30 +170,35 @@ def register_medical_file():
 @app.route('/login', methods=['POST'])
 def login():
   employees = mongo.db.employees
+  data_search = mongo.db.employees.find()
   date = datetime.now()
   time = date.strftime('%H:%M')
   data = date.strftime('%d/%m/%Y') 
 
   codigo_usuario = request.json['codigo_usuario']
-  user_found = employees.find_one({"codigo_usuario": codigo_usuario})
+  code_found = employees.find_one({"codigo_usuario": codigo_usuario})
 
-  if user_found:
+  if code_found:
     result = {}
 
-    user = mongo.db.employees.find()
-    for data_verify in user:
+    for data_verify in data_search:
       if codigo_usuario == data_verify['codigo_usuario']:
         new_data = data_verify
+    
+    clean_objId = new_data['_id']
+    local_id = str(clean_objId)
 
     # Obtendo seção atual
-    session['_id']=new_data['_id']
+    session['userId']=local_id
+    print('\nSessão atual', session['userId'])
 
     # Dados a serem enviados por email
-    result['data']=data
-    result['time']=time
-    result['nome']=new_data['nome']
-    result['email']=new_data['email']
     result['codigo_usuario']=codigo_usuario
+    result['email']=new_data['email']
+    result['nome']=new_data['nome']
+    result['id']=local_id
+    result['time']=time
+    result['data']=data
 
     print('Dados para serem enviados por email', result)
     send_email_employees(result)
