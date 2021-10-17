@@ -8,10 +8,11 @@ $.ajax({
   method: 'get',
   success: function (data) {
     var html = '';
+    var count = data
     var total = Object.keys(count).length;
-    console.log(data)
     for (var i = 0; i <= total; i++) {
-      html += "<tr><th><input value='" + data[0] + "'></th></tr>"
+      console.log(data[0]['_id']['$oid'])
+      html += "<tr><th>'" + data[0]['_id']['$oid'] + "'</th><th>'" + data[0]['nome'] + "'</th><th>'" + data[0]['email'] + "'</th><th>'" + data[0]['codigo_usuario'] + "'</th></tr>"
     }
     $('#exibir').html(html)
   },
