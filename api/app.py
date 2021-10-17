@@ -1,6 +1,7 @@
 import random
 import string
 import json
+import os
 
 from datetime import date, datetime
 from bson import ObjectId
@@ -11,12 +12,16 @@ from bson.objectid import ObjectId
 from decouple import config
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mail import Mail, Message
+from flask_cors import CORS
 
 app = Flask(__name__)
 
 # Chave da aplicação Flask
 
 app.secret_key = config('SECRET_KEY')
+
+# Habilitando o CORS
+CORS(app)
 
 # Configurações do Mongo
 
@@ -49,7 +54,7 @@ def register_medical():
   status = 1
   date = datetime.now()
   crm = request.json['crm']
-  nome = request.json['nome']
+  nome = request.json['nome'] 
   email = request.json['email']
 
   letters = string.ascii_lowercase
@@ -82,6 +87,7 @@ def register_medical():
     })
 
     response.status_code = 201
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
   else:
@@ -159,6 +165,7 @@ def register_medical_file():
     })
 
     response.status_code = 201
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
   else:
@@ -206,6 +213,7 @@ def login():
     send_email_employees(result)
   
     response = json_util.dumps(result)
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return Response(response, mimetype='application/json')
 
 #----------------------------------
@@ -246,6 +254,18 @@ def login_admin():
     result['time'] = time
 
   response = json_util.dumps(result)
+  # response.headers.add('Access-Control-Allow-Origin', '*')
+  return Response(response, mimetype='application/json')
+
+#--------------------------
+# Listar responsável médico
+#--------------------------
+
+@app.route('/medical', methods=['GET'])
+def get_all_medical():
+  medical = mongo.db.medical.find()
+  response = json_util.dumps(medical)
+  # response.headers.add('Access-Control-Allow-Origin', '*')
   return Response(response, mimetype='application/json')
 
 #---------------
@@ -256,6 +276,7 @@ def login_admin():
 def get_all_employees():
   employees = mongo.db.employees.find()
   response = json_util.dumps(employees)
+  # response.headers.add('Access-Control-Allow-Origin', '*')
   return Response(response, mimetype='application/json')
 
 # Listar usuário específico
@@ -265,6 +286,7 @@ def get_employees(id):
   user = mongo.db.employees.find_one({'_id': ObjectId(id), })
   print(id)
   response = json_util.dumps(user)
+  # response.headers.add('Access-Control-Allow-Origin', '*')
   return Response(response, mimetype="application/json")
 
 # Deletar usuário
@@ -274,6 +296,7 @@ def delete_employees(id):
   mongo.db.employees.delete_one({'_id': ObjectId(id)})
   response = jsonify({'message': 'User' + id + ' Deletado com sucesso'})
   response.status_code = 200
+  # response.headers.add('Access-Control-Allow-Origin', '*')
   return response
 
 # Atualizar usuário
@@ -314,6 +337,7 @@ def update_employees(_id):
  
     response = jsonify({'message': 'Funcionário ' + nome + ", com código " + _id + ' foi atualizado com sucesso'})
     response.status_code = 200
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response 
 
   else: 
@@ -339,7 +363,8 @@ def not_found(error=None):
     }
     response = jsonify(message)
     response.status_code = 404
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-if __name__ == '__main__':
-  app.run(debug=True)
+if __name__ == "__main__":
+  app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
