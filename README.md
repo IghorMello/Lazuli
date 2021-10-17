@@ -81,7 +81,12 @@ $ cd api
 # Após isso inicie os arquivos dentro de sua respectiva pastas
 $ python3 app.py
 
-# Para testar a API, abra no navegador o arquivo index.html dentro da pasta web, ou importe no Insomnia o arquivo api-backend.json e teste as funcionalidades
+# Para testar a API, há duas formas:
+# A primeira, com a api rodando, acesse a pasta web
+$ cd lazuli/web
+
+# Abra o arquivo index.html em um navegador e teste as funcionalidades
+# Ou teste no Insomnia (ou Postman), importando o arquivo api-backend.json e com a api rodando em paralelo
 
 ```
 
