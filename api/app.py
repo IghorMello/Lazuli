@@ -56,7 +56,8 @@ def register_medical():
   createdAt = date.strftime('%d/%m/%Y %H:%M') 
   codigo_usuario = ''.join(random.choice(letters) for i in range(10))
 
-  email_found = employees.find_one({"email": email})
+  medical_data = mongo.db.medical
+  email_found = medical_data.find_one({"email": email})
 
   if email_found:
     response = jsonify({'message': 'Email já existente'})
