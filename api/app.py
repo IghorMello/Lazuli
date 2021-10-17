@@ -55,7 +55,12 @@ def register_medical():
   createdAt = date.strftime('%d/%m/%Y %H:%M') 
   codigo_usuario = ''.join(random.choice(letters) for i in range(10))
 
-  if crm and nome and email and codigo_usuario:
+  email_found = employees.find_one({"email": email})
+
+  if email_found:
+    flash('email já existente')
+
+  elif crm and nome and email and codigo_usuario:
     id = mongo.db.medical.insert({ 
       "email": email,
       "nome": nome,
@@ -103,7 +108,12 @@ def register_medical_file():
   createdAt = date.strftime('%d/%m/%Y %H:%M') 
   codigo_usuario = ''.join(random.choice(letters) for i in range(10))
 
-  if nome and sexo and email and data_nascimento and endereco and telefone and tipo_sanguineo and deficiencia and horario and disturbio_detectado and acompanhamento_medico and uso_medicacao_controlada and codigo_usuario:
+  email_found = employees.find_one({"email": email})
+
+  if email_found:
+    flash("email duplicado", 'info')
+    
+  elif nome and sexo and email and data_nascimento and endereco and telefone and tipo_sanguineo and deficiencia and horario and disturbio_detectado and acompanhamento_medico and uso_medicacao_controlada and codigo_usuario:
     id = mongo.db.employees.insert({ 
       "nome": nome,
       "sexo": sexo, 
@@ -162,17 +172,24 @@ def login():
     user_found = employees.find_one({"codigo_usuario": codigo_usuario})
 
     if user_found:
+      user = mongo.db.employees.find()
+      for data_verify in user:
+        if codigo_usuario == data_verify['codigo_usuario']:
+          new_data = data_verify
+
+      session['_id']=new_data['_id']
+      
       result = {}
       result['codigo_usuario'] = request.json['codigo_usuario']
       result['data'] = data
       result['time'] = time
-
-      codigo_usuario_val = user_found['codigo_usuario']
-      session["codigo_usuario"] = codigo_usuario_val
+      result['email'] = new_data['email']
+      result['nome'] = new_data['nome']
+      
+      print('Dados para serem enviados por email', result)
 
       send_email_employees(result)
-      print('Email enviado', send_email_employees(result))
-
+      print('\n\nEnviou?')
       response = json_util.dumps(result)
       return Response(response, mimetype='application/json')
 
@@ -193,16 +210,19 @@ def login_admin():
     crm_found = medical.find_one({"crm": crm})
 
     if email_found and crm_found:
+      user = mongo.db.medical.find()
+      for data_verify in user:
+        if crm == data_verify['crm']:
+          new_data = data_verify
+
+      session['_id']=new_data['_id']
+
       result = {}
       result['email'] = request.json['email']
       result['crm'] = request.json['crm']
       result['data'] = data
       result['time'] = time
 
-      email_val = email_found['email']
-      crm_val = crm_found['crm']
-
-      session["email"] = email_val
       response = json_util.dumps(result)
       return Response(response, mimetype='application/json')
 
@@ -280,9 +300,11 @@ def update_employees(_id):
 # Enviar email
 
 def send_email_employees(result, charset='utf-8'):
-    msg = Message("Programador com ID {} habilitou a extensão as {}!".format(result['codigo_usuario'], result['time']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
-    Mensagem = "Boa tarde.<br>O programador com ID '{}' habilitou a extensão as {}, do dia {}".format(result['codigo_usuario'], result['time'], result['data'])
+    print('chegou')
+    msg = Message("Programador com ID {} habilitou a extensão as {}!".format(result['email'], result['time']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
+    Mensagem = "Boa tarde.<br>O programador com email '{}' habilitou a extensão as {}, do dia {}".format(result['email'], result['time'], result['data'])
     msg.html = Mensagem.encode('ascii', 'xmlcharrefreplace')
+    print('\n\n\nSaiu')
     mail.send(msg)
 
 # Tela de erro
