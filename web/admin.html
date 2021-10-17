@@ -15,10 +15,13 @@
 <body>
   <div class="app-wrapper">
     <div class="app-panel">
-      <h3 class="centered">Login do Funcionário</h3>
+      <h3 class="centered">Login do responsável médico</h3>
       <form id="login-form">
-        <label for="code" class="input-label">Código do usuário</label>
-        <input type="password" name="code" id="code" class="input-field" required>
+        <label for="email" class="input-label">Endereço de email</label>
+        <input type="email" name="email" id="email" class="input-field" required>
+
+        <label for="crm_login" class="input-label">CRM</label>
+        <input type="password" name="crm" id="crm_login" class="input-field" required>
 
         <div class="centered">
           <input type="submit" value="Submit" class="btn">
@@ -26,7 +29,7 @@
       </form>
 
       <div id="login-success" class="success-message">
-        Funcionário realizou login!
+        Responsável médico realizou login!
       </div>
     </div>
   </div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Front-End App</title>
+  <link rel="stylesheet" href="css/app.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
+</head>
+
+<body>
+  <div class="app-wrapper">
+    <div class="app-panel">
+      <h3 class="centered">Cadastro do responsável médico</h3>
+
+      <form id="add-user-form">
+        <label for="nome" class="input-label">Nome</label>
+        <input type="text" name="nome" id="nome" class="input-field" required>
+
+        <label for="email" class="input-label">Email Organizacional</label>
+        <input type="email" name="email" id="email_organizacional" class="input-field" required>
+
+        <label for="crm" class="input-label">CRM</label>
+        <input type="password" name="crm" id="crm" class="input-field" required>
+
+        <div class="centered">
+          <input type="submit" value="Submit" class="btn">
+        </div>
+      </form>
+
+      <div id="add-user-success" class="success-message">
+        Responsável médico adicionado com sucesso!
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

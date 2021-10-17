@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Front-End App</title>
+  <link rel="stylesheet" href="css/app.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
+</head>
+
+<body>
+  <div class="app-wrapper">
+    <div class="app-panel">
+      <h3 class="centered">Cadastro do Funcionário</h3>
+
+      <form id="add-user-form">
+        <label for="nome" class="input-label">Nome</label>
+        <input type="text" name="nome" id="nome" class="input-field" required>
+
+        <label for="sexo" class="input-label">sexo</label>
+        <input type="text" name="sexo" id="sexo" class="input-field" required>
+
+        <label for="email" class="input-label">email</label>
+        <input type="email" name="email" id="email" class="input-field" required>
+
+        <label for="horario" class="input-label">horario</label>
+        <input type="text" name="horario" id="horario" class="input-field" required>
+
+        <label for="endereco" class="input-label">endereco</label>
+        <input type="text" name="endereco" id="endereco" class="input-field" required>
+
+        <label for="telefone" class="input-label">telefone</label>
+        <input type="text" name="telefone" id="telefone" class="input-field" required>
+
+        <label for="deficiencia" class="input-label">deficiencia</label>
+        <input type="text" name="deficiencia" id="deficiencia" class="input-field" required>
+
+        <label for="tipo_sanguineo" class="input-label">tipo_sanguineo</label>
+        <input type="text" name="tipo_sanguineo" id="tipo_sanguineo" class="input-field" required>
+
+        <label for="data_nascimento" class="input-label">data_nascimento</label>
+        <input type="text" name="data_nascimento" id="data_nascimento" class="input-field" required>
+
+        <label for="disturbio_detectado" class="input-label">disturbio_detectado</label>
+        <input type="text" name="disturbio_detectado" id="disturbio_detectado" class="input-field" required>
+
+        <label for="acompanhamento_medico" class="input-label">acompanhamento_medico</label>
+        <input type="text" name="acompanhamento_medico" id="acompanhamento_medico" class="input-field" required>
+
+        <label for="uso_medicacao_controlada" class="input-label">uso_medicacao_controlada</label>
+        <input type="text" name="uso_medicacao_controlada" id="uso_medicacao_controlada" class="input-field" required>
+
+        <div class="centered">
+          <input type="submit" value="Submit" class="btn">
+        </div>
+      </form>
+
+      <div id="add-user-success" class="success-message">
+        Funcionário adicionado com sucesso!
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
