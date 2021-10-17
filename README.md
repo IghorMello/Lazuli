@@ -27,6 +27,9 @@
 # Clone este repositório
 $ git clone -b dashboard_doctor https://github.com/IghorMello/Lazuli.git
 
+# Habilite o MongoDB (em Linux/macOS)
+$ sudo systemctl start mongod
+
 # Caso não esteja em ambiente virtual, certifique-se de criá-lo dentro da pasta (em Linux/macOS) e ativá-lo
 $ python3 -m venv venv
 $ . venv/bin/activate

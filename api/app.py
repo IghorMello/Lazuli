@@ -268,6 +268,18 @@ def get_all_medical():
   # response.headers.add('Access-Control-Allow-Origin', '*')
   return Response(response, mimetype='application/json')
 
+#--------------------------
+# Deletar usuário
+#--------------------------
+
+@app.route('/medical/<id>', methods=['DELETE'])
+def delete_medical(id):
+  mongo.db.medical.delete_one({'_id': ObjectId(id)})
+  response = jsonify({'message': 'User' + id + ' Deletado com sucesso'})
+  response.status_code = 200
+  # response.headers.add('Access-Control-Allow-Origin', '*')
+  return response
+
 #---------------
 # Listar usuário
 #---------------
