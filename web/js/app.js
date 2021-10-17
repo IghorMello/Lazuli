@@ -120,7 +120,7 @@ $(function () {
 
   $loginForm.on("submit", function (e) {
     var data = {
-      codigo_usuario: $loginForm.find("#code").val(),
+      codigo_usuario: $loginForm.find("#code_user").val(),
     };
 
     console.log(data);
