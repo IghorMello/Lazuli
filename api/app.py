@@ -171,6 +171,7 @@ def register_medical_file():
 def login():
   employees = mongo.db.employees
   data_search = mongo.db.employees.find()
+
   date = datetime.now()
   time = date.strftime('%H:%M')
   data = date.strftime('%d/%m/%Y') 
@@ -213,6 +214,8 @@ def login():
 @app.route('/admin', methods=['POST'])
 def login_admin():
   medical = mongo.db.medical
+  data_search = mongo.db.medical.find()
+
   date = datetime.now()
   time = date.strftime('%H:%M')
   data = date.strftime('%d/%m/%Y') 
@@ -223,15 +226,20 @@ def login_admin():
   crm_found = medical.find_one({"crm": crm})
 
   if email_found and crm_found:
-    user = mongo.db.medical.find()
-    for data_verify in user:
+    for data_verify in data_search:
       if crm == data_verify['crm']:
         new_data = data_verify
 
-    session['_id']=new_data['_id']
+    clean_objId = new_data['_id']
+    local_id = str(clean_objId)
+
+    # Obtendo seção atual
+    session['userId']=local_id
+    print('\nSessão atual', session['userId'])
 
     result = {}
     result['email'] = request.json['email']
+    result['localId'] = session['userId']
     result['crm'] = request.json['crm']
     result['data'] = data
     result['time'] = time
