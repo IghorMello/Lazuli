@@ -25,7 +25,8 @@ $(function () {
         console.log(resp);
         $loginForm.hide();
         $loginSuccess.show();
-        alert('Login realizado com sucesso!')
+        var html = "<span> Funcionário foi cadastrado, seu código de acesso é '" + data['codigo_usuario'] + "'</span>"
+        $('#login-success').html(html)
       },
       error: function (error) {
         console.error(error);
