@@ -32,7 +32,7 @@ $(function () {
           showConfirmButton: false,
           timer: 1500
         })
-        window.location.assign('/core/dashboard.html')
+        setTimeout(function () { window.location.assign('/core/dashboard.html') }, 3000);
       },
       error: function (error) {
         console.error(error);
