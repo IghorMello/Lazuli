@@ -38,9 +38,9 @@ $(function () {
         $addUserSuccess.show();
         Swal.fire({
           icon: 'success',
-          text: "Funcionário foi cadastrado, seu código de acesso é " + data['codigo_usuario'] + "!",
+          text: "Funcionário foi cadastrado, seu código de acesso é " + resp['codigo_usuario'] + "!",
           showConfirmButton: false,
-          timer: 1500
+          timer: 3000
         })
       },
       error: function (error) {
