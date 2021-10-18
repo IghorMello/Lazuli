@@ -36,7 +36,12 @@ $(function () {
         console.log(resp);
         $addUserForm.hide();
         $addUserSuccess.show();
-        alert('Cadastro realizado com sucesso!')
+        Swal.fire({
+          icon: 'success',
+          text: "Funcionário foi cadastrado, seu código de acesso é " + data['codigo_usuario'] + "!",
+          showConfirmButton: false,
+          timer: 1500
+        })
       },
       error: function (error) {
         console.error(error);
