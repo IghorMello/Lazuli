@@ -87,7 +87,6 @@ def register_medical():
     })
 
     response.status_code = 201
-    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
   else:
@@ -144,7 +143,7 @@ def register_medical_file():
       "acompanhamento_medico": acompanhamento_medico,
       "uso_medicacao_controlada": uso_medicacao_controlada,
     })
-    
+
     response = jsonify({
       '_id': str(id),
       "nome": nome,
@@ -152,8 +151,8 @@ def register_medical_file():
       "email": email,
       "status": status,
       "horario": horario,
-      "endereco": endereco,
       "telefone": telefone,
+      "endereco": endereco,
       "createdAt": createdAt,
       "deficiencia": deficiencia,
       "codigo_usuario": codigo_usuario,
@@ -165,8 +164,7 @@ def register_medical_file():
     })
 
     response.status_code = 201
-    # response.headers.add('Access-Control-Allow-Origin', '*')
-    return jsonify(response)
+    return response
 
   else:
     return not_found()
@@ -213,7 +211,6 @@ def login():
     send_email_employees(result)
   
     response = json_util.dumps(result)
-    # response.headers.add('Access-Control-Allow-Origin', '*')
     return Response(response, mimetype='application/json')
 
 #----------------------------------
@@ -254,7 +251,6 @@ def login_admin():
     result['time'] = time
 
   response = json_util.dumps(result)
-  # response.headers.add('Access-Control-Allow-Origin', '*')
   return Response(response, mimetype='application/json')
 
 #--------------------------
@@ -265,7 +261,6 @@ def login_admin():
 def get_all_medical():
   medical = mongo.db.medical.find()
   response = json_util.dumps(medical)
-  # response.headers.add('Access-Control-Allow-Origin', '*')
   return Response(response, mimetype='application/json')
 
 #--------------------------
@@ -277,7 +272,6 @@ def delete_medical(id):
   mongo.db.medical.delete_one({'_id': ObjectId(id)})
   response = jsonify({'message': 'User' + id + ' Deletado com sucesso'})
   response.status_code = 200
-  # response.headers.add('Access-Control-Allow-Origin', '*')
   return response
 
 #---------------
@@ -288,7 +282,6 @@ def delete_medical(id):
 def get_all_employees():
   employees = mongo.db.employees.find()
   response = json_util.dumps(employees)
-  # response.headers.add('Access-Control-Allow-Origin', '*')
   return Response(response, mimetype='application/json')
 
 # Listar usuário específico
@@ -298,7 +291,6 @@ def get_employees(id):
   user = mongo.db.employees.find_one({'_id': ObjectId(id), })
   print(id)
   response = json_util.dumps(user)
-  # response.headers.add('Access-Control-Allow-Origin', '*')
   return Response(response, mimetype="application/json")
 
 # Deletar usuário
@@ -308,7 +300,6 @@ def delete_employees(id):
   mongo.db.employees.delete_one({'_id': ObjectId(id)})
   response = jsonify({'message': 'User' + id + ' Deletado com sucesso'})
   response.status_code = 200
-  # response.headers.add('Access-Control-Allow-Origin', '*')
   return response
 
 # Atualizar usuário
@@ -349,7 +340,6 @@ def update_employees(_id):
  
     response = jsonify({'message': 'Funcionário ' + nome + ", com código " + _id + ' foi atualizado com sucesso'})
     response.status_code = 200
-    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response 
 
   else: 
@@ -375,7 +365,6 @@ def not_found(error=None):
     }
     response = jsonify(message)
     response.status_code = 404
-    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 if __name__ == "__main__":
