@@ -2,8 +2,6 @@
 <div class="sidebar sidebar-style-2" data-background-color="dark2">
 	<div class="sidebar-wrapper scrollbar scrollbar-inner">
 		<div class="sidebar-content">
-
-			{% if current_user.is_authenticated %}
 			<div class="user">
 				<div class="avatar-sm float-left mr-2">
 					<img src="https://avatars.githubusercontent.com/u/60948849?v=4" alt="..." class="avatar-img rounded-circle">
@@ -11,9 +9,16 @@
 				<div class="info">
 					<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 						<span>
-							{{ current_user.username }}
+							Savio
+
+							<!-- Adicionar Nome do usuario pela api -->
+
 							<span class="user-level">
-								{{ current_user.email }}
+								Savio@gmail.com
+
+								<!-- Adicionar email do usuario pela api -->
+
+
 							</span>
 							<span class="caret"></span>
 						</span>
@@ -54,20 +59,19 @@
 					</span>
 					<h4 class="text-section">Funcionários</h4>
 				</li>
-				<li class="nav-item {% if 'ui-' in segment %} active {% endif %}">
+				<li class="nav-item active">
 					<a href="#">
 						<i class="fas fa-th-list"></i>
 						<p>Cadastrar</p>
 					</a>
 				</li>
-				<li class="nav-item {% if 'layout' in segment %} active {% endif %}">
+				<li class="nav-item active">
 					<a href="#">
 						<i class="fas fa-search"></i>
 						<p>Consultar</p>
 					</a>
 				</li>
 			</ul>
-			{% endif %}
 		</div>
 	</div>
 </div>
