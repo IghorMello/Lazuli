@@ -32,7 +32,7 @@ $(function () {
           showConfirmButton: false,
           timer: 1500
         })
-        setTimeout(function () { window.location.assign('file:///home/lopes/www/api_flask/lazuli/web/dashboard.html') }, 3000);
+        setTimeout(function () { window.location.assign('web/dashboard.html') }, 3000);
       },
       error: function (error) {
         console.error(error);
