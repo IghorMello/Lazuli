@@ -30,6 +30,8 @@ $(function () {
         Swal.fire({
           icon: 'success',
           text: "Responsável médico foi cadastrado com sucesso!",
+          showConfirmButton: false,
+          timer: 1500
         })
       },
       error: function (error) {

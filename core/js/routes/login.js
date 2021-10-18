@@ -28,6 +28,8 @@ $(function () {
         Swal.fire({
           icon: 'success',
           text: "Funcionário realizou login com sucesso!",
+          showConfirmButton: false,
+          timer: 1500
         })
       },
       error: function (error) {

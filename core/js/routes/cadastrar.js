@@ -39,6 +39,8 @@ $(function () {
         Swal.fire({
           icon: 'success',
           text: "Funcionário foi cadastrado, seu código de acesso é " + data['codigo_usuario'] + "!",
+          showConfirmButton: false,
+          timer: 1500
         })
       },
       error: function (error) {

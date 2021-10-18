@@ -29,6 +29,8 @@ $(function () {
         Swal.fire({
           icon: 'success',
           text: "Responsável médico realizou login com sucesso!",
+          showConfirmButton: false,
+          timer: 1500
         })
         window.location.assign('/core/dashboard.html')
       },

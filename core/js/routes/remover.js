@@ -13,6 +13,8 @@ function deleteFunc() {
       Swal.fire({
         icon: 'success',
         text: "Funcionário deletado com sucesso!",
+        showConfirmButton: false,
+        timer: 1500
       })
     },
     error: function (error) {
