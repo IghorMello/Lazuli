@@ -44,7 +44,7 @@ $ cd lazuli
 # Instale as depedências
 $ pip install -r requirements.txt
 
-# Acesse a pasta da api 
+# Acesse a pasta da API 
 $ cd api
 
 # Após isso inicie os arquivos dentro de sua respectiva pastas
