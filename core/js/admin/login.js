@@ -30,6 +30,7 @@ $(function () {
           icon: 'success',
           text: "Responsável médico realizou login com sucesso!",
         })
+        window.location.assign('/core/dashboard.html')
       },
       error: function (error) {
         console.error(error);
