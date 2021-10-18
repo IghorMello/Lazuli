@@ -10,6 +10,7 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
   <script src="js/routes/editar.js"></script>
+  <script src="js/routes/remover.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,8 @@
       <form method="post">
         <div id="add-user-form"></div>
         <div class="centered">
-          <input type="submit" value="Submit" class="btn">
+          <input type="submit" value="Editar" class="btn">
+          <button type="submit" onclick="deleteFunc()" class="btn">Deletar</button>
         </div>
       </form>
 

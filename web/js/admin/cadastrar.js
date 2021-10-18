@@ -27,7 +27,7 @@ $(function () {
         console.log(resp);
         $addUserForm.hide();
         $addUserSuccess.show();
-        alert('Cadastro realizado com sucesso: ')
+        alert('Cadastro realizado com sucesso!')
       },
       error: function (error) {
         console.error(error);

@@ -2,8 +2,7 @@
 // Consultar
 //--------------------
 
-// var postData = document.getElementById("title_property_list").val();
-var postData = '616c71725e0410f0bd4c1697'
+var postData = '616ce9d761cfe9d71f8ad20b'
 
 $.ajax({
   url: "http://localhost:8080/employees/" + postData,

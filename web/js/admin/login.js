@@ -26,7 +26,7 @@ $(function () {
         console.log(resp);
         $loginForm.hide();
         $loginSuccess.show();
-        alert('Login realizado com sucesso: ', resp)
+        alert('Login realizado com sucesso!')
       },
       error: function (error) {
         console.error(error);
