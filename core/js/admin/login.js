@@ -26,7 +26,10 @@ $(function () {
         console.log(resp);
         $loginForm.hide();
         $loginSuccess.show();
-        alert('Login realizado com sucesso!')
+        Swal.fire({
+          icon: 'success',
+          text: "Responsável médico realizou login com sucesso!",
+        })
       },
       error: function (error) {
         console.error(error);

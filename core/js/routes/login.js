@@ -25,8 +25,10 @@ $(function () {
         console.log(resp);
         $loginForm.hide();
         $loginSuccess.show();
-        var html = "<span> Funcionário foi cadastrado, seu código de acesso é '" + data['codigo_usuario'] + "'</span>"
-        $('#login-success').html(html)
+        Swal.fire({
+          icon: 'success',
+          text: "Funcionário realizou login com sucesso!",
+        })
       },
       error: function (error) {
         console.error(error);
