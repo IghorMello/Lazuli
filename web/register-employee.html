@@ -3,15 +3,16 @@
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <title>
-    Dashboard -
-  </title>
-
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+
+  <title>Cadastrar Funcionários</title>
+
   <link rel="icon" href="static/assets/img/icon.ico" type="image/x-icon" />
   <link rel="canonical" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+
   <script src="static/assets/js/plugin/webfont/webfont.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+  <script src="register-employee.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script>
@@ -40,7 +41,7 @@
 
       <!-- Logo Header -->
       <div class="logo-header" data-background-color="dark2">
-        <a href="dashboard.html" class="logo">
+        <a href="#" class="logo">
           <img src="#" alt="Adicionar logo" class="navbar-brand">
         </a>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
@@ -227,7 +228,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Configurações</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.html">Logout</a>
+                    <a class="dropdown-item" href="login-employee.html">Logout</a>
                   </li>
                 </div>
               </ul>
@@ -311,13 +312,13 @@
               <h4 class="text-section">Funcionários</h4>
             </li>
             <li class="nav-item">
-              <a href="cadastrar_usuario.html">
+              <a href="register-employee.html">
                 <i class="fas fa-th-list"></i>
                 <p>Cadastrar</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="consultar.html">
+              <a href="consult-employee.html">
                 <i class="fas fa-search"></i>
                 <p>Consultar</p>
               </a>
@@ -337,38 +338,189 @@
 
     <div class="main-panel">
 
-      <div class="content">
-        <div class="page-inner mt--5">
-          <div class="page-inner py-5"></div>
+
+      <div class="page-inner">
+        <div class="page-header">
+          <h4 class="page-title">Realize seu cadastro</h4>
+          <ul class="breadcrumbs">
+            <li class="nav-home">
+              <a href="#">
+                <i class="flaticon-home"></i>
+              </a>
+            </li>
+            <li class="separator">
+              <i class="flaticon-right-arrow"></i>
+            </li>
+            <li class="nav-item">
+              <a href="#">Realizar login</a>
+            </li>
+            <li class="separator">
+              <i class="flaticon-right-arrow"></i>
+            </li>
+            <li class="nav-item">
+              <a href="#">Login</a>
+            </li>
+          </ul>
         </div>
-        <div class="page-inner mt--5">
-          <div class="row mt--2">
-            <div class="col-md-12">
-              <div class="card full-height">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">
+                  <span>
+                    Cadastrar funcionário
+                  </span>
+                </div>
+              </div>
+
+              <form method="POST" id="add-user-form">
                 <div class="card-body">
-                  <div class="card-title">Estátisticas gerais</div>
-                  <div class="card-category">Informações diárias sobre estatísticas no sistema</div>
-                  <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
-                    <div class="px-2 pb-2 pb-md-0 text-center">
-                      <div id="circles-1"></div>
-                      <h6 class="fw-bold mt-3 mb-0">Novos funcionários</h6>
-                    </div>
-                    <div class="px-2 pb-2 pb-md-0 text-center">
-                      <div id="circles-2"></div>
-                      <h6 class="fw-bold mt-3 mb-0">Atualizações</h6>
-                    </div>
-                    <div class="px-2 pb-2 pb-md-0 text-center">
-                      <div id="circles-3"></div>
-                      <h6 class="fw-bold mt-3 mb-0">Funcionários monitorados</h6>
+                  <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="nome_user_register" placeholder="Nome">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="sexo_user_register" placeholder="Sexo">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="email_user_register" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="horario_user_register"
+                            placeholder="Carga horária">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="telefone_user_register" placeholder="Telefone">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="endereco_user_register" placeholder="Endereco">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="deficiencia_user_register"
+                            placeholder="Deficiência">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="tipo_sanguineo_user_register"
+                            placeholder="Tipo sanguineo">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="data_nascimento_user_register"
+                            placeholder="Data de nascimento">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="disturbio_detectado_user_register"
+                            placeholder="Distúrbio detectado">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="acompanhamento_medico_user_register"
+                            placeholder="Acompanhamento médico">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="icon-user"></i>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control" id="uso_medicacao_controlada_user_register"
+                            placeholder="Uso de medicação controlada">
+                        </div>
+                      </div>
+
+                      <div class="card-action">
+                        <button type="submit" name="login" class="btn btn-success">
+                          Cadastrar
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 
 
@@ -409,102 +561,6 @@
   <!-- Atlantis JS -->
   <script src="static/assets/js/atlantis.min.js"></script>
   <script src="static/assets/js/setting-demo.js"></script>
-  <script src="static/assets/js/demo.js"></script>
-
-  <script>
-    Circles.create({
-      id: 'circles-1',
-      radius: 45,
-      value: 60,
-      maxValue: 100,
-      width: 7,
-      text: 5,
-      colors: ['#f1f1f1', '#FF9E27'],
-      duration: 400,
-      wrpClass: 'circles-wrp',
-      textClass: 'circles-text',
-      styleWrapper: true,
-      styleText: true
-    })
-
-    Circles.create({
-      id: 'circles-2',
-      radius: 45,
-      value: 70,
-      maxValue: 100,
-      width: 7,
-      text: 36,
-      colors: ['#f1f1f1', '#2BB930'],
-      duration: 400,
-      wrpClass: 'circles-wrp',
-      textClass: 'circles-text',
-      styleWrapper: true,
-      styleText: true
-    })
-
-    Circles.create({
-      id: 'circles-3',
-      radius: 45,
-      value: 40,
-      maxValue: 100,
-      width: 7,
-      text: 12,
-      colors: ['#f1f1f1', '#F25961'],
-      duration: 400,
-      wrpClass: 'circles-wrp',
-      textClass: 'circles-text',
-      styleWrapper: true,
-      styleText: true
-    })
-
-    var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
-
-    var mytotalIncomeChart = new Chart(totalIncomeChart, {
-      type: 'bar',
-      data: {
-        labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
-        datasets: [{
-          label: "Total Income",
-          backgroundColor: '#ff9e27',
-          borderColor: 'rgb(23, 125, 255)',
-          data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
-        }],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-          display: false,
-        },
-        scales: {
-          yAxes: [{
-            ticks: {
-              display: false //this will remove only the label
-            },
-            gridLines: {
-              drawBorder: false,
-              display: false
-            }
-          }],
-          xAxes: [{
-            gridLines: {
-              drawBorder: false,
-              display: false
-            }
-          }]
-        },
-      }
-    });
-
-    $('#lineChart').sparkline([105, 103, 123, 100, 95, 105, 115], {
-      type: 'line',
-      height: '70',
-      width: '100%',
-      lineWidth: '2',
-      lineColor: '#ffa534',
-      fillColor: 'rgba(255, 165, 52, .14)'
-    });
-  </script>
 </body>
 
 </html>

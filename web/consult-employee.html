@@ -3,17 +3,13 @@
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <title>
-    Dashboard -
-  </title>
-
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-  <link rel="icon" href="static/assets/img/icon.ico" type="image/x-icon" />
-  <link rel="canonical" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+
+  <title>Consultar</title>
+
   <script src="static/assets/js/plugin/webfont/webfont.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
-  <script src="js/routes/cadastrar.js"></script>
+  <script src="consult-employee.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script>
@@ -30,10 +26,12 @@
   </script>
 
   <!-- CSS Files -->
+
+  <link rel="icon" href="static/assets/img/icon.ico" type="image/x-icon" />
+  <link rel="canonical" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
   <link rel="stylesheet" href="static/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="static/assets/css/atlantis.min.css">
   <link rel="stylesheet" href="static/assets/css/demo.css">
-
 </head>
 
 <body data-background-color="dark">
@@ -42,7 +40,7 @@
 
       <!-- Logo Header -->
       <div class="logo-header" data-background-color="dark2">
-        <a href="#" class="logo">
+        <a href="dashboard.html" class="logo">
           <img src="#" alt="Adicionar logo" class="navbar-brand">
         </a>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
@@ -229,7 +227,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Configurações</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.html">Logout</a>
+                    <a class="dropdown-item" href="login-employee.html">Logout</a>
                   </li>
                 </div>
               </ul>
@@ -313,13 +311,13 @@
               <h4 class="text-section">Funcionários</h4>
             </li>
             <li class="nav-item">
-              <a href="cadastrar_usuario.html">
+              <a href="register-employee.html">
                 <i class="fas fa-th-list"></i>
                 <p>Cadastrar</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="consultar.html">
+              <a href="consult-employee.html">
                 <i class="fas fa-search"></i>
                 <p>Consultar</p>
               </a>
@@ -339,10 +337,9 @@
 
     <div class="main-panel">
 
-
       <div class="page-inner">
         <div class="page-header">
-          <h4 class="page-title">Realize seu cadastro</h4>
+          <h4 class="page-title">Login</h4>
           <ul class="breadcrumbs">
             <li class="nav-home">
               <a href="#">
@@ -370,158 +367,44 @@
               <div class="card-header">
                 <div class="card-title">
                   <span>
-                    Cadastrar funcionário
+                    Funcionários cadastrados
                   </span>
                 </div>
               </div>
 
-              <form method="POST" id="add-user-form">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="nome_user_register" placeholder="Nome">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="sexo_user_register" placeholder="Sexo">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="email_user_register" placeholder="Email">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="horario_user_register"
-                            placeholder="Carga horária">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="telefone_user_register" placeholder="Telefone">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="endereco_user_register" placeholder="Endereco">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="deficiencia_user_register"
-                            placeholder="Deficiência">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="tipo_sanguineo_user_register"
-                            placeholder="Tipo sanguineo">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="data_nascimento_user_register"
-                            placeholder="Data de nascimento">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="disturbio_detectado_user_register"
-                            placeholder="Distúrbio detectado">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="acompanhamento_medico_user_register"
-                            placeholder="Acompanhamento médico">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <i class="icon-user"></i>
-                            </span>
-                          </div>
-                          <input type="text" class="form-control" id="uso_medicacao_controlada_user_register"
-                            placeholder="Uso de medicação controlada">
-                        </div>
-                      </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6 col-lg-4">
 
-                      <div class="card-action">
-                        <button type="submit" name="login" class="btn btn-success">
-                          Cadastrar
-                        </button>
-                      </div>
-                    </div>
+
+
+
+
+
+
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nome</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Codigo do Usuário</th>
+                        </tr>
+                      </thead>
+                      <tbody id="exibir"></tbody>
+                    </table>
+
+
+
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 
 
@@ -561,7 +444,6 @@
 
   <!-- Atlantis JS -->
   <script src="static/assets/js/atlantis.min.js"></script>
-  <script src="static/assets/js/setting-demo.js"></script>
 </body>
 
 </html>
