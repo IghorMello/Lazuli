@@ -1,273 +1,475 @@
-"use strict";
-// Cicle Chart
-Circles.create({
-	id: 'task-complete',
-	radius: 50,
-	value: 80,
-	maxValue: 100,
-	width: 5,
-	text: function (value) { return value + '%'; },
-	colors: ['#36a3f7', '#fff'],
-	duration: 400,
-	wrpClass: 'circles-wrp',
-	textClass: 'circles-text',
-	styleWrapper: true,
-	styleText: true
-})
+/**
+ * AdminLTE Demo Menu
+ * ------------------
+ * You should not use this file in production.
+ * This file is for demo purposes only.
+ */
+(function ($, AdminLTE) {
 
-// JQVmap
-$('#map-example').vectorMap(
-	{
-		map: 'world_en',
-		backgroundColor: 'transparent',
-		borderColor: '#fff',
-		borderWidth: 2,
-		color: '#e4e4e4',
-		enableZoom: true,
-		hoverColor: '#35cd3a',
-		hoverOpacity: null,
-		normalizeFunction: 'linear',
-		scaleColors: ['#b6d6ff', '#005ace'],
-		selectedColor: '#35cd3a',
-		selectedRegions: ['ID', 'RU', 'US', 'AU', 'CN', 'BR'],
-		showTooltip: true,
-		onRegionClick: function (element, code, region) {
-			return false;
-		}
+	"use strict";
+
+	/**
+	 * List of all the available skins
+	 *
+	 * @type Array
+	 */
+	var my_skins = [
+		"skin-blue",
+		"skin-black",
+		"skin-red",
+		"skin-yellow",
+		"skin-purple",
+		"skin-green",
+		"skin-blue-light",
+		"skin-black-light",
+		"skin-red-light",
+		"skin-yellow-light",
+		"skin-purple-light",
+		"skin-green-light"
+	];
+
+	//Create the new tab
+	var tab_pane = $("<div />", {
+		"id": "control-sidebar-options-tab",
+		"class": "tab-pane"
 	});
 
-//Chart
+	//Create the tab button
+	var tab_button = $("<li />", { "class": "" })
+		.html("<a href='#control-sidebar-options-tab' data-toggle='tab'>"
+			+ "<i class='fa fa-desktop'></i>"
+			+ "</a>");
 
-var ctx = document.getElementById('statisticsChart').getContext('2d');
+	//Add the tab button to the right sidebar tabs
+	$("[href='#control-sidebar-settings-tab']")
+		.parent()
+		.before(tab_button);
 
-var statisticsChart = new Chart(ctx, {
-	type: 'line',
-	data: {
-		labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-		datasets: [{
-			label: "Subscribers",
-			borderColor: '#f3545d',
-			pointBackgroundColor: 'rgba(243, 84, 93, 0.6)',
-			pointRadius: 0,
-			backgroundColor: 'rgba(243, 84, 93, 0.4)',
-			legendColor: '#f3545d',
-			fill: true,
-			borderWidth: 2,
-			data: [154, 184, 175, 203, 210, 231, 240, 278, 252, 312, 320, 374]
-		}, {
-			label: "New Visitors",
-			borderColor: '#fdaf4b',
-			pointBackgroundColor: 'rgba(253, 175, 75, 0.6)',
-			pointRadius: 0,
-			backgroundColor: 'rgba(253, 175, 75, 0.4)',
-			legendColor: '#fdaf4b',
-			fill: true,
-			borderWidth: 2,
-			data: [256, 230, 245, 287, 240, 250, 230, 295, 331, 431, 456, 521]
-		}, {
-			label: "Active Users",
-			borderColor: '#177dff',
-			pointBackgroundColor: 'rgba(23, 125, 255, 0.6)',
-			pointRadius: 0,
-			backgroundColor: 'rgba(23, 125, 255, 0.4)',
-			legendColor: '#177dff',
-			fill: true,
-			borderWidth: 2,
-			data: [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 900]
-		}]
-	},
-	options: {
-		responsive: true,
-		maintainAspectRatio: false,
-		legend: {
-			display: false
-		},
-		tooltips: {
-			bodySpacing: 4,
-			mode: "nearest",
-			intersect: 0,
-			position: "nearest",
-			xPadding: 10,
-			yPadding: 10,
-			caretPadding: 10
-		},
-		layout: {
-			padding: { left: 5, right: 5, top: 15, bottom: 15 }
-		},
-		scales: {
-			yAxes: [{
-				ticks: {
-					fontStyle: "500",
-					beginAtZero: false,
-					maxTicksLimit: 5,
-					padding: 10
-				},
-				gridLines: {
-					drawTicks: false,
-					display: false
-				}
-			}],
-			xAxes: [{
-				gridLines: {
-					zeroLineColor: "transparent"
-				},
-				ticks: {
-					padding: 10,
-					fontStyle: "500"
-				}
-			}]
-		},
-		legendCallback: function (chart) {
-			var text = [];
-			text.push('<ul class="' + chart.id + '-legend html-legend">');
-			for (var i = 0; i < chart.data.datasets.length; i++) {
-				text.push('<li><span style="background-color:' + chart.data.datasets[i].legendColor + '"></span>');
-				if (chart.data.datasets[i].label) {
-					text.push(chart.data.datasets[i].label);
-				}
-				text.push('</li>');
-			}
-			text.push('</ul>');
-			return text.join('');
+	//Create the menu
+	var demo_settings = $("<div />");
+
+	//Layout options
+	demo_settings.append(
+		"<h4 class='control-sidebar-heading'>"
+		+ "Layout Options"
+		+ "</h4>"
+		//Fixed layout
+		+ "<div class='form-group'>"
+		+ "<label class='control-sidebar-subheading'>"
+		+ "<input type='checkbox' data-layout='fixed' class='pull-right'/> "
+		+ "Fixed layout"
+		+ "</label>"
+		+ "<p>Activate the fixed layout. You can't use fixed and boxed layouts together</p>"
+		+ "</div>"
+		//Boxed layout
+		+ "<div class='form-group'>"
+		+ "<label class='control-sidebar-subheading'>"
+		+ "<input type='checkbox' data-layout='layout-boxed'class='pull-right'/> "
+		+ "Boxed Layout"
+		+ "</label>"
+		+ "<p>Activate the boxed layout</p>"
+		+ "</div>"
+		//Sidebar Toggle
+		+ "<div class='form-group'>"
+		+ "<label class='control-sidebar-subheading'>"
+		+ "<input type='checkbox' data-layout='sidebar-collapse' class='pull-right'/> "
+		+ "Toggle Sidebar"
+		+ "</label>"
+		+ "<p>Toggle the left sidebar's state (open or collapse)</p>"
+		+ "</div>"
+		//Sidebar mini expand on hover toggle
+		+ "<div class='form-group'>"
+		+ "<label class='control-sidebar-subheading'>"
+		+ "<input type='checkbox' data-enable='expandOnHover' class='pull-right'/> "
+		+ "Sidebar Expand on Hover"
+		+ "</label>"
+		+ "<p>Let the sidebar mini expand on hover</p>"
+		+ "</div>"
+		//Control Sidebar Toggle
+		+ "<div class='form-group'>"
+		+ "<label class='control-sidebar-subheading'>"
+		+ "<input type='checkbox' data-controlsidebar='control-sidebar-open' class='pull-right'/> "
+		+ "Toggle Right Sidebar Slide"
+		+ "</label>"
+		+ "<p>Toggle between slide over content and push content effects</p>"
+		+ "</div>"
+		//Control Sidebar Skin Toggle
+		+ "<div class='form-group'>"
+		+ "<label class='control-sidebar-subheading'>"
+		+ "<input type='checkbox' data-sidebarskin='toggle' class='pull-right'/> "
+		+ "Toggle Right Sidebar Skin"
+		+ "</label>"
+		+ "<p>Toggle between dark and light skins for the right sidebar</p>"
+		+ "</div>"
+	);
+
+	tab_pane.append(demo_settings);
+	$("#control-sidebar-settings-tab").after(tab_pane);
+
+	setup();
+
+	/**
+	 * Toggles layout classes
+	 *
+	 * @param String cls the layout class to toggle
+	 * @returns void
+	 */
+	function change_layout(cls) {
+		$("body").toggleClass(cls);
+		AdminLTE.layout.fixSidebar();
+		//Fix the problem with right sidebar and layout boxed
+		if (cls == "layout-boxed")
+			AdminLTE.controlSidebar._fix($(".control-sidebar-bg"));
+		if ($('body').hasClass('fixed') && cls == 'fixed') {
+			AdminLTE.pushMenu.expandOnHover();
+			AdminLTE.layout.activate();
+		}
+		AdminLTE.controlSidebar._fix($(".control-sidebar-bg"));
+		AdminLTE.controlSidebar._fix($(".control-sidebar"));
+	}
+
+	/**
+	 * Replaces the old skin with the new skin
+	 * @param String cls the new skin class
+	 * @returns Boolean false to prevent link's default action
+	 */
+	function change_skin(cls) {
+		$.each(my_skins, function (i) {
+			$("body").removeClass(my_skins[i]);
+		});
+
+		$("body").addClass(cls);
+		store('skin', cls);
+		return false;
+	}
+
+	/**
+	 * Store a new settings in the browser
+	 *
+	 * @param String name Name of the setting
+	 * @param String val Value of the setting
+	 * @returns void
+	 */
+	function store(name, val) {
+		if (typeof (Storage) !== "undefined") {
+			localStorage.setItem(name, val);
+		} else {
+			window.alert('Please use a modern browser to properly view this template!');
 		}
 	}
-});
 
-var myLegendContainer = document.getElementById("myChartLegend");
-
-// generate HTML legend
-myLegendContainer.innerHTML = statisticsChart.generateLegend();
-
-// bind onClick event to all LI-tags of the legend
-var legendItems = myLegendContainer.getElementsByTagName('li');
-for (var i = 0; i < legendItems.length; i += 1) {
-	legendItems[i].addEventListener("click", legendClickCallback, false);
-}
-
-var dailySalesChart = document.getElementById('dailySalesChart').getContext('2d');
-
-var myDailySalesChart = new Chart(dailySalesChart, {
-	type: 'line',
-	data: {
-		labels: ["January",
-			"February",
-			"March",
-			"April",
-			"May",
-			"June",
-			"July",
-			"August",
-			"September"],
-		datasets: [{
-			label: "Sales Analytics", fill: !0, backgroundColor: "rgba(255,255,255,0.2)", borderColor: "#fff", borderCapStyle: "butt", borderDash: [], borderDashOffset: 0, pointBorderColor: "#fff", pointBackgroundColor: "#fff", pointBorderWidth: 1, pointHoverRadius: 5, pointHoverBackgroundColor: "#fff", pointHoverBorderColor: "#fff", pointHoverBorderWidth: 1, pointRadius: 1, pointHitRadius: 5, data: [65, 59, 80, 81, 56, 55, 40, 35, 30]
-		}]
-	},
-	options: {
-		maintainAspectRatio: !1, legend: {
-			display: !1
-		}
-		, animation: {
-			easing: "easeInOutBack"
-		}
-		, scales: {
-			yAxes: [{
-				display: !1, ticks: {
-					fontColor: "rgba(0,0,0,0.5)", fontStyle: "bold", beginAtZero: !0, maxTicksLimit: 10, padding: 0
-				}
-				, gridLines: {
-					drawTicks: !1, display: !1
-				}
-			}
-			], xAxes: [{
-				display: !1, gridLines: {
-					zeroLineColor: "transparent"
-				}
-				, ticks: {
-					padding: -20, fontColor: "rgba(255,255,255,0.2)", fontStyle: "bold"
-				}
-			}
-			]
+	/**
+	 * Get a prestored setting
+	 *
+	 * @param String name Name of of the setting
+	 * @returns String The value of the setting | null
+	 */
+	function get(name) {
+		if (typeof (Storage) !== "undefined") {
+			return localStorage.getItem(name);
+		} else {
+			window.alert('Please use a modern browser to properly view this template!');
 		}
 	}
-});
 
-$("#activeUsersChart").sparkline([112, 109, 120, 107, 110, 85, 87, 90, 102, 109, 120, 99, 110, 85, 87, 94], {
-	type: 'bar',
-	height: '100',
-	barWidth: 9,
-	barSpacing: 10,
-	barColor: 'rgba(255,255,255,.3)'
-});
+	/**
+	 * Retrieve default settings and apply them to the template
+	 *
+	 * @returns void
+	 */
+	function setup() {
+		var tmp = get('skin');
+		if (tmp && $.inArray(tmp, my_skins))
+			change_skin(tmp);
 
-var topProductsChart = document.getElementById('topProductsChart').getContext('2d');
+		//Add the change skin listener
+		$("[data-skin]").on('click', function (e) {
+			if ($(this).hasClass('knob'))
+				return;
+			e.preventDefault();
+			change_skin($(this).data('skin'));
+		});
 
-var myTopProductsChart = new Chart(topProductsChart, {
-	type: "line",
-	data: {
-		labels: ["January",
-			"February",
-			"March",
-			"April",
-			"May",
-			"June",
-			"July",
-			"August",
-			"September",
-			"October",
-			"January",
-			"February",
-			"March",
-			"April",
-			"May",
-			"June",
-			"July",
-			"August",
-			"September",
-			"October",
-			"January",
-			"February",
-			"March",
-			"April",
-			"May",
-			"June",
-			"July",
-			"August",
-			"September",
-			"October",
-			"January",
-			"February",
-			"March",
-			"April"],
-		datasets: [{
-			label: "Sales Analytics", fill: !0, backgroundColor: "rgba(53, 205, 58, 0.2)", borderColor: "#35cd3a", borderCapStyle: "butt", borderDash: [], borderDashOffset: 0, pointBorderColor: "#35cd3a", pointBackgroundColor: "#35cd3a", pointBorderWidth: 1, pointHoverRadius: 5, pointHoverBackgroundColor: "#35cd3a", pointHoverBorderColor: "#35cd3a", pointHoverBorderWidth: 1, pointRadius: 1, pointHitRadius: 5, data: [20, 10, 18, 14, 32, 18, 15, 22, 8, 6, 17, 12, 17, 18, 14, 25, 18, 12, 19, 21, 16, 14, 24, 21, 13, 15, 27, 29, 21, 11, 14, 19, 21, 17]
+		//Add the layout manager
+		$("[data-layout]").on('click', function () {
+			change_layout($(this).data('layout'));
+		});
+
+		$("[data-controlsidebar]").on('click', function () {
+			change_layout($(this).data('controlsidebar'));
+			var slide = !AdminLTE.options.controlSidebarOptions.slide;
+			AdminLTE.options.controlSidebarOptions.slide = slide;
+			if (!slide)
+				$('.control-sidebar').removeClass('control-sidebar-open');
+		});
+
+
+		$("[data-enable='expandOnHover']").on('click', function () {
+			$(this).attr('disabled', true);
+			AdminLTE.pushMenu.expandOnHover();
+			if (!$('body').hasClass('sidebar-collapse'))
+				$("[data-layout='sidebar-collapse']").click();
+		});
+
+		// Reset options
+		if ($('body').hasClass('fixed')) {
+			$("[data-layout='fixed']").attr('checked', 'checked');
 		}
-		]
-	},
-	options: {
-		maintainAspectRatio: !1, legend: {
-			display: !1
+		if ($('body').hasClass('layout-boxed')) {
+			$("[data-layout='layout-boxed']").attr('checked', 'checked');
 		}
-		, animation: {
-			easing: "easeInOutBack"
+		if ($('body').hasClass('sidebar-collapse')) {
+			$("[data-layout='sidebar-collapse']").attr('checked', 'checked');
 		}
-		, scales: {
-			yAxes: [{
-				display: !1, ticks: {
-					fontColor: "rgba(0,0,0,0.5)", fontStyle: "bold", beginAtZero: !0, maxTicksLimit: 10, padding: 0
-				}
-				, gridLines: {
-					drawTicks: !1, display: !1
-				}
-			}
-			], xAxes: [{
-				display: !1, gridLines: {
-					zeroLineColor: "transparent"
-				}
-				, ticks: {
-					padding: -20, fontColor: "rgba(255,255,255,0.2)", fontStyle: "bold"
-				}
-			}
-			]
+
+	}
+})(jQuery, $.AdminLTE);
+
+
+
+
+(function ($, AdminLTE) {
+
+	"use strict";
+
+	/**
+	 * List of all the available skins
+	 *
+	 * @type Array
+	 */
+	var my_skins = [
+		"skin-blue",
+		"skin-black",
+		"skin-red",
+		"skin-yellow",
+		"skin-purple",
+		"skin-green",
+		"skin-blue-light",
+		"skin-black-light",
+		"skin-red-light",
+		"skin-yellow-light",
+		"skin-purple-light",
+		"skin-green-light"
+	];
+
+	//Create the new tab
+	var skins_pane = $("<div />", {
+		"id": "control-sidebar-skins-tab",
+		"class": "tab-pane active"
+	});
+
+	//Create the tab button
+	var skins_button = $("<li />", { "class": "active" })
+		.html("<a href='#control-sidebar-skins-tab' data-toggle='tab'>"
+			+ "<i class='ion-paintbucket'></i>"
+			+ "</a>");
+
+	//Add the tab button to the right sidebar tabs
+	$("[href='#control-sidebar-options-tab']")
+		.parent()
+		.before(skins_button);
+
+	//Create the menu
+	var skins_settings = $("<div />");
+
+	var skins_list = $("<ul />", { "class": 'list-unstyled clearfix' });
+
+	//Dark sidebar skins
+	var skin_blue =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-blue' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px; background: #367fa9;'></span><span class='bg-light-blue' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #222d32;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin'>Blue</p>");
+	skins_list.append(skin_blue);
+	var skin_black =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-black' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div style='box-shadow: 0 0 2px rgba(0,0,0,0.1)' class='clearfix'><span style='display:block; width: 20%; float: left; height: 7px; background: #fefefe;'></span><span style='display:block; width: 80%; float: left; height: 7px; background: #fefefe;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #222;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin'>Black</p>");
+	skins_list.append(skin_black);
+	var skin_purple =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-purple' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px;' class='bg-purple-active'></span><span class='bg-purple' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #222d32;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin'>Purple</p>");
+	skins_list.append(skin_purple);
+	var skin_green =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-green' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px;' class='bg-green-active'></span><span class='bg-green' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #222d32;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin'>Green</p>");
+	skins_list.append(skin_green);
+	var skin_red =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-red' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px;' class='bg-red-active'></span><span class='bg-red' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #222d32;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin'>Red</p>");
+	skins_list.append(skin_red);
+	var skin_yellow =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-yellow' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px;' class='bg-yellow-active'></span><span class='bg-yellow' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #222d32;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin'>Yellow</p>");
+	skins_list.append(skin_yellow);
+
+	//Light sidebar skins
+	var skin_blue_light =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-blue-light' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px; background: #367fa9;'></span><span class='bg-light-blue' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #f9fafc;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin' style='font-size: 12px'>Blue Light</p>");
+	skins_list.append(skin_blue_light);
+	var skin_black_light =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-black-light' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div style='box-shadow: 0 0 2px rgba(0,0,0,0.1)' class='clearfix'><span style='display:block; width: 20%; float: left; height: 7px; background: #fefefe;'></span><span style='display:block; width: 80%; float: left; height: 7px; background: #fefefe;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #f9fafc;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin' style='font-size: 12px'>Black Light</p>");
+	skins_list.append(skin_black_light);
+	var skin_purple_light =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-purple-light' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px;' class='bg-purple-active'></span><span class='bg-purple' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #f9fafc;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin' style='font-size: 12px'>Purple Light</p>");
+	skins_list.append(skin_purple_light);
+	var skin_green_light =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-green-light' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px;' class='bg-green-active'></span><span class='bg-green' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #f9fafc;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin' style='font-size: 12px'>Green Light</p>");
+	skins_list.append(skin_green_light);
+	var skin_red_light =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-red-light' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px;' class='bg-red-active'></span><span class='bg-red' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #f9fafc;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin' style='font-size: 12px'>Red Light</p>");
+	skins_list.append(skin_red_light);
+	var skin_yellow_light =
+		$("<li />", { style: "float:left; width: 33.33333%; padding: 5px;" })
+			.append("<a href='javascript:void(0);' data-skin='skin-yellow-light' style='display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)' class='clearfix full-opacity-hover'>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 7px;' class='bg-yellow-active'></span><span class='bg-yellow' style='display:block; width: 80%; float: left; height: 7px;'></span></div>"
+				+ "<div><span style='display:block; width: 20%; float: left; height: 20px; background: #f9fafc;'></span><span style='display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;'></span></div>"
+				+ "</a>"
+				+ "<p class='text-center no-margin' style='font-size: 12px;'>Yellow Light</p>");
+	skins_list.append(skin_yellow_light);
+
+	skins_settings.append("<h4 class='control-sidebar-heading'>Skins</h4>");
+	skins_settings.append(skins_list);
+
+	skins_pane.append(skins_settings);
+	$("#control-sidebar-options-tab").after(skins_pane);
+
+	setup();
+
+
+	/**
+	 * Replaces the old skin with the new skin
+	 * @param String cls the new skin class
+	 * @returns Boolean false to prevent link's default action
+	 */
+	function change_skin(cls) {
+		$.each(my_skins, function (i) {
+			$("body").removeClass(my_skins[i]);
+		});
+
+		$("body").addClass(cls);
+		store('skin', cls);
+		return false;
+	}
+
+	/**
+	 * Store a new settings in the browser
+	 *
+	 * @param String name Name of the setting
+	 * @param String val Value of the setting
+	 * @returns void
+	 */
+	function store(name, val) {
+		if (typeof (Storage) !== "undefined") {
+			localStorage.setItem(name, val);
+		} else {
+			window.alert('Please use a modern browser to properly view this template!');
 		}
 	}
-});
+
+	/**
+	 * Get a prestored setting
+	 *
+	 * @param String name Name of of the setting
+	 * @returns String The value of the setting | null
+	 */
+	function get(name) {
+		if (typeof (Storage) !== "undefined") {
+			return localStorage.getItem(name);
+		} else {
+			window.alert('Please use a modern browser to properly view this template!');
+		}
+	}
+
+
+	/**
+ * Retrieve default settings and apply them to the template
+ *
+ * @returns void
+ */
+	function setup() {
+		var tmp = get('skin');
+		if (tmp && $.inArray(tmp, my_skins))
+			change_skin(tmp);
+
+		//Add the change skin listener
+		$("[data-skin]").on('click', function (e) {
+			if ($(this).hasClass('knob'))
+				return;
+			e.preventDefault();
+			change_skin($(this).data('skin'));
+		});
+
+		//Add the layout manager
+		$("[data-layout]").on('click', function () {
+			change_layout($(this).data('layout'));
+		});
+
+		$("[data-controlsidebar]").on('click', function () {
+			change_layout($(this).data('controlsidebar'));
+			var slide = !AdminLTE.options.controlSidebarOptions.slide;
+			AdminLTE.options.controlSidebarOptions.slide = slide;
+			if (!slide)
+				$('.control-sidebar').removeClass('control-sidebar-open');
+		});
+
+		$("[data-sidebarskin='toggle']").on('click', function () {
+			var sidebar = $(".control-sidebar");
+			if (sidebar.hasClass("control-sidebar-dark")) {
+				sidebar.removeClass("control-sidebar-dark")
+				sidebar.addClass("control-sidebar-light")
+			} else {
+				sidebar.removeClass("control-sidebar-light")
+				sidebar.addClass("control-sidebar-dark")
+			}
+		});
+
+	}
+
+})(jQuery, $.AdminLTE);
