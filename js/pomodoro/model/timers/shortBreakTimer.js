@@ -12,6 +12,6 @@ class ShortBreakTimer extends Timer {
 	}
 
 	change(settings) {
-		return new PomodoroTime(TimerFormat.textToMilliseconds(settings.studytime), this._completedPomodoros);
+		return new PomodoroTime(TimerFormat.textToMilliseconds(settings.pomodorotime), this._completedPomodoros);
 	}
 }

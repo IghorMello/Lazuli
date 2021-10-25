@@ -1,13 +1,13 @@
 class UserSettings {
 	constructor(
 		pomodoros,
-		studytime,
+		pomodorotime,
 		shortbreak,
 		longbreak,
 		soundEnabled
 	) {
 		this._pomodoros = pomodoros;
-		this._studytime = studytime;
+		this._pomodorotime = pomodorotime;
 		this._shortbreak = shortbreak;
 		this._longbreak = longbreak;
 		this._soundEnabled = soundEnabled;
@@ -17,8 +17,8 @@ class UserSettings {
 		return this._pomodoros;
 	}
 
-	get studytime() {
-		return this._studytime;
+	get pomodorotime() {
+		return this._pomodorotime;
 	}
 
 	get shortbreak() {
@@ -37,8 +37,8 @@ class UserSettings {
 		this._pomodoros = pomodoros;
 	}
 
-	set studytime(studytime) {
-		this._studytime = studytime;
+	set pomodorotime(pomodorotime) {
+		this._pomodorotime = pomodorotime;
 	}
 
 	set shortbreak(shortbreak) {
