@@ -4,11 +4,11 @@ class PomodoroTime extends Timer {
 		this._badgeColor = "#737373";
 		this._notificationMessage = "Seu intervalo acabou. De volta ao trabalho!";
 		this._notificationImage = "images/studyIcon.png";
-		this._type = "Study";
+		this._type = "Trabalhar";
 	}
 
 	showNotification() {
-		new Notification("Study time", this._notificationMessage, this._notificationImage).show();
+		new Notification("Hora de trabalhar", this._notificationMessage, this._notificationImage).show();
 	}
 
 	change(settings) {

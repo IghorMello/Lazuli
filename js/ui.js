@@ -399,8 +399,8 @@ class UI {
 
             var header = this.createElement('div', ['table-header']);
 
-            var headerTitleDate = this.createElement('span', ['header-title-day'], 'Day');
-            var headerTitleTime = this.createElement('span', ['header-title-time'], 'Summary time');
+            var headerTitleDate = this.createElement('span', ['header-title-day'], 'Dia');
+            var headerTitleTime = this.createElement('span', ['header-title-time'], 'Tempo de resumo');
 
             header = this.appendChild(header, [headerTitleDate, headerTitleTime]);
             parent.appendChild(header);
