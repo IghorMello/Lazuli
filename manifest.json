@@ -1,0 +1,61 @@
+{
+    "manifest_version": 2,
+    "name": "Pensando em que nome colocar",
+    "short_name": "Tracker",
+    "version": "1.0.0",
+    "minimum_chrome_version": "26",
+    "description": ".",
+    "options_page": "options.html",
+    "icons": {
+        "16": "images/16x16.png",
+        "32": "images/32x32.png",
+        "48": "images/48x48.png",
+        "128": "images/128x128.png"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "contextMenus",
+        "notifications",
+        "idle",
+        "chrome://favicon/*",
+        "webNavigation",
+        "unlimitedStorage"
+    ],
+    "optional_permissions": [
+        "https://www.youtube.com/*",
+        "https://www.netflix.com/*"
+    ],
+    "offline_enabled": true,
+    "background": {
+        "scripts": [
+            "js/common.js",
+            "js/storage.js",
+            "js/activity.js",
+            "js/tab.js",
+            "js/timeInterval.js",
+            "js/background.js",
+            "js/restriction.js",
+            "js/url.js",
+            "js/notification_background.js",
+            "js/eventPage.js",
+            "js/pomodoro/model/settings/userSettings.js",
+            "js/pomodoro/model/settings/userSettingsStorage.js",
+            "js/pomodoro/model/badge.js",
+            "js/pomodoro/model/notification.js",
+            "js/pomodoro/model/timerFormat.js",
+            "js/pomodoro/model/timers/timer.js",
+            "js/pomodoro/model/timers/pomodoroTime.js",
+            "js/pomodoro/model/timers/shortBreakTimer.js",
+            "js/pomodoro/model/timers/longBreakTimer.js",
+            "js/pomodoro/background.js"
+        ],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_popup": "index.html",
+        "default_title": "Pensando em que nome colocar",
+        "default_icon": "images/48x48.png"
+    }
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pensando em que nome colocar</title>
+
+    <link rel="stylesheet" href="css/webact.css" />
+    <link rel="stylesheet" href="css/chart.css" />
+</head>
+
+<body>
+    <div id="preloader" class="preloader">
+        <div class="preloader__image">
+            <div class="title">Carregando...</div>
+        </div>
+    </div>
+
+    <svg class="height-0">
+        <filter id="dropShadow">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+            <feOffset dx="0" dy="1" />
+
+            <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+    </svg>
+
+    <div id="extensionTitle">
+        <p class="title">Pensando em que nome colocar</p>
+    </div>
+
+    <div id="buttons" class="btn-block">
+        <a id="btnToday">Hoje</a>
+        <a id="btnAll">Todo o tempo</a>
+        <a id="btnByDays">Por dias</a>
+        <a id="btnWater">Lembrar da água</a>
+        <a class="active" id="btnPomodoro">Temporizador Pomodoro</a>
+
+        <a id="settings">Configurações</a>
+        <div id='hintForUsers' class="hint-for-settings hide">
+            <div id='closeHintBtn' class="close-hint">✖</div>
+            <p class="title-block">Você pode:</p>
+            <p><span class="arrow">➤</span> ativar dark mode</p>
+            <p><span class="arrow">➤</span> definir limites diários para sites</p>
+            <p><span class="arrow">➤</span> definir notificações após um certo tempo decorrido</p>
+            <p><span class="arrow">➤</span> definir uma lista de sites sem rastreamento</p>
+            <p><span class="arrow">➤</span> habilitar temporizador pomodoro</p>
+            <p><span class="arrow">➤</span> lembrar de tomar água</p>
+        </div>
+    </div>
+
+    <div id="stats" class="hide">
+        <p class="table-header">Estatísticas gerais</p>
+        <div id="statsBlock">
+            <div class="title-block">
+                <div class="block-additional">
+                    <div class="summary-title">Primeiro dia</div>
+                    <div class="value-block" id="statFirstDay"></div>
+                </div>
+
+                <div class="block-additional">
+                    <div class="summary-title">Dias ativos</div>
+                    <div class="value-block" id="statActiveDays"></div>
+                </div>
+
+                <div class="block-additional">
+                    <div class="summary-title">Total de dias</div>
+                    <div class="value-block" id="statTotalDays"></div>
+                </div>
+            </div>
+
+            <div class="title-block">
+                <div class="block-additional">
+                    <div class="summary-title">Hoje</div>
+                    <div class="span-time" id="statTodayTime"></div>
+                </div>
+
+                <div class="block-additional">
+                    <div class="summary-title">Todos os dias</div>
+                    <div class="span-time" id="statAllDaysTime"></div>
+                </div>
+
+                <div class="block-additional">
+                    <div class="summary-title">Média por dias ativos</div>
+                    <div class="span-time" id="statAverageTime"></div>
+                </div>
+            </div>
+
+            <div class="title-block">
+                <div class="block">
+                    <div class="summary-title">
+                        Dia mais ativo
+                        <div class="tooltip today-icon">
+                            <img id="statActiveDayIcon" data-today="true" src="/images/today.svg" height="17"
+                                class="margin-left-5">
+                            <span class="tooltiptext" id="statActiveDayTitle">
+                                Não inclua o dia atual no cálculo das estatísticas
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="inline-block">
+                        <div class="value-block" id="statActiveDay"></div>
+                        <div class="span-time" id="statActiveDayTime"></div>
+
+                        <div class="value-block hide" id="statActiveDayWithoutCurrentDay"></div>
+                        <div class="span-time hide" id="statActiveDayTimeWithoutCurrentDay"></div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="summary-title">
+                        Dia mais inativo
+                        <div class="tooltip today-icon">
+                            <img id="statInActiveDayIcon" data-today="true" src="/images/today.svg" height="17"
+                                class="margin-left-5">
+                            <span class="tooltiptext" id="statInActiveDayTitle">
+                                Não inclua o dia atual no cálculo das estatísticas
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="inline-block">
+                        <div class="value-block" id="statInActiveDay"></div>
+                        <div class="span-time" id="statInActiveDayTime"></div>
+
+                        <div class="value-block hide" id="statInActiveDayWithoutCurrentDay"></div>
+                        <div class="span-time hide" id="statInActiveDayTimeWithoutCurrentDay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="water" class="hide">
+        <p class="table-header">Lembrar de tomar água</p>
+        <div class="image">
+            <img src="./images/one.gif" alt="" id="glass">
+        </div>
+
+        <h2>
+            Consumo: <span id="total">0</span>
+            &nbsp; &nbsp;&nbsp;
+            Metas de hoje : <span id="goal">0</span>
+        </h2>
+
+        <h3>Entre com o número de copos de água consumidos: </h3>
+
+        <select name="frequency" id="amount">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <input class="buttonClass" type="submit" name="" id="addAmount" value="Adicionar copo de água">
+    </div>
+
+    <div id="pomodoro" class="hide">
+        <p class="table-header">Temporizador Pomodoro</p>
+        <div id="popup-content">
+            <div id="clock"></div>
+            <div id="caption"></div>
+            <div class="button primary" id="play">Iniciar temporizador</div>
+            <div class="button default" id="pause">Pausar</div>
+            <div class="button default" id="reset">Resetar</div>
+
+            <div id="footer">
+                <div id="pomodoros">
+                    Pomodoros: <span id="pomodoroNumber">1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blockForChartBtn">
+        <a class="button active chart-btn chart-btn-donut" id="donutChartBtn">Gráfico comum</a>
+        <a class="button chart-btn chart-btn-heatmap" id="heatMapChartBtn">Gráfico de tempo</a>
+    </div>
+
+    <div id="chart"></div>
+    <div id="labelForTimeInterval" class="warning hide">
+        <label>Apenas intervalos de tempo maiores que 3 segundos são mostrados</label>
+    </div>
+
+    <div id="timeChart"></div>
+    <div id="resultTable" class="list-of-site"></div>
+    <div id="total" class="inline-flex"></div>
+    <div id="byDays" class="calendar-block"></div>
+</body>
+
+</html>
+
+<script src="js/chart/d3.v4.min.js"></script>
+<script src="js/chart/chart-core.js"></script>
+<script src="js/picker/jquery-3.3.1.min.js"></script>
+<script src="js/pomodoro/popupInterfaceService.js"></script>
+<script src="js/pomodoro/popup.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/common.js"></script>
+<script src="js/timeInterval.js"></script>
+<script src="js/restriction.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/url.js"></script>
+<script src="js/webact.js"></script>
+<script src="js/popup.js"></script>
