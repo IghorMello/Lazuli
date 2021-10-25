@@ -532,8 +532,8 @@ function setStatData(array) {
         stat.activeDayTimeWithoutCurrentDay = arrayAscByTimeWithoutCurrentDay[arrayAscByTimeWithoutCurrentDay.length - 1].total;
     }
     else {
-        stat.activeDayWithoutCurrentDay = 'No data';
-        stat.inActiveDayWithoutCurrentDay = 'No data';
+        stat.activeDayWithoutCurrentDay = 'Sem dados';
+        stat.inActiveDayWithoutCurrentDay = 'Sem dados';
     }
 
     stat.firstDay = new Date(array[0]).toLocaleDateString();;
