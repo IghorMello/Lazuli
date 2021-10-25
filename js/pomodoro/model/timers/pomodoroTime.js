@@ -1,4 +1,4 @@
-class StudyTimer extends Timer {
+class PomodoroTime extends Timer {
 	constructor(time, completedPomodoros) {
 		super(time, completedPomodoros);
 		this._badgeColor = "#737373";
