@@ -137,15 +137,15 @@ class UI {
     }
 
     fillEmptyBlock(elementName) {
-        document.getElementById(elementName).innerHTML = '<p class="no-data">No data</p>';
+        document.getElementById(elementName).innerHTML = '<p class="no-data">Sem dados</p>';
     }
 
     fillEmptyBlockForDaysIfInvalid() {
-        document.getElementById('tableForDaysBlock').innerHTML = '<p class="no-data">Invalid date</p>';
+        document.getElementById('tableForDaysBlock').innerHTML = '<p class="no-data">Dados inválidos</p>';
     }
 
     fillEmptyBlockForDays() {
-        document.getElementById('tableForDaysBlock').innerHTML = '<p class="no-data">No data</p>';
+        document.getElementById('tableForDaysBlock').innerHTML = '<p class="no-data">Sem dados</p>';
     }
 
     addHrAfterChart() {
