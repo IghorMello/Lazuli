@@ -356,8 +356,8 @@ class UI {
         var barChart = document.createElement('div');
         barChart.id = 'barChart';
 
-        var from = this.createElement('span', null, 'From');
-        var to = this.createElement('span', null, 'To');
+        var from = this.createElement('span', null, 'De');
+        var to = this.createElement('span', null, 'Para');
 
         var calendarFirst = document.createElement('input');
         calendarFirst.id = 'dateFrom';
