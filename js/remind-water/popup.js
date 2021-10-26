@@ -15,25 +15,25 @@ $(function () {
         var percentage = (items.total / items.goal) * 100;
 
         if (percentage < 10 && percentage >= 0) {
-            $("#glass").attr("../", "images/one.gif");
+            $("#glass").attr("images/one.gif");
         }
         else if (percentage < 25 && percentage >= 10) {
-            $("#glass").attr("../", "images/two.gif");
+            $("#glass").attr("images/two.gif");
         }
         else if (percentage < 50 && percentage >= 25) {
-            $("#glass").attr("../", "images/three.gif");
+            $("#glass").attr("images/three.gif");
         }
         else if (percentage < 75 && percentage >= 50) {
-            $("#glass").attr("../", "images/four.gif");
+            $("#glass").attr("images/four.gif");
         }
         else if (percentage < 100 && percentage >= 75) {
-            $("#glass").attr("../", "images/five.gif");
+            $("#glass").attr("images/five.gif");
         }
         else if (percentage >= 100) {
-            $("#glass").attr("../", "images/goal.gif");
+            $("#glass").attr("images/goal.gif");
         }
         else {
-            $("#glass").attr("../", "images/one.gif");
+            $("#glass").attr("images/one.gif");
         }
     });
 
