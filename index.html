@@ -34,206 +34,265 @@
 
     <br><br>
 
-    <div id="extensionTitle">
-        <h2 class="title">Pensando em que nome colocar</h2>
-    </div>
+    <style>
+        .container {
+            display: flex;
+            margin-top: 6rem;
+            text-align: center;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center
+        }
+    </style>
 
-    <br>
+    <div id="loginForm" class="hide container">
+        <div id="boxLogin" class="child">
 
-    <div id="buttons" class="btn-block">
-        <a class="active" id="btnToday">Hoje</a>
-        <a id="btnAll">Todo o tempo</a>
-        <a id="btnByDays">Por dias</a>
-        <a id="btnWater">Lembrar da água</a>
-        <a id="btnPomodoro">Temporizador pomodoro</a>
-        <a id="settings">Configurações</a>
-        <div id='hintForUsers' class="hint-for-settings hide">
-            <div id='closeHintBtn' class="close-hint">✖</div>
-            <p class="title-block">Você pode:</p>
-            <p><span class="arrow">➤</span> ativar dark mode</p>
-            <p><span class="arrow">➤</span> definir limites diários para sites</p>
-            <p><span class="arrow">➤</span> definir notificações após um certo tempo decorrido</p>
-            <p><span class="arrow">➤</span> definir uma lista de sites sem rastreamento</p>
-            <p><span class="arrow">➤</span> habilitar temporizador pomodoro</p>
-            <p><span class="arrow">➤</span> lembrar de tomar água</p>
-        </div>
-    </div>
-
-    <br>
-
-    <div id="stats" class="hide">
-        <p class="table-header">Estatísticas gerais</p>
-        <br>
-        <div id="statsBlock">
-            <div class="title-block">
-                <div class="block-additional">
-                    <div class="summary-title">Primeiro dia</div>
-                    <div class="value-block" id="statFirstDay"></div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>Adicionar suas credenciais</span>
+                    </div>
                 </div>
 
-                <div class="block-additional">
-                    <div class="summary-title">Dias ativos</div>
-                    <div class="value-block" id="statActiveDays"></div>
-                </div>
-
-                <div class="block-additional">
-                    <div class="summary-title">Total de dias</div>
-                    <div class="value-block" id="statTotalDays"></div>
-                </div>
-            </div>
-
-            <div class="title-block">
-                <div class="block-additional">
-                    <div class="summary-title">Hoje</div>
-                    <div class="span-time" id="statTodayTime"></div>
-                </div>
-
-                <div class="block-additional">
-                    <div class="summary-title">Todos os dias</div>
-                    <div class="span-time" id="statAllDaysTime"></div>
-                </div>
-
-                <div class="block-additional">
-                    <div class="summary-title">Média por dias ativos</div>
-                    <div class="span-time" id="statAverageTime"></div>
-                </div>
-            </div>
-
-            <div class="title-block">
-                <div class="block">
-                    <div class="summary-title">
-                        Dia mais ativo
-                        <div class="tooltip today-icon">
-                            <img id="statActiveDayIcon" data-today="true" src="/images/today.svg" height="17"
-                                class="margin-left-5">
-                            <span class="tooltiptext" id="statActiveDayTitle">
-                                Não inclua o dia atual no cálculo das estatísticas
-                            </span>
+                <form method="post" id="login-form">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="icon-lock"></i>
+                                            </span>
+                                        </div>
+                                        <input type="password" id="code_user" class="form-control"
+                                            placeholder="Codigo do Funcionario">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="inline-block">
-                        <div class="value-block" id="statActiveDay"></div>
-                        <div class="span-time" id="statActiveDayTime"></div>
+                    <div class="card-action">
+                        <button type="submit" name="login" class="btn btn-success">
+                            Realizar login
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><br>
 
-                        <div class="value-block hide" id="statActiveDayWithoutCurrentDay"></div>
-                        <div class="span-time hide" id="statActiveDayTimeWithoutCurrentDay"></div>
+    <div id="extensionVersion" class="hide">
+        <div id="extensionTitle">
+            <h2 class="title">Pensando em que nome colocar</h2>
+        </div><br>
+
+        <div id="buttons" class="btn-block">
+            <a class="active" id="btnToday">Hoje</a>
+            <a id="btnAll">Todo o tempo</a>
+            <a id="btnByDays">Por dias</a>
+            <a id="btnWater">Lembrar da água</a>
+            <a id="btnPomodoro">Temporizador pomodoro</a>
+            <a id="settings">Configurações</a>
+            <div id='hintForUsers' class="hint-for-settings hide">
+                <div id='closeHintBtn' class="close-hint">✖</div>
+                <p class="title-block">Você pode:</p>
+                <p><span class="arrow">➤</span> ativar dark mode</p>
+                <p><span class="arrow">➤</span> definir limites diários para sites</p>
+                <p><span class="arrow">➤</span> definir notificações após um certo tempo decorrido</p>
+                <p><span class="arrow">➤</span> definir uma lista de sites sem rastreamento</p>
+                <p><span class="arrow">➤</span> habilitar temporizador pomodoro</p>
+                <p><span class="arrow">➤</span> lembrar de tomar água</p>
+            </div>
+        </div><br>
+
+        <div id="stats" class="hide">
+            <p class="table-header">Estatísticas gerais</p><br>
+            <div id="statsBlock">
+                <div class="title-block">
+                    <div class="block-additional">
+                        <div class="summary-title">Primeiro dia</div>
+                        <div class="value-block" id="statFirstDay"></div>
+                    </div>
+
+                    <div class="block-additional">
+                        <div class="summary-title">Dias ativos</div>
+                        <div class="value-block" id="statActiveDays"></div>
+                    </div>
+
+                    <div class="block-additional">
+                        <div class="summary-title">Total de dias</div>
+                        <div class="value-block" id="statTotalDays"></div>
                     </div>
                 </div>
 
-                <div class="block">
-                    <div class="summary-title">
-                        Dia mais inativo
-                        <div class="tooltip today-icon">
-                            <img id="statInActiveDayIcon" data-today="true" src="/images/today.svg" height="17"
-                                class="margin-left-5">
-                            <span class="tooltiptext" id="statInActiveDayTitle">
-                                Não inclua o dia atual no cálculo das estatísticas
-                            </span>
+                <div class="title-block">
+                    <div class="block-additional">
+                        <div class="summary-title">Hoje</div>
+                        <div class="span-time" id="statTodayTime"></div>
+                    </div>
+
+                    <div class="block-additional">
+                        <div class="summary-title">Todos os dias</div>
+                        <div class="span-time" id="statAllDaysTime"></div>
+                    </div>
+
+                    <div class="block-additional">
+                        <div class="summary-title">Média por dias ativos</div>
+                        <div class="span-time" id="statAverageTime"></div>
+                    </div>
+                </div>
+
+                <div class="title-block">
+                    <div class="block">
+                        <div class="summary-title">
+                            Dia mais ativo
+                            <div class="tooltip today-icon">
+                                <img id="statActiveDayIcon" data-today="true" src="/images/today.svg" height="17"
+                                    class="margin-left-5">
+                                <span class="tooltiptext" id="statActiveDayTitle">
+                                    Não inclua o dia atual no cálculo das estatísticas
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="inline-block">
+                            <div class="value-block" id="statActiveDay"></div>
+                            <div class="span-time" id="statActiveDayTime"></div>
+
+                            <div class="value-block hide" id="statActiveDayWithoutCurrentDay"></div>
+                            <div class="span-time hide" id="statActiveDayTimeWithoutCurrentDay"></div>
                         </div>
                     </div>
 
-                    <div class="inline-block">
-                        <div class="value-block" id="statInActiveDay"></div>
-                        <div class="span-time" id="statInActiveDayTime"></div>
+                    <div class="block">
+                        <div class="summary-title">
+                            Dia mais inativo
+                            <div class="tooltip today-icon">
+                                <img id="statInActiveDayIcon" data-today="true" src="/images/today.svg" height="17"
+                                    class="margin-left-5">
+                                <span class="tooltiptext" id="statInActiveDayTitle">
+                                    Não inclua o dia atual no cálculo das estatísticas
+                                </span>
+                            </div>
+                        </div>
 
-                        <div class="value-block hide" id="statInActiveDayWithoutCurrentDay"></div>
-                        <div class="span-time hide" id="statInActiveDayTimeWithoutCurrentDay"></div>
+                        <div class="inline-block">
+                            <div class="value-block" id="statInActiveDay"></div>
+                            <div class="span-time" id="statInActiveDayTime"></div>
+
+                            <div class="value-block hide" id="statInActiveDayWithoutCurrentDay"></div>
+                            <div class="span-time hide" id="statInActiveDayTimeWithoutCurrentDay"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="water" class="hide">
-        <p class="table-header">Lembrar de tomar água</p>
-        <br>
-        <div class="remind-water">
-            <div class="image">
-                <img draggable="false" src="images/one.gif" alt="Copo de água" id="glass">
-            </div>
-        </div>
-
-        <p class="table-header">Consumo: <span id="total">0</span></p>
-        <p class="table-header">Meta: <span id="goal">0</span></p>
-
-        <br>
-
-        <div class="remind-water">
-            <div class="cups" name="frequency" id="amount">
-                <div class="cup cup-small">250 ml</div>
-                <div class="cup cup-small">250 ml</div>
-                <div class="cup cup-small">250 ml</div>
-                <div class="cup cup-small">250 ml</div>
+        <div id="water" class="hide">
+            <p class="table-header">Lembrar de tomar água</p><br>
+            <div class="remind-water">
+                <div class="image">
+                    <img draggable="false" src="images/one.gif" alt="Copo de água" id="glass">
+                </div>
             </div>
 
+            <p class="table-header">Consumo: <span id="total">0</span></p>
+            <p class="table-header">Meta: <span id="goal">0</span></p>
 
             <br>
 
-            <h3>Entre com o número de copos de água consumidos: </h3>
-            <select name="frequency" id="amount">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+            <div class="remind-water">
+                <div class="cups" name="frequency" id="amount">
+                    <div class="cup cup-small">250 ml</div>
+                    <div class="cup cup-small">250 ml</div>
+                    <div class="cup cup-small">250 ml</div>
+                    <div class="cup cup-small">250 ml</div>
+                </div><br>
 
+                <h3>Entre com o número de copos de água consumidos: </h3>
+                <select name="frequency" id="amount">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
 
-            <!-- <input class="button-timer long-break-btn buttonClass" name="" value="Adicionar copo de água"> -->
-            <div class="sub-main">
-                <button type="submit" class="button-timer long-break-btn buttonClass button-two"
-                    id="addAmount"><span>Adicionar copo de água</span></button>
-            </div>
-        </div>
-    </div>
-
-    <div id="pomodoro" class="hide">
-        <p class="table-header">Temporizador Pomodoro</p>
-        <br>
-        <div class="timer">
-            <div class="buttons">
-                <div class="button-timer selected pomodoro-btn">
-                    <div id="caption"></div>
-                </div>
-                <div class="button-timer short-break-btn">
-                    <div id="pause">Pausar</div>
-                </div>
-                <div class="button-timer long-break-btn">
-                    <div id="reset">Resetar</div>
-                </div>
-            </div>
-            <div class="countdown">
-                <div id="clock"></div>
-            </div>
-            <div class="start-btn">
-                <div id="play">Iniciar</div>
-            </div>
-            <div class="start-btn" aria-disabled="" id="footer">
-                <div id="pomodoros">
-                    Nº: <span id="pomodoroNumber">1</span>
+                <div class="sub-main">
+                    <button type="submit" class="button-timer long-break-btn buttonClass button-two" id="addAmount">
+                        <span>Adicionar copo de água</span>
+                    </button>
                 </div>
             </div>
         </div>
+
+        <div id="pomodoro" class="hide">
+            <p class="table-header">Temporizador Pomodoro</p>
+            <br>
+            <div class="timer">
+                <div class="buttons">
+                    <div class="button-timer selected pomodoro-btn">
+                        <div id="caption"></div>
+                    </div>
+                    <div class="button-timer short-break-btn">
+                        <div id="pause">Pausar</div>
+                    </div>
+                    <div class="button-timer long-break-btn">
+                        <div id="reset">Resetar</div>
+                    </div>
+                </div>
+                <div class="countdown">
+                    <div id="clock"></div>
+                </div>
+                <div class="start-btn">
+                    <div id="play">Iniciar</div>
+                </div>
+                <div class="start-btn" aria-disabled="" id="footer">
+                    <div id="pomodoros">
+                        Nº: <span id="pomodoroNumber">1</span>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div id="blockForChartBtn">
+            <a class="button chart-btn chart-btn-donut" id="donutChartBtn">Gráfico comum</a>
+            <a class="button chart-btn chart-btn-heatmap" id="heatMapChartBtn">Gráfico de tempo</a>
+        </div>
+
         <br>
+
+        <div id="chart"></div>
+        <div id="labelForTimeInterval" class="warning hide">
+            <label>Apenas intervalos de tempo maiores que 3 segundos são mostrados</label>
+        </div>
+
+        <div id="timeChart"></div>
+        <div id="resultTable" class="list-of-site"></div>
+        <div id="total" class="inline-flex"></div>
+        <div id="byDays" class="calendar-block"></div>
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
-    <div id="blockForChartBtn">
-        <a class="button chart-btn chart-btn-donut" id="donutChartBtn">Gráfico comum</a>
-        <a class="button chart-btn chart-btn-heatmap" id="heatMapChartBtn">Gráfico de tempo</a>
-    </div>
 
-    <br>
 
-    <div id="chart"></div>
-    <div id="labelForTimeInterval" class="warning hide">
-        <label>Apenas intervalos de tempo maiores que 3 segundos são mostrados</label>
-    </div>
 
-    <div id="timeChart"></div>
-    <div id="resultTable" class="list-of-site"></div>
-    <div id="total" class="inline-flex"></div>
-    <div id="byDays" class="calendar-block"></div>
+
+
 
     <!-- Scripts -->
 
@@ -246,9 +305,9 @@
     <script src="js/time-tracker/common.js"></script>
     <script src="js/time-tracker/timeInterval.js"></script>
     <script src="js/time-tracker/restriction.js"></script>
-    <script src="js/time-tracker/ui.js"></script>
     <script src="js/time-tracker/url.js"></script>
-    <script src="js/time-tracker/webact.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/webact.js"></script>
     <script src="js/remind-water/popup.js"></script>
 </body>
 

@@ -1,5 +1,44 @@
 'use strict';
 
+var
+    $loginForm = $("#login-form"),
+    $loginSuccess = $("#login-success"),
+    $formLogin = $("#loginForm"),
+    $boxLogin = $("#boxLogin"),
+    $extensionVersion = $("#extensionVersion");
+
+$loginForm.on("submit", function (e) {
+    var data = { codigo_usuario: $loginForm.find("#code_user").val() };
+    console.log(data);
+
+    $.ajax({
+        url: "http://localhost:8080/",
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data),
+        success: function (resp) {
+            console.log(resp);
+            $loginForm.hide();
+            $formLogin.hide();
+            $boxLogin.hide();
+            $extensionVersion.show();
+
+            Swal.fire({
+                icon: 'success',
+                text: "Funcionario realizou login com sucesso!",
+                showConfirmButton: false,
+                timer: 1500
+            })
+        },
+        error: function (error) {
+            console.error(error);
+            alert(error.responseJSON.message)
+        }
+    });
+    e.preventDefault();
+});
+
 class UI {
     getTableOfSite() {
         return document.getElementById('resultTable');
