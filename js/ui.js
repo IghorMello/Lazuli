@@ -47,6 +47,9 @@ class UI {
     // Hoje
 
     setUIForToday() {
+        document.getElementById('loginForm').classList.add('hide');
+        document.getElementById('boxLogin').classList.add('hide');
+        document.getElementById('extensionVersion').classList.remove('hide');
         document.getElementById('btnToday').classList.add('active');
         document.getElementById('btnAll').classList.remove('active');
         document.getElementById('btnByDays').classList.remove('active');
@@ -242,7 +245,7 @@ class UI {
         function fillSummaryTime(totalTime) {
             let arrayTime = getArrayTime(totalTime);
             let stringTime = '';
-            if (arrayTime.days > 0) stringTime += arrayTime.days + ' days ';
+            if (arrayTime.days > 0) stringTime += arrayTime.days + ' dias ';
             stringTime += arrayTime.hours + ' horas ';
             stringTime += arrayTime.mins + ' minutos ';
             return stringTime;
