@@ -643,7 +643,7 @@ function fillValuesForBlockWithInActiveDay(prefix, dayValue, timeValue, flag) {
         document.getElementById(prefix + 'WithoutCurrentDay').classList.remove('hide');
         document.getElementById(prefix + 'TimeWithoutCurrentDay').classList.remove('hide');
 
-        document.getElementById(prefix + 'Title').innerHTML = 'Include the current day in the calculation of statistics';
+        document.getElementById(prefix + 'Title').innerHTML = 'Incluir o dia atual no cálculo das estatísticas';
         document.getElementById(prefix + 'Icon').dataset.today = false;
         document.getElementById(prefix + 'Icon').src = "/images/no-today.svg";
 
@@ -655,7 +655,7 @@ function fillValuesForBlockWithInActiveDay(prefix, dayValue, timeValue, flag) {
         document.getElementById(prefix + 'WithoutCurrentDay').classList.add('hide');
         document.getElementById(prefix + 'TimeWithoutCurrentDay').classList.add('hide');
 
-        document.getElementById(prefix + 'Title').innerHTML = "Don't Include the current day in the calculation of statistics";
+        document.getElementById(prefix + 'Title').innerHTML = "Não inclua o dia atual no cálculo das estatísticas";
         document.getElementById(prefix + 'Icon').dataset.today = true;
         document.getElementById(prefix + 'Icon').src = "/images/today.svg";
 

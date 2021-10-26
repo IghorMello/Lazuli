@@ -57,8 +57,8 @@ $(function () {
             if (newTotal >= items.goal) {
                 var opt = {
                     type: "basic",
-                    title: "Goal Reached. Well Done!",
-                    message: "You Reached Your Goal " + items.goal + " !",
+                    title: "Objetivo alcançado. Bem feito!",
+                    message: "Você alcançou seu objetivo " + items.goal + " !",
                     iconUrl: "../images/icon.png"
                 }
                 chrome.notifications.create('goalReached', opt, function () { });
