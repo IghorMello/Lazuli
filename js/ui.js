@@ -30,6 +30,7 @@ $loginForm.on("submit", function (e) {
                 showConfirmButton: false,
                 timer: 1500
             })
+            localStorage.setItem('result', 'success');
         },
         error: function (error) {
             console.error(error);
@@ -38,6 +39,18 @@ $loginForm.on("submit", function (e) {
     });
     e.preventDefault();
 });
+
+var result = localStorage.getItem('result')
+
+if (result == 'success') {
+    var $formLogin = $("#loginForm"),
+        $boxLogin = $("#boxLogin"),
+        $extensionVersion = $("#extensionVersion");
+
+    $formLogin.hide();
+    $boxLogin.hide();
+    $extensionVersion.show();
+}
 
 class UI {
     getTableOfSite() {
