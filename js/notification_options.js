@@ -27,7 +27,6 @@ window.addEventListener('load', function () {
   options.frequency.onchange = function () {
     localStorage.frequency = options.frequency.value;
   };
-
 });
 
 //options for water tracker goal
@@ -45,7 +44,7 @@ $(function () {
 
   $('#playAudio').click(function () {
     var notificationSound = $('#sound').val();
-    var sound = new Audio('./audio/' + notificationSound + '.mp3');
+    var sound = new Audio('audio/' + notificationSound + '.mp3');
     sound.play();
   });
 
@@ -58,15 +57,15 @@ $(function () {
       chrome.storage.sync.set({ 'goal': goal, 'message': message, 'sound': sound }, function () {
         var opt = {
           type: "basic",
-          title: "Changes Saved Successfully.",
+          title: "Atualizações salvas com sucesso.",
           message: "",
-          iconUrl: "./images/icon.png"
+          iconUrl: "images/icon.png"
         }
         chrome.notifications.create('saveChanges', opt, function () { });
         close();
       });
     } else {
-      alert("Goal Not Set");
+      alert("Objetivo não definido");
     }
     localStorage.isSoundActivated = $('#soundCheck').is(":checked");
   });
@@ -75,9 +74,9 @@ $(function () {
     chrome.storage.sync.set({ 'total': 0 }, function () {
       var opt = {
         type: "basic",
-        title: "Total Reset",
-        message: "Total Number of Glasses Consumed Today has been reset to zero.",
-        iconUrl: "./images/icon.png"
+        title: "Reinicialização total",
+        message: "O número total de copos consumidos hoje foi zerado.",
+        iconUrl: "images/icon.png"
       }
       chrome.notifications.create('reset', opt, function () { });
     });

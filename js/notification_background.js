@@ -1,6 +1,6 @@
 function audioNotification(notificationSound) {
   console.log("notificação de som aprovado: " + notificationSound);
-  var sound = new Audio('../audio/' + notificationSound + '.mp3');
+  var sound = new Audio('audio/' + notificationSound + '.mp3');
   sound.play();
 }
 
@@ -47,7 +47,7 @@ if (!localStorage.isInitialized) {
       type: "basic",
       title: "Obrigado por fazer o download. Vamos te manter hidratado.",
       message: "Clique com o botão direito no ícone na parte superior e selecione as opções para alterar as configurações.",
-      iconUrl: "./images/icon.png"
+      iconUrl: "images/icon.png"
     }
     chrome.notifications.create('saveChanges', opt, function () { });
   });

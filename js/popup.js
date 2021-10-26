@@ -59,7 +59,7 @@ $(function () {
                     type: "basic",
                     title: "Objetivo alcançado. Bem feito!",
                     message: "Você alcançou seu objetivo " + items.goal + " !",
-                    iconUrl: "../images/icon.png"
+                    iconUrl: "images/icon.png"
                 }
                 chrome.notifications.create('goalReached', opt, function () { });
             }

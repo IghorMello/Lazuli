@@ -184,6 +184,15 @@ li {
   border-radius: 5px;
 }
 
+select{
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 21px;
+  outline: none !important;
+  border: 1px solid #509fc1 !important;
+  color: #509fc1;
+}
+
 .button-timer {
   float: left;
   margin: 5px;
