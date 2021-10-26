@@ -1,45 +1,43 @@
 {
     "manifest_version": 2,
-    "name": "Pensando em que nome colocar",
-    "short_name": "Tracker",
-    "version": "1.0.0",
-    "minimum_chrome_version": "26",
+    "name": "Track",
+    "version": "2.2.1",
     "description": ".",
-    "options_page": "options.html",
+    "permissions": [
+        "storage",
+        "notifications",
+        "contextMenus",
+        "tabs",
+        "activeTab",
+        "storage",
+        "idle",
+        "chrome://favicon/*",
+        "webNavigation",
+        "unlimitedStorage"
+    ],
+    "browser_action": {
+        "default_icon": "images/48x48.png",
+        "default_popup": "index.html"
+    },
     "icons": {
         "16": "images/16x16.png",
         "32": "images/32x32.png",
         "48": "images/48x48.png",
         "128": "images/128x128.png"
     },
-    "permissions": [
-        "tabs",
-        "activeTab",
-        "storage",
-        "contextMenus",
-        "notifications",
-        "idle",
-        "chrome://favicon/*",
-        "webNavigation",
-        "unlimitedStorage"
-    ],
-    "optional_permissions": [
-        "https://www.youtube.com/*",
-        "https://www.netflix.com/*"
-    ],
-    "offline_enabled": true,
+    "options_page": "options.html",
     "background": {
         "scripts": [
-            "js/common.js",
-            "js/storage.js",
-            "js/activity.js",
-            "js/tab.js",
-            "js/timeInterval.js",
-            "js/background.js",
-            "js/restriction.js",
-            "js/url.js",
-            "js/notification_background.js",
-            "js/eventPage.js",
+            "js/remind-water/notification_background.js",
+            "js/remind-water/eventPage.js",
+            "js/time-tracker/common.js",
+            "js/time-tracker/storage.js",
+            "js/time-tracker/activity.js",
+            "js/time-tracker/tab.js",
+            "js/time-tracker/timeInterval.js",
+            "js/time-tracker/background.js",
+            "js/time-tracker/restriction.js",
+            "js/time-tracker/url.js",
             "js/pomodoro/model/settings/userSettings.js",
             "js/pomodoro/model/settings/userSettingsStorage.js",
             "js/pomodoro/model/badge.js",
@@ -50,12 +48,14 @@
             "js/pomodoro/model/timers/shortBreakTimer.js",
             "js/pomodoro/model/timers/longBreakTimer.js",
             "js/pomodoro/background.js"
-        ],
-        "persistent": false
+        ]
     },
-    "browser_action": {
-        "default_popup": "index.html",
-        "default_title": "Pensando em que nome colocar",
-        "default_icon": "images/48x48.png"
-    }
+    "optional_permissions": [
+        "https://www.youtube.com/*",
+        "https://www.netflix.com/*"
+    ],
+    "offline_enabled": true,
+    "web_accessible_resources": [
+        "icon.png"
+    ]
 }
