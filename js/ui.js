@@ -132,7 +132,7 @@ class UI {
     createTotalBlock(totalTime, currentTypeOfList, counter) {
         var totalElement = document.getElementById('total');
         var spanVisits = this.createElement('span', ['span-visits', 'tooltip', 'visits'], counter !== undefined ? counter : 0);
-        var visitsTooltip = this.createElement('span', ['tooltiptext'], 'Count of visits');
+        var visitsTooltip = this.createElement('span', ['tooltiptext'], 'Contador de visitas');
         spanVisits.appendChild(visitsTooltip);
         var spanPercentage = this.createElement('span', ['span-percentage'], '100 %');
         var div = this.createElement('div', ['margin-left-5', 'total-block'], 'Total');
@@ -284,7 +284,7 @@ class UI {
         }
 
         var spanVisits = this.createElement('span', ['span-visits', 'tooltip', 'visits'], counter !== undefined ? counter : 0);
-        var visitsTooltip = this.createElement('span', ['tooltiptext'], 'Count of visits');
+        var visitsTooltip = this.createElement('span', ['tooltiptext'], 'Contador de visitas');
 
         spanVisits.appendChild(visitsTooltip);
 

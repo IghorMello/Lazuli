@@ -137,32 +137,172 @@
         </div>
     </div>
 
+
     <div id="water" class="hide">
         <p class="table-header">Lembrar de tomar água</p>
-        <div class="image">
-            <img src="./images/one.gif" alt="" id="glass">
+        <div class="remind-water">
+            <h2>Consumo: <span id="total">0</span></h2>
+            <h2>Meta: <span id="goal">0</span></h2>
+            <div class="cups" name="frequency" id="amount">
+                <div class="cup cup-small">250 ml</div>
+                <div class="cup cup-small">250 ml</div>
+                <div class="cup cup-small">250 ml</div>
+                <div class="cup cup-small">250 ml</div>
+            </div>
+
+            <br>
+
+            <h3>Entre com o número de copos de água consumidos: </h3>
+            <select name="frequency" id="amount">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+
+            <br><br>
+
+            <!-- <input class="button-timer long-break-btn buttonClass" name="" value="Adicionar copo de água"> -->
+            <div class="sub-main">
+                <button type="submit" class="button-timer long-break-btn buttonClass button-two"
+                    id="addAmount"><span>Adicionar copo de água</span></button>
+            </div>
+
         </div>
-
-        <h2>
-            Consumo: <span id="total">0</span>
-            &nbsp; &nbsp;&nbsp;
-            Metas de hoje : <span id="goal">0</span>
-        </h2>
-
-        <h3>Entre com o número de copos de água consumidos: </h3>
-
-        <select name="frequency" id="amount">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-        <input class="buttonClass" type="submit" name="" id="addAmount" value="Adicionar copo de água">
     </div>
 
+
+
     <style>
-        #timer {
+        :root {
+            --border-color: #144fc6;
+            --fill-color: #6ab3f8;
+        }
+
+        .button-one,
+        .button-two,
+        .button-three {
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 0 0 100px;
+        }
+
+        .button-two {
+            border-radius: 4px;
+            color: #fff;
+            background-color: #144fc6;
+            border: none;
+            width: 200px;
+            transition: all 0.5s;
+        }
+
+        .button-two span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button-two span:after {
+            content: '»';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button-two:hover span {
+            padding-right: 25px;
+        }
+
+        .button-two:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .remind-water {
+            color: #fff;
+            font-family: "Montserrat", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .cup {
+            background-color: #fff;
+            border: 4px solid var(--border-color);
+            color: var(--border-color);
+            border-radius: 0 0 40px 40px;
+            height: 330px;
+            width: 150px;
+            margin: 30px 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .cup.cup-small {
+            height: 95px;
+            width: 50px;
+            border-radius: 0 0 15px 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            font-size: 14px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 5px;
+            transition: 0.3s ease;
+        }
+
+        .cup.cup-small.full {
+            background-color: var(--fill-color);
+            color: #fff;
+        }
+
+        .cups {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 280px;
+        }
+
+        .remained {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex: 1;
+            transition: 0.3s ease;
+        }
+
+        .remained span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .remained small {
+            font-size: 12px;
+        }
+
+        .percentage {
+            background-color: var(--fill-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            height: 0;
+            transition: 0.3s ease;
+        }
+
+        .timer {
             margin: 50px auto 0;
             background-color: rgb(53, 218, 163);
             border-radius: 10px;
@@ -174,7 +314,7 @@
             margin: auto;
         }
 
-        #countdown {
+        .countdown {
             clear: both;
             width: fit-content;
             margin: auto;
@@ -197,14 +337,14 @@
             background-color: rgb(41, 235, 170);
         }
 
-        #current-task-display {
+        .current-task-display {
             width: 100%;
             padding-top: 30px;
             margin: auto;
             text-align: center;
         }
 
-        #tasks-container {
+        .tasks-container {
             margin: auto;
         }
 
@@ -242,7 +382,7 @@
             cursor: pointer;
         }
 
-        #add-task-btn {
+        .add-task-btn {
             width: 200px;
             margin: 0 auto 10px;
             background-color: rgb(41, 235, 170);
@@ -252,7 +392,7 @@
             text-align: center;
         }
 
-        #task-form {
+        .task-form {
             clear: both;
             background-color: white;
             color: black;
@@ -261,21 +401,21 @@
             padding: 15px;
         }
 
-        #text {
+        .text {
             border: none;
             width: 95%;
             font-size: 18px;
             margin-bottom: 5px;
         }
 
-        #est-pomodoro {
+        .est-pomodoro {
             margin: 10px 10px 0;
             width: 50px;
             padding: 5px;
         }
 
-        #save,
-        #cancel {
+        .save,
+        .cancel {
             border: none;
             width: 60px;
             padding: 8px;
@@ -286,19 +426,19 @@
         }
 
         @media (min-width: 400px) {
-            #timer {
+            .timer {
                 width: 400px;
             }
         }
 
         @media (min-width: 470px) {
-            #task-form {
+            .task-form {
                 width: 470px;
             }
         }
 
         @media (min-width: 500px) {
-            #tasks-container {
+            .tasks-container {
                 width: 500px;
             }
         }
@@ -306,24 +446,19 @@
 
     <div id="pomodoro" class="hide">
         <p class="table-header">Temporizador Pomodoro</p>
-        <!-- <div id="clock"></div>
-        <div id="play">Iniciar temporizador</div>
-        <div id="pause">Pausar</div>
-        <div id="reset">Resetar</div> -->
-
-        <div id="timer">
+        <div class="timer">
             <div class="buttons">
-                <div class="button-timer selected" id="pomodoro-btn">
+                <div class="button-timer selected pomodoro-btn">
                     <div id="caption"></div>
                 </div>
-                <div class="button-timer" id="short-break-btn">
+                <div class="button-timer short-break-btn">
                     <div id="pause">Pausar</div>
                 </div>
-                <div class="button-timer" id="long-break-btn">
+                <div class="button-timer long-break-btn">
                     <div id="reset">Resetar</div>
                 </div>
             </div>
-            <div id="countdown">
+            <div class="countdown">
                 <div id="clock"></div>
             </div>
             <div class="start-btn">
