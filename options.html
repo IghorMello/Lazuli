@@ -269,93 +269,82 @@
             <!-- Alerta de Água -->
 
             <div id='waterBlock' hidden>
-                <div class="margin-top-20">
-                    <div class="wrap">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-12 col-xs-12 textClass">
-                                    <h1 class="head">
-                                        Lembrar de tomar água
-                                    </h1>
+                <label>Lembrar de tomar água: </label>
+                <div class="tooltip">
+                    <img src="/images/information.svg" height="18" />
+                    <span class="tooltiptext">
+                        Mostrar notificações para lembrar de tomar água.
+                    </span>
+                </div>
 
-                                    <form id="options" class="row">
-                                        <div class="col-md-6">
-                                            <input type="checkbox" name="isActivated" checked class="check">
-                                            Notifique-me em a cada&nbsp;
-                                        </div>
+                <form id="options" class="row">
+                    <br><br>
+                    <div class="col-md-6">
+                        <input type="checkbox" name="isActivated" checked class="check">Notifique-me em a cada
+                        <select name="frequency">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>5</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                            <option>30</option>
+                            <option>60</option>
+                            <option>120</option>
+                            <option>180</option>
+                            <option>240</option>
+                        </select> minuto(s).
+                    </div>
+                </form>
 
-                                        <div class="margin-top-10">
-                                            <select name="frequency">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>5</option>
-                                                <option>10</option>
-                                                <option>15</option>
-                                                <option>20</option>
-                                                <option>30</option>
-                                                <option>60</option>
-                                                <option>120</option>
-                                                <option>180</option>
-                                                <option>240</option>
-                                            </select> minuto(s).
-                                        </div>
-                                    </form>
+                <div class="goalClass">
+                    <h1 class="goalHead">Defina sua meta para hoje</h1>
 
-                                    <div class="goalClass">
-                                        <h1 class="goalHead">Defina sua meta para hoje</h1>
-
-                                        <form id="soundOptions" class="row">
-                                            <div class="col-md-6 soundNotification">
-                                                <input type="checkbox" name="isSoundActivated" checked class="check"
-                                                    id="soundCheck">
-                                                Som de notificação&nbsp;
-                                            </div>
-
-
-                                            <div class="col-md-5 soundNotification">
-                                                <select name="sound" id="sound">
-                                                    <option> Uma bela queda </option>
-                                                    <option> Claro </option>
-                                                    <option> Várias gotas de água </option>
-                                                    <option> Direto ao ponto </option>
-                                                    <option> Gota d'água </option>
-                                                    <option> Água Splash Ploor </option>
-                                                    <option> Respingos de água </option>
-                                                    <option> Notificação do Android </option>
-                                                    <option> Bell </option>
-                                                    <option> Bolha </option>
-                                                    <option> Mensagem </option>
-                                                    <option> Plucky </option>
-                                                    <option>Notificação curta</option>
-                                                    <option>Notificação de texto</option>
-                                                </select>
-                                            </div>
-                                        </form>
-
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <p class="messageLabel">Sua mensagem</p>
-                                                <input type="text" id="message" class="messageClass">
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <h2>Meta de hoje:</h2>
-                                            </div>
-
-                                            <div class="col-md-2">
-                                                <input type="text" id="goal" class="goalClass">
-                                            </div>
-
-                                            <br>
-
-                                            <input id="save" class="button primary" type="button" value="Salvar" />
-                                            <input id="reset" class="button default reset" type="button"
-                                                value="Resetar" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <form id="soundOptions" class="row">
+                        <div class="col-md-6 soundNotification">
+                            <input type="checkbox" name="isSoundActivated" checked class="check" id="soundCheck">
+                            Som de notificação&nbsp;
                         </div>
+
+
+                        <div class="col-md-5 soundNotification">
+                            <select name="sound" id="sound">
+                                <option> Uma bela queda </option>
+                                <option> Claro </option>
+                                <option> Várias gotas de água </option>
+                                <option> Direto ao ponto </option>
+                                <option> Gota d'água </option>
+                                <option> Água Splash Ploor </option>
+                                <option> Respingos de água </option>
+                                <option> Notificação do Android </option>
+                                <option> Bell </option>
+                                <option> Bolha </option>
+                                <option> Mensagem </option>
+                                <option> Plucky </option>
+                                <option>Notificação curta</option>
+                                <option>Notificação de texto</option>
+                            </select>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="messageLabel">Sua mensagem</p>
+                            <input type="text" id="message" class="messageClass">
+                        </div>
+
+                        <div class="col-md-4">
+                            <h2>Meta de hoje:</h2>
+                        </div>
+
+                        <div class="col-md-2">
+                            <input type="text" id="goal" class="goalClass">
+                        </div>
+
+                        <br>
+
+                        <input id="save" class="button primary" type="button" value="Salvar" />
+                        <input id="reset" class="button default reset" type="button" value="Resetar" />
                     </div>
                 </div>
             </div>
@@ -363,52 +352,47 @@
             <!-- Pomodoro Timer -->
 
             <div id='pomodoroBlock' hidden>
-                <div class="margin-top-20">
-                    <div id="box">
-                        <div id="content">
-                            <div id="title">
-                                <h1>
-                                    <img id="settingsIcon" src="./images/settings.png" alt="Settings icon" />
-                                    Configurações
-                                </h1>
-                            </div>
+                <label>Temporizador Pomodoro: </label>
+                <div class="tooltip">
+                    <img src="/images/information.svg" height="18" />
+                    <span class="tooltiptext">
+                        Atividar temporizador pomodoro.
+                    </span>
+                </div>
 
-                            <form>
-                                <div>
-                                    <div id="study">
-                                        <h2>Trabalhar</h2>
-                                        <input type="text" class="minutes" size="3" maxlength="3" /> : <input
-                                            type="text" class="seconds" size="3" maxlength="2" />
-                                    </div>
+                <form>
+                    <div>
+                        <div id="study">
+                            <h2>Trabalhar</h2>
+                            <input type="text" class="minutes" size="3" maxlength="3" /> : <input type="text"
+                                class="seconds" size="3" maxlength="2" />
+                        </div>
 
-                                    <div id="shortBreak">
-                                        <h2>Intervalo curto</h2>
-                                        <input type="text" class="minutes" size="3" maxlength="3" /> : <input
-                                            type="text" class="seconds" size="3" maxlength="2" />
-                                    </div>
+                        <div id="shortBreak">
+                            <h2>Intervalo curto</h2>
+                            <input type="text" class="minutes" size="3" maxlength="3" /> : <input type="text"
+                                class="seconds" size="3" maxlength="2" />
+                        </div>
 
-                                    <div id="longBreak">
-                                        <h2>Intervalo longo</h2>
-                                        <input type="text" class="minutes" size="3" maxlength="3" /> : <input
-                                            type="text" class="seconds" size="3" maxlength="2" />
-                                    </div>
-                                </div>
-
-                                <p id="pomodorosMessage" class="caption">
-                                    Número de sessões de Pomodoro por ciclo:
-                                    <input type="text" id="numberPomodoros" size="2" maxlength="2" />
-                                </p>
-
-                                <p class="caption">
-                                    <input type="checkbox" id="sound">
-                                    <label for="sound">Habilitar som de notificação</label>
-                                </p>
-                                <input id="saveButton" class="button primary" type="button" value="Salvar" />
-                                <input id="resetButton" class="button default" type="button" value="Resetar" />
-                            </form>
+                        <div id="longBreak">
+                            <h2>Intervalo longo</h2>
+                            <input type="text" class="minutes" size="3" maxlength="3" /> : <input type="text"
+                                class="seconds" size="3" maxlength="2" />
                         </div>
                     </div>
-                </div>
+
+                    <p id="pomodorosMessage" class="caption">
+                        Número de sessões de Pomodoro por ciclo:
+                        <input type="text" id="numberPomodoros" size="2" maxlength="2" />
+                    </p>
+
+                    <p class="caption">
+                        <input type="checkbox" id="sound">
+                        <label for="sound">Habilitar som de notificação</label>
+                    </p>
+                    <input id="saveButton" class="button primary" type="button" value="Salvar" />
+                    <input id="resetButton" class="button default" type="button" value="Resetar" />
+                </form>
             </div>
 
             <!-- Sobre -->
