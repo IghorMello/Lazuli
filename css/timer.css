@@ -125,8 +125,9 @@
 }
 
 .timer {
-  margin: 50px auto 0;
-  background-color: rgb(53, 218, 163);
+  margin: 0 auto 0;
+  background-color: var(--fill-color);
+  color: #fff;
   border-radius: 10px;
   padding: 10px 0 20px;
 }
@@ -151,12 +152,12 @@
   padding: 10px 30px;
   border-radius: 10px;
   text-align: center;
-  background-color: rgb(41, 235, 170);
+  background-color: var(--fill-color);
   cursor: pointer;
 }
 
 .selected {
-  background-color: rgb(41, 235, 170);
+  background-color: var(--fill-color);
 }
 
 .current-task-display {
@@ -206,7 +207,7 @@ select{
 
 .delete-btn {
   padding: 10px;
-  background-color: rgb(41, 235, 170);
+  background-color: var(--fill-color);
   color: white;
   border-radius: 5px;
   margin-left: 10px;
@@ -216,7 +217,7 @@ select{
 .add-task-btn {
   width: 200px;
   margin: 0 auto 10px;
-  background-color: rgb(41, 235, 170);
+  background-color: var(--fill-color);
   padding: 8px;
   border-radius: 5px;
   cursor: pointer;

@@ -102,7 +102,7 @@ function showNotification(activeUrl, tab) {
             chrome.notifications.create(
                 'watt-site-notification', {
                 type: 'basic',
-                iconUrl: 'icons/128x128.png',
+                iconUrl: 'images/128x128.png',
                 title: "Pensando em que nome colocar",
                 contextMessage: activeUrl + ' ' + convertShortSummaryTimeToString(tab.getTodayTime()),
                 message: setting_notification_message
@@ -124,7 +124,7 @@ function notificationAction(activeUrl, tab) {
     chrome.notifications.create(
         'watt-site-notification', {
         type: 'basic',
-        iconUrl: 'icons/128x128.png',
+        iconUrl: 'images/128x128.png',
         title: "Pensando em que nome colocar",
         contextMessage: activeUrl + ' ' + convertShortSummaryTimeToString(tab.getTodayTime()),
         message: setting_notification_message
