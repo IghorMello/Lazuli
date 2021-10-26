@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap');
+
 body {
   margin: 10px;
-  font: 84% Arial, sans-serif;
+  font: 84% 'Fira Sans', sans-serif;
   background: url(images/bg.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;

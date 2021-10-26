@@ -161,25 +161,185 @@
         <input class="buttonClass" type="submit" name="" id="addAmount" value="Adicionar copo de água">
     </div>
 
+    <style>
+        #timer {
+            margin: 50px auto 0;
+            background-color: rgb(53, 218, 163);
+            border-radius: 10px;
+            padding: 10px 0 20px;
+        }
+
+        .buttons {
+            width: fit-content;
+            margin: auto;
+        }
+
+        #countdown {
+            clear: both;
+            width: fit-content;
+            margin: auto;
+            font-size: 90px;
+            font-weight: 500;
+            padding: 20px;
+        }
+
+        .start-btn {
+            width: 40px;
+            margin: 10px auto 0;
+            padding: 10px 30px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: rgb(41, 235, 170);
+            cursor: pointer;
+        }
+
+        .selected {
+            background-color: rgb(41, 235, 170);
+        }
+
+        #current-task-display {
+            width: 100%;
+            padding-top: 30px;
+            margin: auto;
+            text-align: center;
+        }
+
+        #tasks-container {
+            margin: auto;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            padding: 20px 10px;
+            margin-bottom: 5px;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+        }
+
+        .button-timer {
+            float: left;
+            margin: 5px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 7px;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .delete-btn {
+            padding: 10px;
+            background-color: rgb(41, 235, 170);
+            color: white;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        #add-task-btn {
+            width: 200px;
+            margin: 0 auto 10px;
+            background-color: rgb(41, 235, 170);
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #task-form {
+            clear: both;
+            background-color: white;
+            color: black;
+            height: 100px;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        #text {
+            border: none;
+            width: 95%;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        #est-pomodoro {
+            margin: 10px 10px 0;
+            width: 50px;
+            padding: 5px;
+        }
+
+        #save,
+        #cancel {
+            border: none;
+            width: 60px;
+            padding: 8px;
+            margin-left: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+        @media (min-width: 400px) {
+            #timer {
+                width: 400px;
+            }
+        }
+
+        @media (min-width: 470px) {
+            #task-form {
+                width: 470px;
+            }
+        }
+
+        @media (min-width: 500px) {
+            #tasks-container {
+                width: 500px;
+            }
+        }
+    </style>
+
     <div id="pomodoro" class="hide">
         <p class="table-header">Temporizador Pomodoro</p>
-        <div id="popup-content">
-            <div id="clock"></div>
-            <div id="caption"></div>
-            <div class="button primary" id="play">Iniciar temporizador</div>
-            <div class="button default" id="pause">Pausar</div>
-            <div class="button default" id="reset">Resetar</div>
+        <!-- <div id="clock"></div>
+        <div id="play">Iniciar temporizador</div>
+        <div id="pause">Pausar</div>
+        <div id="reset">Resetar</div> -->
 
-            <div id="footer">
+        <div id="timer">
+            <div class="buttons">
+                <div class="button-timer selected" id="pomodoro-btn">
+                    <div id="caption"></div>
+                </div>
+                <div class="button-timer" id="short-break-btn">
+                    <div id="pause">Pausar</div>
+                </div>
+                <div class="button-timer" id="long-break-btn">
+                    <div id="reset">Resetar</div>
+                </div>
+            </div>
+            <div id="countdown">
+                <div id="clock"></div>
+            </div>
+            <div class="start-btn">
+                <div id="play">Iniciar</div>
+            </div>
+            <div class="start-btn" aria-disabled="" id="footer">
                 <div id="pomodoros">
-                    Pomodoros: <span id="pomodoroNumber">1</span>
+                    Nº: <span id="pomodoroNumber">1</span>
                 </div>
             </div>
         </div>
+        <br>
     </div>
 
     <div id="blockForChartBtn">
-        <a class="button active chart-btn chart-btn-donut" id="donutChartBtn">Gráfico comum</a>
+        <a class="button chart-btn chart-btn-donut" id="donutChartBtn">Gráfico comum</a>
         <a class="button chart-btn chart-btn-heatmap" id="heatMapChartBtn">Gráfico de tempo</a>
     </div>
 

@@ -13,8 +13,10 @@ class UI {
         document.getElementById('btnByDays').classList.remove('active');
         document.getElementById('btnWater').classList.remove('active');
         document.getElementById('btnPomodoro').classList.remove('active');
+        document.getElementById('donutChartBtn').classList.add('active');
 
         document.getElementById('blockForChartBtn').classList.remove('hide');
+        document.getElementById('chart').classList.remove('hide');
         document.getElementById('labelForTimeInterval').classList.add('hide');
         document.getElementById('stats').classList.add('hide');
         document.getElementById('water').classList.add('hide');
@@ -35,6 +37,7 @@ class UI {
         document.getElementById('heatMapChartBtn').classList.remove('active');
 
         document.getElementById('blockForChartBtn').classList.add('hide');
+        document.getElementById('chart').classList.add('hide');
         document.getElementById('stats').classList.remove('hide');
         document.getElementById('labelForTimeInterval').classList.add('hide');
         document.getElementById('water').classList.add('hide');
@@ -50,10 +53,11 @@ class UI {
         document.getElementById('btnAll').classList.remove('active');
         document.getElementById('btnToday').classList.remove('active');
         document.getElementById('btnByDays').classList.remove('active');
-        document.getElementById('donutChartBtn').classList.remove('active');
-        document.getElementById('heatMapChartBtn').classList.remove('active');
+        document.getElementById('donutChartBtn').classList.add('hide');
+        document.getElementById('heatMapChartBtn').classList.add('hide');
 
         document.getElementById('water').classList.remove('hide');
+        document.getElementById('chart').classList.add('hide');
         document.getElementById('pomodoro').classList.add('hide');
         document.getElementById('blockForChartBtn').classList.add('hide');
         document.getElementById('stats').classList.add('hide');
@@ -72,6 +76,7 @@ class UI {
         document.getElementById('donutChartBtn').classList.remove('active');
         document.getElementById('heatMapChartBtn').classList.remove('active');
 
+        document.getElementById('chart').classList.add('hide');
         document.getElementById('blockForChartBtn').classList.add('hide');
         document.getElementById('stats').classList.add('hide');
         document.getElementById('water').classList.add('hide');
