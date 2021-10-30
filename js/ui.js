@@ -12,7 +12,7 @@ $loginForm.on("submit", function (e) {
     console.log(data);
 
     $.ajax({
-        url: "http://localhost:8080/",
+        url: "https://flaskapideploy.herokuapp.com/",
         type: "POST",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
