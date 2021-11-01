@@ -7,33 +7,35 @@ from decouple import config
 
 app = Flask(__name__)
 
-# Criptografar
+# Página inicial
 
 @app.route('/', methods=['GET', 'POST'])
-def criptografar():
-  option = "criptografar"
-  data = ''
+def index():
+  return render_template('page/index.html')
 
-  if request.method == 'POST':
-    text = request.form['texto'].replace(" ", "-").lower()
-    key = request.form['chave'].lower()
-    data = criptografar_permuta(text, key)
-  return render_template('index.html', data=data, option=option)
+# Página de login do responsável médico
 
-# Descriptografar
+@app.route('/resp', methods=['GET', 'POST'])
+def resp_login():
+  return render_template('routes/login-medical.html')
 
-@app.route('/descriptografar/', methods=['GET', 'POST'])
-def descriptografar():
-  option = "descriptografar"
-  data = ''
+# Página de cadastro do responsável médico
 
-  if request.method == 'POST':
-    texto = request.form['texto'].replace(" ", "").lower()
-    chave = request.form['chave'].lower()
-    data = descriptografar_permuta(texto, chave)
+@app.route('/resp/register', methods=['GET', 'POST'])
+def resp_login():
+  return render_template('routes/register-medical.html')
 
-  print(data)
-  return render_template('index.html', data=data, option=option)
+# Página de dashboard do responsável médico
+
+@app.route('/resp/dashboard', methods=['GET', 'POST'])
+def resp_dashboard():
+  return render_template('routes/dashboard-medical.html')
+
+# Página de cadastro do responsável médico
+
+@app.route('/resp/register-employee', methods=['GET', 'POST'])
+def resp_register_employee():
+  return render_template('routes/register-employee.html')
 
 # Tela de erro
 
