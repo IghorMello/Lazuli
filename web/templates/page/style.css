@@ -92,25 +92,25 @@ nav a:hover {
 }
 
 .icon--chrome {
-    background-image: url(https://raw.githubusercontent.com/darkreader/darkreader.github.io/650df04cff94918df9634d2bafdb77d7c4d4f5a3/images/icon-chrome-512x512.svg);
+    background-image: url(../../static/assets/img/icon-chrome-512x512.svg);
     background-size: 90%;
 }
 
 .icon--firefox {
-    background-image: url(https://raw.githubusercontent.com/darkreader/darkreader.github.io/650df04cff94918df9634d2bafdb77d7c4d4f5a3/images/icon-firefox-87x82.svg);
+    background-image: url(../../static/assets/img/icon-firefox-87x82.svg);
 }
 
 .icon--safari {
-    background-image: url(https://raw.githubusercontent.com/darkreader/darkreader.github.io/650df04cff94918df9634d2bafdb77d7c4d4f5a3/images/icon-safari-66x66.svg);
+    background-image: url(../../static/assets/img/icon-safari-66x66.svg);
 }
 
 .icon--edge {
-    background-image: url(https://raw.githubusercontent.com/darkreader/darkreader.github.io/650df04cff94918df9634d2bafdb77d7c4d4f5a3/images/icon-edge-256x256.svg);
+    background-image: url(../../static/assets/img/icon-edge-256x256.svg);
     background-size: 90%;
 }
 
 .icon--github {
-    background-image: url(https://raw.githubusercontent.com/darkreader/darkreader.github.io/650df04cff94918df9634d2bafdb77d7c4d4f5a3/images/icon-github-white-420x420.png);
+    background-image: url(../../static/assets/img/icon-github-white-420x420.png);
     background-size: 125%;
 }
 
