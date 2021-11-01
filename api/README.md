@@ -1,20 +1,3 @@
-## :pushpin: Índice
-
-- [Sobre](#sobre-o-projeto)
-- [Como Executar](#executar)
-
-<br>
-
-<a id="sobre-o-projeto"></a>
-
-## 💻 Sobre o projeto
-
-:rocket: API desenvolvida em Flask. 
-
-<br>
-
-<a id="executar"></a>
-
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos
@@ -29,11 +12,13 @@ $ git clone -b extension https://github.com/IghorMello/Lazuli.git
 # Habilite o MongoDB (em Linux/macOS)
 $ sudo systemctl start mongod
 
-# Caso não esteja em ambiente virtual, certifique-se de criá-lo dentro da pasta (em Linux/macOS) e ativá-lo
+# Caso não esteja em ambiente virtual, certifique-se de criá-lo 
+# dentro da pasta (em Linux/macOS) e ativá-lo
 $ python3 -m venv venv
 $ . venv/bin/activate
 
-# Para criar o ambiente virtual em Windows e ativá-lo, utilize o comando abaixo
+# Para criar o ambiente virtual em Windows e ativá-lo, 
+# utilize o comando abaixo
 $ py -3 -m venv venv
 $ venv\Scripts\activate
 
@@ -43,7 +28,8 @@ $ cd lazuli/api
 # Instale as depedências
 $ pip install -r requirements.txt
 
-# Após isso inicie os arquivos dentro de sua respectiva pastas
+# Após isso inicie os arquivos dentro de sua 
+# respectiva pastas
 $ python3 app.py
 
 ```
