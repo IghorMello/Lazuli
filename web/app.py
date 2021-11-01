@@ -21,7 +21,7 @@ def resp_login():
 # Página de cadastro do responsável médico
 
 @app.route('/resp/register', methods=['GET', 'POST'])
-def resp_login():
+def resp_register():
   return render_template('routes/register-medical.html')
 
 # Página de dashboard do responsável médico
