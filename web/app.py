@@ -36,6 +36,24 @@ def resp_dashboard():
 def resp_register_employee():
   return render_template('routes/register-employee.html')
 
+# Página de admin
+
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
+  return render_template('admin/login.html')
+
+# Página de dashboard do admin
+
+@app.route('/admin/dashboard', methods=['GET', 'POST'])
+def admin_dashboard():
+  return render_template('admin/dashboard.html')
+
+# Página de consultas do admin
+
+@app.route('/admin/consult', methods=['GET', 'POST'])
+def admin_consult():
+  return render_template('admin/consult.html')
+
 # Tela de erro
 
 @app.errorhandler(404)
