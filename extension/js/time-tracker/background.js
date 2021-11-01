@@ -103,7 +103,7 @@ function showNotification(activeUrl, tab) {
                 'watt-site-notification', {
                 type: 'basic',
                 iconUrl: 'images/128x128.png',
-                title: "Pensando em que nome colocar",
+                title: "Extensão de apoio ao bem-estar do profissional de TI",
                 contextMessage: activeUrl + ' ' + convertShortSummaryTimeToString(tab.getTodayTime()),
                 message: setting_notification_message
             },
@@ -125,7 +125,7 @@ function notificationAction(activeUrl, tab) {
         'watt-site-notification', {
         type: 'basic',
         iconUrl: 'images/128x128.png',
-        title: "Pensando em que nome colocar",
+        title: "Extensão de apoio ao bem-estar do profissional de TI",
         contextMessage: activeUrl + ' ' + convertShortSummaryTimeToString(tab.getTodayTime()),
         message: setting_notification_message
     });

@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pensando em que nome colocar</title>
+    <title>Extensão de apoio ao bem-estar do profissional de TI</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/webact.css" />
     <link rel="stylesheet" href="css/chart.css" />
     <link rel="stylesheet" href="css/timer.css" />
@@ -35,57 +36,74 @@
     <br><br>
 
     <style>
-        .container {
-            display: flex;
-            margin-top: 6rem;
+        .login {
+            width: 360px;
+            padding: 8% 0 0;
+            margin: auto;
+        }
+
+        .form__submit {
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            border-radius: 10px;
+            max-width: 360px;
+            margin: 0 auto 100px;
+            padding: 45px;
             text-align: center;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center
+        }
+
+        .form__submit input {
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            border-radius: 5px;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .form__submit button {
+            text-transform: uppercase;
+            outline: 0;
+            background: #4b6cb7;
+            width: 100%;
+            border: 0;
+            border-radius: 5px;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+
+        .form__submit span {
+            font-size: 75px;
+            color: #4b6cb7;
         }
     </style>
 
     <div id="loginForm" class="container">
-        <div id="boxLogin" class="child">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <span>Adicionar suas credenciais</span>
-                    </div>
+        <form method="post" id="login-form">
+            <div class="login">
+                <div class="form__submit">
+                    <form class="login-form">
+                        <span class="material-icons">lock</span>
+                        <input type="password" id="code_user" style="margin-top: 2rem;" placeholder="Código do usuário"
+                            required />
+                        <button type="submit" style="margin-top: 1rem;">login</button>
+                    </form>
                 </div>
-
-                <form method="post" id="login-form">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4">
-                                <div class="form-group">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i class="icon-lock"></i>
-                                            </span>
-                                        </div>
-                                        <input type="password" id="code_user" class="form-control"
-                                            placeholder="Codigo do Funcionario">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-action">
-                        <button type="submit" name="login" class="btn btn-success">
-                            Realizar login
-                        </button>
-                    </div>
-                </form>
             </div>
-        </div>
+        </form>
     </div><br>
 
     <div id="extensionVersion" class="hide">
         <div id="extensionTitle">
-            <h2 class="title">Pensando em que nome colocar</h2>
+            <h1 class="title">Extensão de apoio ao bem-estar do profissional de TI</h1>
         </div><br>
 
         <div id="buttons" class="btn-block">

@@ -51,7 +51,6 @@ if (!localStorage.isInitialized) {
     }
     chrome.notifications.create('saveChanges', opt, function () { });
   });
-
 }
 
 if (window.Notification) {
