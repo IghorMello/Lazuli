@@ -9,7 +9,7 @@
 
 ## 💻 Sobre o projeto
 
-:rocket: API desenvolvida em Flask. 
+:rocket: Extensão. 
 
 <br>
 
@@ -45,5 +45,24 @@ $ pip install -r requirements.txt
 
 # Após isso inicie os arquivos dentro de sua respectiva pastas
 $ python3 app.py
+
+```
+
+<br>
+
+#### 🎲 Rodando a aplicação (extensão) 
+
+```bash
+
+# Clone este repositório
+$ git clone -b extension https://github.com/IghorMello/Lazuli.git
+
+# Acesse o navegador e pesquise o nome do navegador com ://extension
+# Exemplo.
+$ edge://extensions/ 
+
+# Habilite o "Modo do desenvolvedor"
+# Clique em "Carregar sem pacote"
+# Carregue a pasta extension.
 
 ```
