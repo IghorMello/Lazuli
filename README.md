@@ -1,23 +1,13 @@
-## :pushpin: Índice
-
-- [Sobre](#sobre-o-projeto)
-- [Como Executar](#executar)
-
-<br>
-
-<a id="sobre-o-projeto"></a>
-
-## 💻 Sobre o projeto
-
-:rocket: Extensão. 
-
-<br>
-
-<a id="executar"></a>
-
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos
+
+- [Rodando API](#api)
+- [Rodando Extensão](#extension)
+
+<br>
+
+<a id="api"></a>
 
 #### 🧭 Rodando a aplicação (API) 
 
@@ -49,6 +39,8 @@ $ python3 app.py
 ```
 
 <br>
+
+<a id="extension"></a>
 
 #### 🎲 Rodando a aplicação (extensão) 
 
