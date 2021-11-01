@@ -4,6 +4,7 @@
 
 - [Rodando API](#api)
 - [Rodando Extensão](#extension)
+- [Rodando Página](#page)
 
 <br>
 
