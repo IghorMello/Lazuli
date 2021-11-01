@@ -133,10 +133,10 @@ function getArrayTime(summaryTime) {
     seconds = zeroAppend(seconds);
 
     return {
-        'dias': days,
-        'horas': hours,
+        'days': days,
+        'hours': hours,
         'mins': mins,
-        'segundos': seconds
+        'seconds': seconds
     };
 }
 
