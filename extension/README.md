@@ -6,10 +6,11 @@
 
 ```bash
 
-# Clone este repositório
+# Clone este repositório.
 $ git clone -b extension https://github.com/IghorMello/Lazuli.git
 
-# Acesse o navegador e pesquise o nome do navegador. Exemplo.
+# Acesse o navegador e pesquise o nome do navegador. 
+# Exemplo.
 $ edge://extensions/ 
 
 # Habilite o "Modo do desenvolvedor"
