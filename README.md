@@ -5,8 +5,6 @@
 - [Rodando API](#api)
 - [Rodando Extensão](#extension)
 
-<br>
-
 <a id="api"></a>
 
 #### 🧭 Rodando a aplicação (API) 
