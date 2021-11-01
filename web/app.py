@@ -1,7 +1,6 @@
 # Testando
 
 import string
-from utils import descriptografar_permuta, criptografar_permuta 
 from flask import Flask, render_template, Blueprint, jsonify, flash, request, redirect, url_for, session
 from decouple import config
 
