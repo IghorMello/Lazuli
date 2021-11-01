@@ -92,25 +92,25 @@ nav a:hover {
 }
 
 .icon--chrome {
-    background-image: url(assets/img/icon-chrome-512x512.svg);
+    background-image: url(../img/icon-chrome-512x512.svg);
     background-size: 90%;
 }
 
 .icon--firefox {
-    background-image: url(assets/img/icon-firefox-87x82.svg);
+    background-image: url(../img/icon-firefox-87x82.svg);
 }
 
 .icon--safari {
-    background-image: url(assets/img/icon-safari-66x66.svg);
+    background-image: url(../img/icon-safari-66x66.svg);
 }
 
 .icon--edge {
-    background-image: url(assets/img/icon-edge-256x256.svg);
+    background-image: url(../img/icon-edge-256x256.svg);
     background-size: 90%;
 }
 
 .icon--github {
-    background-image: url(assets/img/icon-github-white-420x420.png);
+    background-image: url(../img/icon-github-white-420x420.png);
     background-size: 125%;
 }
 
