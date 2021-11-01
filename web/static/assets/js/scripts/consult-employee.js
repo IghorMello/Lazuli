@@ -4,7 +4,7 @@
 //--------------------
 
 $.ajax({
-  url: 'http://localhost:8080/employees',
+  url: 'https://flaskapideploy.herokuapp.com/employees',
   method: 'get',
   success: function (data) {
     var html = '';

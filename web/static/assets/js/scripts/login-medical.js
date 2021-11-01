@@ -17,7 +17,7 @@ $(function () {
     console.log(data);
 
     $.ajax({
-      url: "http://localhost:8080/admin",
+      url: "https://flaskapideploy.herokuapp.com/admin",
       type: "POST",
       dataType: "json",
       contentType: "application/json; charset=utf-8",

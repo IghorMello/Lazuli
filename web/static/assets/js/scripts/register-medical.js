@@ -18,7 +18,7 @@ $(function () {
     console.log(data);
 
     $.ajax({
-      url: "http://localhost:8080/register-medical",
+      url: "https://flaskapideploy.herokuapp.com/register-medical",
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       type: "POST",
