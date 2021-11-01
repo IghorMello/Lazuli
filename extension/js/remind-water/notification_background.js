@@ -45,7 +45,7 @@ if (!localStorage.isInitialized) {
   chrome.storage.sync.set({ 'goal': goal, 'message': message, 'sound': sound, 'total': total }, function () {
     var opt = {
       type: "basic",
-      title: "Obrigado por fazer o download. Vamos te manter hidratado.",
+      title: "Obrigado por fazer o download.",
       message: "Clique com o botão direito no ícone na parte superior e selecione as opções para alterar as configurações.",
       iconUrl: "images/icon.png"
     }
