@@ -2,7 +2,7 @@
 {% block title %} Funcionários {% endblock %}
 {% block stylesheets %}{% endblock stylesheets %}
 {% block content %}
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
     <div class="d-block mb-4 mb-md-0">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -112,14 +112,11 @@
                 <td><span class="fw-normal">1 May 2020</span></td>
                 <td><span class="fw-bold text-warning">Due</span></td>
                 <td>
-                    <a class="dropdown-item rounded-top" href="#"><span class="fas fa-eye me-2"></span>
-                        Visualizar detalhes
-                    </a>
-                    <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>
+                    <a class="dropdown-item" href="#"><span class="fa fa-pencil-square-o me-2"></span>
                         Editar
                     </a>
                     <a class="dropdown-item text-danger rounded-bottom" href="#">
-                        <span class="fas fa-trash-alt me-2"></span>Remover</a>
+                        <span class="fa fa-trash me-2"></span>Remover</a>
                 </td>
             </tr>
         </tbody>
