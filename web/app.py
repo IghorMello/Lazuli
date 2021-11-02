@@ -61,6 +61,9 @@ def index():
 
 @app.route('/resp', methods=['GET', 'POST'])
 def resp_login():
+  user_id = request.json
+  if user_id != '':
+    session['user_id']=user_id
   return render_template('home/login.html')
 
 # Página de cadastro do responsável médico
