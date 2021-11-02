@@ -24,8 +24,6 @@ $(function () {
       data: JSON.stringify(data),
       success: function (resp) {
         console.log(resp);
-        $loginForm.hide();
-        $loginSuccess.show();
         Swal.fire({
           icon: 'success',
           text: "Responsável médico realizou login com sucesso!",
