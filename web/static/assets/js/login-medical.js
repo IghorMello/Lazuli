@@ -32,7 +32,10 @@ $(function () {
           showConfirmButton: false,
           timer: 1500
         })
-        setTimeout(function () { window.location.assign('dashboard-medical.html') }, 3000);
+
+        setTimeout(function () {
+          window.location.assign('dashboard-medical.html')
+        }, 3000);
       },
       error: function (error) {
         console.error(error);
