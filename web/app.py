@@ -4,7 +4,6 @@ import os
 import json
 import string
 import pathlib
-import requests
 import functools
 from flask import Flask, flash, redirect, request, session, render_template, jsonify, url_for, abort, Blueprint
 from datetime import timedelta
