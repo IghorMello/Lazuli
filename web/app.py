@@ -11,25 +11,29 @@ from decouple import config
 
 app = Flask(__name__)
 
+# Chave da aplicação Flask
+
+app.secret_key = config('SECRET_KEY')
+
 #------------------------------------------------------------------------#
 # Impedir acesso sem login
 #------------------------------------------------------------------------#
 
-# def login_required(view):
-#     @functools.wraps(view)
-#     def wrauth_plataformaed_view(**kwargs):
-#         if not 'user_id' in session.keys():
-#             flash(f'Necessário realizar login para prosseguir!', 'info')
-#             return redirect('/')
-#         return view(**kwargs)
-#         flash('Erro ao realizar login', 'warning')
-#     return wrauth_plataformaed_view
+def login_required(view):
+    @functools.wraps(view)
+    def wrauth_plataformaed_view(**kwargs):
+        if not 'user_id' in session.keys():
+            flash(f'Necessário realizar login para prosseguir!', 'info')
+            return redirect('/')
+        return view(**kwargs)
+        flash('Erro ao realizar login', 'warning')
+    return wrauth_plataformaed_view
 
 # Página inicial
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-  return render_template('pages/index.html')
+  return render_template('index.html')
 
 # Página de login do responsável médico
 
@@ -46,14 +50,14 @@ def resp_register():
 # Página de dashboard do responsável médico
 
 @app.route('/resp/dashboard', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def resp_dashboard():
   return render_template('home/dashboard.html')
 
 # Página de cadastro do responsável médico
 
 @app.route('/resp/register-employee', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def resp_register_employee():
   return render_template('home/register-employee.html')
 
@@ -66,21 +70,21 @@ def admin():
 # Página de dashboard do admin
 
 @app.route('/admin/dashboard', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def admin_dashboard():
   return render_template('admin/dashboard.html')
 
 # Página de consultas do admin
 
 @app.route('/admin/consult/medical', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def admin_consult_medical():
   return render_template('admin/consult-medical.html')
 
 # Página de consultas do admin
 
 @app.route('/admin/consult/employee', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def admin_consult_employee():
   return render_template('admin/consult-employee.html')
 
@@ -109,5 +113,5 @@ def sign_out():
     # session.pop('username')
     return redirect(url_for('index'))
 
-if __name__ == "__main__":
-  app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+if __name__ == '__main__':
+  app.run(debug=True)
