@@ -52,9 +52,8 @@ def index():
     list_send_email = {}
     list_send_email['name'] = request.form['name']
     list_send_email['email'] = request.form['email'].replace(' ','').lower()
-    list_send_email['phone'] = request.form['phone']
     list_send_email['subject'] = request.form['subject']
-    list_send_email['helpbox'] = request.form['helpbox']
+    list_send_email['message'] = request.form['message']
     send_email(list_send_email)
   return render_template('pages/index.html')
 
