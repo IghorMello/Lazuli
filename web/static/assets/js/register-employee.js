@@ -40,7 +40,7 @@ $(function () {
           showConfirmButton: false,
           timer: 3000
         })
-        window.location.assign('/home/dashboard.html')
+        window.location.assign('/resp/dashboard')
       },
       error: function (error) {
         console.error(error);

@@ -32,7 +32,7 @@ $(function () {
         })
 
         setTimeout(function () {
-          window.location.assign('/home/dashboard.html')
+          window.location.assign('/dashboard')
         }, 3000);
       },
       error: function (error) {

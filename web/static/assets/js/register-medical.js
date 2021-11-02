@@ -32,7 +32,7 @@ $(function () {
           timer: 1500
         })
         setTimeout(function () {
-          window.location.assign('/home/login.html')
+          window.location.assign('/resp')
         }, 3000);
       },
       error: function (error) {
