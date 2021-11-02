@@ -25,14 +25,15 @@ $(function () {
       data: JSON.stringify(data),
       success: function (resp) {
         console.log(resp);
-        $addUserForm.hide();
-        $addUserSuccess.show();
         Swal.fire({
           icon: 'success',
           text: "Responsável médico foi cadastrado com sucesso!",
           showConfirmButton: false,
           timer: 1500
         })
+        setTimeout(function () {
+          window.location.assign('/home/login.html')
+        }, 3000);
       },
       error: function (error) {
         console.error(error);
