@@ -62,7 +62,7 @@ def index():
 @app.route('/resp', methods=['GET', 'POST'])
 def resp_login():
   user_id = request.json
-  if user_id != '':
+  if user_id != '' or user_id != None:
     session['user_id']=user_id
   return render_template('home/login.html')
 
@@ -77,14 +77,15 @@ def resp_register():
 @app.route('/resp/dashboard', methods=['GET', 'POST'])
 # @login_required
 def resp_dashboard():
-  return render_template('home/dashboard.html')
+  print(session['user_id'])
+  return render_template('home/dashboard.html', current_user=session['user_id'])
 
 # Página de cadastro do responsável médico
 
 @app.route('/resp/register-employee', methods=['GET', 'POST'])
 # @login_required
 def resp_register_employee():
-  return render_template('home/register-employee.html')
+  return render_template('home/register-employee.html', current_user=session['user_id'])
 
 # Página de admin
 
@@ -144,8 +145,8 @@ def not_found_error(error):
 
 @app.route('/sign_out')
 def sign_out():
-    # session.pop('username')
-    return redirect(url_for('index'))
+    session.pop('user_id')
+    return redirect(url_for('resp_login'))
 
 if __name__ == "__main__":
   app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
