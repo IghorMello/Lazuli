@@ -8,12 +8,27 @@ import functools
 from flask import Flask, flash, redirect, request, session, render_template, jsonify, url_for, abort, Blueprint
 from datetime import timedelta
 from decouple import config
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
 # Chave da aplicação Flask
 
 app.secret_key = config('SECRET_KEY')
+
+# Configurações do servidor de email
+
+app.config['MAIL_SERVER']='smtp.mailtrap.io'
+app.config['MAIL_PORT'] = 2525
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = config('SMTP_USERNAME')
+app.config['MAIL_PASSWORD'] = config('SMTP_PASSWORD')
+app.config['MAIL_ASCII_ATTACHMENTS'] = True
+
+# Iniciando o servidor de email
+
+mail = Mail(app)
 
 #------------------------------------------------------------------------#
 # Impedir acesso sem login
@@ -33,6 +48,14 @@ def login_required(view):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+  if request.method == 'POST':
+    list_send_email = {}
+    list_send_email['name'] = request.form['name']
+    list_send_email['email'] = request.form['email'].replace(' ','').lower()
+    list_send_email['phone'] = request.form['phone']
+    list_send_email['subject'] = request.form['subject']
+    list_send_email['helpbox'] = request.form['helpbox']
+    send_email(list_send_email)
   return render_template('pages/index.html')
 
 # Página de login do responsável médico
@@ -87,6 +110,15 @@ def admin_consult_medical():
 @login_required
 def admin_consult_employee():
   return render_template('admin/consult-employee.html')
+
+# Enviar email
+
+def send_email(result, charset='utf-8'):
+    msg = Message("Extensão - Dúvida de {}!".format(result['email']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
+    Mensagem = "Dúvida<br>Enviada por '{}'<br> Email: {}<br>Dúvida: {}<br>Mensagem: {}".format(result['nome'], result['email'], result['subject'], result['message'])
+    msg.html = Mensagem.encode('ascii', 'xmlcharrefreplace')
+    print('\n\n\nSaiu')
+    mail.send(msg)
 
 # Erro 404
 
