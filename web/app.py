@@ -35,20 +35,20 @@ def index():
 
 @app.route('/resp', methods=['GET', 'POST'])
 def resp_login():
-  return render_template('home/login-medical.html')
+  return render_template('home/login.html')
 
 # Página de cadastro do responsável médico
 
 @app.route('/resp/register', methods=['GET', 'POST'])
 def resp_register():
-  return render_template('home/register-medical.html')
+  return render_template('home/register.html')
 
 # Página de dashboard do responsável médico
 
 @app.route('/resp/dashboard', methods=['GET', 'POST'])
 # @login_required
 def resp_dashboard():
-  return render_template('home/dashboard-medical.html')
+  return render_template('home/dashboard.html')
 
 # Página de cadastro do responsável médico
 
