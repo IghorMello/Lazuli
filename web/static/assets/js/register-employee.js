@@ -34,14 +34,13 @@ $(function () {
       data: JSON.stringify(data),
       success: function (resp) {
         console.log(resp);
-        $addUserForm.hide();
-        $addUserSuccess.show();
         Swal.fire({
           icon: 'success',
           text: "Funcionário foi cadastrado, seu código de acesso é " + resp['codigo_usuario'] + "!",
           showConfirmButton: false,
           timer: 3000
         })
+        window.location.assign('/home/dashboard.html')
       },
       error: function (error) {
         console.error(error);

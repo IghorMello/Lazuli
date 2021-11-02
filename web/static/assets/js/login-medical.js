@@ -34,7 +34,7 @@ $(function () {
         })
 
         setTimeout(function () {
-          window.location.assign('/home/dashboard-medical.html')
+          window.location.assign('/home/dashboard.html')
         }, 3000);
       },
       error: function (error) {

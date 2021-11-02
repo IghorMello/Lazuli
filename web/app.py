@@ -75,14 +75,14 @@ def resp_register():
 # Página de dashboard do responsável médico
 
 @app.route('/resp/dashboard', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def resp_dashboard():
   return render_template('home/dashboard.html')
 
 # Página de cadastro do responsável médico
 
 @app.route('/resp/register-employee', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def resp_register_employee():
   return render_template('home/register-employee.html')
 
@@ -95,21 +95,21 @@ def admin():
 # Página de dashboard do admin
 
 @app.route('/admin/dashboard', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def admin_dashboard():
   return render_template('admin/dashboard.html')
 
 # Página de consultas do admin
 
 @app.route('/admin/consult/medical', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def admin_consult_medical():
   return render_template('admin/consult-medical.html')
 
 # Página de consultas do admin
 
 @app.route('/admin/consult/employee', methods=['GET', 'POST'])
-@login_required
+# @login_required
 def admin_consult_employee():
   return render_template('admin/consult-employee.html')
 
