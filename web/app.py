@@ -59,12 +59,17 @@ def index():
 
 # Página de login do responsável médico
 
+@app.route('/postmethod', methods=['GET', 'POST'])
+def get_post_javascript_data():
+  print('\n\n\nChegou')
+  user_id = request.form['javascript_data']
+  print('\n\n\nuser_id', user_id)
+  session['user_id']=user_id
+  print('\n\n\nDados', session['user_id'])
+  return "deu certo"
+
 @app.route('/resp', methods=['GET', 'POST'])
 def resp_login():
-  user_id = request.json
-  print('\n\nUsuário', user_id)
-  if user_id != '' or user_id != None:
-    session['user_id']=user_id
   return render_template('home/login.html')
 
 # Página de cadastro do responsável médico
