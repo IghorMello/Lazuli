@@ -2,6 +2,7 @@
 {% block title %} Funcionários {% endblock %}
 {% block stylesheets %}{% endblock stylesheets %}
 {% block content %}
+<script src="../../static/assets/js/consult-employee.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -94,32 +95,13 @@
             <tr>
                 <th class="border-gray-200">#</th>
                 <th class="border-gray-200">Email</th>
-                <th class="border-gray-200">Data de cadastro</th>
+                <th class="border-gray-200">Nome</th>
                 <th class="border-gray-200">Status</th>
                 <th class="border-gray-200">Ação</th>
             </tr>
         </thead>
 
-        <tbody>
-            <tr>
-                <td>
-                    <a href="#" class="fw-bold">
-                        456478
-                    </a>
-                </td>
-                <td>
-                    <span class="fw-normal">savio@gmail.com</span>
-                </td>
-                <td><span class="fw-normal">1 May 2020</span></td>
-                <td><span class="fw-bold text-warning">Due</span></td>
-                <td>
-                    <a class="dropdown-item" href="#"><span class="fa fa-pencil-square-o me-2"></span>
-                        Editar
-                    </a>
-                    <a class="dropdown-item text-danger rounded-bottom" href="#">
-                        <span class="fa fa-trash me-2"></span>Remover</a>
-                </td>
-            </tr>
+        <tbody id="exibir">
         </tbody>
     </table>
 
