@@ -32,8 +32,4 @@ $ python3 app.py
 # Para acessar a tela de admin, digite
 $ localhost:5000/admin
 
-# Para acessar a tela do responsável médico, digite
-$ localhost:5000/admin
-
-
 ```
