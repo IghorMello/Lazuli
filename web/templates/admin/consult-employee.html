@@ -2,7 +2,9 @@
 {% block title %} Funcionários {% endblock %}
 {% block stylesheets %}{% endblock stylesheets %}
 {% block content %}
+<script src="../../static/assets/js/consult-employee.js"></script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
     <div class="d-block mb-4 mb-md-0">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -26,7 +28,7 @@
     </div>
 
     <div class="btn-toolbar mb-2 mb-md-0">
-        <a href="#" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+        <a href="/admin/register-employee" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
             <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6">
@@ -93,46 +95,13 @@
             <tr>
                 <th class="border-gray-200">#</th>
                 <th class="border-gray-200">Email</th>
-                <th class="border-gray-200">Data de cadastro</th>
+                <th class="border-gray-200">Nome</th>
                 <th class="border-gray-200">Status</th>
                 <th class="border-gray-200">Ação</th>
             </tr>
         </thead>
 
-        <tbody>
-            <tr>
-                <td>
-                    <a href="#" class="fw-bold">
-                        456478
-                    </a>
-                </td>
-                <td>
-                    <span class="fw-normal">savio@gmail.com</span>
-                </td>
-                <td><span class="fw-normal">1 May 2020</span></td>
-                <td><span class="fw-bold text-warning">Due</span></td>
-                <td>
-                    <div class="btn-group">
-                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="icon icon-sm">
-                                <span class="fas fa-ellipsis-h icon-dark"></span>
-                            </span>
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu py-0">
-                            <a class="dropdown-item rounded-top" href="#"><span class="fas fa-eye me-2"></span>
-                                Visualizar detalhes
-                            </a>
-                            <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>
-                                Editar
-                            </a>
-                            <a class="dropdown-item text-danger rounded-bottom" href="#">
-                                <span class="fas fa-trash-alt me-2"></span>Remover</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+        <tbody id="exibir">
         </tbody>
     </table>
 

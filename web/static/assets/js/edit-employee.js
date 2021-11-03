@@ -26,20 +26,20 @@ $(function () {
     console.log(data);
 
     $.ajax({
-      url: "https://flaskapideploy.herokuapp.com/resp/edit/" + localid,
+      url: "https://flaskapideploy.herokuapp.com/admin/edit/" + localid,
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       type: "PUT",
       data: JSON.stringify(data),
-      success: function (resp) {
-        console.log(resp);
+      success: function (admin) {
+        console.log(admin);
         Swal.fire({
           icon: 'success',
           text: "Funcionário atualizado com sucesso!",
           showConfirmButton: false,
           timer: 1000
         })
-        window.location.assign('/resp/dashboard')
+        window.location.assign('/admin/dashboard')
       },
       error: function (error) {
         console.error(error);

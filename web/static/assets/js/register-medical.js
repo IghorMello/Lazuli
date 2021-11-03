@@ -23,15 +23,15 @@ $(function () {
       dataType: "json",
       type: "POST",
       data: JSON.stringify(data),
-      success: function (resp) {
-        console.log(resp);
+      success: function (admin) {
+        console.log(admin);
         Swal.fire({
           icon: 'success',
           text: "Responsável médico foi cadastrado com sucesso!",
           showConfirmButton: false,
           timer: 800
         })
-        window.location.assign('/resp')
+        window.location.assign('/admin')
       },
       error: function (error) {
         console.error(error);

@@ -83,64 +83,64 @@ def get_javascript_data():
 
 # Página de login do responsável médico
 
-@app.route('/resp', methods=['GET', 'POST'])
-def resp_login():
-  return render_template('home/login.html')
+@app.route('/admin', methods=['GET', 'POST'])
+def admin_login():
+  return render_template('admin/login.html')
 
 # Página de cadastro do responsável médico
 
-@app.route('/resp/register', methods=['GET', 'POST'])
-def resp_register():
-  return render_template('home/register.html')
+@app.route('/admin/register', methods=['GET', 'POST'])
+def admin_register():
+  return render_template('admin/register.html')
 
 # Página de dashboard do responsável médico
 
-@app.route('/resp/dashboard', methods=['GET', 'POST'])
+@app.route('/admin/dashboard', methods=['GET', 'POST'])
 @login_required
-def resp_dashboard():
+def admin_dashboard():
   print(session['user_id'])
   current=session['current_user']
   current_user=current['email']
-  return render_template('home/dashboard.html', current_user=current_user)
+  return render_template('admin/dashboard.html', current_user=current_user)
 
 # Página do perfil do responsável médico
 
-@app.route('/resp/dashboard/settings', methods=['GET', 'POST'])
+@app.route('/admin/dashboard/settings', methods=['GET', 'POST'])
 @login_required
-def resp_dashboard_profile():
+def admin_dashboard_profile():
   current=session['current_user']
   current_user=current['email']
-  return render_template('home/profile.html', current_user=current_user, all_data=current)
+  return render_template('admin/profile.html', current_user=current_user, all_data=current)
 
 # Página de cadastro do responsável médico
 
-@app.route('/resp/register-employee', methods=['GET', 'POST'])
+@app.route('/admin/register-employee', methods=['GET', 'POST'])
 @login_required
-def resp_register_employee():
-  return render_template('home/register-employee.html')
+def admin_register_employee():
+  return render_template('admin/register-employee.html')
 
 # Página de consulta do responsável médico
 
-@app.route('/resp/consult-employee', methods=['GET', 'POST'])
+@app.route('/admin/consult-employee', methods=['GET', 'POST'])
 @login_required
-def resp_consult_employee():
-  return render_template('home/consult-employee.html')
+def admin_consult_employee():
+  return render_template('admin/consult-employee.html')
 
 # Página para visualizar mais sobre os funcionários do responsável médico
 
-@app.route('/resp/consult/<id>', methods=['GET', 'POST'])
+@app.route('/admin/consult/<id>', methods=['GET', 'POST'])
 @login_required
-def resp_consult_id_employee(id):
+def admin_consult_id_employee(id):
   all_data=session['current_user']
-  return render_template('home/consult.html',all_data=all_data)
+  return render_template('admin/consult.html',all_data=all_data)
 
 # Página para editar os funcionários do responsável médico
 
-@app.route('/resp/edit/<id>', methods=['GET', 'POST'])
+@app.route('/admin/edit/<id>', methods=['GET', 'POST'])
 @login_required
-def resp_consult_edit_employee(id):
+def admin_consult_edit_employee(id):
   all_data=session['current_user']
-  return render_template('home/edit.html', all_data=all_data)
+  return render_template('admin/edit.html', all_data=all_data)
 
 # Página de admin
 
@@ -202,7 +202,7 @@ def not_found_error(error):
 def sign_out():
     session.pop('user_id')
     flash("Logout realizado com sucesso!", 'success')
-    return redirect(url_for('resp_login'))
+    return redirect(url_for('admin_login'))
 
 if __name__ == "__main__":
   app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

@@ -13,14 +13,14 @@ $(function () {
     };
 
     $.ajax({
-      url: "https://flaskapideploy.herokuapp.com/resp",
+      url: "https://flaskapideploy.herokuapp.com/admin",
       type: "POST",
       dataType: "json",
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(data),
-      success: function (resp) {
-        console.log(resp)
-        var postData = resp.localId
+      success: function (admin) {
+        console.log(admin)
+        var postData = admin.localId
         localStorage.setItem('userId', postData);
         console.log(localStorage.getItem('userId'));
         Swal.fire({
@@ -32,7 +32,7 @@ $(function () {
         $.post("http://localhost:8080/postmethod", {
           javascript_data: postData
         });
-        window.location.assign('/resp/dashboard')
+        window.location.assign('/admin/dashboard')
       },
       error: function (error) {
         console.error(error);

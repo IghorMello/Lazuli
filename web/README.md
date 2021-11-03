@@ -33,7 +33,7 @@ $ python3 app.py
 $ localhost:5000/admin
 
 # Para acessar a tela do responsável médico, digite
-$ localhost:5000/resp
+$ localhost:5000/admin
 
 
 ```

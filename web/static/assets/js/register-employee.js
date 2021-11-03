@@ -32,15 +32,15 @@ $(function () {
       dataType: "json",
       type: "POST",
       data: JSON.stringify(data),
-      success: function (resp) {
-        console.log(resp);
+      success: function (admin) {
+        console.log(admin);
         Swal.fire({
           icon: 'success',
-          text: "Funcionário foi cadastrado, seu código de acesso é " + resp['codigo_usuario'] + "!",
+          text: "Funcionário foi cadastrado, seu código de acesso é " + admin['codigo_usuario'] + "!",
           showConfirmButton: false,
           timer: 1000
         })
-        window.location.assign('/resp/dashboard')
+        window.location.assign('/admin/dashboard')
       },
       error: function (error) {
         console.error(error);
