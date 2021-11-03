@@ -67,16 +67,16 @@
                     <div class="col-md-6 mb-3">
                         <div>
                             <label for="nome_user_register">Primeiro nome</label>
-                            <input class="form-control" id="nome_user_register" type="text"
+                            <input class="form-control" value={{all_data.nome}} id="nome_user_register" type="text"
                                 placeholder="Entre com o primeiro nome" required>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <div>
-                            <label for="last_name">Último nome</label>
-                            <input class="form-control" id="last_name" type="text" placeholder="Entre com o último nome"
-                                required>
+                            <label for="crm">CRM</label>
+                            <input class="form-control" value={{all_data.crm}} id="crm" type="text"
+                                placeholder="Entre com o último nome" readonly required>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
                             <label for="email_user_register">Email</label>
-                            <input class="form-control" id="email_user_register" type="email"
+                            <input class="form-control" id="email_user_register" value={{all_data.email}} type="email"
                                 placeholder="name@company.com" readonly>
                         </div>
                     </div>
