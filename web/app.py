@@ -65,11 +65,20 @@ def post_javascript_data():
 
 @app.route('/getmethod', methods=['GET', 'POST'])
 def get_javascript_data():
+  print('\n\n\nCheguei')
   current_user = []
-  getmethod = request.form['javascript_data']
-  current_user.append(getmethod)
-  print(current_user)
-  session['current_user']=current_user
+  current = request.form['javascript_data']
+  print('\n\n\ncurrent', current)
+
+  objeto = json.loads(current)
+  print('\n\n', objeto)
+  result={}
+  result['localid'] = objeto['_id']['$oid']
+  result['email'] = objeto['email']
+  result['nome'] = objeto['nome']
+  result['crm'] = objeto['crm']
+  print(result)
+  session['current_user']=result
   return "deu certo"
 
 # Página de login do responsável médico
@@ -90,29 +99,32 @@ def resp_register():
 @login_required
 def resp_dashboard():
   print(session['user_id'])
-  return render_template('home/dashboard.html', current_user=session['user_id'])
+  current=session['current_user']
+  current_user=current['email']
+  return render_template('home/dashboard.html', current_user=current_user)
 
 # Página do perfil do responsável médico
 
 @app.route('/resp/dashboard/settings', methods=['GET', 'POST'])
 @login_required
 def resp_dashboard_profile():
-  print(session['user_id'])
-  return render_template('home/profile.html', current_user=session['user_id'])
+  current=session['current_user']
+  current_user=current['email']
+  return render_template('home/profile.html', current_user=current_user, all_data=current)
 
 # Página de cadastro do responsável médico
 
 @app.route('/resp/register-employee', methods=['GET', 'POST'])
 @login_required
 def resp_register_employee():
-  return render_template('home/register-employee.html', current_user=session['user_id'])
+  return render_template('home/register-employee.html')
 
 # Página de consulta do responsável médico
 
 @app.route('/resp/consult-employee', methods=['GET', 'POST'])
 @login_required
 def resp_consult_employee():
-  return render_template('home/consult-employee.html', current_user=session['user_id'])
+  return render_template('home/consult-employee.html')
 
 # Página de admin
 

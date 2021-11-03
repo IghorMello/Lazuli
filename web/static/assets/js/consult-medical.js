@@ -9,7 +9,7 @@ $.ajax({
   success: function (data) {
     console.log(data)
     $.post("http://localhost:8080/getmethod", {
-      javascript_data: data
+      javascript_data: JSON.stringify(data)
     });
   },
   error: function (error) {
