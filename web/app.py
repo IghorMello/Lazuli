@@ -57,14 +57,13 @@ def index():
     send_email(list_send_email)
   return render_template('pages/index.html')
 
-# Página de login do responsável médico
-
 @app.route('/postmethod', methods=['GET', 'POST'])
 def get_post_javascript_data():
   user_id = request.form['javascript_data']
   session['user_id']=user_id
-  print('\n\n\nDados', session['user_id'])
   return "deu certo"
+
+# Página de login do responsável médico
 
 @app.route('/resp', methods=['GET', 'POST'])
 def resp_login():
@@ -79,15 +78,23 @@ def resp_register():
 # Página de dashboard do responsável médico
 
 @app.route('/resp/dashboard', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def resp_dashboard():
   print(session['user_id'])
   return render_template('home/dashboard.html', current_user=session['user_id'])
 
+# Página do perfil do responsável médico
+
+@app.route('/resp/dashboard/profile', methods=['GET', 'POST'])
+@login_required
+def resp_dashboard_profile():
+  print(session['user_id'])
+  return render_template('home/profile.html', current_user=session['user_id'])
+
 # Página de cadastro do responsável médico
 
 @app.route('/resp/register-employee', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def resp_register_employee():
   return render_template('home/register-employee.html', current_user=session['user_id'])
 
@@ -100,21 +107,21 @@ def admin():
 # Página de dashboard do admin
 
 @app.route('/admin/dashboard', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def admin_dashboard():
   return render_template('admin/dashboard.html')
 
 # Página de consultas do admin
 
 @app.route('/admin/consult/medical', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def admin_consult_medical():
   return render_template('admin/consult-medical.html')
 
 # Página de consultas do admin
 
 @app.route('/admin/consult/employee', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def admin_consult_employee():
   return render_template('admin/consult-employee.html')
 

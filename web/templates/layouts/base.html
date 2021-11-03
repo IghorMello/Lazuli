@@ -44,59 +44,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-  <style>
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 9999;
-      overflow: hidden;
-      background: #fff;
-    }
-
-    #preloader:before {
-      content: "";
-      position: fixed;
-      top: calc(50% - 30px);
-      left: calc(50% - 30px);
-      border: 6px solid #1f2937;
-      border-top-color: #fff;
-      border-bottom-color: #fff;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      -webkit-animation: animate-preloader 1s linear infinite;
-      animation: animate-preloader 1s linear infinite;
-    }
-
-    @-webkit-keyframes animate-preloader {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes animate-preloader {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      [data-aos-delay] {
-        transition-delay: 0 !important;
-      }
-    }
-  </style>
   <!-- Sweetalert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- JQuery -->
@@ -111,7 +58,6 @@
     {% include 'includes/navigation.html' %}
     {% block content %}{% endblock content %}
   </main>
-  <div id="preloader"></div>
   {% include 'includes/scripts.html' %}
   {% block javascripts %}{% endblock javascripts %}
 </body>

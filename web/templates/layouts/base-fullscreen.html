@@ -23,9 +23,8 @@
         content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://demo.themesberg.com/volt-pro">
-    <meta property="twitter:title" content="Volt Free Bootstrap Dashboard - Sign up page">
-    <meta property="twitter:description"
-        content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
+    <meta property="twitter:title" content="Sign up page">
+    <meta property="twitter:description" content="">
     <meta property="twitter:image"
         content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
     <link rel="apple-touch-icon" sizes="120x120" href="/static/assets/img/favicon/apple-touch-icon.png">
@@ -102,8 +101,7 @@
     <!-- Sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     {% block stylesheets %}{% endblock stylesheets %}
 </head>
 
@@ -111,6 +109,7 @@
     {% block content %}{% endblock content %}
     <div id="preloader"></div>
     {% include 'includes/scripts.html' %}
+    <script src="../../static/assets/js/utils.js"></script>
     {% block javascripts %}{% endblock javascripts %}
 </body>
 
