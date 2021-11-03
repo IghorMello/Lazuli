@@ -1,109 +1,97 @@
-<h3 align="center">
-    <img alt="Lazuli" title="Lazuli" src="./icons.png" width="150px" />
-</h3>
-
-<p align="center"> :rocket: <strong>Extension Browser Lazuli</strong> 🚧</p>
- 
-<p align="center">
-   <img src="https://img.shields.io/badge/version-0.0.1-yellow.svg" />
-  
-  <a href="https://github.com/savio-2-lopes">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
-  </a>
- 
- <a href="https://github.com/savio-2-lopes">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg" target="_blank" />
-  </a>
-</p>
-
-<br>
-
-## :pushpin: Índice
-
-- [Sobre](#sobre-o-projeto)
-- [Layout](#layout)
-- [Como Executar](#executar)
-- [Tecnologias](#tecnologias)
-- [Licença](#licenca)
-
-<br>
-
-<a id="sobre-o-projeto"></a>
-
-## 💻 Sobre o projeto
-
-:rocket: Browser extension focused on monitoring the user's mental health
-
-<br>
-
-<a id="layout"></a>
-
-## 🎨 Layout
-
-- [Protótipo](#prototipo)
-
-<br>
-
-<a id="prototipo"></a>
-
-### :tada: Protótipo
-
-<br>
-
-<p style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Lazuli" title="#Lazuli" src="./static/gif.gif" width="800px">
-</p>
-
-<br>
-
-<a id="executar"></a>
-
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos
 
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e o gerenciador de pacotes [Yarn](https://yarnpkg.com).
-Além disto é bom ter um editor para trabalhar com o código, o [VSCode](https://code.visualstudio.com/) por exemplo
+- [Rodando API](#api)
+- [Rodando Extensão](#extension)
+- [Rodando Página](#page)
 
 <br>
 
-#### 🧭 Rodando a aplicação web (Extensão)
+<a id="api"></a>
+
+#### 🧭 Rodando a aplicação (API) 
 
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/IghorMello/Lazuli.git
+$ git clone -b extension https://github.com/IghorMello/Lazuli.git
 
-# Acesse a pasta do projeto no terminal/cmd
-$ cd lazuli
+# Habilite o MongoDB (em Linux/macOS)
+$ sudo systemctl start mongod
 
-# Entre no navegador e digite
-$ chrome://extensions/
+# Caso não esteja em ambiente virtual, certifique-se de criá-lo 
+# dentro da pasta (em Linux/macOS) e ativá-lo
+$ python3 -m venv venv
+$ . venv/bin/activate
 
-# Habilite o modo desenvolvedor e importe a pasta lazuli
+# Para criar o ambiente virtual em Windows e ativá-lo, 
+# utilize o comando abaixo
+$ py -3 -m venv venv
+$ venv\Scripts\activate
+
+# Acesse a pasta da API 
+$ cd lazuli/api
+
+# Instale as depedências
+$ pip install -r requirements.txt
+
+# Após isso inicie os arquivos dentro de sua 
+# respectiva pastas
+$ python3 app.py
 
 ```
 
 <br>
 
-<a id="tecnologias"></a>
+<a id="extension"></a>
 
-## 🛠 Tecnologias
+#### 🎲 Rodando a aplicação (extensão) 
 
-As seguintes ferramentas foram usadas na construção do projeto:
+```bash
 
-- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [CSS](https://www.w3schools.com/css/)
-- [Bootstrap](https://getbootstrap.com/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://reactjs.org)
+# Clone este repositório
+$ git clone -b extension https://github.com/IghorMello/Lazuli.git
+
+# Acesse o navegador e pesquise o nome do navegador com ://extension
+# Exemplo.
+$ edge://extensions/ 
+
+# Habilite o "Modo do desenvolvedor"
+# Clique em "Carregar sem pacote"
+# Carregue a pasta extension.
+
+```
 
 <br>
 
-<a id="licenca"></a>
+<a id="page"></a>
 
-## :memo: Licença
+#### :memo: Rodando a aplicação (Página - Em andamento) 
 
-Este projeto está sob a licença do MIT. Veja a [página de licença](https://opensource.org/licenses/MIT) para mais detalhes.
+```bash
+
+# Clone este repositório
+$ git clone -b extension https://github.com/IghorMello/Lazuli.git
+
+# Caso não esteja em ambiente virtual, certifique-se de criá-lo 
+# dentro da pasta (em Linux/macOS) e ativá-lo
+$ python3 -m venv venv
+$ . venv/bin/activate
+
+# Para criar o ambiente virtual em Windows e ativá-lo, 
+# utilize o comando abaixo
+$ py -3 -m venv venv
+$ venv\Scripts\activate
+
+# Acesse a pasta da web 
+$ cd lazuli/web
+
+# Instale as depedências
+$ pip install -r requirements.txt
+
+# Após isso inicie os arquivos dentro de sua 
+# respectiva pastas
+$ python3 app.py
+
+```
