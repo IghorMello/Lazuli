@@ -35,7 +35,10 @@ function excluir() {
     method: 'delete',
     success: function (data) {
       console.log(data)
-      flash('Deletado com sucesso!', 'success')
+      Swal.fire(
+        'Deletado com sucesso!',
+        'success'
+      )
     },
     error: function (error) {
       console.error(error);
