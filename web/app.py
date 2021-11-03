@@ -126,6 +126,20 @@ def resp_register_employee():
 def resp_consult_employee():
   return render_template('home/consult-employee.html')
 
+# Página para visualizar mais sobre os funcionários do responsável médico
+
+@app.route('/resp/consult/<id>', methods=['GET', 'POST'])
+@login_required
+def resp_consult_id_employee(id):
+  return render_template('home/consult.html')
+
+# Página para editar os funcionários do responsável médico
+
+@app.route('/resp/edit/<id>', methods=['GET', 'POST'])
+@login_required
+def resp_consult_edit_employee(id):
+  return render_template('home/edit.html')
+
 # Página de admin
 
 @app.route('/admin', methods=['GET', 'POST'])
