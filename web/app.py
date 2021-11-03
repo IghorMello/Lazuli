@@ -142,42 +142,6 @@ def admin_consult_edit_employee(id):
   all_data=session['current_user']
   return render_template('admin/edit.html', all_data=all_data)
 
-# Página de admin
-
-@app.route('/admin', methods=['GET', 'POST'])
-def admin():
-  return render_template('admin/login.html')
-
-# Página de dashboard do admin
-
-@app.route('/admin/dashboard', methods=['GET', 'POST'])
-@login_required
-def admin_dashboard():
-  return render_template('admin/dashboard.html')
-
-# Página de consultas do admin
-
-@app.route('/admin/consult/medical', methods=['GET', 'POST'])
-@login_required
-def admin_consult_medical():
-  return render_template('admin/consult-medical.html')
-
-# Página de consultas do admin
-
-@app.route('/admin/consult/employee', methods=['GET', 'POST'])
-@login_required
-def admin_consult_employee():
-  return render_template('admin/consult-employee.html')
-
-# Enviar email
-
-def send_email(result, charset='utf-8'):
-    msg = Message("Extensão - Dúvida de {}!".format(result['email']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
-    Mensagem = "Dúvida<br>Enviada por '{}'<br> Email: {}<br>Dúvida: {}<br>Mensagem: {}".format(result['nome'], result['email'], result['subject'], result['message'])
-    msg.html = Mensagem.encode('ascii', 'xmlcharrefreplace')
-    print('\n\n\nSaiu')
-    mail.send(msg)
-
 # Erro 404
 
 @app.errorhandler(404)
