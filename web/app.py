@@ -185,6 +185,7 @@ def not_found_error(error):
 @app.route('/logout')
 def sign_out():
     session.pop('user_id')
+    flash("Logout realizado com sucesso!", 'success')
     return redirect(url_for('resp_login'))
 
 if __name__ == "__main__":

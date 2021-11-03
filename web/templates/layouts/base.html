@@ -43,13 +43,11 @@
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.com/libraries/jquery.mask"></script>
+  <script src="http://www.jsdelivr.com/projects/jquery.mask"></script>
   <script>
-    $(document).ready(function () {
-      $('#horario_user_register').mask('00:00:00');
-      $('#data_nascimento_user_register').mask('00/00/0000 00:00:00');
-      $('#telefone_user_register').mask('0000-0000');
-    })
+    $('#horario_user_register').mask('00:00:00');
+    $('#data_nascimento_user_register').mask('00/00/0000 00:00:00');
+    $('#telefone_user_register').mask('0000-0000');
   </script>
   {% block stylesheets %}{% endblock stylesheets %}
 
