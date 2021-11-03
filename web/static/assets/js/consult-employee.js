@@ -32,6 +32,7 @@ function excluir() {
         icon: 'success',
         title: 'Deletado com sucesso!',
       })
+      document.location.reload(true);
     },
     error: function (error) {
       console.error(error);
