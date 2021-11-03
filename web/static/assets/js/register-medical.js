@@ -29,7 +29,7 @@ $(function () {
           icon: 'success',
           text: "Responsável médico foi cadastrado com sucesso!",
           showConfirmButton: false,
-          timer: 1500
+          timer: 800
         })
         window.location.assign('/resp')
       },

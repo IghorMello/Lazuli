@@ -28,7 +28,7 @@ $(function () {
           icon: 'success',
           text: "Responsável médico realizou login com sucesso!",
           showConfirmButton: false,
-          timer: 1500
+          timer: 800
         })
         window.location.assign('/resp/dashboard')
       },

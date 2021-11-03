@@ -38,7 +38,7 @@ $(function () {
           icon: 'success',
           text: "Funcionário foi cadastrado, seu código de acesso é " + resp['codigo_usuario'] + "!",
           showConfirmButton: false,
-          timer: 3000
+          timer: 1000
         })
         window.location.assign('/resp/dashboard')
       },
