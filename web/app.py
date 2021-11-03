@@ -78,7 +78,7 @@ def get_javascript_data():
   result['nome'] = objeto['nome']
   result['crm'] = objeto['crm']
   print(result)
-  session['current_user']=result
+  session['user_id']=result
   return "deu certo"
 
 # Página de login do responsável médico
@@ -99,7 +99,7 @@ def admin_register():
 @login_required
 def admin_dashboard():
   print(session['user_id'])
-  current=session['current_user']
+  current=session['user_id']
   current_user=current['email']
   return render_template('admin/dashboard.html', current_user=current_user)
 
@@ -108,7 +108,7 @@ def admin_dashboard():
 @app.route('/admin/dashboard/settings', methods=['GET', 'POST'])
 @login_required
 def admin_dashboard_profile():
-  current=session['current_user']
+  current=session['user_id']
   current_user=current['email']
   return render_template('admin/profile.html', current_user=current_user, all_data=current)
 
@@ -131,7 +131,7 @@ def admin_consult_employee():
 @app.route('/admin/consult/<id>', methods=['GET', 'POST'])
 @login_required
 def admin_consult_id_employee(id):
-  all_data=session['current_user']
+  all_data=session['user_id']
   return render_template('admin/consult.html',all_data=all_data)
 
 # Página para editar os funcionários do responsável médico
@@ -139,7 +139,7 @@ def admin_consult_id_employee(id):
 @app.route('/admin/edit/<id>', methods=['GET', 'POST'])
 @login_required
 def admin_consult_edit_employee(id):
-  all_data=session['current_user']
+  all_data=session['user_id']
   return render_template('admin/edit.html', all_data=all_data)
 
 # Erro 404
