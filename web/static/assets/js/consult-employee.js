@@ -23,22 +23,15 @@ $.ajax({
 function excluir() {
   var localid = $('#action').val();
   console.log(localid)
-  Swal.fire({
-    title: 'Deseja deletar?',
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Sim',
-    showLoaderOnConfirm: true,
-  })
   $.ajax({
-    url: 'https://flaskapideploy.herokuapp.com/employees/' + localStorage.getItem('userId'),
+    url: 'https://flaskapideploy.herokuapp.com/employees/' + localid,
     method: 'delete',
     success: function (data) {
       console.log(data)
-      Swal.fire(
-        'Deletado com sucesso!',
-        'success'
-      )
+      Swal.fire({
+        icon: 'success',
+        title: 'Deletado com sucesso!',
+      })
     },
     error: function (error) {
       console.error(error);
