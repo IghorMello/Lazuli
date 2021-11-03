@@ -30,10 +30,7 @@ $(function () {
           showConfirmButton: false,
           timer: 1500
         })
-
-        setTimeout(function () {
-          window.location.assign('/dashboard')
-        }, 3000);
+        window.location.assign('/resp/dashboard')
       },
       error: function (error) {
         console.error(error);
