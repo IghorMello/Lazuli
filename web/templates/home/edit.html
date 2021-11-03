@@ -2,10 +2,11 @@
 {% block title %} Settings {% endblock %}
 {% block stylesheets %}{% endblock stylesheets %}
 {% block content %}
-<script src="../../static/assets/js/register-employee.js"></script>
+<script src="../../static/assets/js/login-medical.js"></script>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
     <div>
+        <input id="editData" class="sr-only">{{all_data.localid}}</input>
         <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
             <a class="dropdown-item d-flex align-items-center" href="#">
                 <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -67,8 +68,8 @@
                     <div class="col-md-6 mb-3">
                         <div>
                             <label for="nome_user_register">Primeiro nome</label>
-                            <input class="form-control" id="nome_user_register" type="text"
-                                placeholder="Entre com o primeiro nome" required>
+                            <input class="form-control" id="nome_user_register" value={{all_data.nome}} type="text"
+                                readonly placeholder="Entre com o primeiro nome" required>
                         </div>
                     </div>
 
@@ -76,7 +77,7 @@
                         <div>
                             <label for="last_name">Último nome</label>
                             <input class="form-control" id="last_name" type="text" placeholder="Entre com o último nome"
-                                required>
+                                readonly required>
                         </div>
                     </div>
                 </div>
@@ -93,14 +94,15 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </span>
-                            <input data-datepicker="" class="form-control" id="data_nascimento_user_register"
-                                type="text" placeholder="dd/mm/yyyy" required>
+                            <input data-datepicker="" class="form-control" value={{all_data.data_nascimento}} readonly
+                                id="data_nascimento_user_register" type="text" placeholder="dd/mm/yyyy" required>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="sexo_user_register">Gênero</label>
-                        <select class="form-select mb-0" id="sexo_user_register" aria-label="Selecione o gênero">
+                        <select class="form-select mb-0" value={{all_data.sexo}} aria-readonly="true"
+                            id="sexo_user_register" aria-label="Selecione o gênero">
                             <option selected>Gênero</option>
                             <option value="1">Feminino</option>
                             <option value="2">Masculino</option>
@@ -113,16 +115,16 @@
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
                             <label for="email_user_register">Email</label>
-                            <input class="form-control" id="email_user_register" type="email"
-                                placeholder="name@company.com">
+                            <input class="form-control" id="email_user_register" value={{all_data.email}} readonly
+                                type="email" placeholder="name@company.com">
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
                             <label for="telefone_user_register">Telefone</label>
-                            <input class="form-control" id="telefone_user_register" type="number"
-                                placeholder="+12-345 678 910" required>
+                            <input class="form-control" id="telefone_user_register" value={{all_data.telefone}} readonly
+                                type="number" placeholder="+12-345 678 910" required>
                         </div>
                     </div>
                 </div>
@@ -132,15 +134,15 @@
                     <div class="col-sm-9 mb-3">
                         <div class="form-group">
                             <label for="endereco_user_register">Endereço</label>
-                            <input class="form-control" id="endereco_user_register" type="text"
-                                placeholder="Entre com o endereço do funcionário" required>
+                            <input class="form-control" id="endereco_user_register" readonly value={{all_data.endereco}}
+                                type="text" placeholder="Entre com o endereço do funcionário" required>
                         </div>
                     </div>
 
                     <div class="col-sm-3 mb-3">
                         <div class="form-group">
                             <label for="number">Número</label>
-                            <input class="form-control" id="number" type="number" placeholder="No." required>
+                            <input readonly class="form-control" id="number" type="number" placeholder="No." required>
                         </div>
                     </div>
                 </div>
@@ -149,7 +151,7 @@
                     <div class="col-sm-4 mb-3">
                         <div class="form-group">
                             <label for="city">Cidade</label>
-                            <input class="form-control" id="city" type="text" placeholder="Cidade" required>
+                            <input readonly class="form-control" id="city" type="text" placeholder="Cidade" required>
                         </div>
                     </div>
 
@@ -201,7 +203,8 @@
                     <div class="col-sm-6 mb-3">
                         <div class="form-group">
                             <label for="deficiencia_user_register">Deficiência registrada</label>
-                            <input class="form-control" id="deficiencia_user_register" type="text"
+                            <input value={{all_data.deficiencia}} readonly class="form-control"
+                                id="deficiencia_user_register" type="text"
                                 placeholder="Entre com a deficiência registrada" required>
                         </div>
                     </div>
@@ -209,7 +212,8 @@
                     <div class="col-sm-6 mb-3">
                         <div class="form-group">
                             <label for="acompanhamento_medico_user_register">Acompanhamento médico?</label>
-                            <select class="form-select w-100 mb-0" id="acompanhamento_medico_user_register" name="state"
+                            <select class="form-select w-100 mb-0" value={{all_data.acompanhamento_medico}} readonly
+                                id="acompanhamento_medico_user_register" name="state"
                                 aria-label="Acompanhamento médico?">
                                 <option selected>Acompanhamento médico?</option>
                                 <option value="sim">Sim</option>
@@ -223,14 +227,15 @@
                     <div class="col-sm-4 mb-3">
                         <div class="form-group">
                             <label for="uso_medicacao_controlada_user_register">Medicação utilizada</label>
-                            <input class="form-control" id="uso_medicacao_controlada_user_register" type="text"
+                            <input class="form-control" value={{all_data.uso_medicacao_controlada}} readonly
+                                id="uso_medicacao_controlada_user_register" type="text"
                                 placeholder="Medicação utilizada" required>
                         </div>
                     </div>
 
                     <div class="col-sm-4 mb-3">
                         <label for="tipo_sanguineo_user_register">Tipo Sanguíneo</label>
-                        <select class="form-select w-100 mb-0" id="tipo_sanguineo_user_register" name="state"
+                        <select class="form-select w-100 mb-0" readonly id="tipo_sanguineo_user_register" name="state"
                             aria-label="Tipo sanguineo">
                             <option selected>Tipo Sanguíneo</option>
                             <option value="O+">O+</option>
@@ -247,7 +252,8 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="disturbio_detectado_user_register">Disturbio detectado</label>
-                            <input class="form-control" id="disturbio_detectado_user_register" type="tel"
+                            <input class="form-control" id="disturbio_detectado_user_register"
+                                value={{all_data.disturbio_detectado}} readonly type="tel"
                                 placeholder="Disturbio detectado" required>
                         </div>
                     </div>
@@ -324,6 +330,4 @@
 </div>
 
 {% endblock content %}
-
-<!-- Specific Page JS goes HERE  -->
 {% block javascripts %}{% endblock javascripts %}
