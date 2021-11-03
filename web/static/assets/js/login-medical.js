@@ -19,8 +19,10 @@ $(function () {
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(data),
       success: function (resp) {
-        var postData = resp.email
-        console.log(postData);
+        console.log(resp)
+        var postData = resp.localId
+        localStorage.setItem('userId', postData);
+        console.log(localStorage.getItem('userId'));
         Swal.fire({
           icon: 'success',
           text: "Responsável médico realizou login com sucesso!",
