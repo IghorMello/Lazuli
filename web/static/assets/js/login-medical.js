@@ -25,7 +25,7 @@ $(function () {
           icon: 'success',
           text: "Responsável médico realizou login com sucesso!",
           showConfirmButton: false,
-          timer: 3000
+          timer: 1000
         })
         $.post("http://localhost:8080/postmethod", {
           javascript_data: postData
@@ -34,12 +34,11 @@ $(function () {
       },
       error: function (error) {
         console.error(error);
-        alert(error.responseJSON.message)
         Swal.fire({
           icon: 'warning',
           text: "Por favor, insira credenciais válidas",
           showConfirmButton: false,
-          timer: 3000
+          timer: 1000
         })
       }
     });
