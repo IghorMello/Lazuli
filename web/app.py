@@ -131,14 +131,16 @@ def resp_consult_employee():
 @app.route('/resp/consult/<id>', methods=['GET', 'POST'])
 @login_required
 def resp_consult_id_employee(id):
-  return render_template('home/consult.html')
+  all_data=session['current_user']
+  return render_template('home/consult.html',all_data=all_data)
 
 # Página para editar os funcionários do responsável médico
 
 @app.route('/resp/edit/<id>', methods=['GET', 'POST'])
 @login_required
 def resp_consult_edit_employee(id):
-  return render_template('home/edit.html')
+  all_data=session['current_user']
+  return render_template('home/edit.html', all_data=all_data)
 
 # Página de admin
 
