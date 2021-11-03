@@ -21,17 +21,16 @@ $(function () {
       success: function (resp) {
         var postData = resp.email
         console.log(postData);
-        // localStorage.setItem('user_id', resp.email);
         Swal.fire({
           icon: 'success',
-          text: "Responsável médico realizou login com sucesso! " + postData,
+          text: "Responsável médico realizou login com sucesso!",
           showConfirmButton: false,
           timer: 3000
         })
-
         $.post("http://localhost:8080/postmethod", {
           javascript_data: postData
         });
+        window.location.assign('/resp/dashboard')
       },
       error: function (error) {
         console.error(error);

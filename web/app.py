@@ -61,9 +61,7 @@ def index():
 
 @app.route('/postmethod', methods=['GET', 'POST'])
 def get_post_javascript_data():
-  print('\n\n\nChegou')
   user_id = request.form['javascript_data']
-  print('\n\n\nuser_id', user_id)
   session['user_id']=user_id
   print('\n\n\nDados', session['user_id'])
   return "deu certo"
