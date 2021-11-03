@@ -85,7 +85,7 @@ def resp_dashboard():
 
 # Página do perfil do responsável médico
 
-@app.route('/resp/dashboard/profile', methods=['GET', 'POST'])
+@app.route('/resp/dashboard/settings', methods=['GET', 'POST'])
 @login_required
 def resp_dashboard_profile():
   print(session['user_id'])
@@ -161,7 +161,7 @@ def not_found_error(error):
 
 # Logout
 
-@app.route('/sign_out')
+@app.route('/logout')
 def sign_out():
     session.pop('user_id')
     return redirect(url_for('resp_login'))
