@@ -98,6 +98,13 @@ def resp_dashboard_profile():
 def resp_register_employee():
   return render_template('home/register-employee.html', current_user=session['user_id'])
 
+# Página de consulta do responsável médico
+
+@app.route('/resp/consult-employee', methods=['GET', 'POST'])
+@login_required
+def resp_consult_employee():
+  return render_template('home/consult-employee.html', current_user=session['user_id'])
+
 # Página de admin
 
 @app.route('/admin', methods=['GET', 'POST'])
