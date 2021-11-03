@@ -35,6 +35,12 @@ $(function () {
       error: function (error) {
         console.error(error);
         alert(error.responseJSON.message)
+        Swal.fire({
+          icon: 'warning',
+          text: "Por favor, insira credenciais válidas",
+          showConfirmButton: false,
+          timer: 3000
+        })
       }
     });
     e.preventDefault();
