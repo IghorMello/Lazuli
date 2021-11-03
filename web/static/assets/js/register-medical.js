@@ -31,9 +31,7 @@ $(function () {
           showConfirmButton: false,
           timer: 1500
         })
-        setTimeout(function () {
-          window.location.assign('/resp')
-        }, 3000);
+        window.location.assign('/resp')
       },
       error: function (error) {
         console.error(error);
