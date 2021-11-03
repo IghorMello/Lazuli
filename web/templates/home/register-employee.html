@@ -171,7 +171,7 @@
 
                 <h2 class="h5 my-4">Informações Médicas</h2>
                 <div class="row">
-                    <div class="col-sm-9 mb-3">
+                    <div class="col-sm-6 mb-3">
                         <div class="form-group">
                             <label for="deficiencia_user_register">Deficiência registrada</label>
                             <input class="form-control" id="deficiencia_user_register" type="text"
@@ -179,11 +179,15 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3 mb-3">
+                    <div class="col-sm-6 mb-3">
                         <div class="form-group">
-                            <label for="acompanhamento_medico_user_register">Acompanhamento</label>
-                            <input class="form-control" id="acompanhamento_medico_user_register" type="number"
-                                placeholder="Acompanhamento" required>
+                            <label for="acompanhamento_medico_user_register">Acompanhamento médico?</label>
+                            <select class="form-select w-100 mb-0" id="acompanhamento_medico_user_register" name="state"
+                                aria-label="Acompanhamento médico?">
+                                <option selected>Acompanhamento médico?</option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
                         </div>
                     </div>
                 </div>
