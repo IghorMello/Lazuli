@@ -62,6 +62,7 @@ def index():
 @app.route('/resp', methods=['GET', 'POST'])
 def resp_login():
   user_id = request.json
+  print('\n\nUsuário', user_id)
   if user_id != '' or user_id != None:
     session['user_id']=user_id
   return render_template('home/login.html')

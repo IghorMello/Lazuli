@@ -14,8 +14,6 @@ $(function () {
       crm: $loginForm.find("#crm_login").val(),
     };
 
-    console.log(data);
-
     $.ajax({
       url: "https://flaskapideploy.herokuapp.com/admin",
       type: "POST",
@@ -23,14 +21,14 @@ $(function () {
       contentType: "application/json; charset=utf-8",
       data: JSON.stringify(data),
       success: function (resp) {
-        console.log(resp);
+        console.log(resp['email']);
+        localStorage.setItem('user_id', resp.email);
         Swal.fire({
           icon: 'success',
-          text: "Responsável médico realizou login com sucesso!",
+          text: "Responsável médico realizou login com sucesso!" + resp.email,
           showConfirmButton: false,
-          timer: 800
+          timer: 3000
         })
-        window.location.assign('/resp/dashboard')
       },
       error: function (error) {
         console.error(error);
