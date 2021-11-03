@@ -58,9 +58,18 @@ def index():
   return render_template('pages/index.html')
 
 @app.route('/postmethod', methods=['GET', 'POST'])
-def get_post_javascript_data():
+def post_javascript_data():
   user_id = request.form['javascript_data']
   session['user_id']=user_id
+  return "deu certo"
+
+@app.route('/getmethod', methods=['GET', 'POST'])
+def get_javascript_data():
+  current_user = []
+  getmethod = request.form['javascript_data']
+  current_user.append(getmethod)
+  print(current_user)
+  session['current_user']=current_user
   return "deu certo"
 
 # Página de login do responsável médico

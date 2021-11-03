@@ -13,7 +13,7 @@ $(function () {
     };
 
     $.ajax({
-      url: "https://flaskapideploy.herokuapp.com/admin",
+      url: "https://flaskapideploy.herokuapp.com/resp",
       type: "POST",
       dataType: "json",
       contentType: "application/json; charset=utf-8",
