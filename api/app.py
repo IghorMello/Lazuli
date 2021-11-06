@@ -218,7 +218,7 @@ def login():
 #----------------------------------
 
 @app.route('/admin', methods=['POST'])
-def login_admin():
+def login_resp():
   medical = mongo.db.medical
   data_search = mongo.db.medical.find()
 
@@ -262,6 +262,16 @@ def get_all_medical():
   medical = mongo.db.medical.find()
   response = json_util.dumps(medical)
   return Response(response, mimetype='application/json')
+
+#-------------------------------------
+# Listar responsável médico específico
+#-------------------------------------
+
+@app.route('/medical/<id>', methods=['GET'])
+def get_medical(id):
+  medical = mongo.db.medical.find_one({'_id': ObjectId(id), })
+  response = json_util.dumps(medical)
+  return Response(response, mimetype="application/json")
 
 #--------------------------
 # Deletar usuário
@@ -349,7 +359,7 @@ def update_employees(_id):
 
 def send_email_employees(result, charset='utf-8'):
     print('chegou')
-    msg = Message("Programador com ID {} habilitou a extensão as {}!".format(result['email'], result['time']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
+    msg = Message("Programador {} habilitou a extensão as {}!".format(result['email'], result['time']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
     Mensagem = "Boa tarde.<br>O programador com email '{}' habilitou a extensão as {}, do dia {}".format(result['email'], result['time'], result['data'])
     msg.html = Mensagem.encode('ascii', 'xmlcharrefreplace')
     print('\n\n\nSaiu')
