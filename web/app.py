@@ -63,7 +63,6 @@ def post_javascript_data():
   session['user_id']=user_id
   return redirect(url_for('admin_dashboard'))
 
-
 @app.route('/getmethod', methods=['GET', 'POST'])
 def get_javascript_data():
   print('\n\n\nCheguei')
