@@ -61,7 +61,8 @@ def index():
 def post_javascript_data():
   user_id = request.form['javascript_data']
   session['user_id']=user_id
-  return "deu certo"
+  return redirect(url_for('admin_dashboard'))
+
 
 @app.route('/getmethod', methods=['GET', 'POST'])
 def get_javascript_data():
