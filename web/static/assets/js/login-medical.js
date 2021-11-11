@@ -32,7 +32,6 @@ $(function () {
         $.post("http://localhost:8080/postmethod", {
           javascript_data: postData
         });
-        window.location.assign('/admin/dashboard')
       },
       error: function (error) {
         console.error(error);
