@@ -20,18 +20,17 @@ $(function () {
       data: JSON.stringify(data),
       success: function (admin) {
         console.log(admin)
-        var postData = admin.localId
-        localStorage.setItem('userId', postData);
-        console.log(localStorage.getItem('userId'));
+        var postData = admin
         Swal.fire({
           icon: 'success',
           text: "Responsável médico realizou login com sucesso!",
           showConfirmButton: false,
           timer: 1000
         })
-        $.post("http://localhost:8080/postmethod", {
-          javascript_data: postData
+        $.post("/postmethod", {
+          javascript_data: JSON.stringify(postData)
         });
+        window.location.replace('https://extensiontimind.herokuapp.com/admin/dashboard')
       },
       error: function (error) {
         console.error(error);

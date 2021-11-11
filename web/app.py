@@ -59,26 +59,17 @@ def index():
 
 @app.route('/postmethod', methods=['GET', 'POST'])
 def post_javascript_data():
-  user_id = request.form['javascript_data']
-  session['user_id']=user_id
-  return redirect(url_for('admin_dashboard'))
-
-@app.route('/getmethod', methods=['GET', 'POST'])
-def get_javascript_data():
-  print('\n\n\nCheguei')
-  current_user = []
   current = request.form['javascript_data']
-  print('\n\n\ncurrent', current)
-
   objeto = json.loads(current)
-  print('\n\n', objeto)
+  print('\n\nObjeto ID', objeto['localId'])
+  session['user_id']=objeto['localId']
   result={}
-  result['localid'] = objeto['_id']['$oid']
+  result['localid'] = objeto['localId']
   result['email'] = objeto['email']
-  result['nome'] = objeto['nome']
   result['crm'] = objeto['crm']
-  print(result)
   session['current_user']=result
+  print('\n\n\n\n\n\nresult',result)
+  current_user = session['current_user']
   return "deu certo"
 
 # Página de login do responsável médico
@@ -98,10 +89,9 @@ def admin_register():
 @app.route('/admin/dashboard', methods=['GET', 'POST'])
 @login_required
 def admin_dashboard():
-  print(session['user_id'])
-  current=session['current_user']
-  current_user=current['email']
-  return render_template('admin/dashboard.html', current_user=current_user)
+  current_user=session['current_user']
+  email_current_user=current_user['email']
+  return render_template('admin/dashboard.html',current_user=email_current_user)
 
 # Página do perfil do responsável médico
 

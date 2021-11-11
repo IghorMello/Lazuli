@@ -40,7 +40,7 @@ $(function () {
           showConfirmButton: false,
           timer: 1000
         })
-        window.location.assign('/admin/dashboard')
+        window.location.replace('https://extensiontimind.herokuapp.com/admin/dashboard')
       },
       error: function (error) {
         console.error(error);

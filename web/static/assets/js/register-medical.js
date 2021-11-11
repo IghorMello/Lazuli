@@ -31,7 +31,7 @@ $(function () {
           showConfirmButton: false,
           timer: 800
         })
-        window.location.assign('/admin')
+        window.location.replace('/admin')
       },
       error: function (error) {
         console.error(error);
