@@ -19,7 +19,13 @@ function deleteFunc() {
     },
     error: function (error) {
       console.error(error);
-      alert(error.responseJSON.message)
+      Swal.fire({
+        icon: 'warning',
+        text: ""+error,
+        showConfirmButton: false,
+        timer: 1500
+    })
+
     }
   });
 }

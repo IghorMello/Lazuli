@@ -34,13 +34,31 @@ $loginForm.on("submit", function (e) {
         },
         error: function (error) {
             console.error(error);
-            alert(error.responseJSON.message)
+            Swal.fire({
+                icon: 'warning',
+                text: ""+error,
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
     });
     e.preventDefault();
 });
 
 var result = localStorage.getItem('result')
+
+// if (result=="success"){
+//     setTimeout(function () {
+//         Swal.fire({
+//             icon: 'success',
+//             text: "Periodo para monitoramento chegou ao final",
+//             showConfirmButton: false,
+//             timer: 1500
+//         })
+//         localStorage.clear();
+//         close()
+// 	}, 2500)
+// }
 
 if (result == 'success') {
     var $formLogin = $("#loginForm"),

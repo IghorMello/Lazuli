@@ -237,26 +237,6 @@ function getLimitsListFromStorage(callback) {
     storage.loadTabs(STORAGE_RESTRICTION_LIST, (items) => {
       getLimitsListFromStorageCallback(items);
       callback();
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
-      console.log(items);
     });
   } else {
     callback();

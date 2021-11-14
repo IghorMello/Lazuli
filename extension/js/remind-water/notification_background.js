@@ -1,66 +1,65 @@
-function audioNotification(notificationSound) {
-  console.log("notificação de som aprovado: " + notificationSound);
-  var sound = new Audio('audio/' + notificationSound + '.mp3');
+function audioNotification(notificationSound){
+  console.log("Nofication Sound: "+notificationSound);
+  var sound = new Audio('audio/'+notificationSound+'.mp3');
   sound.play();
 }
 
 function show() {
-  var time = /(..)(:..)/.exec(new Date());
-  var hour = time[1] % 12 || 12;
-  var period = time[1] < 12 ? 'a.m.' : 'p.m.';
+  var time = /(..)(:..)/.exec(new Date());     
+  var hour = time[1] % 12 || 12;              
+  var period = time[1] < 12 ? 'a.m.' : 'p.m.'; 
   var message;
   var notificationSound;
 
-  chrome.storage.sync.get(['message', 'sound'], function (items) {
-    message = items.message;
-    notificationSound = items.sound;
+  chrome.storage.sync.get(['message','sound'], function(items){
+     message =items.message;
+     notificationSound=items.sound;
 
-    if (message == "") {
-      message = 'Oi amigo. É hora de beber um pouco de ÁGUA.'
+     if(message == ""){
+      message = 'Hi, DEv. Time to drink some WATER.'
     }
-
+    
     new Notification(hour + time[2] + ' ' + period, {
-      icon: './images/icon.png',
+      icon: 'icon.png',
       body: message
     });
 
-    console.log("localStorage.isSoundActivated : " + JSON.parse(localStorage.isSoundActivated));
+    console.log("localStorage.isSoundActivated : "+JSON.parse(localStorage.isSoundActivated));
 
-    if (JSON.parse(localStorage.isSoundActivated)) {
+    if(JSON.parse(localStorage.isSoundActivated)){
       audioNotification(notificationSound);
     }
   });
 }
 
 if (!localStorage.isInitialized) {
-  localStorage.isActivated = true;
-  localStorage.frequency = 1;
-  localStorage.isInitialized = true;
+  localStorage.isActivated = true;   
+  localStorage.frequency = 1;        
+  localStorage.isInitialized = true; 
   localStorage.isSoundActivated = true;
-  var goal = 10;
-  var message = "Olá amigo, parece que é hora de beber um pouco de água.";
+  var goal=10;
+  var message = "Hello Friend, Looks like  it's time to drink some water.";
   var sound = "Bubble";
   var total = 0;
-
-  chrome.storage.sync.set({ 'goal': goal, 'message': message, 'sound': sound, 'total': total }, function () {
+  chrome.storage.sync.set({ 'goal' :goal, 'message':message, 'sound': sound, 'total' : total}, function(){
     var opt = {
-      type: "basic",
-      title: "Obrigado por fazer o download.",
-      message: "Clique com o botão direito no ícone na parte superior e selecione as opções para alterar as configurações.",
-      iconUrl: "images/icon.png"
+        type: "basic",
+        title: "Thank You for Downloading.",
+        message : "Right click on the icon at the top and select options to change settings.",
+        iconUrl:"icon.png"
     }
-    chrome.notifications.create('saveChanges', opt, function () { });
+    chrome.notifications.create('saveChanges', opt, function(){});
   });
 }
 
 if (window.Notification) {
   if (JSON.parse(localStorage.isActivated)) { show(); }
-  var interval = 0;
-  setInterval(function () {
+  var interval = 0; 
+  setInterval(function() {
     interval++;
     if (
       JSON.parse(localStorage.isActivated) &&
-      localStorage.frequency <= interval
+        localStorage.frequency <= interval
     ) {
       show();
       interval = 0;

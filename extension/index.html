@@ -38,6 +38,8 @@
 
     <br /><br />
 
+    <!-- Login -->
+
     <div id="loginForm">
       <header>
         <div class="nav__base"></div>
@@ -87,6 +89,8 @@
 
     <br />
 
+    <!-- Cabeçalho -->
+
     <div id="extensionVersion" class="hide">
       <div id="extensionTitle">
         <h1 class="title">
@@ -95,6 +99,8 @@
       </div>
 
       <br /><br />
+
+      <!-- Menu -->
 
       <div id="buttons" class="btn-block">
         <a class="active" id="btnToday">Hoje</a>
@@ -122,6 +128,8 @@
       </div>
 
       <br />
+
+      <!-- Estatísticas gerais -->
 
       <div id="stats" class="hide">
         <p class="table-header">Estatísticas gerais</p>
@@ -230,58 +238,34 @@
         <br />
       </div>
 
+      <!-- Lembrar de tomar água -->
+
       <div id="water" class="hide">
         <p class="table-header">Lembrar de tomar água</p>
-        <br />
-        <div class="remind-water">
-          <div class="image">
-            <img
-              draggable="false"
-              src="images/one.gif"
-              alt="Copo de água"
-              id="glass"
-            />
-          </div>
+        <div class="image">
+          <img src="images/one.gif" alt="" id="glass">
         </div>
-
-        <p class="table-header">Consumo: <span id="total">0</span></p>
-        <p class="table-header">Meta: <span id="goal">0</span></p>
-
-        <br />
-
-        <div class="remind-water">
-          <div class="cups" name="frequency" id="amount">
-            <div class="cup cup-small">250 ml</div>
-            <div class="cup cup-small">250 ml</div>
-            <div class="cup cup-small">250 ml</div>
-            <div class="cup cup-small">250 ml</div>
-          </div>
-          <br />
-
-          <h3>Entre com o número de copos de água consumidos:</h3>
-          <select name="frequency" id="amount">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-
-          <div class="sub-main">
-            <button
-              type="submit"
-              class="button-timer long-break-btn buttonClass button-two"
-              id="addAmount"
-            >
-              <span>Adicionar copo de água</span>
-            </button>
-          </div>
-        </div>
+        <h2>Consumido: <span id="total">0</span> 
+        &nbsp; &nbsp;&nbsp;
+        Objetivo de hoje: <span id="goal">0</span></h2>
+        <h3>Digite o número de copos consumidos: </h3>
+        <select name="frequency" id="amount">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select> 
+        <input class="buttonClass" type="submit" id="addAmount" value="Adicionar copo">
       </div>
+
+      <!-- Temporizador Pomodoro -->
 
       <div id="pomodoro" class="hide">
         <p class="table-header">Temporizador Pomodoro</p>
+
         <br />
+
         <div class="timer">
           <div class="buttons">
             <div class="button-timer selected pomodoro-btn">
