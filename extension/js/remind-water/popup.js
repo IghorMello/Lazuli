@@ -1,14 +1,12 @@
 $(function(){
     chrome.storage.sync.get(['total','goal'], function(items){
-        var defaultValue=0;
-        
+        var defaultValue=0;        
         if(items.total == null || items.total == ""){
             $('#total').text(defaultValue); 
         }
         if(items.goal == null || items.total == ""){
             $('#goal').text(defaultValue); 
         }
-
         $('#total').text(items.total);
         $('#goal').text(items.goal);
 
@@ -34,9 +32,8 @@ $(function(){
         }
         else{
             $("#glass").attr("src","images/one.gif");
-        }
+        }    
     });
-
 
     $('#addAmount').click(function(){
         chrome.storage.sync.get(['total','goal'], function (items){
@@ -44,7 +41,7 @@ $(function(){
             if(items.total){
                 newTotal += parseInt(items.total);
             }
-
+       
             var amount = $('#amount').val();
 
             if(amount) {
@@ -55,7 +52,7 @@ $(function(){
             $('#total').text(newTotal);
             $('#amount').val('');
 
-            if(newTotal >= items.goal){
+            if(newTotal >= items.goal){                
                 var opt = {
                     type: "basic",
                     title: "Goal Reached. Well Done!",

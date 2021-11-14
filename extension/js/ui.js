@@ -47,18 +47,6 @@ $loginForm.on("submit", function (e) {
 
 var result = localStorage.getItem('result')
 
-// Bloquear sites
-
-const filter = {
-    urls: [ 
-        '*://analytics.google.com/*','*://facebook.com/*', '*://news.ycombinator.com/*', '*://twitter.com/*', '*://www.facebook.com/*', '*://www.reddit.com/*', 
-    ],
-  };
-  const opt = ['blocking'];
-  window.chrome.webRequest.onBeforeRequest.addListener(
-    page => { console.log('Página bloqueada - ' + page.url); return { cancel: true }; }, filter, opt
-);
-
 // if (result=="success"){
 //     setTimeout(function () {
 //         Swal.fire({
@@ -73,7 +61,7 @@ const filter = {
 // }
 
 if (result == 'success') {
-    var $formLogin = $("#loginForm"),
+      var $formLogin = $("#loginForm"),
         $boxLogin = $("#boxLogin"),
         $extensionVersion = $("#extensionVersion");
 

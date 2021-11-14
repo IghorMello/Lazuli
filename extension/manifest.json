@@ -12,10 +12,10 @@
         "storage",
         "idle",
         "chrome://favicon/*",
+        "webNavigation",
         "webRequest",
         "webRequestBlocking",
-        "<all_urls>",
-        "webNavigation"
+        "<all_urls>"
     ],
     "browser_action": {
         "default_icon": "images/48x48.png",
@@ -30,8 +30,7 @@
     "options_page": "options.html",
     "background": {
         "scripts": [
-            "js/remind-water/notification_background.js",
-            "js/remind-water/eventPage.js",
+            "js/block.js",
             "js/time-tracker/common.js",
             "js/time-tracker/storage.js",
             "js/time-tracker/activity.js",
@@ -39,23 +38,9 @@
             "js/time-tracker/timeInterval.js",
             "js/time-tracker/background.js",
             "js/time-tracker/restriction.js",
-            "js/time-tracker/url.js",
-            "js/pomodoro/model/settings/userSettings.js",
-            "js/pomodoro/model/settings/userSettingsStorage.js",
-            "js/pomodoro/model/badge.js",
-            "js/pomodoro/model/notification.js",
-            "js/pomodoro/model/timerFormat.js",
-            "js/pomodoro/model/timers/timer.js",
-            "js/pomodoro/model/timers/pomodoroTime.js",
-            "js/pomodoro/model/timers/shortBreakTimer.js",
-            "js/pomodoro/model/timers/longBreakTimer.js",
-            "js/pomodoro/background.js"
+            "js/time-tracker/url.js"
         ]
     },
-    "optional_permissions": [
-        "https://www.youtube.com/*",
-        "https://www.netflix.com/*"
-    ],
     "offline_enabled": true,
     "web_accessible_resources": [
         "icon.png"

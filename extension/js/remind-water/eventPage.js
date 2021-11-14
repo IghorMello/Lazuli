@@ -28,6 +28,6 @@ chrome.contextMenus.onClicked.addListener(function (clickData){
 
 chrome.storage.onChanged.addListener(function(changes){
     chrome.browserAction.setBadgeText({
-        "text":changes.total.newValue.toString()
+        "text":changes.total.toString()
     });
 });

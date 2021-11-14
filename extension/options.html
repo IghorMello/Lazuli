@@ -272,80 +272,95 @@
             <!-- Alerta de Água -->
 
             <div id='waterBlock' hidden>
-                <label>Lembrar de tomar água: </label>
-                <div class="tooltip">
-                    <img src="/images/information.svg" height="18" />
-                    <span class="tooltiptext">
-                        Mostrar notificações para lembrar de tomar água.
-                    </span>
-                </div>
-
-                <form id="options" class="row">
-                    <br><br>
-                    <div class="col-md-6">
-                        <input type="checkbox" name="isActivated" checked class="check">Notifique-me em a cada
-                        <select name="frequency">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>5</option>
-                            <option>10</option>
-                            <option>15</option>
-                            <option>20</option>
-                            <option>30</option>
-                            <option>60</option>
-                            <option>120</option>
-                            <option>180</option>
-                            <option>240</option>
-                        </select> minuto(s).
-                    </div>
-                </form>
-
-                <div class="goalClass">
-                    <h1 class="goalHead">Defina sua meta para hoje</h1>
-
-                    <form id="soundOptions" class="row">
-                        <div class="col-md-6 soundNotification">
-                            <input type="checkbox" name="isSoundActivated" checked class="check" id="soundCheck">
-                            Som de notificação&nbsp;
-                        </div>
-
-
-                        <div class="col-md-5 soundNotification">
-                            <select name="sound" id="sound">
-                                <option> Uma bela queda </option>
-                                <option> Claro </option>
-                                <option> Várias gotas de água </option>
-                                <option> Direto ao ponto </option>
-                                <option> Gota d'água </option>
-                                <option> Água Splash Ploor </option>
-                                <option> Respingos de água </option>
-                                <option> Notificação do Android </option>
-                                <option> Bell </option>
-                                <option> Bolha </option>
-                                <option> Mensagem </option>
-                                <option> Plucky </option>
-                                <option>Notificação curta</option>
-                                <option>Notificação de texto</option>
-                            </select>
-                        </div>
-                    </form>
-
+                <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
-                            <p class="messageLabel">Sua mensagem</p>
-                            <input type="text" id="message" class="messageClass">
+                        <div class="col-md-6">
+                            <img src="water.gif" alt="" class="water" id="glass">
                         </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12 textClass">
+                            <h1 class="head">
+                                <img src="icon.png" alt="Toast">
+                                Water Reminder
+                            </h1>
+                            <h2></h2>
+            
+                            <form id="options" class="row">
+                                <div class="col-md-6">
+                                    <input type="checkbox" name="isActivated" checked class="check">
+                                    Notify me on every&nbsp;
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="frequency">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>15</option>
+                                        <option>20</option>
+                                        <option>30</option>
+                                        <option>60</option>
+                                        <option>120</option>
+                                        <option>180</option>
+                                        <option>240</option>
+                                        </select>
+                                        &nbsp; &nbsp;
+                                        minute(s).
+                                </div>
+                            </form>
 
-                        <div class="col-md-4">
-                            <h2>Meta de hoje:</h2>
+                            <div class="goalClass">
+                                <h1 class="goalHead">Set Your Goal for Today</h1>
+
+                                <form id="soundOptions" class="row">
+                                        <div class="col-md-6 soundNotification">
+                                            <input type="checkbox" name="isSoundActivated" checked class="check" id="soundCheck">
+                                            Notification Sound&nbsp;
+                                        </div>
+                                        <div class="col-md-1 playClass" id="playAudio">
+                                            <img src="play.png" alt="" class="play">
+                                        </div>
+                                        <div class="col-md-5 soundNotification">
+                                                <select name="sound" id="sound">
+                                                        <option>A Beautiful Drop</option>
+                                                        <option>Light</option>
+                                                        <option>Multiple Water Drops</option>
+                                                        <option>To the Point</option>
+                                                        <option>Water Drop</option>
+                                                        <option>Water Splash Ploor</option>
+                                                        <option>Water Splash</option>
+                                                        <option>Android Notification</option>
+                                                        <option>Bell</option>
+                                                        <option>Bubble</option>
+                                                        <option>Message</option>
+                                                        <option>Plucky</option>
+                                                        <option>Short Notification</option>
+                                                        <option>Text Notification</option>
+                                                </select>
+                                        </div>
+                                </form>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="messageLabel">Your Message</p>
+                                        <input type="text" id="message" class="messageClass">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h2>Goal for Today:</h2>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <!-- <h2>Goal:</h2> -->
+                                        <input type="text" id="goal" class="goalClass">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="submit" name="" id="reset" value="Reset Total" class="reset"/>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="submit" name="" id="save" value="Save Changes" class="save"/>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-
-                        <div class="col-md-2">
-                            <input type="text" id="goal" class="goalClass">
-                        </div><br>
-
-                        <input id="save" class="button primary" type="button" value="Salvar" />
-                        <input id="reset" class="button default reset" type="button" value="Resetar" />
                     </div>
                 </div>
             </div>
