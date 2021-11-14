@@ -12,3 +12,9 @@ document
       .getElementById("label--password")
       .classList.remove("transform");
 });
+
+document
+.getElementById("cancelLogin")
+.addEventListener("focus", function () {
+  close();
+})

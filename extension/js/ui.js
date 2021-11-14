@@ -35,12 +35,6 @@ $loginForm.on("submit", function (e) {
         error: function (error) {
             console.error(error);
             alert(error.responseJSON.message)
-            Swal.fire({
-                icon: 'warning',
-                text: "Dados inválidos!",
-                showConfirmButton: false,
-                timer: 1500
-            })
         }
     });
     e.preventDefault();
