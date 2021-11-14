@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Extension of support for the well-being of the IT professional",
-    "version": "2.2.1",
+    "version": "1.0.1",
     "description": "Extended support for the well-being of IT professionals, monitoring and helping to improve their productivity.",
     "permissions": [
         "storage",
