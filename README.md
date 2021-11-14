@@ -8,7 +8,6 @@
 
 <br>
 
-
 <a id="api"></a>
 
 #### 🧭 Rodando a aplicação (API) 
