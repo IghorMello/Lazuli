@@ -12,6 +12,9 @@
         "storage",
         "idle",
         "chrome://favicon/*",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>",
         "webNavigation"
     ],
     "browser_action": {
