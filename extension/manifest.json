@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Extensão de apoio ao bem-estar do profissional de TI",
+    "name": "Extension of support for the well-being of the IT professional",
     "version": "2.2.1",
-    "description": ".",
+    "description": "Extended support for the well-being of IT professionals, monitoring and helping to improve their productivity.",
     "permissions": [
         "storage",
         "notifications",

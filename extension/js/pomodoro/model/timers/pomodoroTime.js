@@ -8,7 +8,7 @@ class PomodoroTime extends Timer {
 	}
 
 	showNotification() {
-		new Notification("Hora de trabalhar", this._notificationMessage, this._notificationImage).show();
+		new NotificationPomodoro("Hora de trabalhar", this._notificationMessage, this._notificationImage).show();
 	}
 
 	change(settings) {

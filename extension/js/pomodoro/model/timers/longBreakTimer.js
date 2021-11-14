@@ -8,7 +8,7 @@ class LongBreakTimer extends Timer {
 	}
 
 	showNotification() {
-		new Notification("Intervalo grande!", this._notificationMessage, this._notificationImage).show();
+		new NotificationPomodoro("Intervalo grande!", this._notificationMessage, this._notificationImage).show();
 	}
 
 	change(settings) {

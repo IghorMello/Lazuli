@@ -8,7 +8,7 @@ class ShortBreakTimer extends Timer {
 	}
 
 	showNotification() {
-		new Notification("Intervalo curto", this._notificationMessage, this._notificationImage).show();
+		new NotificationPomodoro("Intervalo curto", this._notificationMessage, this._notificationImage).show();
 	}
 
 	change(settings) {
