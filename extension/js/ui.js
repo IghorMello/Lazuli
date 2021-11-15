@@ -36,7 +36,7 @@ $loginForm.on("submit", function (e) {
             console.error(error);
             Swal.fire({
                 icon: 'warning',
-                text: ""+error,
+                text: "Dados inválidos",
                 showConfirmButton: false,
                 timer: 1500
             })
