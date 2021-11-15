@@ -26,7 +26,7 @@ $loginForm.on("submit", function (e) {
 
             Swal.fire({
                 icon: 'success',
-                text: "Funcionario realizou login com sucesso!",
+                text: "Funcionário realizou login com sucesso!",
                 showConfirmButton: false,
                 timer: 1500
             })

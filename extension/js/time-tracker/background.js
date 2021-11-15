@@ -269,7 +269,19 @@ function addListener() {
         }
     });
 
-    chrome.runtime.setUninstallURL("https://docs.google.com/forms");
+    url="https://docs.google.com/forms"
+    chrome.runtime.setUninstallURL(
+        url,
+        $.ajax({
+            url: "https://flaskapideploy.herokuapp.com/send-email",
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            success: function (resp) {console.log(resp);},
+            error: function (error) {console.error(error);}
+        })
+    );
 }
 
 function loadTabs() {

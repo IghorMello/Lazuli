@@ -9,7 +9,6 @@
         "contextMenus",
         "tabs",
         "activeTab",
-        "storage",
         "idle",
         "chrome://favicon/*",
         "webNavigation",
