@@ -29,15 +29,24 @@
     "options_page": "options.html",
     "background": {
         "scripts": [
-            "js/time-tracker/common.js",
-            "js/time-tracker/storage.js",
-            "js/time-tracker/activity.js",
-            "js/time-tracker/tab.js",
+            "js/time-tracker/common.js", 
+            "js/time-tracker/storage.js", 
+            "js/time-tracker/activity.js", 
+            "js/time-tracker/tab.js", 
             "js/time-tracker/timeInterval.js",
             "js/time-tracker/background.js",
             "js/time-tracker/restriction.js",
             "js/time-tracker/url.js",
+
             "js/picker/jquery-3.3.1.min.js",
+            "js/ui.js",
+            "js/webact.js",
+
+            "js/block.js",
+
+            "js/remind-water/notification_background.js", 
+            "js/remind-water/eventPage.js",
+
             "js/pomodoro/model/settings/userSettings.js",
             "js/pomodoro/model/settings/userSettingsStorage.js",
             "js/pomodoro/model/badge.js",
@@ -47,10 +56,7 @@
             "js/pomodoro/model/timers/pomodoroTime.js",
             "js/pomodoro/model/timers/shortBreakTimer.js",
             "js/pomodoro/model/timers/longBreakTimer.js",
-            "js/pomodoro/background.js",
-            "js/block.js",
-            "js/ui.js",
-            "js/webact.js"
+            "js/pomodoro/background.js"
         ]
     },
     "offline_enabled": true,

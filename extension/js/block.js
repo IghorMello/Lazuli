@@ -2,8 +2,6 @@ const filter = {
     urls: [
       '*://analytics.google.com/*',
       '*://facebook.com/*',
-      '*://github.com/',
-      '*://github.com/notifications',
       '*://news.ycombinator.com/*',
       '*://twitter.com/*',
       '*://www.facebook.com/*',
