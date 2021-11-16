@@ -10,6 +10,7 @@
 
 <a id="api"></a>
 
+
 #### 🧭 Rodando a aplicação (API) 
 
 ```bash
@@ -93,5 +94,11 @@ $ pip install -r requirements.txt
 # Após isso inicie os arquivos dentro de sua 
 # respectiva pastas
 $ python3 app.py
+
+# A aplicação estará aberta no navegador em:
+$ http://localhost:8080
+
+# Para acessar o admin, digite
+$ http://localhost:8080/admin
 
 ```

@@ -1,4 +1,4 @@
-class Notification {
+class NotificationPomodoro {
 	constructor(title, message, image) {
 		this._title = title;
 		this._message = message;

@@ -29,7 +29,10 @@ $ pip install -r requirements.txt
 # respectiva pastas
 $ python3 app.py
 
+# A aplicação estará aberta no navegador em:
+$ http://localhost:8080
+
 # Para acessar a tela de admin, digite
-$ localhost:5000/admin
+$ localhost:8080/admin
 
 ```

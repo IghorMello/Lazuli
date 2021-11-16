@@ -269,7 +269,9 @@ function addListener() {
         }
     });
 
-    chrome.runtime.setUninstallURL("https://docs.google.com/forms");
+    chrome.runtime.setUninstallURL(
+        'https://docs.google.com/forms'
+    );
 }
 
 function loadTabs() {

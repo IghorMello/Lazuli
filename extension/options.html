@@ -1,411 +1,542 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Extensão de apoio ao bem-estar do profissional de TI</title>
 
+    <link rel="stylesheet" href="css/utils/settings.css" />
     <link rel="stylesheet" href="css/picker/standalone.min.css" />
     <link rel="stylesheet" href="css/picker/clockpicker.min.css" />
-    <link rel="stylesheet" href="css/settings.css" />
-</head>
+    <link rel="stylesheet" href="css/picker/bootstrap.min.css" />
+  </head>
 
-<body>
+  <body>
     <div class="content">
-        <div class="header">
-            <p class="title">Extensão de apoio ao bem-estar do profissional de TI</p>
+      <div class="header">
+        <p class="title">
+          Extensão de apoio ao bem-estar do profissional de TI
+        </p>
+      </div>
+
+      <div id="nav" class="nav">
+        <a id="settingsBtn" class="active">Configurações</a>
+        <a id="restrictionsBtn">Restringir acesso a sites</a>
+        <a id="notifyBtn">Exibir notificações a sites</a>
+        <a id="waterBtn">Lembrar de tomar água</a>
+        <a id="pomodoroBtn">Temporizador Pomodoro</a>
+        <a id="aboutBtn">Sobre</a>
+      </div>
+
+      <div id="block">
+        <div id="settingsBlock">
+          <label>
+            <input type="checkbox" class="filled-in" id="viewTimeInBadge" />
+            <span>Exibir rastreador de tempo no ícone</span>
+          </label>
+
+          <div class="margin-top-10">
+            <label>
+              <input type="checkbox" class="filled-in" id="blockDeferral" />
+              <span>Permitir bloqueio de adiamento por 5 minutos</span>
+            </label>
+          </div>
+
+          <div class="margin-top-10">
+            <label>
+              <input type="checkbox" class="filled-in" id="darkMode" />
+              <span>Dark mode</span>
+            </label>
+          </div>
+
+          <div class="margin-top-10">
+            <label
+              >Pare de rastrear se nenhuma atividade for detectada para:
+            </label>
+            <div class="tooltip">
+              <img src="/images/information.svg" height="18" />
+              <span class="tooltiptext"
+                >Uma atividade é uma ação com um mouse ou teclado</span
+              >
+            </div>
+
+            <div class="margin-top-10">
+              <select id="intervalInactivity" class="option">
+                <option value="30">30 segundos</option>
+                <option value="45">45 segundos</option>
+                <option value="60">1 min</option>
+                <option value="120">2 min</option>
+                <option value="300">5 mins</option>
+                <option value="600">10 mins</option>
+                <option value="1200">20 mins</option>
+                <option value="1800">30 mins</option>
+              </select>
+            </div>
+
+            <div class="margin-top-10">
+              <label>Intervalo padrão para dias:</label>
+            </div>
+
+            <div class="margin-top-10">
+              <select id="rangeToDays" class="option">
+                <option value="days2">2 dias</option>
+                <option value="days3">3 dias</option>
+                <option value="days4">4 dias</option>
+                <option value="days5">5 dias</option>
+                <option value="days6">6 dias</option>
+                <option value="days7">7 dias</option>
+                <option value="month1">1 mês</option>
+                <option value="month2">2 mês</option>
+                <option value="month3">3 mês</option>
+              </select>
+            </div>
+
+            <div class="margin-top-10">
+              <label>Lista de domínios ignorados: </label>
+              <div class="tooltip">
+                <img src="/images/information.svg" height="18" />
+                <span class="tooltiptext">
+                  A atividade para esses domínios não será rastreada
+                </span>
+              </div>
+
+              <div class="margin-top-10">
+                <ul id="blackList" class="listbox" size="7"></ul>
+              </div>
+
+              <div class="margin-top-10">
+                <input
+                  type="text"
+                  placeholder="Entre com o nome do site..."
+                  id="addBlackSiteLbl"
+                />
+                <input type="button" value="+" id="addBlackSiteBtn" />
+              </div>
+
+              <div class="notify warning" id="notifyForBlackList" hidden>
+                O site já está na lista
+              </div>
+            </div>
+
+            <div class="margin-top-10">
+              <input type="button" value="Exportar para CSV" id="exportToCsv" />
+            </div>
+
+            <div class="margin-top-10">
+              <input type="button" value="Backup" id="backup" />
+              <input type="button" value="Restorar" id="restore" />
+              <input
+                id="file-input-backup"
+                class="hidden"
+                type="file"
+                name="backupFile"
+              />
+            </div>
+
+            <div class="notify" id="notify-backup" hidden>
+              Backup completado com sucesso
+            </div>
+
+            <div class="notify" id="notify-restore" hidden>
+              Restauração concluída com sucesso
+            </div>
+
+            <div class="notify warning" id="notify-restore-failed" hidden>
+              O arquivo de backup não é válido
+            </div>
+
+            <!-- YouTube -->
+
+            <div class="margin-top-10">
+              <label class="block">
+                Extensão de apoio ao bem-estar do profissional de TI rastreia
+                sua atividade quando você está ativo em o navegador com o mouse
+                ou teclado. Para que a extensão também rastreie quando você
+                assistir
+                <span class="bold"> um vídeo no YouTube / Netflix </span>, você
+                precisa conceder permissão para acessar esses sites. A extensão
+                precisa de permissão para acessar o DOM (Document Object Model)
+                para saber se um o vídeo está sendo reproduzido.
+              </label>
+            </div>
+
+            <div class="margin-top-10">
+              <label class="bold site-name">YouTube</label>
+              <input
+                class="margin-top-10 permission-btn"
+                type="button"
+                value="Conceder permissão"
+                id="grantPermissionForYT"
+              />
+              <div id="permissionSuccessedBlockForYT" hidden>
+                <img src="/images/success.png" height="18" />
+                <label>As permissões foram concedidas</label>
+              </div>
+            </div>
+
+            <!-- Netflix -->
+
+            <div class="margin-top-10">
+              <label class="bold site-name">Netflix</label>
+              <input
+                class="margin-top-10 permission-btn"
+                type="button"
+                value="Conceder permissão"
+                id="grantPermissionForNetflix"
+              />
+              <div id="permissionSuccessedBlockForNetflix" hidden>
+                <img src="/images/success.png" height="18" />
+                <label>As permissões foram concedidas</label>
+              </div>
+            </div>
+
+            <div class="margin-top-10">
+              <label>Dados em uso de memória </label
+              ><label id="memoryUse"></label>
+            </div>
+
+            <div class="margin-top-10">
+              <input
+                type="button"
+                value="Limpar todos os dados"
+                id="clearAllData"
+              />
+            </div>
+            <div class="notify" id="notify" hidden>
+              Dados excluídos com sucesso
+            </div>
+          </div>
         </div>
 
-        <div id='nav' class="nav">
-            <a id='settingsBtn' class="active">Configurações</a>
-            <a id='restrictionsBtn'>Restringir acesso a sites</a>
-            <a id='notifyBtn'>Exibir notificações a sites</a>
-            <a id='waterBtn'>Lembrar de tomar água</a>
-            <a id='pomodoroBtn'>Temporizador Pomodoro</a>
-            <a id='aboutBtn'>Sobre</a>
+        <!-- Restringir sites -->
+
+        <div id="restrictionsBlock" hidden>
+          <label>Restrições diárias de acesso para sites: </label>
+          <div class="tooltip">
+            <img src="/images/information.svg" height="18" />
+            <span class="tooltiptext">
+              Defina o tempo máximo permitido no site por dia. Após este tempo,
+              decorrido o site será bloqueado. As restrições também podem ser
+              configuradas para caminhos específicos em um site.
+            </span>
+          </div>
+
+          <div class="margin-top-10">
+            <input
+              type="text"
+              class="label-with-list"
+              placeholder="Entre com o nome do site..."
+              id="addRestrictionSiteLbl"
+            />
+            <div
+              class="inline-block clockpicker"
+              data-placement="left"
+              data-align="top"
+              data-autoclose="true"
+            >
+              <input
+                type="text"
+                class="clock"
+                placeholder="Tempo..."
+                readonly
+                id="addRestrictionTimeLbl"
+              />
+            </div>
+            <input
+              type="button"
+              value="+"
+              class="btn-with-list"
+              id="addRestrictionSiteBtn"
+            />
+          </div>
+
+          <div class="margin-top-10">
+            <ul id="restrictionsList" class="listbox list" size="10"></ul>
+          </div>
+
+          <div
+            class="notify warning notify-width-300"
+            id="notifyForRestrictionList"
+            hidden
+          >
+            O site já está na lista
+          </div>
         </div>
 
-        <div id='block'>
-            <div id='settingsBlock'>
-                <label>
-                    <input type="checkbox" class="filled-in" id="viewTimeInBadge" />
-                    <span>Exibir rastreador de tempo no ícone</span>
-                </label>
+        <!-- Noficações nos sites -->
 
-                <div class="margin-top-10">
-                    <label>
-                        <input type="checkbox" class="filled-in" id="blockDeferral" />
-                        <span>Permitir bloqueio de adiamento por 5 minutos</span>
-                    </label>
-                </div>
+        <div id="notifyBlock" hidden>
+          <label>Lista de sites com notificações: </label>
+          <div class="tooltip">
+            <img src="/images/information.svg" height="18" />
+            <span class="tooltiptext">
+              Mostrar notificações toda vez que você passar um intervalo de
+              tempo especificado no local. As notificações também podem ser
+              configuradas para caminhos específicos em um site.
+            </span>
+          </div>
 
-                <div class="margin-top-10">
-                    <label>
-                        <input type="checkbox" class="filled-in" id="darkMode" />
-                        <span>Dark mode</span>
-                    </label>
-                </div>
-
-                <div class="margin-top-10">
-                    <label>Pare de rastrear se nenhuma atividade for detectada para: </label>
-                    <div class="tooltip">
-                        <img src="/images/information.svg" height="18" />
-                        <span class="tooltiptext">Uma atividade é uma ação com um mouse ou teclado</span>
-                    </div>
-
-                    <div class="margin-top-10">
-                        <select id='intervalInactivity' class="option">
-                            <option value="30">30 segundos</option>
-                            <option value="45">45 segundos</option>
-                            <option value="60">1 min</option>
-                            <option value="120">2 min</option>
-                            <option value="300">5 mins</option>
-                            <option value="600">10 mins</option>
-                            <option value="1200">20 mins</option>
-                            <option value="1800">30 mins</option>
-                        </select>
-                    </div>
-
-                    <div class="margin-top-10">
-                        <label>Intervalo padrão para dias:</label>
-                    </div>
-
-                    <div class="margin-top-10">
-                        <select id='rangeToDays' class="option">
-                            <option value="days2">2 dias</option>
-                            <option value="days3">3 dias</option>
-                            <option value="days4">4 dias</option>
-                            <option value="days5">5 dias</option>
-                            <option value="days6">6 dias</option>
-                            <option value="days7">7 dias</option>
-                            <option value="month1">1 mês</option>
-                            <option value="month2">2 mês</option>
-                            <option value="month3">3 mês</option>
-                        </select>
-                    </div>
-
-                    <div class="margin-top-10">
-                        <label>Lista de domínios ignorados: </label>
-                        <div class="tooltip">
-                            <img src="/images/information.svg" height="18" />
-                            <span class="tooltiptext">
-                                A atividade para esses domínios não será rastreada
-                            </span>
-                        </div>
-
-                        <div class="margin-top-10">
-                            <ul id='blackList' class="listbox" size="7"></ul>
-                        </div>
-
-                        <div class="margin-top-10">
-                            <input type="text" placeholder="Entre com o nome do site..." id='addBlackSiteLbl' />
-                            <input type="button" value="+" id='addBlackSiteBtn' />
-                        </div>
-
-                        <div class="notify warning" id='notifyForBlackList' hidden>
-                            O site já está na lista
-                        </div>
-                    </div>
-
-                    <div class="margin-top-10">
-                        <input type="button" value="Exportar para CSV" id='exportToCsv'>
-                    </div>
-
-                    <div class="margin-top-10">
-                        <input type="button" value="Backup" id='backup'>
-                        <input type="button" value="Restorar" id='restore'>
-                        <input id="file-input-backup" class="hidden" type="file" name="backupFile" />
-                    </div>
-
-                    <div class="notify" id='notify-backup' hidden>
-                        Backup completado com sucesso
-                    </div>
-
-                    <div class="notify" id='notify-restore' hidden>
-                        Restauração concluída com sucesso
-                    </div>
-
-                    <div class="notify warning" id='notify-restore-failed' hidden>
-                        O arquivo de backup não é válido
-                    </div>
-
-                    <!-- YouTube -->
-
-                    <div class="margin-top-10">
-                        <label class="block">
-                            Extensão de apoio ao bem-estar do profissional de TI rastreia sua atividade quando você está
-                            ativo em
-                            o navegador com o mouse ou teclado.
-                            Para que a extensão também rastreie quando você assistir <span class="bold"> um vídeo no
-                                YouTube / Netflix </span>, você precisa conceder
-                            permissão para acessar esses sites.
-                            A extensão precisa de permissão para acessar o DOM (Document Object Model) para saber se um
-                            o vídeo está sendo reproduzido.
-                        </label>
-                    </div>
-
-                    <div class="margin-top-10">
-                        <label class="bold site-name">YouTube</label>
-                        <input class="margin-top-10 permission-btn" type="button" value="Conceder permissão"
-                            id='grantPermissionForYT'>
-                        <div id='permissionSuccessedBlockForYT' hidden>
-                            <img src="/images/success.png" height="18" />
-                            <label>As permissões foram concedidas</label>
-                        </div>
-                    </div>
-
-                    <!-- Netflix -->
-
-                    <div class="margin-top-10">
-                        <label class="bold site-name">Netflix</label>
-                        <input class="margin-top-10 permission-btn" type="button" value="Conceder permissão"
-                            id='grantPermissionForNetflix'>
-                        <div id='permissionSuccessedBlockForNetflix' hidden>
-                            <img src="/images/success.png" height="18" />
-                            <label>As permissões foram concedidas</label>
-                        </div>
-                    </div>
-
-                    <div class="margin-top-10">
-                        <label>Dados em uso de memória </label><label id='memoryUse'></label>
-                    </div>
-
-                    <div class="margin-top-10"><input type="button" value="Limpar todos os dados" id='clearAllData'>
-                    </div>
-                    <div class="notify" id='notify' hidden>
-                        Dados excluídos com sucesso
-                    </div>
-                </div>
+          <div class="margin-top-10">
+            <input
+              type="text"
+              class="label-with-list"
+              placeholder="Entre com o nome do site..."
+              id="addNotifySiteLbl"
+            />
+            <div
+              class="inline-block clockpicker"
+              data-placement="left"
+              data-align="top"
+              data-autoclose="true"
+            >
+              <input
+                type="text"
+                class="clock"
+                placeholder="Tempo..."
+                readonly
+                id="addNotifyTimeLbl"
+              />
             </div>
+            <input
+              type="button"
+              class="btn-with-list"
+              value="+"
+              id="addNotifySiteBtn"
+            />
+          </div>
 
-            <!-- Restringir sites -->
+          <div class="margin-top-10">
+            <ul id="notifyList" class="listbox list" size="10"></ul>
+          </div>
 
-            <div id='restrictionsBlock' hidden>
-                <label>Restrições diárias de acesso para sites: </label>
-                <div class="tooltip">
-                    <img src="/images/information.svg" height="18" />
-                    <span class="tooltiptext">
-                        Defina o tempo máximo permitido no site por dia. Após este tempo,
-                        decorrido o site será bloqueado.
-                        As restrições também podem ser configuradas para caminhos específicos em um site.
-                    </span>
-                </div>
-
-                <div class="margin-top-10">
-                    <input type="text" class="label-with-list" placeholder="Entre com o nome do site..."
-                        id='addRestrictionSiteLbl' />
-                    <div class="inline-block clockpicker" data-placement="left" data-align="top" data-autoclose="true">
-                        <input type="text" class="clock" placeholder="Tempo..." readonly id="addRestrictionTimeLbl">
-                    </div>
-                    <input type="button" value="+" class="btn-with-list" id='addRestrictionSiteBtn' />
-                </div>
-
-                <div class="margin-top-10">
-                    <ul id='restrictionsList' class="listbox list" size="10"></ul>
-                </div>
-
-                <div class="notify warning notify-width-300" id='notifyForRestrictionList' hidden>
-                    O site já está na lista
-                </div>
+          <div class="margin-top-10">
+            <label>Você pode definir uma mensagem para notificação: </label>
+            <div class="setting-notify-block">
+              <img src="images/128x128.png" class="setting-notify-img" />
+              <div class="setting-notify-message-block">
+                <span class="setting-notify-title"
+                  >Extensão de apoio ao bem-estar do profissional de TI</span
+                >
+                <input
+                  type="text"
+                  class="setting-notify-message"
+                  id="notifyMessage"
+                />
+              </div>
             </div>
+          </div>
 
-            <!-- Noficações nos sites -->
+          <div class="margin-top-10">
+            <label class="block">
+              Para que o Extensão de apoio ao bem-estar do profissional de TI
+              mostre notificações toda vez que você passa um intervalo de tempo
+              especificado no site, você precisa de permissão do Conceder para
+              acessar para notificações.
+            </label>
 
-            <div id='notifyBlock' hidden>
-                <label>Lista de sites com notificações: </label>
-                <div class="tooltip"><img src="/images/information.svg" height="18" />
-                    <span class="tooltiptext">
-                        Mostrar notificações toda vez que você passar um intervalo de tempo especificado no
-                        local. As notificações também podem ser configuradas para caminhos específicos em um site.
-                    </span>
-                </div>
-
-                <div class="margin-top-10">
-                    <input type="text" class="label-with-list" placeholder="Entre com o nome do site..."
-                        id='addNotifySiteLbl' />
-                    <div class="inline-block clockpicker" data-placement="left" data-align="top" data-autoclose="true">
-                        <input type="text" class="clock" placeholder="Tempo..." readonly id="addNotifyTimeLbl">
-                    </div>
-                    <input type="button" class="btn-with-list" value="+" id='addNotifySiteBtn' />
-                </div>
-
-                <div class="margin-top-10">
-                    <ul id='notifyList' class="listbox list" size="10"></ul>
-                </div>
-
-                <div class="margin-top-10">
-                    <label>Você pode definir uma mensagem para notificação: </label>
-                    <div class="setting-notify-block">
-                        <img src="images/128x128.png" class="setting-notify-img">
-                        <div class="setting-notify-message-block">
-                            <span class="setting-notify-title">Extensão de apoio ao bem-estar do profissional de
-                                TI</span>
-                            <input type="text" class="setting-notify-message" id="notifyMessage" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="margin-top-10">
-                    <label class="block">
-                        Para que o Extensão de apoio ao bem-estar do profissional de TI mostre notificações toda vez que
-                        você passa
-                        um intervalo de tempo especificado no site, você precisa de permissão do Conceder para acessar
-                        para notificações.
-                    </label>
-
-                    <input class="margin-top-10 permission-btn" type="button" value="Conceder permissão"
-                        id='grantPermissionForNotifications'>
-                    <div id='permissionSuccessedBlockForNotifications' hidden>
-                        <img src="/images/success.png" height="18" />
-                        <label>As permissões foram concedidas</label>
-                    </div>
-                </div>
-
-                <div class="notify warning notify-width-300" id='notifyForNotifyList' hidden>
-                    O site já está na lista de notificações
-                </div>
+            <input
+              class="margin-top-10 permission-btn"
+              type="button"
+              value="Conceder permissão"
+              id="grantPermissionForNotifications"
+            />
+            <div id="permissionSuccessedBlockForNotifications" hidden>
+              <img src="/images/success.png" height="18" />
+              <label>As permissões foram concedidas</label>
             </div>
+          </div>
 
-            <!-- Alerta de Água -->
+          <div
+            class="notify warning notify-width-300"
+            id="notifyForNotifyList"
+            hidden
+          >
+            O site já está na lista de notificações
+          </div>
+        </div>
 
-            <div id='waterBlock' hidden>
-                <label>Lembrar de tomar água: </label>
-                <div class="tooltip">
-                    <img src="/images/information.svg" height="18" />
-                    <span class="tooltiptext">
-                        Mostrar notificações para lembrar de tomar água.
-                    </span>
+        <!-- Alerta de Água -->
+
+        <div id="waterBlock" hidden>
+          <div class="wrap">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <img src="water.gif" alt="" class="water" id="glass" />
                 </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 textClass">
+                  <h1 class="head">
+                    <img src="icon.png" alt="Toast" />
+                    Water Reminder
+                  </h1>
+                  <h2></h2>
 
-                <form id="options" class="row">
-                    <br><br>
+                  <form id="options" class="row">
                     <div class="col-md-6">
-                        <input type="checkbox" name="isActivated" checked class="check">Notifique-me em a cada
-                        <select name="frequency">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>5</option>
-                            <option>10</option>
-                            <option>15</option>
-                            <option>20</option>
-                            <option>30</option>
-                            <option>60</option>
-                            <option>120</option>
-                            <option>180</option>
-                            <option>240</option>
-                        </select> minuto(s).
+                      <input
+                        type="checkbox"
+                        name="isActivated"
+                        checked
+                        class="check"
+                      />
+                      Notify me on every&nbsp;
                     </div>
-                </form>
+                    <div class="col-md-6">
+                      <select name="frequency">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>5</option>
+                        <option>10</option>
+                        <option>15</option>
+                        <option>20</option>
+                        <option>30</option>
+                        <option>60</option>
+                        <option>120</option>
+                        <option>180</option>
+                        <option>240</option>
+                      </select>
+                      &nbsp; &nbsp; minute(s).
+                    </div>
+                  </form>
 
-                <div class="goalClass">
-                    <h1 class="goalHead">Defina sua meta para hoje</h1>
+                  <div class="goalClass">
+                    <h1 class="goalHead">Set Your Goal for Today</h1>
 
                     <form id="soundOptions" class="row">
-                        <div class="col-md-6 soundNotification">
-                            <input type="checkbox" name="isSoundActivated" checked class="check" id="soundCheck">
-                            Som de notificação&nbsp;
-                        </div>
-
-
-                        <div class="col-md-5 soundNotification">
-                            <select name="sound" id="sound">
-                                <option> Uma bela queda </option>
-                                <option> Claro </option>
-                                <option> Várias gotas de água </option>
-                                <option> Direto ao ponto </option>
-                                <option> Gota d'água </option>
-                                <option> Água Splash Ploor </option>
-                                <option> Respingos de água </option>
-                                <option> Notificação do Android </option>
-                                <option> Bell </option>
-                                <option> Bolha </option>
-                                <option> Mensagem </option>
-                                <option> Plucky </option>
-                                <option>Notificação curta</option>
-                                <option>Notificação de texto</option>
-                            </select>
-                        </div>
+                      <div class="col-md-6 soundNotification">
+                        <input
+                          type="checkbox"
+                          name="isSoundActivated"
+                          checked
+                          class="check"
+                          id="soundCheck"
+                        />
+                        Notification Sound&nbsp;
+                      </div>
+                      <div class="col-md-1 playClass" id="playAudio">
+                        <img src="play.png" alt="" class="play" />
+                      </div>
+                      <div class="col-md-5 soundNotification">
+                        <select name="sound" id="sound">
+                          <option>A Beautiful Drop</option>
+                          <option>Light</option>
+                          <option>Multiple Water Drops</option>
+                          <option>To the Point</option>
+                          <option>Water Drop</option>
+                          <option>Water Splash Ploor</option>
+                          <option>Water Splash</option>
+                          <option>Android Notification</option>
+                          <option>Bell</option>
+                          <option>Bubble</option>
+                          <option>Message</option>
+                          <option>Plucky</option>
+                          <option>Short Notification</option>
+                          <option>Text Notification</option>
+                        </select>
+                      </div>
                     </form>
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <p class="messageLabel">Sua mensagem</p>
-                            <input type="text" id="message" class="messageClass">
-                        </div>
-
-                        <div class="col-md-4">
-                            <h2>Meta de hoje:</h2>
-                        </div>
-
-                        <div class="col-md-2">
-                            <input type="text" id="goal" class="goalClass">
-                        </div><br>
-
-                        <input id="save" class="button primary" type="button" value="Salvar" />
-                        <input id="reset" class="button default reset" type="button" value="Resetar" />
+                      <div class="col-md-12">
+                        <p class="messageLabel">Your Message</p>
+                        <input type="text" id="message" class="messageClass" />
+                      </div>
+                      <div class="col-md-4">
+                        <h2>Goal for Today:</h2>
+                      </div>
+                      <div class="col-md-2">
+                        <!-- <h2>Goal:</h2> -->
+                        <input type="text" id="goal" class="goalClass" />
+                      </div>
+                      <div class="col-md-6">
+                        <input
+                          type="submit"
+                          name=""
+                          id="reset"
+                          value="Reset Total"
+                          class="reset"
+                        />
+                      </div>
+                      <div class="col-md-12">
+                        <input
+                          type="submit"
+                          name=""
+                          id="save"
+                          value="Save Changes"
+                          class="save"
+                        />
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-
-            <!-- Pomodoro Timer -->
-
-            <div id='pomodoroBlock' hidden>
-                <label>Temporizador Pomodoro: </label>
-                <div class="tooltip">
-                    <img src="/images/information.svg" height="18" />
-                    <span class="tooltiptext">
-                        Atividar temporizador pomodoro.
-                    </span>
-                </div>
-
-                <form>
-                    <div>
-                        <div id="study">
-                            <h2>Trabalhar</h2>
-                            <input type="text" class="minutes" size="3" maxlength="3" /> : <input type="text"
-                                class="seconds" size="3" maxlength="2" />
-                        </div>
-
-                        <div id="shortBreak">
-                            <h2>Intervalo curto</h2>
-                            <input type="text" class="minutes" size="3" maxlength="3" /> : <input type="text"
-                                class="seconds" size="3" maxlength="2" />
-                        </div>
-
-                        <div id="longBreak">
-                            <h2>Intervalo longo</h2>
-                            <input type="text" class="minutes" size="3" maxlength="3" /> : <input type="text"
-                                class="seconds" size="3" maxlength="2" />
-                        </div>
-                    </div>
-
-                    <p id="pomodorosMessage" class="caption">
-                        Número de sessões de Pomodoro por ciclo:
-                        <input type="text" id="numberPomodoros" size="2" maxlength="2" />
-                    </p>
-
-                    <p class="caption">
-                        <input type="checkbox" id="sound">
-                        <label for="sound">Habilitar som de notificação</label>
-                    </p>
-                    <input id="saveButton" class="button primary" type="button" value="Salvar" />
-                    <input id="resetButton" class="button default" type="button" value="Resetar" />
-                </form>
-            </div>
-
-            <!-- Sobre -->
-
-            <div id='aboutBlock' hidden>
-                <div class="margin-top-20">
-                    <label>
-                        Adicionar sobre
-                    </label>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <!-- Pomodoro Timer -->
+
+        <div id="pomodoroBlock" hidden>
+          <label>Temporizador Pomodoro: </label>
+          <div class="tooltip">
+            <img src="/images/information.svg" height="18" />
+            <span class="tooltiptext"> Atividar temporizador pomodoro. </span>
+          </div>
+
+          <form>
+            <div>
+              <div id="study">
+                <input type="text" class="minutes" size="3" maxlength="3" /> :
+                <input type="text" class="seconds" size="3" maxlength="2" />
+              </div>
+
+              <div id="shortBreak">
+                <h2>Intervalo curto</h2>
+                <input type="text" class="minutes" size="3" maxlength="3" /> :
+                <input type="text" class="seconds" size="3" maxlength="2" />
+              </div>
+
+              <div id="longBreak">
+                <h2>Intervalo longo</h2>
+                <input type="text" class="minutes" size="3" maxlength="3" /> :
+                <input type="text" class="seconds" size="3" maxlength="2" />
+              </div>
+            </div>
+
+            <p id="pomodorosMessage" class="caption">
+              Número de sessões de Pomodoro por ciclo:
+              <input type="text" id="numberPomodoros" size="2" maxlength="2" />
+            </p>
+
+            <p class="caption">
+              <input type="checkbox" id="sound" />
+              <label for="sound">Habilitar som de notificação</label>
+            </p>
+            <input
+              id="saveButton"
+              class="button primary"
+              type="button"
+              value="Salvar"
+            />
+            <input
+              id="resetButton"
+              class="button default"
+              type="button"
+              value="Resetar"
+            />
+          </form>
+        </div>
+
+        <!-- Sobre -->
+
+        <div id="aboutBlock" hidden>
+          <div class="margin-top-20">
+            <label> Adicionar sobre </label>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Script -->
@@ -416,6 +547,7 @@
     <script src="js/time-tracker/settings.js"></script>
     <script src="js/time-tracker/restriction.js"></script>
     <script src="js/time-tracker/url.js"></script>
+
     <script src="js/pomodoro/model/settings/userSettings.js"></script>
     <script src="js/pomodoro/model/settings/userSettingsStorage.js"></script>
     <script src="js/pomodoro/model/timerFormat.js"></script>
@@ -426,8 +558,9 @@
     <script src="js/pomodoro/model/inputs/pomodorosInput.js"></script>
     <script src="js/pomodoro/optionsInterfaceService.js"></script>
     <script src="js/pomodoro/options.js"></script>
-    <script src="js/picker/jquery-3.3.1.min.js"></script>
-    <script src="js/picker/clockpicker.min.js"></script>
-</body>
 
+    <script src="js/picker/clockpicker.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </body>
 </html>
