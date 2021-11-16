@@ -96,9 +96,9 @@ $ pip install -r requirements.txt
 $ python3 app.py
 
 # A aplicação estará aberta no navegador em:
-$ http://localhost:8080
+$ http://localhost:5000
 
 # Para acessar o admin, digite
-$ http://localhost:8080/admin
+$ http://localhost:5000/admin
 
 ```

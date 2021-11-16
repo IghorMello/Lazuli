@@ -7,7 +7,7 @@ $(function () {
       crm: $loginForm.find("#password_admin_login").val(),
     };
     $.ajax({
-      url: "http://localhost:8080/admin",
+      url: "https://flaskapideploy.herokuapp.com/admin",
       type: "POST",
       dataType: "json",
       contentType: "application/json; charset=utf-8",
@@ -24,7 +24,7 @@ $(function () {
         $.post("/postmethod", {
           javascript_data: JSON.stringify(postData),
         });
-        window.location.replace("http://localhost:8080/admin/dashboard");
+        window.location.replace("https://flaskapideploy.herokuapp.com/admin/dashboard");
       },
       error: function (error) {
         console.error(error);

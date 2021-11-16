@@ -8,7 +8,7 @@ $(function () {
       crm: $addUserForm.find("#crm_register_admin").val(),
     };
     $.ajax({
-      url: "http://localhost:8080/admin/register-medical",
+      url: "https://flaskapideploy.herokuapp.com/admin/register-medical",
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       type: "POST",

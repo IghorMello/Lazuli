@@ -30,7 +30,7 @@ $(function () {
         .val(),
     };
     $.ajax({
-      url: "http://localhost:8080/medical/register-employee",
+      url: "https://flaskapideploy.herokuapp.com/medical/register-employee",
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       type: "POST",

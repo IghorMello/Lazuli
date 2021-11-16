@@ -7,7 +7,7 @@ $(function () {
       crm: $loginForm.find("#crm_medical_login").val(),
     };
     $.ajax({
-      url: "http://localhost:8080/medical",
+      url: "https://flaskapideploy.herokuapp.com/medical",
       type: "POST",
       dataType: "json",
       contentType: "application/json; charset=utf-8",
@@ -25,7 +25,7 @@ $(function () {
           javascript_data: JSON.stringify(postData),
         });
         window.location.replace(
-          "http://localhost:5000/medical/consult-employee"
+          "https://extensiontimind.herokuapp.com/medical/consult-employee"
         );
       },
       error: function (error) {
