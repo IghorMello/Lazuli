@@ -57,8 +57,8 @@ def index():
     send_email(list_send_email)
   return render_template('pages/index.html')
 
-@app.route('/postmethod', methods=['GET', 'POST'])
-def post_javascript_data():
+@app.route('/postmethod-medical', methods=['GET', 'POST'])
+def post_javascript_data_medical():
   current = request.form['javascript_data']
   objeto = json.loads(current)
   session['user_id']=objeto['localId']
@@ -66,6 +66,18 @@ def post_javascript_data():
   result['localid'] = objeto['localId']
   result['email'] = objeto['email']
   result['crm'] = objeto['crm']
+  session['current_user']=result
+  current_user = session['current_user']
+  return "deu certo"
+
+@app.route('/postmethod-admin', methods=['GET', 'POST'])
+def post_javascript_data_admin():
+  current = request.form['javascript_data']
+  objeto = json.loads(current)
+  session['user_id']=objeto['localId']
+  result={}
+  result['localid'] = objeto['localId']
+  result['email'] = objeto['email']
   session['current_user']=result
   current_user = session['current_user']
   return "deu certo"

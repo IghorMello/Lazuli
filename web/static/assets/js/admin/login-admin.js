@@ -21,7 +21,7 @@ $(function () {
           showConfirmButton: false,
           timer: 1000,
         });
-        $.post("/postmethod", {
+        $.post("/postmethod-admin", {
           javascript_data: JSON.stringify(postData),
         });
         window.location.replace("/admin/consult-medical");
