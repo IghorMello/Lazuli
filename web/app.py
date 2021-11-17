@@ -188,7 +188,7 @@ def medical_register_employee():
 @login_required
 def medical_consult_employee():
     current=session['current_user']
-    type_user=current_user['type_user']
+    type_user=current['type_user']
     if type_user != 'responsavel_medico':
       return redirect(url_for('login'))
     else:
