@@ -133,11 +133,25 @@ def admin_consult_employee():
     return render_template('admin/consult-employee.html', current=email_current_user)
 
 #------------------------------------------------------------------------#
+# Página de cadastro do funcionário
+#------------------------------------------------------------------------#
+
+@app.route('/admin/register-employee', methods=['GET', 'POST'])
+def admin_register_employee():
+  current_user=session['current_user']
+  type_user=current_user['type_user']
+  if type_user != 'admin':
+    return redirect(url_for('login'))
+  else:
+    email_current_user=current_user['email']
+    return render_template('admin/register-employee.html', current=email_current_user)
+
+#------------------------------------------------------------------------#
 # Página de cadastro do responsável médico
 #------------------------------------------------------------------------#
 
 @app.route('/admin/register-medical', methods=['GET', 'POST'])
-def admin_register():
+def admin_register_medical():
   current_user=session['current_user']
   type_user=current_user['type_user']
   if type_user != 'admin':
