@@ -80,6 +80,7 @@ def login_admin():
     result['email'] = request.json['email']
     result['localId'] = session['userId']
     result['password'] = request.json['password']
+    result['type_user'] = "admin"
     result['data'] = data
     result['time'] = time
   response = json_util.dumps(result)
