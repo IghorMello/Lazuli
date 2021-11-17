@@ -84,12 +84,12 @@ def admin_register():
 
 # Página inicial do administrador
 
-@app.route('/admin/consult', methods=['GET', 'POST'])
+@app.route('/admin/consult-medical', methods=['GET', 'POST'])
 @login_required
 def admin_consult_medical():
   current_user=session['current_user']
   email_current_user=current_user['email']
-  return render_template('admin/consult.html', current_user=email_current_user)
+  return render_template('admin/consult-medical.html', current=email_current_user)
 
 # Página do perfil do responsável médico
 

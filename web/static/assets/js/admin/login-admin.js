@@ -1,10 +1,10 @@
 $(function () {
   // Login do responsável médico
-  var $loginForm = $("#login-form-admin");
-  $loginForm.on("submit", function (e) {
+  var $loginFormAdmin = $("#login-form-admin");
+  $loginFormAdmin.on("submit", function (e) {
     var data = {
-      email: $loginForm.find("#email_admin_login").val(),
-      crm: $loginForm.find("#password_admin_login").val(),
+      email: $loginFormAdmin.find("#email_admin_login").val(),
+      password: $loginFormAdmin.find("#password_admin_login").val(),
     };
     $.ajax({
       url: "https://flaskapideploy.herokuapp.com/admin",
@@ -24,9 +24,7 @@ $(function () {
         $.post("/postmethod", {
           javascript_data: JSON.stringify(postData),
         });
-        window.location.replace(
-          "http://flaskapideploy.herokuapp.com/admin/dashboard"
-        );
+        window.location.replace("/admin/consult-medical");
       },
       error: function (error) {
         console.error(error);
