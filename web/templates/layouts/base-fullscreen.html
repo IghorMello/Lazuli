@@ -1,160 +1,242 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="title" content="Sign up page" />
-    <meta
-      name="description"
-      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint non temporibus voluptates soluta, odit alias rerum, similique est, ipsum optio distinctio eos magnam molestias doloremque! Repellendus a aperiam impedit enim."
-    />
-    <meta
-      name="keywords"
-      content=""
-    />
-    <link
-      rel="canonical"
-      href="#"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="" />
-    <meta property="og:title" content="Sign up page" />
-    <meta
-      property="og:description"
-      content=""
-    />
-    <meta
-      property="og:image"
-      content=""
-    />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content=""
-    />
-    <meta property="twitter:title" content="Sign up page" />
-    <meta property="twitter:description" content="" />
-    <meta
-      property="twitter:image"
-      content=""
-    />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="theme-color" content="#ffffff" />
 
-    <title>Extensão - {% block title %}{% endblock %} </title>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="title" content="Sign up page" />
+  <meta name="description"
+    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint non temporibus voluptates soluta, odit alias rerum, similique est, ipsum optio distinctio eos magnam molestias doloremque! Repellendus a aperiam impedit enim." />
+  <meta name="keywords" content="" />
+  <link rel="canonical" href="#" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:title" content="Sign up page" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="" />
+  <meta property="twitter:title" content="Sign up page" />
+  <meta property="twitter:description" content="" />
+  <meta property="twitter:image" content="" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
 
-    <link rel="icon" type="image/png" href="/static/assets/img/icons/favicon.png" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      type="text/css"
-      href="/static/assets/vendor/sweetalert2/dist/sweetalert2.min.css"
-      rel="stylesheet"
-    />
-    <link
-      type="text/css"
-      href="/static/assets/vendor/notyf/notyf.min.css"
-      rel="stylesheet"
-    />
-    <link type="text/css" href="/static/assets/css/volt.css" rel="stylesheet" />
+  <title>Extensão - {% block title %}{% endblock %} </title>
 
-    <style>
-      #preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 9999;
-        overflow: hidden;
-        background: #fff;
+  <link rel="icon" type="image/png" href="/static/assets/img/icons/favicon.png" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link type="text/css" href="/static/assets/vendor/notyf/notyf.min.css" rel="stylesheet" />
+  <link type="text/css" href="/static/assets/css/volt.css" rel="stylesheet" />
+  <link type="text/css" href="/static/assets/css/utils.css">
+  <style>
+    .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+    }
+
+    .form-signin .checkbox {
+      font-weight: 400;
+    }
+
+    .form-signin .form-floating:focus-within {
+      z-index: 2;
+    }
+
+    .btn-primary {
+      background: #5679bf !important;
+      border: #5679bf !important;
+    }
+
+    .btn-primary:hover {
+      background: #7793cb !important;
+      border: #7793cb !important;
+    }
+
+    .btn-secondary {
+      background: #fff !important;
+      border: #fff !important;
+    }
+
+    .btn-secondary:hover {
+      background: #e5e5e5 !important;
+      border: #e5e5e5 !important;
+    }
+
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    .login-form-1 {
+      padding: 5%;
+      box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .login-form-1 h3 {
+      text-align: center;
+      color: #333;
+    }
+
+    .login-form-2 {
+      padding: 5%;
+      background: #5679bf;
+      box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .login-form-2 h3 {
+      text-align: center;
+      color: #fff;
+    }
+
+    .login-container form {
+      padding: 10%;
+    }
+
+    .btnSubmit {
+      width: 50%;
+      border-radius: 1rem;
+      padding: 1.5%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .login-form-1 .btnSubmit {
+      font-weight: 600;
+      color: #fff;
+      background-color: #5679bf;
+    }
+
+    .login-form-2 .btnSubmit {
+      font-weight: 600;
+      color: #5679bf;
+      background-color: #fff;
+    }
+
+    .login-form-2 .ForgetPwd {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .login-form-1 .ForgetPwd {
+      color: #5679bf;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .navbar-blue {
+      background-color: #5679bf !important;
+      color: #fff;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(50% - 30px);
+      border: 6px solid #1f2937;
+      border-top-color: #fff;
+      border-bottom-color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
       }
 
-      #preloader:before {
-        content: "";
-        position: fixed;
-        top: calc(50% - 30px);
-        left: calc(50% - 30px);
-        border: 6px solid #1f2937;
-        border-top-color: #fff;
-        border-bottom-color: #fff;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        -webkit-animation: animate-preloader 1s linear infinite;
-        animation: animate-preloader 1s linear infinite;
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
       }
 
-      @-webkit-keyframes animate-preloader {
-        0% {
-          transform: rotate(0deg);
-        }
-
-        100% {
-          transform: rotate(360deg);
-        }
+      100% {
+        transform: rotate(360deg);
       }
+    }
 
-      @keyframes animate-preloader {
-        0% {
-          transform: rotate(0deg);
-        }
-
-        100% {
-          transform: rotate(360deg);
-        }
+    @media screen and (max-width: 768px) {
+      [data-aos-delay] {
+        transition-delay: 0 !important;
       }
+    }
+  </style>
 
-      @media screen and (max-width: 768px) {
-        [data-aos-delay] {
-          transition-delay: 0 !important;
-        }
-      }
-    </style>
-    <!-- Sweetalert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- JQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      crossorigin="anonymous"
-    ></script>
-    {% block stylesheets %}{% endblock stylesheets %}
-  </head>
+  <!-- Sweetalert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+  
+  {% block stylesheets %}{% endblock stylesheets %}
+</head>
 
-  <body>
-    {% block content %}{% endblock content %}
-    <div id="preloader"></div>
-    {% include 'includes/scripts.html' %}
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="../../static/assets/js/utils.js"></script>
-    {% block javascripts %}{% endblock javascripts %}
-  </body>
+<body>
+  {% block content %}{% endblock content %}
+
+  <div id="preloader"></div>
+
+  {% include 'includes/scripts.html' %}
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="../../static/assets/js/utils.js"></script>
+
+  {% block javascripts %}{% endblock javascripts %}
+
+</body>
+
 </html>
