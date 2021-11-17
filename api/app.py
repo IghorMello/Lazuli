@@ -131,6 +131,17 @@ def register_admin():
     return not_found()
 
 #---------------------------------------
+# Deletar administrador
+#---------------------------------------
+
+@app.route('/admin/<id>', methods=['DELETE'])
+def delete_admin(id):
+  mongo.db.admindata.delete_one({'_id': ObjectId(id)})
+  response = jsonify({'message': 'Administrador com código ' + id + ' foi deletado com sucesso'})
+  response.status_code = 200
+  return response
+
+#---------------------------------------
 # Cadastrar responsável médico
 #---------------------------------------
 
