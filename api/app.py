@@ -235,6 +235,7 @@ def login_medical():
     result['localId'] = session['userId']
     result['crm'] = request.json['crm']
     result['data'] = data
+    result['type_user'] = "responsavel_medico"
     result['time'] = time
   response = json_util.dumps(result)
   return Response(response, mimetype='application/json')
@@ -377,6 +378,7 @@ def login():
     result['codigo_usuario']=codigo_usuario
     result['email']=new_data['email']
     result['nome']=new_data['nome']
+    result['type_user'] = "admin"
     result['id']=local_id
     result['time']=time
     result['data']=data

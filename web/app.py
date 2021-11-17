@@ -44,7 +44,9 @@ def login_required(view):
         flash('Erro ao realizar login', 'warning')
     return wrauth_plataformaed_view
 
+#------------------------------------------------------------------------#
 # Página inicial
+#------------------------------------------------------------------------#
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -57,6 +59,10 @@ def index():
     send_email(list_send_email)
   return render_template('pages/index.html')
 
+#------------------------------------------------------------------------#
+# Obter dados especifícos
+#------------------------------------------------------------------------#
+
 @app.route('/postmethod-medical', methods=['GET', 'POST'])
 def post_javascript_data_medical():
   current = request.form['javascript_data']
@@ -68,7 +74,7 @@ def post_javascript_data_medical():
   result['crm'] = objeto['crm']
   session['current_user']=result
   current_user = session['current_user']
-  return "deu certo"
+  return "settings"
 
 @app.route('/postmethod-admin', methods=['GET', 'POST'])
 def post_javascript_data_admin():
@@ -80,75 +86,140 @@ def post_javascript_data_admin():
   result['email'] = objeto['email']
   session['current_user']=result
   current_user = session['current_user']
-  return "deu certo"
+  return "settings"
 
+#------------------------------------------------------------------------#
 # Página de login
+#------------------------------------------------------------------------#
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
   return render_template('medical/login.html')
 
-# Página de cadastro do responsável médico
+#------------------------------------------------------------------------#
+#---------------- Página do Administrador
+#------------------------------------------------------------------------#
 
-@app.route('/admin/register-medical', methods=['GET', 'POST'])
-def admin_register():
-  return render_template('admin/register-medical.html')
-
-# Página inicial do administrador
+#------------------------------------------------------------------------#
+# Admin - Consultar responsável médico
+#------------------------------------------------------------------------#
 
 @app.route('/admin/consult-medical', methods=['GET', 'POST'])
 @login_required
 def admin_consult_medical():
   current_user=session['current_user']
-  email_current_user=current_user['email']
-  return render_template('admin/consult-medical.html', current=email_current_user)
+  type_user=current_user['type_user']
+  if type_user != 'admin':
+    return redirect(url_for('login'))
+  else:
+    email_current_user=current_user['email']
+    return render_template('admin/consult-medical.html', current=email_current_user)
 
-# Página do perfil do responsável médico
+#------------------------------------------------------------------------#
+# Admin - Consultar profissional de TI
+#------------------------------------------------------------------------#
 
-@app.route('/medical/dashboard/settings', methods=['GET', 'POST'])
+@app.route('/admin/consult-employee', methods=['GET', 'POST'])
+@login_required
+def admin_consult_employee():
+  current_user=session['current_user']
+  type_user=current_user['type_user']
+  if type_user != 'admin':
+    return redirect(url_for('login'))
+  else:
+    email_current_user=current_user['email']
+    return render_template('admin/consult-employee.html', current=email_current_user)
+
+#------------------------------------------------------------------------#
+# Página de cadastro do responsável médico
+#------------------------------------------------------------------------#
+
+@app.route('/admin/register-medical', methods=['GET', 'POST'])
+def admin_register():
+  current_user=session['current_user']
+  type_user=current_user['type_user']
+  if type_user != 'admin':
+    return redirect(url_for('login'))
+  else:
+    email_current_user=current_user['email']
+    return render_template('admin/register-medical.html', current=email_current_user)
+
+#------------------------------------------------------------------------
+#---------------- Página do responsável médico
+#------------------------------------------------------------------------
+
+#------------------------------------------------------------------------
+# Responsável médico - Editar Perfil
+#------------------------------------------------------------------------
+
+@app.route('/medical/settings', methods=['GET', 'POST'])
 @login_required
 def medical_dashboard_profile():
   current=session['current_user']
-  current_user=current['email']
-  return render_template('medical/profile.html', current=current_user, all_data=current)
+  type_user=current_user['type_user']
+  if type_user != 'responsavel_medico':
+    return redirect(url_for('login'))
+  else:
+    current_user=current['email']
+    return render_template('medical/profile.html', current=current_user, all_data=current)
 
-# Página de cadastro do responsável médico
+#------------------------------------------------------------------------
+# Responsável médico - Cadastrar funcionário
+#------------------------------------------------------------------------
 
 @app.route('/medical/register-employee', methods=['GET', 'POST'])
 @login_required
 def medical_register_employee():
   current=session['current_user']
-  current_user=current['email']
-  return render_template('medical/register-employee.html',  current=current_user, all_data=current)
+  type_user=current_user['type_user']
+  if type_user != 'responsavel_medico':
+    return redirect(url_for('login'))
+  else:
+    current_user=current['email']
+    return render_template('medical/register-employee.html',  current=current_user, all_data=current)
 
-# Página de consulta do responsável médico
+#------------------------------------------------------------------------
+# Responsável Médico - Consultar funcionário
+#------------------------------------------------------------------------
 
 @app.route('/medical/consult-employee', methods=['GET', 'POST'])
 @login_required
 def medical_consult_employee():
-  current=session['current_user']
-  current_user=current['email']
-  return render_template('medical/consult-employee.html', current=current_user)
+    current=session['current_user']
+    type_user=current_user['type_user']
+    if type_user != 'responsavel_medico':
+      return redirect(url_for('login'))
+    else:
+      current_user=current['email']
+      return render_template('medical/consult-employee.html', current=current_user)
 
+#------------------------------------------------------------------------
 # Erro 404
+#------------------------------------------------------------------------
 
 @app.errorhandler(404)
 def not_found_error(error):
     return render_template('errors/page-404.html'), 404
 
+#------------------------------------------------------------------------
 # Erro 403
+#------------------------------------------------------------------------
 
 @app.errorhandler(403)
 def not_found_error(error):
     return render_template('errors/page-403.html'), 403 
 
+#------------------------------------------------------------------------
 # Erro 500
+#------------------------------------------------------------------------
 
 @app.errorhandler(500)
 def not_found_error(error):
     return render_template('errors/page-500.html'), 500 
 
+#------------------------------------------------------------------------
 # Enviar email
+#------------------------------------------------------------------------
 
 def send_email(result, charset='utf-8'):
     msg = Message("{} - Dúvida na plataforma!".format(result['email']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
@@ -156,7 +227,9 @@ def send_email(result, charset='utf-8'):
     msg.html = Mensagem.encode('ascii', 'xmlcharrefreplace')
     mail.send(msg)
 
+#------------------------------------------------------------------------
 # Logout
+#------------------------------------------------------------------------
 
 @app.route('/logout')
 def sign_out():

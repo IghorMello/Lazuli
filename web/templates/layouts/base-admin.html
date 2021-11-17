@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="title" content="Extensão" />
+    <meta
+      name="description"
+      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora et nihil enim minus voluptatem, aut vitae! Blanditiis perferendis adipisci, iure mollitia fugiat quibusdam aliquid, consequatur recusandae minus voluptate accusamus eos."
+    />
+    <meta name="keywords" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://demo.themesberg.com/volt-pro" />
+    <meta property="og:title" content="Extensão" />
+    <meta
+      property="og:description"
+      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora et nihil enim minus voluptatem, aut vitae! Blanditiis perferendis adipisci, iure mollitia fugiat quibusdam aliquid, consequatur recusandae minus voluptate accusamus eos."
+    />
+    <meta property="og:image" content="" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="" />
+    <meta property="twitter:title" content="" />
+    <meta property="twitter:description" content="" />
+    <meta property="twitter:image" content="" />
+
+    <title>Extensão - {% block title %}{% endblock %} | Extensão</title>
+
+    <link rel="canonical" href="" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/static/assets/img/icons/favicon.png"
+    />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      type="text/css"
+      href="/static/assets/vendor/sweetalert2/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="/static/assets/vendor/notyf/notyf.min.css"
+      rel="stylesheet"
+    />
+    <link type="text/css" href="/static/assets/css/volt.css" rel="stylesheet" />
+    <!-- Sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="http://www.jsdelivr.com/projects/jquery.mask"></script>
+    {% block stylesheets %}{% endblock stylesheets %}
+  </head>
+
+  <body>
+    {% include 'includes/sidebar-admin.html' %}
+    <main class="content">
+      {% include 'includes/navigation-admin.html' %} {% block content %}{%
+      endblock content %}
+    </main>
+    {% include 'includes/scripts.html' %} {% block javascripts %}{% endblock
+    javascripts %}
+  </body>
+</html>
