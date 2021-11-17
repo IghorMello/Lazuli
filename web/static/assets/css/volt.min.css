@@ -11090,10 +11090,7 @@ fieldset:disabled .btn {
 }
 .bg-gray-800 {
   --bs-bg-opacity: 1;
-  background-color: rgba(
-    var(--bs-gray-800-rgb),
-    var(--bs-bg-opacity)
-  ) !important;
+  background-color: #516cb4 !important;
 }
 .bg-gray-900 {
   --bs-bg-opacity: 1;
@@ -23038,7 +23035,7 @@ label {
   border-top-color: #5679bf;
 }
 .progress-info .bg-gray-800::after {
-  border-top-color: #5679bf;
+  border-top-color: #516cb4;
 }
 .progress-info .bg-gray-900::after {
   border-top-color: #111827;
