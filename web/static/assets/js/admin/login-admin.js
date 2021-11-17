@@ -1,6 +1,6 @@
 $(function () {
   // Login do responsável médico
-  var $loginForm = $("#login-form");
+  var $loginForm = $("#login-form-admin");
   $loginForm.on("submit", function (e) {
     var data = {
       email: $loginForm.find("#email_admin_login").val(),
@@ -24,7 +24,9 @@ $(function () {
         $.post("/postmethod", {
           javascript_data: JSON.stringify(postData),
         });
-        window.location.replace("https://flaskapideploy.herokuapp.com/admin/dashboard");
+        window.location.replace(
+          "http://flaskapideploy.herokuapp.com/admin/dashboard"
+        );
       },
       error: function (error) {
         console.error(error);

@@ -70,16 +70,10 @@ def post_javascript_data():
   current_user = session['current_user']
   return "deu certo"
 
-# Página de login do administrador
+# Página de login
 
-@app.route('/admin', methods=['GET', 'POST'])
-def admin_login():
-  return render_template('admin/login.html')
-
-# Página de login do responsável médico
-
-@app.route('/medical', methods=['GET', 'POST'])
-def medical_login():
+@app.route('/login', methods=['GET', 'POST'])
+def login():
   return render_template('medical/login.html')
 
 # Página de cadastro do responsável médico
@@ -156,7 +150,7 @@ def send_email(result, charset='utf-8'):
 def sign_out():
     session.pop('user_id')
     flash("Logout realizado com sucesso!", 'success')
-    return redirect(url_for('admin_login'))
+    return redirect(url_for('login'))
 
 if __name__ == "__main__":
   app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
