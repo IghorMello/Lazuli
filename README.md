@@ -74,7 +74,11 @@ $ edge://extensions/
 # Clone este repositório
 $ git clone -b extension https://github.com/IghorMello/Lazuli.git
 
+# Frontend
 $ https://extensiontimind.herokuapp.com
+
+# API
+$ https://flaskapideploy.herokuapp.com
 
 # Caso não esteja em ambiente virtual, certifique-se de criá-lo
 # dentro da pasta (em Linux/macOS) e ativá-lo
