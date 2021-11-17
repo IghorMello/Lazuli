@@ -21,7 +21,7 @@ $(function () {
           showConfirmButton: false,
           timer: 800,
         });
-        window.location.replace("/consult-medical");
+        window.location.replace("/admin/consult-medical");
       },
       error: function (error) {
         console.error(error);
