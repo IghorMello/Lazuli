@@ -1,16 +1,14 @@
-{% extends "layouts/base-fullscreen.html" %} {% block title %} Login -
-Administrador {% endblock %} {% block stylesheets %}{% endblock stylesheets %}
+{% extends "layouts/base-fullscreen.html" %} {% block title %} Login {% endblock %} {% block stylesheets %}{% endblock stylesheets %}
 {% block content %}
 
 <!-- Script -->
 <script src="../../static/assets/js/medical/login-medical.js"></script>
-<script src="../../static/assets/js/admin/login-admin.js"></script>
 
 <!-- Conteúdo principal -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-blue navbar-dark bg-light">
   <div class="mt-3 mb-2 container">
     <a href="#" class="navbar-brand d-none d-md-block">
-      <h3 class="text-white logo">Extension</h3>
+      <h3 style="text-transform: capitalize;color:#fff" class="logo">Extension</h3>
     </a>
     <button
       class="navbar-toggler"
@@ -37,8 +35,8 @@ Administrador {% endblock %} {% block stylesheets %}{% endblock stylesheets %}
 <main class="mt-5" data-aos="zoom-out" data-aos-delay="100">
   <section class="vh-lg-100 mt-lg-0 bg-soft d-flex align-items-center">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 login-form-1">
+      <div class="row justify-content-center">
+        <div class=" col-md-8 login-form-1">
           <h3>Medical responsible login</h3>
           <form method="post" id="login-form" class="mt-4">
             <div class="form-floating">
@@ -67,41 +65,6 @@ Administrador {% endblock %} {% block stylesheets %}{% endblock stylesheets %}
               </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">
-              Sign in
-            </button>
-          </form>
-        </div>
-
-        <div class="col-md-6 login-form-2">
-          <h3>Admin login</h3>
-          <form class="mt-4" id="login-form-admin" method="post">
-            <div class="form-floating">
-              <input
-                type="email"
-                required
-                class="form-control"
-                id="email_admin_login"
-                placeholder="name@example.com"
-              />
-              <label for="email_admin_login">E-mail</label>
-            </div>
-            <div class="form-floating mt-3">
-              <input
-                type="password"
-                required
-                class="form-control"
-                id="password_admin_login"
-                placeholder="Password"
-              />
-              <label for="password_admin_login">Password</label>
-            </div>
-            <div class="checkbox mb-3 mt-3">
-              <label>
-                <input type="checkbox" value="remember-me" />
-                <span style="color: #fff">Remember-me</span>
-              </label>
-            </div>
-            <button class="w-100 btn-lg btn btn-secondary" type="submit">
               Sign in
             </button>
           </form>
