@@ -88,6 +88,7 @@ def post_javascript_data_admin():
   current_user = session['current_user']
   return "settings"
 
+
 #------------------------------------------------------------------------#
 # Página de login
 #------------------------------------------------------------------------#
