@@ -47,7 +47,7 @@
             draggable="false"
             src="/static/assets/img/avatar.png"
             class="card-img-top rounded-circle border-white"
-            alt="Bonnie Green"
+            alt="Avatar"
           />
         </div>
         <div class="d-block">
@@ -101,6 +101,8 @@
     </div>
 
     <ul class="nav flex-column pt-3 pt-md-0">
+      <!-- Visão Geral -->
+
       <li class="nav-item">
         <a href="#" class="nav-link d-flex align-items-center">
           <span class="sidebar-icon">
@@ -124,8 +126,23 @@
         </a>
       </li>
 
+      <!-- Consultar funcionários -->
+
       <li
-        class="nav-item {% if 'transactions' in segment %} active {% endif %}"
+        class="
+          nav-item
+          mt-2
+          {%
+          if
+          'transactions'
+          in
+          segment
+          %}
+          active
+          {%
+          endif
+          %}
+        "
       >
         <a href="/admin/consult-employee" class="nav-link">
           <span class="sidebar-icon">
@@ -144,8 +161,23 @@
         </a>
       </li>
 
+      <!-- Consultar Responsável médico -->
+
       <li
-        class="nav-item {% if 'transactions' in segment %} active {% endif %}"
+        class="
+          nav-item
+          mt-2
+          {%
+          if
+          'transactions'
+          in
+          segment
+          %}
+          active
+          {%
+          endif
+          %}
+        "
       >
         <a href="/admin/consult-medical" class="nav-link">
           <span class="sidebar-icon">
@@ -167,7 +199,11 @@
         </a>
       </li>
 
-      <li class="nav-item {% if 'settings' in segment %} active {% endif %}">
+      <!-- Cadastrar -->
+
+      <li
+        class="mt-2 nav-item {% if 'settings' in segment %} active {% endif %}"
+      >
         <a href="/admin/register-medical" class="nav-link">
           <span class="sidebar-icon">
             <svg
@@ -197,7 +233,9 @@
         class="dropdown-divider mt-4 mb-3 border-gray-700"
       ></li>
 
-      <li class="nav-item">
+      <!-- Suporte -->
+
+      <li class="mt-2 nav-item">
         <a target="_blank" href="#" class="nav-link d-flex align-items-center">
           <span class="sidebar-icon">
             <svg
