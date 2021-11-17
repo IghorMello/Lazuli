@@ -72,6 +72,7 @@ def post_javascript_data_medical():
   result['localid'] = objeto['localId']
   result['email'] = objeto['email']
   result['crm'] = objeto['crm']
+  result['type_user']= objeto['type_user']
   session['current_user']=result
   current_user = session['current_user']
   return "settings"
@@ -84,6 +85,7 @@ def post_javascript_data_admin():
   result={}
   result['localid'] = objeto['localId']
   result['email'] = objeto['email']
+  result['type_user']= objeto['type_user']
   session['current_user']=result
   current_user = session['current_user']
   return "settings"
