@@ -56,10 +56,8 @@ def index():
     list_send_email['email'] = request.form['email'].replace(' ','').lower()
     list_send_email['subject'] = request.form['subject']
     list_send_email['message'] = request.form['message']
-
     send_email(list_send_email)
     flash("E-mail enviado com sucesso", "success")
-  
   return render_template('pages/index.html')
 
 #------------------------------------------------------------------------#
@@ -250,11 +248,10 @@ def not_found_error(error):
 #------------------------------------------------------------------------
 
 def send_email(result, charset='utf-8'):
-    print('\n\nChegou')
     msg = Message("{} - Dúvida na plataforma!".format(result['email']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
     Mensagem = "Nome: {}<br>E-mail: {}<br>Mensagem: {}<br>Assunto: {}".format(result['name'], result['email'], result['message'], result['subject'])
     msg.html = Mensagem.encode('ascii', 'xmlcharrefreplace')
-    print('\n\nSaiu')
+    flash("E-mail enviado com sucesso", "success")
     mail.send(msg)
 
 #------------------------------------------------------------------------
