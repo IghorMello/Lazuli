@@ -21,7 +21,9 @@ $(function () {
           showConfirmButton: false,
           timer: 800,
         });
-        window.location.replace("/admin");
+        window.location.assign(
+          "https://extensiontimind.herokuapp.com/medical/consult-employee"
+        );
       },
       error: function (error) {
         console.error(error);

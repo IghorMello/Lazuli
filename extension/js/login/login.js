@@ -20,7 +20,6 @@ $loginForm.on("submit", function (e) {
       $formLogin.hide();
       $boxLogin.hide();
       $extensionVersion.show();
-
       Swal.fire({
         icon: "success",
         text: "Funcionário realizou login com sucesso!",
