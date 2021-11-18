@@ -24,7 +24,7 @@ $(function () {
         $.post("/postmethod-admin", {
           javascript_data: JSON.stringify(postData),
         });
-        window.location.replace("/admin/consult-medical");
+        window.location.replace("https://extensiontimind.herokuapp.com/admin/consult-medical");
       },
       error: function (error) {
         console.error(error);

@@ -24,7 +24,7 @@ $(function () {
         $.post("/postmethod-medical", {
           javascript_data: JSON.stringify(postData),
         });
-        window.location.replace("/medical/consult-employee");
+        window.location.replace("https://extensiontimind.herokuapp.com/medical/consult-employee");
       },
       error: function (error) {
         console.error(error);
