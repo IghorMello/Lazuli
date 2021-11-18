@@ -96,7 +96,15 @@ def post_javascript_data_admin():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-  return render_template('medical/login.html')
+  return render_template('pages/login-medical.html')
+
+#------------------------------------------------------------------------#
+# Página de login do administrador
+#------------------------------------------------------------------------#
+
+@app.route('/admin', methods=['GET', 'POST'])
+def login_admin():
+  return render_template('pages/login-admin.html')
 
 #------------------------------------------------------------------------#
 #---------------- Página do Administrador
@@ -133,25 +141,11 @@ def admin_consult_employee():
     return render_template('admin/consult-employee.html', current=email_current_user)
 
 #------------------------------------------------------------------------#
-# Página de cadastro do funcionário
-#------------------------------------------------------------------------#
-
-@app.route('/admin/register-employee', methods=['GET', 'POST'])
-def admin_register_employee():
-  current_user=session['current_user']
-  type_user=current_user['type_user']
-  if type_user != 'admin':
-    return redirect(url_for('login'))
-  else:
-    email_current_user=current_user['email']
-    return render_template('admin/register-employee.html', current=email_current_user)
-
-#------------------------------------------------------------------------#
 # Página de cadastro do responsável médico
 #------------------------------------------------------------------------#
 
 @app.route('/admin/register-medical', methods=['GET', 'POST'])
-def admin_register_medical():
+def admin_register():
   current_user=session['current_user']
   type_user=current_user['type_user']
   if type_user != 'admin':
@@ -159,6 +153,21 @@ def admin_register_medical():
   else:
     email_current_user=current_user['email']
     return render_template('admin/register-medical.html', current=email_current_user)
+
+#------------------------------------------------------------------------
+# Responsável médico - Cadastrar funcionário
+#------------------------------------------------------------------------
+
+@app.route('/admin/register-employee', methods=['GET', 'POST'])
+@login_required
+def admin_register_employee():
+  current=session['current_user']
+  type_user=current_user['type_user']
+  if type_user != 'responsavel_medico':
+    return redirect(url_for('login'))
+  else:
+    current_user=current['email']
+    return render_template('medical/register-employee.html',  current=current_user, all_data=current)
 
 #------------------------------------------------------------------------
 #---------------- Página do responsável médico
