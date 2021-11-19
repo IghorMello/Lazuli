@@ -14,7 +14,7 @@ $(function () {
       data: JSON.stringify(data),
       success: function (admin) {
         var postData = admin;
-        console.log(postData);
+        localid=localStorage.setItem('localid', admin.localId);
         Swal.fire({
           icon: "success",
           text: "Responsável médico realizou login com sucesso!",
@@ -23,10 +23,10 @@ $(function () {
         });
         $.post("/postmethod-medical", {
           javascript_data: JSON.stringify(postData),
+        })
+        .done(function() {
+          window.location.assign("/medical/consult-employee")
         });
-        window.location.assign(
-          "https://extensiontimind.herokuapp.com/medical/consult-employee"
-        );
       },
       error: function (error) {
         console.error(error);

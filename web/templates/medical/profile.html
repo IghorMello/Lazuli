@@ -2,7 +2,14 @@
 block stylesheets %}{% endblock stylesheets %} {% block content %}
 
 <!-- Scripts -->
-<script src="../../static/assets/js/register-employee.js"></script>
+<script src="../../static/assets/js/medical/edit-profile.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<script>
+  $(document).ready(function(){
+  $('.telefone_user_register').mask('(00) 0000-0000');
+  })
+</script>
 
 <div class="
     d-flex
@@ -24,59 +31,64 @@ block stylesheets %}{% endblock stylesheets %} {% block content %}
             </svg>
           </a>
         </li>
+        <li class="breadcrumb-item"><a href="#">Extensão</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Editar perfil
+        </li>
       </ol>
     </nav>
   </div>
+</div>
 
-  <div class="row">
-    <div class="col-12 col-xl-12">
-      <div class="card card-body border-0 shadow mb-4">
-        <h2 class="h5 mb-4">Informações gerais</h2>
-        <form method="POST" id="add-user-form">
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <div>
-                <label for="nome_user_register">Nome do responsável médico</label>
-                <input class="form-control" value="{{all_data.nome}}" id="nome_user_register" type="text"
-                  placeholder="Nome do responsável médico" required />
-              </div>
-            </div>
-
-            <div class="col-md-6 mb-3">
-              <div>
-                <label for="crm">CRM</label>
-                <input class="form-control" value="{{all_data.crm}}" id="crm" type="text"
-                  placeholder="Entre com o último nome" readonly required />
-              </div>
+<div class="row">
+  <div class="col-12 col-xl-12">
+    <div class="card card-body border-0 shadow mb-4">
+      <h2 class="h5 mb-4">Editar informações gerais</h2>
+      <form method="POST" id="add-user-form">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div>
+              <label for="nome_register_admin">Nome do responsável médico</label>
+              <input class="form-control" value="{{all_data.nome}}" id="nome_register_admin" type="text"
+                placeholder="Nome do responsável médico" required />
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <div class="form-group">
-                <label for="email_user_register">Email</label>
-                <input class="form-control" id="email_user_register" value="{{all_data.email}}" type="email"
-                  placeholder="name@company.com" readonly />
-              </div>
+          <div class="col-md-6 mb-3">
+            <div>
+              <label for="crm_register_admin">CRM</label>
+              <input class="form-control" value="{{all_data.crm}}" id="crm_register_admin" type="text"
+                placeholder="Entre com o último nome" required />
             </div>
+          </div>
+        </div>
 
-            <div class="col-md-6 mb-3">
-              <div class="form-group">
-                <label for="telefone_user_register">Telefone</label>
-                <input class="form-control" id="telefone_user_register" type="number" placeholder="+12-345 678 910"
-                  required />
-              </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="form-group">
+              <label for="email_register_admin">Email</label>
+              <input class="form-control" id="email_register_admin" value="{{all_data.email}}" type="email"
+                placeholder="name@company.com"  />
             </div>
           </div>
 
-          <div class="mt-3">
-            <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">
-              Salvar todos
-            </button>
+          <div class="col-md-6 mb-3">
+            <div class="form-group">
+              <label for="telefone_user_register">Telefone</label>
+              <input class="form-control" id="telefone_user_register" type="number" placeholder="+12-345 678 910"
+                required />
+            </div>
           </div>
-        </form>
-      </div>
+        </div>
+
+        <div class="mt-3">
+          <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">
+            Salvar todos
+          </button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
-  {% endblock content %} {% block javascripts %}{% endblock javascripts %}
+{% endblock content %} {% block javascripts %}{% endblock javascripts %}

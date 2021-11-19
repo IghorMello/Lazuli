@@ -23,10 +23,10 @@ $(function () {
         });
         $.post("/postmethod-admin", {
           javascript_data: JSON.stringify(postData),
+        })
+        .done(function() {
+          window.location.assign("/admin/consult-medical")
         });
-        window.location.assign(
-          "https://extensiontimind.herokuapp.com/admin/consult-medical"
-        );
       },
       error: function (error) {
         console.error(error);

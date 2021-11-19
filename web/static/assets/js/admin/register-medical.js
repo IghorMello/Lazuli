@@ -21,9 +21,7 @@ $(function () {
           showConfirmButton: false,
           timer: 800,
         });
-        window.location.assign(
-          "https://extensiontimind.herokuapp.com/admin/consult-medical"
-        );
+        window.location.assign("https://extensiontimind.herokuapp.com/admin/consult-medical")
       },
       error: function (error) {
         console.error(error);

@@ -9,7 +9,6 @@ $.ajax({
     var html = "";
     counter = 0;
     for (var i in data) {
-      counter += 1;
       html +=
         "<tr><td><input class='sr-only' id='action' value='" +
         data[i]["_id"]["$oid"] +

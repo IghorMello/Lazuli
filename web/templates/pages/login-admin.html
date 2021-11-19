@@ -36,6 +36,40 @@
 
 <!-- Conteúdo principal -->
 
+<main class="container mt-5 position-relative" data-aos="fade-up" data-aos-delay="100">
+  <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class=" col-md-8 login-form-1">
+          <div>
+            <h2 style="text-align: center;">Admin Login </h2>
+          </div>
+          <form method="post" id="login-form-admin" class="mt-5">
+            <div class="form-floating">
+              <input type="email" required class="form-control" id="email_admin_login"
+                placeholder="name@example.com" />
+              <label for="email_admin_login">E-mail</label>
+            </div>
+            <div class="form-floating mt-3">
+              <input type="password" required class="form-control" id="password_admin_login" placeholder="Password" />
+              <label for="password_admin_login">Password</label>
+            </div>
+            <div class="checkbox mb-3 mt-3">
+              <label>
+                <input type="checkbox" value="remember-me" /> Remember-me
+              </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">
+              Sign in
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 
 <main
   class="container mt-5 position-relative"
   data-aos="fade-up"
@@ -83,6 +117,6 @@
       </div>
     </div>
   </section>
-</main>
+</main> -->
 
 {% endblock content %} {% block javascripts %}{% endblock javascripts %}

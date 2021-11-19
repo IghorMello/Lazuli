@@ -7,9 +7,7 @@ $.ajax({
   method: "get",
   success: function (data) {
     var html = "";
-    counter = 0;
     for (var i in data) {
-      counter += 1;
       html +=
         "<tr><td><input class='sr-only' id='action' value='" +
         data[i]["_id"]["$oid"] +
@@ -33,9 +31,7 @@ $.ajax({
         data[i]["_id"]["$oid"] +
         "'><span class='fa fa-eye me-2'></span>Visualizar</a></td></tr>";
     }
-    console.log(counter);
     $("#exibir").html(html);
-    $("#number").html(counter);
   },
   error: function (error) {
     console.error(error);
@@ -47,29 +43,3 @@ $.ajax({
     });
   },
 });
-
-function excluir() {
-  var localid = $("#action").val();
-  console.log(localid);
-  $.ajax({
-    url: "https://flaskapideploy.herokuapp.com/employees/" + localid,
-    method: "delete",
-    success: function (data) {
-      console.log(data);
-      Swal.fire({
-        icon: "success",
-        title: "Deletado com sucesso!",
-      });
-      document.location.reload(true);
-    },
-    error: function (error) {
-      console.error(error);
-      Swal.fire({
-        icon: "warning",
-        text: "" + error,
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    },
-  });
-}

@@ -46,9 +46,7 @@ $(function () {
           showConfirmButton: false,
           timer: 1000,
         });
-        window.location.assign(
-          "https://extensiontimind.herokuapp.com/medical/consult-employee"
-        );
+        window.location.assign("https://extensiontimind.herokuapp.com/medical/consult-employee")
       },
       error: function (error) {
         console.error(error);

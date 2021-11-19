@@ -76,7 +76,7 @@ def post_javascript_data_medical():
   result['type_user']= objeto['type_user']
   session['current_user']=result
   current_user = session['current_user']
-  return "settings"
+  return redirect(url_for('medical_consult_employee'))
 
 @app.route('/postmethod-admin', methods=['GET', 'POST'])
 def post_javascript_data_admin():
@@ -89,7 +89,7 @@ def post_javascript_data_admin():
   result['type_user']= objeto['type_user']
   session['current_user']=result
   current_user = session['current_user']
-  return "settings"
+  return redirect(url_for('admin_consult_medical'))
 
 #------------------------------------------------------------------------#
 # Página de login
@@ -163,12 +163,12 @@ def admin_register():
 @login_required
 def admin_register_employee():
   current=session['current_user']
-  type_user=current_user['type_user']
-  if type_user != 'responsavel_medico':
+  type_user=current['type_user']
+  if type_user != 'admin':
     return redirect(url_for('login'))
   else:
     current_user=current['email']
-    return render_template('medical/register-employee.html',  current=current_user, all_data=current)
+    return render_template('admin/register-employee.html',  current=current_user, all_data=current)
 
 #------------------------------------------------------------------------
 #---------------- Página do responsável médico
