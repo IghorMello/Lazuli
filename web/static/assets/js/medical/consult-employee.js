@@ -26,13 +26,13 @@ $.ajax({
         data[i]["_id"]["$oid"] +
         "' href='/admin/edit/" +
         data[i]["_id"]["$oid"] +
-        "'><span onclick='editar()' class='fa fa-pencil-square-o me-2'></span>Editar</a><a class='dropdown-item text-danger rounded-bottom' value='" +
+        "'><span onclick='editar()' class='fa fa-pencil-square-o me-2'></span>Edit</a><a class='dropdown-item text-danger rounded-bottom' value='" +
         data[i]["_id"]["$oid"] +
-        "' onclick='excluir()' href='#'><span class='fa fa-trash me-2'></span>Remover</a><a class='dropdown-item text-info rounded-bottom' value='" +
+        "' onclick='excluir()' href='#'><span class='fa fa-trash me-2'></span>Delete</a><a class='dropdown-item text-info rounded-bottom' value='" +
         data[i]["_id"]["$oid"] +
         "' onclick='visualizar()' href='/admin/consult/" +
         data[i]["_id"]["$oid"] +
-        "'><span class='fa fa-eye me-2'></span>Visualizar</a></td></tr>";
+        "'><span class='fa fa-eye me-2'></span>Consult</a></td></tr>";
     }
     $("#exibir").html(html);
   },
