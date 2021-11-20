@@ -1,4 +1,4 @@
-{% extends "layouts/base-fullscreen.html" %}
+{% extends "layouts/base-error.html" %}
 {% block title %} Error 403 {% endblock %}
 {% block stylesheets %}{% endblock stylesheets %}
 {% block content %}
@@ -11,12 +11,12 @@
                     <div>
                         <img class="img-fluid w-75" src="/static/assets/img/illustrations/404.svg" alt="404 not found">
                         <h1 class="mt-5">
-                            Acesso <span class="fw-bolder text-primary">negado</span>
+                            Access <span class="fw-bolder text-primary">denied</span>
                         </h1>
                         <p class="lead my-4">
-                            Entre em contato com o suporte ou autentique
+                            Contact support or authenticate
                         </p>
-                        <a class="btn btn-dark animate-hover" href="/admin">
+                        <a class="btn btn-dark animate-hover" href="/login">
                             <i class="fas fa-chevron-left me-3 ps-2 animate-left-3"></i>
                             LOGIN
                         </a>

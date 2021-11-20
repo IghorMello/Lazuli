@@ -6,9 +6,9 @@ block stylesheets %}{% endblock stylesheets %} {% block content %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script>
-  $(document).ready(function(){
-  $('.data_nascimento_user_register').mask('00/00/0000');
-  $('.telefone_user_register').mask('(00) 0000-0000');
+  $(document).ready(function () {
+    $('.data_nascimento_user_register').mask('00/00/0000');
+    $('.telefone_user_register').mask('(00) 0000-0000');
   })
 </script>
 
@@ -32,9 +32,9 @@ block stylesheets %}{% endblock stylesheets %} {% block content %}
             </svg>
           </a>
         </li>
-        <li class="breadcrumb-item"><a href="#">Extensão</a></li>
+        <li class="breadcrumb-item"><a href="#">Web</a></li>
         <li class="breadcrumb-item active" aria-current="page">
-          Responsável médico
+          IT Professionals
         </li>
       </ol>
     </nav>
@@ -44,28 +44,27 @@ block stylesheets %}{% endblock stylesheets %} {% block content %}
 <div class="row">
   <div class="col-12 col-xl-12">
     <div class="card card-body border-0 shadow mb-4">
-      <h2 class="h5 mb-4">Informações gerais</h2>
+      <h2 class="h5 mb-4">General information</h2>
       <form method="POST" id="add-user-form">
         <div class="row">
           <div class="col-md-6 mb-3">
             <div>
-              <label for="nome_user_register">Primeiro nome</label>
-              <input class="form-control" id="nome_user_register" type="text" placeholder="Entre com o primeiro nome"
-                required />
+              <label for="nome_user_register">First Name</label>
+              <input class="form-control" id="nome_user_register" type="text" placeholder="Enter first name" required />
             </div>
           </div>
 
           <div class="col-md-6 mb-3">
             <div>
-              <label for="last_name">Último nome</label>
-              <input class="form-control" id="last_name" type="text" placeholder="Entre com o último nome" required />
+              <label for="last_name">Last Name</label>
+              <input class="form-control" id="last_name" type="text" placeholder="Enter last name" required />
             </div>
           </div>
         </div>
 
         <div class="row align-items-center">
           <div class="col-md-6 mb-3">
-            <label for="data_nascimento_user_register">Data de nascimento</label>
+            <label for="data_nascimento_user_register">Date of birth</label>
             <div class="input-group">
               <span class="input-group-text">
                 <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -80,12 +79,12 @@ block stylesheets %}{% endblock stylesheets %} {% block content %}
           </div>
 
           <div class="col-md-6 mb-3">
-            <label for="sexo_user_register">Gênero</label>
-            <select class="form-select mb-0" id="sexo_user_register" aria-label="Selecione o gênero">
-              <option selected>Gênero</option>
-              <option value="1">Feminino</option>
-              <option value="2">Masculino</option>
-              <option value="3">Outros</option>
+            <label for="sexo_user_register">Genre</label>
+            <select class="form-select mb-0" id="sexo_user_register" aria-label="Select the Genre">
+              <option selected>Genre</option>
+              <option value="1">Feminine</option>
+              <option value="2">Masculine</option>
+              <option value="3">Others</option>
             </select>
           </div>
         </div>
@@ -100,26 +99,26 @@ block stylesheets %}{% endblock stylesheets %} {% block content %}
 
           <div class="col-md-6 mb-3">
             <div class="form-group">
-              <label for="telefone_user_register">Telefone</label>
+              <label for="telefone_user_register">Phone</label>
               <input class="form-control" id="telefone_user_register" type="number" placeholder="+12-345 678 910"
                 required />
             </div>
           </div>
         </div>
 
-        <h2 class="h5 my-4">Localização</h2>
+        <h2 class="h5 my-4">Location</h2>
         <div class="row">
           <div class="col-sm-9 mb-3">
             <div class="form-group">
-              <label for="endereco_user_register">Endereço</label>
+              <label for="endereco_user_register">Address</label>
               <input class="form-control" id="endereco_user_register" type="text"
-                placeholder="Entre com o endereço do funcionário" required />
+                placeholder="Enter the employee's address" required />
             </div>
           </div>
 
           <div class="col-sm-3 mb-3">
             <div class="form-group">
-              <label for="number">Número</label>
+              <label for="number">Number</label>
               <input class="form-control" id="number" type="number" placeholder="No." required />
             </div>
           </div>
@@ -128,15 +127,15 @@ block stylesheets %}{% endblock stylesheets %} {% block content %}
         <div class="row">
           <div class="col-sm-4 mb-3">
             <div class="form-group">
-              <label for="city">Cidade</label>
-              <input class="form-control" id="city" type="text" placeholder="Cidade" required />
+              <label for="city">City</label>
+              <input class="form-control" id="city" type="text" placeholder="City" required />
             </div>
           </div>
 
           <div class="col-sm-4 mb-3">
-            <label for="state">Estado</label>
+            <label for="state">State</label>
             <select class="form-select w-100 mb-0" id="state" name="state" aria-label="State select example">
-              <option selected>Estado</option>
+              <option selected>State</option>
               <option value="AC">AC</option>
               <option value="AL">AL</option>
               <option value="AM">AM</option>
@@ -175,43 +174,34 @@ block stylesheets %}{% endblock stylesheets %} {% block content %}
           </div>
         </div>
 
-        <h2 class="h5 my-4">Informações Médicas</h2>
+        <h2 class="h5 my-4">Medical Information</h2>
         <div class="row">
-          <div class="col-sm-6 mb-3">
+          <div class="col-sm-5 mb-3">
             <div class="form-group">
-              <label for="deficiencia_user_register">Deficiência registrada</label>
-              <input class="form-control" id="deficiencia_user_register" type="text"
-                placeholder="Entre com a deficiência registrada" required />
+              <label for="acompanhamento_medico_user_register">Medical follow-up?</label>
+              <select class="form-select w-100 mb-0" id="acompanhamento_medico_user_register" name="state" aria-label="Medical follow-up?">
+                <option selected>Medical follow-up?</option>
+                <option value="sim">Yes</option>
+                <option value="nao">No</option>
+              </select>
             </div>
           </div>
-
-          <div class="col-sm-6 mb-3">
+          
+          <div class="col-sm-5 mb-3">
             <div class="form-group">
-              <label for="acompanhamento_medico_user_register">Acompanhamento médico?</label>
-              <select class="form-select w-100 mb-0" id="acompanhamento_medico_user_register" name="state"
-                aria-label="Acompanhamento médico?">
-                <option selected>Acompanhamento médico?</option>
-                <option value="sim">Sim</option>
-                <option value="nao">Não</option>
-              </select>
+              <label for="uso_medicacao_controlada_user_register">Medication used</label>
+              <input class="form-control" id="uso_medicacao_controlada_user_register" type="text"
+                placeholder="Medication used" required />
             </div>
           </div>
         </div>
 
         <div class="row">
           <div class="col-sm-4 mb-3">
-            <div class="form-group">
-              <label for="uso_medicacao_controlada_user_register">Medicação utilizada</label>
-              <input class="form-control" id="uso_medicacao_controlada_user_register" type="text"
-                placeholder="Medicação utilizada" required />
-            </div>
-          </div>
-
-          <div class="col-sm-4 mb-3">
-            <label for="tipo_sanguineo_user_register">Tipo Sanguíneo</label>
+            <label for="tipo_sanguineo_user_register">Blood type</label>
             <select class="form-select w-100 mb-0" id="tipo_sanguineo_user_register" name="state"
               aria-label="Tipo sanguineo">
-              <option selected>Tipo Sanguíneo</option>
+              <option selected>Blood type</option>
               <option value="O+">O+</option>
               <option value="A+">A+</option>
               <option value="B+">B+</option>
@@ -223,18 +213,18 @@ block stylesheets %}{% endblock stylesheets %} {% block content %}
             </select>
           </div>
 
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="form-group">
-              <label for="disturbio_detectado_user_register">Disturbio detectado</label>
+              <label for="disturbio_detectado_user_register">disorder detected</label>
               <input class="form-control" id="disturbio_detectado_user_register" type="tel"
-                placeholder="Disturbio detectado" required />
+                placeholder="disorder detected" required />
             </div>
           </div>
         </div>
 
         <div class="mt-3">
           <button class="btn btn-gray-800 mt-2 animate-up-2" type="submit">
-            Salvar todos
+            Save all
           </button>
         </div>
       </form>

@@ -121,7 +121,7 @@ def admin_consult_medical():
   current_user=session['current_user']
   type_user=current_user['type_user']
   if type_user != 'admin':
-    return redirect(url_for('login'))
+    return redirect(url_for('not_found_error'))
   else:
     email_current_user=current_user['email']
     return render_template('admin/consult-medical.html', current=email_current_user)
@@ -136,7 +136,7 @@ def admin_consult_employee():
   current_user=session['current_user']
   type_user=current_user['type_user']
   if type_user != 'admin':
-    return redirect(url_for('login'))
+    return redirect(url_for('not_found_error'))
   else:
     email_current_user=current_user['email']
     return render_template('admin/consult-employee.html', current=email_current_user)
@@ -150,7 +150,7 @@ def admin_register():
   current_user=session['current_user']
   type_user=current_user['type_user']
   if type_user != 'admin':
-    return redirect(url_for('login'))
+    return redirect(url_for('not_found_error'))
   else:
     email_current_user=current_user['email']
     return render_template('admin/register-medical.html', current=email_current_user)
@@ -165,7 +165,7 @@ def admin_register_employee():
   current=session['current_user']
   type_user=current['type_user']
   if type_user != 'admin':
-    return redirect(url_for('login'))
+    return redirect(url_for('not_found_error'))
   else:
     current_user=current['email']
     return render_template('admin/register-employee.html',  current=current_user, all_data=current)
@@ -184,7 +184,7 @@ def medical_dashboard_profile():
   current=session['current_user']
   type_user=current['type_user']
   if type_user != 'responsavel_medico':
-    return redirect(url_for('login'))
+    return redirect(url_for('not_found_error'))
   else:
     current_user=current['email']
     return render_template('medical/profile.html', current=current_user, all_data=current)
@@ -199,7 +199,7 @@ def medical_register_employee():
   current=session['current_user']
   type_user=current['type_user']
   if type_user != 'responsavel_medico':
-    return redirect(url_for('login'))
+    return redirect(url_for('not_found_error'))
   else:
     current_user=current['email']
     return render_template('medical/register-employee.html',  current=current_user, all_data=current)
@@ -214,7 +214,7 @@ def medical_consult_employee():
     current=session['current_user']
     type_user=current['type_user']
     if type_user != 'responsavel_medico':
-      return redirect(url_for('login'))
+      return redirect(url_for('not_found_error'))
     else:
       current_user=current['email']
       return render_template('medical/consult-employee.html', current=current_user)

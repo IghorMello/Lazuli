@@ -12,15 +12,8 @@
         Extension
       </h3>
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -36,18 +29,19 @@
 
 <!-- Conteúdo principal -->
 
+<br>
+
 <main class="container mt-5 position-relative" data-aos="fade-up" data-aos-delay="100">
-  <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
+  <section id="hero" class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center">
     <div class="container">
       <div class="row justify-content-center">
-        <div class=" col-md-8 login-form-1">
-          <div>
-            <h2 style="text-align: center;">Admin Login </h2>
+        <div class="col-md-8 login-form-1">
+          <div class="text-center">
+            <h1>Admin Login</h1>
           </div>
           <form method="post" id="login-form-admin" class="mt-5">
             <div class="form-floating">
-              <input type="email" required class="form-control" id="email_admin_login"
-                placeholder="name@example.com" />
+              <input type="email" required class="form-control" id="email_admin_login" placeholder="name@example.com" />
               <label for="email_admin_login">E-mail</label>
             </div>
             <div class="form-floating mt-3">
@@ -69,54 +63,21 @@
   </section>
 </main>
 
-<!-- 
-<main
-  class="container mt-5 position-relative"
-  data-aos="fade-up"
-  data-aos-delay="100"
->
-  <section class="vh-lg-100 mt-lg-0 bg-soft d-flex align-items-center">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8 login-form-2">
-          <div>
-            <h2 class="text-white" style="text-align: center">Admin login</h2>
-          </div>
-          <form class="mt-4" id="login-form-admin" method="post">
-            <div class="form-floating">
-              <input
-                type="email"
-                required
-                class="form-control"
-                id="email_admin_login"
-                placeholder="name@example.com"
-              />
-              <label for="email_admin_login">E-mail</label>
-            </div>
-            <div class="form-floating mt-3">
-              <input
-                type="password"
-                required
-                class="form-control"
-                id="password_admin_login"
-                placeholder="Password"
-              />
-              <label for="password_admin_login">Password</label>
-            </div>
-            <div class="checkbox mb-3 mt-3">
-              <label>
-                <input type="checkbox" value="remember-me" />
-                <span style="color: #fff">Remember-me</span>
-              </label>
-            </div>
-            <button class="w-100 btn-lg btn btn-secondary" type="submit">
-              Sign in
-            </button>
-          </form>
-        </div>
+<footer id="footer">
+  <div class="container d-md-flex py-4">
+    <div class="me-md-auto text-center text-md-start">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Lazuli</span></strong>. All Rights Reserved
       </div>
     </div>
-  </section>
-</main> -->
+    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
 
 {% endblock content %} {% block javascripts %}{% endblock javascripts %}
