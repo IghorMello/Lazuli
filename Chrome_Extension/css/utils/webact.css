@@ -531,7 +531,7 @@ input[type="checkbox"] {
 
 .night-mode {
   color: #11151c !important;
-  background-color: #fff !important;
+  background-color: rgb(94, 88, 88) !important;
 }
 
 .night-mode .span-active-time {
@@ -542,13 +542,18 @@ input[type="checkbox"] {
   color: #11151c;
 }
 
+.night-mode h1.title {
+  margin: 0;
+  color: #c5c3c3;
+}
+
 .night-mode .table-header {
   color: #11151c;
-  background-color: #838383;
+  background-color: #dbdbdb;
 }
 
 .night-mode .span-percentage {
-  color: #a5a5a5;
+  color: #c5c3c3;
 }
 
 .night-mode .block .value-block {
@@ -560,7 +565,7 @@ input[type="checkbox"] {
 }
 
 .night-mode .span-time {
-  color: #a5a5a5;
+  color: #c5c3c3;
 }
 
 .night-mode .summary-title {
