@@ -78,6 +78,14 @@ def post_javascript_data_medical():
   current_user = session['current_user']
   return redirect(url_for('medical_consult_employee'))
 
+@app.route('/postmethod-employee', methods=['GET', 'POST'])
+def post_javascript_data_employee():
+  data = request.form['javascript_data']
+  all_data = json.loads(data)
+  session['all_data']=all_data
+  url='6197be9a6c1c2520b08c4374'
+  return "deu certo"
+
 @app.route('/postmethod-admin', methods=['GET', 'POST'])
 def post_javascript_data_admin():
   current = request.form['javascript_data']
@@ -218,6 +226,66 @@ def medical_consult_employee():
     else:
       current_user=current['email']
       return render_template('medical/consult-employee.html', current=current_user)
+
+# Deletar
+
+@app.route('/employees/delete/<id>', methods=['DELETE'])
+@login_required
+def delete_employees(id):
+    current=session['current_user']
+    type_user=current['type_user']
+    if type_user != 'responsavel_medico':
+      return redirect(url_for('not_found_error'))
+    else:
+      current_user=current['email']
+      return render_template('medical/consult-employee.html', current=current_user)
+
+# Consultar
+
+@app.route('/employees/consult/<id>', methods=['GET'])
+@login_required
+def consult_employees(id):
+    current=session['current_user']
+    type_user=current['type_user']
+    if type_user != 'responsavel_medico':
+      return redirect(url_for('not_found_error'))
+    else:
+      current_user=current['email']
+      all_data=session['all_data']
+      return render_template('medical/view-employee.html', all_data=all_data, current=current_user)
+
+# Editar
+
+@app.route('/employees/edit/<id>', methods=['GET', 'PUT'])
+@login_required
+def edit_employees(id):
+    current=session['current_user']
+    type_user=current['type_user']
+    if type_user != 'responsavel_medico':
+      return redirect(url_for('not_found_error'))
+    else:
+      current_user=current['email']
+      all_data=session['all_data']
+      return render_template('medical/edit-employee.html', all_data=all_data, current=current_user)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #------------------------------------------------------------------------
 # Erro 404
