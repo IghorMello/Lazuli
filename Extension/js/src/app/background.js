@@ -145,7 +145,8 @@ function notificationAction(activeUrl, tab) {
 }
 
 function setBlockPageToCurrent(currentUrl) {
-  var blockUrl = chrome.runtime.getURL("block.html") + "?url=" + currentUrl;
+  var blockUrl =
+    chrome.runtime.getURL("views/block.html") + "?url=" + currentUrl;
   chrome.tabs.query({ currentWindow: true, active: true }, function (tab) {
     chrome.tabs.update(tab.id, { url: blockUrl });
   });
