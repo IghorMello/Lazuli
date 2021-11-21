@@ -75,7 +75,7 @@ $ edge://extensions/
 
 <a id="page"></a>
 
-#### :memo: Rodando a aplicação (Página - Em andamento)
+#### :memo: Rodando a aplicação (Página)
 
 ```bash
 
