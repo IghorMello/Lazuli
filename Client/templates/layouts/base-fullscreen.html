@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="title" content="Extensão" />
+  <meta name="description"
+    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora et nihil enim minus voluptatem, aut vitae! Blanditiis perferendis adipisci, iure mollitia fugiat quibusdam aliquid, consequatur recusandae minus voluptate accusamus eos." />
+  <meta name="keywords" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://extensiontimind.herokuapp.com/" />
+  <meta property="og:title" content="Extensão" />
+  <meta property="og:description"
+    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora et nihil enim minus voluptatem, aut vitae! Blanditiis perferendis adipisci, iure mollitia fugiat quibusdam aliquid, consequatur recusandae minus voluptate accusamus eos." />
+  <meta property="og:image" content="/static/assets/img/icons/favicon.png" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://extensiontimind.herokuapp.com/" />
+  <meta property="twitter:title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. " />
+  <meta property="twitter:description" content="" />
+  <meta property="twitter:image" content="/static/assets/img/icons/favicon.png" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <title>ExtensionTI | {% block title %}{% endblock %}</title>
+
+  <link rel="icon" type="image/png" href="/static/assets/img/icons/favicon.png" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../../static/assets/css/utils.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+    }
+
+    .form-signin .checkbox {
+      font-weight: 400;
+    }
+
+    .form-signin .form-floating:focus-within {
+      z-index: 2;
+    }
+
+    .btn-primary {
+      background: #5679bf !important;
+      border: #5679bf !important;
+    }
+
+    .btn-primary:hover {
+      background: #7793cb !important;
+      border: #7793cb !important;
+    }
+
+    .btn-secondary {
+      background: #fff !important;
+      border: #fff !important;
+    }
+
+    .btn-secondary:hover {
+      background: #e5e5e5 !important;
+      border: #e5e5e5 !important;
+    }
+
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    .login-container form {
+      padding: 10%;
+    }
+
+    #login_form h1 {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #5679bf;
+  font-family: "Poppins", sans-serif;
+}
+
+    .btnSubmit {
+      width: 50%;
+      border-radius: 1rem;
+      padding: 1.5%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .login-form-1 .btnSubmit {
+      font-weight: 600;
+      color: #fff;
+      background-color: #5679bf;
+    }
+
+    .login-form-1 .ForgetPwd {
+      color: #5679bf;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .navbar-blue {
+      background-color: #5679bf !important;
+      color: #fff;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(50% - 30px);
+      border: 6px solid #5679bf;
+      border-top-color: #fff;
+      border-bottom-color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      [data-aos-delay] {
+        transition-delay: 0 !important;
+      }
+    }
+  </style>
+
+  <!-- Sweetalert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+
+  {% block stylesheets %}{% endblock stylesheets %}
+</head>
+
+<body>
+  {% block content %}{% endblock content %}
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="../../static/assets/js/utils.js"></script>
+</body>
+
+</html>

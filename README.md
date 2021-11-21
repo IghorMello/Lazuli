@@ -10,8 +10,7 @@
 
 <a id="api"></a>
 
-
-#### 🧭 Rodando a aplicação (API) 
+#### 🧭 Rodando a aplicação (API)
 
 ```bash
 
@@ -21,23 +20,23 @@ $ git clone -b extension https://github.com/IghorMello/Lazuli.git
 # Habilite o MongoDB (em Linux/macOS)
 $ sudo systemctl start mongod
 
-# Caso não esteja em ambiente virtual, certifique-se de criá-lo 
+# Caso não esteja em ambiente virtual, certifique-se de criá-lo
 # dentro da pasta (em Linux/macOS) e ativá-lo
 $ python3 -m venv venv
 $ . venv/bin/activate
 
-# Para criar o ambiente virtual em Windows e ativá-lo, 
+# Para criar o ambiente virtual em Windows e ativá-lo,
 # utilize o comando abaixo
 $ py -3 -m venv venv
 $ venv\Scripts\activate
 
-# Acesse a pasta da API 
-$ cd lazuli/api
+# Acesse a pasta da API
+$ cd lazuli/Client
 
 # Instale as depedências
 $ pip install -r requirements.txt
 
-# Após isso inicie os arquivos dentro de sua 
+# Após isso inicie os arquivos dentro de sua
 # respectiva pastas
 $ python3 app.py
 
@@ -47,20 +46,23 @@ $ python3 app.py
 
 <a id="extension"></a>
 
-#### 🎲 Rodando a aplicação (extensão) 
+#### 🎲 Rodando a aplicação (extensão)
 
 ```bash
 
 # Clone este repositório
 $ git clone -b extension https://github.com/IghorMello/Lazuli.git
 
+# Acesse a pasta da extensão
+$ cd lazuli/Chrome_Extension
+
 # Acesse o navegador e pesquise o nome do navegador com ://extension
 # Exemplo.
-$ edge://extensions/ 
+$ edge://extensions/
 
 # Habilite o "Modo do desenvolvedor"
 # Clique em "Carregar sem pacote"
-# Carregue a pasta extension.
+# Carregue a pasta Chrome_Extension.
 
 ```
 
@@ -68,37 +70,43 @@ $ edge://extensions/
 
 <a id="page"></a>
 
-#### :memo: Rodando a aplicação (Página - Em andamento) 
+#### :memo: Rodando a aplicação (Página - Em andamento)
 
 ```bash
 
 # Clone este repositório
 $ git clone -b extension https://github.com/IghorMello/Lazuli.git
 
-# Caso não esteja em ambiente virtual, certifique-se de criá-lo 
+# Frontend
+$ https://extensiontimind.herokuapp.com
+
+# API
+$ https://flaskapideploy.herokuapp.com
+
+# Caso não esteja em ambiente virtual, certifique-se de criá-lo
 # dentro da pasta (em Linux/macOS) e ativá-lo
 $ python3 -m venv venv
 $ . venv/bin/activate
 
-# Para criar o ambiente virtual em Windows e ativá-lo, 
+# Para criar o ambiente virtual em Windows e ativá-lo,
 # utilize o comando abaixo
 $ py -3 -m venv venv
 $ venv\Scripts\activate
 
-# Acesse a pasta da web 
-$ cd lazuli/web
+# Acesse a pasta da web
+$ cd lazuli/Server
 
 # Instale as depedências
 $ pip install -r requirements.txt
 
-# Após isso inicie os arquivos dentro de sua 
+# Após isso inicie os arquivos dentro de sua
 # respectiva pastas
 $ python3 app.py
 
 # A aplicação estará aberta no navegador em:
-$ http://localhost:8080
+$ http://localhost:5000
 
 # Para acessar o admin, digite
-$ http://localhost:8080/admin
+$ http://localhost:5000/admin
 
 ```
