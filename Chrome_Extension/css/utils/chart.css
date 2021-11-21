@@ -1,7 +1,7 @@
 /*Styling for the lines connecting the labels to the slices*/
 polyline {
   opacity: 0.3;
-  stroke: black;
+  stroke: #fff;
   stroke-width: 2px;
   fill: none;
 }
@@ -48,7 +48,7 @@ g.slices > path.mouse-over {
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: #fff;
   shape-rendering: crispEdges;
 }
 

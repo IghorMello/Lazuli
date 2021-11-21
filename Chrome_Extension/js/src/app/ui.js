@@ -298,7 +298,7 @@ class UI {
     var visitsTooltip = this.createElement(
       "span",
       ["tooltiptext"],
-      "Count of visits"
+      "Contador de visitas"
     );
 
     spanVisits.appendChild(visitsTooltip);

@@ -97,8 +97,8 @@ function donutChart() {
         })
         .attr("class", "legend");
 
-      if (lightMode) legendG.style("fill", "#ffffff");
-      else legendG.style("fill", "black");
+      if (lightMode) legendG.style("fill", "#000");
+      else legendG.style("fill", "#fff");
 
       legendG
         .append("rect") // make a matching color rect
@@ -115,7 +115,7 @@ function donutChart() {
             return d.data.url;
           })
           .style("font-size", 13)
-          .style("fill", "#ffffff")
+          .style("fill", "#000")
           .attr("y", 10)
           .attr("x", 13);
       else
@@ -124,7 +124,7 @@ function donutChart() {
           .text(function (d) {
             return d.data.url;
           })
-          .style("fill", "black")
+          .style("fill", "#fff")
           .style("font-size", 13)
           .attr("y", 10)
           .attr("x", 13);
@@ -154,7 +154,7 @@ function donutChart() {
               .attr("dy", -15) // hard-coded. can adjust this to adjust text vertical alignment in tooltip
               .html(toolTipHTML(data)) // add text to the circle.
               .style("font-size", ".9em")
-              .style("fill", "#ffffff")
+              .style("fill", "#000")
               .style("text-anchor", "middle");
           // centres text in tooltip
           else
@@ -416,7 +416,7 @@ function drawIntervalChart(data) {
       .style("position", "absolute")
       .attr("class", "tooltip")
       .style("background-color", "#cbcbcb")
-      .style("color", "black")
+      .style("color", "#fff")
       .style("border", "solid")
       .style("border-width", "1px")
       .style("border-radius", "5px")
@@ -430,7 +430,7 @@ function drawIntervalChart(data) {
       .style("position", "absolute")
       .attr("class", "tooltip")
       .style("background-color", "white")
-      .style("color", "black")
+      .style("color", "#fff")
       .style("border", "solid")
       .style("border-width", "1px")
       .style("border-radius", "5px")
@@ -440,7 +440,7 @@ function drawIntervalChart(data) {
   var mouseover = function (d) {
     tooltip.style("opacity", 1).style("display", "block");
     d3.select(this)
-      .style("stroke", "black")
+      .style("stroke", "#fff")
       .style("stroke-width", "0.5px")
       .style("opacity", 1);
   };

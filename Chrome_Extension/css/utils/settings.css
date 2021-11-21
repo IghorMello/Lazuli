@@ -18,7 +18,6 @@ h1 {
   font-size: 30px;
   font-weight: 600;
   line-height: 72px;
-  color: #5679bf;
   font-family: "Roboto", sans-serif;
 }
 
@@ -44,7 +43,6 @@ a {
 .nav a {
   font-size: 16px;
   margin-bottom: 20px;
-  color: #888;
   display: block;
 }
 

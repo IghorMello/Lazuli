@@ -36,13 +36,13 @@ h1.title {
 }
 
 .inline-flex:hover .span-time {
-  color: rgb(0, 0, 0);
+  color: #f5f5f5;
 }
 
 .span-url {
   width: 320px;
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: #f5f5f5;
   font-size: 13px;
   cursor: pointer;
 }
@@ -50,7 +50,7 @@ h1.title {
 .span-total {
   width: 450px;
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: #f5f5f5;
   margin-left: 5px;
   font-size: 12px;
   font-weight: 700;
@@ -101,11 +101,11 @@ h1.title {
 }
 
 .span-time .span-active-time {
-  color: rgb(0, 0, 0);
+  color: #f5f5f5;
 }
 
 .day-time .span-active-time {
-  color: rgb(0, 0, 0);
+  color: #f5f5f5;
 }
 
 .margin-left-auto {
@@ -195,6 +195,7 @@ input[type="date"] {
   font-weight: 600;
   font-size: 13px;
   padding: 4px;
+  color: #2d2f33;
   background-color: rgb(235, 243, 251);
   text-align: center;
 }
@@ -406,7 +407,7 @@ input[type="checkbox"] {
   background: #dbdbdb;
   border: #dbdbdb 1px solid;
   border-radius: 10px;
-  color: #919191;
+  color: #2d2f33;
   padding: 2px;
 }
 
@@ -431,7 +432,7 @@ input[type="checkbox"] {
 }
 
 #statsBlock .value-block {
-  color: black;
+  color: #fff;
   font-weight: 600;
 }
 
@@ -529,20 +530,20 @@ input[type="checkbox"] {
 }
 
 .night-mode {
-  color: #ffffff !important;
-  background-color: #11151c !important;
+  color: #11151c !important;
+  background-color: #fff !important;
 }
 
 .night-mode .span-active-time {
-  color: #ffffff;
+  color: #11151c;
 }
 
 .night-mode .span-url {
-  color: #ffffff;
+  color: #11151c;
 }
 
 .night-mode .table-header {
-  color: #ffffff;
+  color: #11151c;
   background-color: #838383;
 }
 
@@ -551,11 +552,11 @@ input[type="checkbox"] {
 }
 
 .night-mode .block .value-block {
-  color: #ffffff !important;
+  color: #11151c !important;
 }
 
 .night-mode .inline-flex:hover .span-time {
-  color: #ffffff;
+  color: #11151c;
 }
 
 .night-mode .span-time {
@@ -563,9 +564,9 @@ input[type="checkbox"] {
 }
 
 .night-mode .summary-title {
-  color: #000000 !important;
+  color: #11151c !important;
 }
 
 .night-mode .value-block {
-  color: #ffffff !important;
+  color: #11151c !important;
 }
