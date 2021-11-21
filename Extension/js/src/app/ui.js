@@ -184,7 +184,7 @@ class UI {
     p.classList.add("table-header");
     if (currentTypeOfList === TypeListEnum.ToDay)
       p.innerHTML =
-        "Today (" +
+        "Hoje (" +
         counterOfSite +
         " sites) <br> <strong>" +
         convertShortSummaryTimeToLongString(totalTime) +

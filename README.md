@@ -1,5 +1,10 @@
 ## 🚀 Como executar o projeto
 
+
+:book:  Para acessar a página [clique aqui](https://extensiontimind.herokuapp.com) e para acessar o acessar a API [clique aqui](https://flaskapideploy.herokuapp.com).
+
+<br>
+
 ### Pré-requisitos
 
 - [Rodando API](#api)
@@ -70,18 +75,12 @@ $ edge://extensions/
 
 <a id="page"></a>
 
-#### :memo: Rodando a aplicação (Página - Em andamento)
+#### :memo: Rodando a aplicação (Página)
 
 ```bash
 
 # Clone este repositório
 $ git clone -b extension https://github.com/IghorMello/Lazuli.git
-
-# Frontend
-$ https://extensiontimind.herokuapp.com
-
-# API
-$ https://flaskapideploy.herokuapp.com
 
 # Caso não esteja em ambiente virtual, certifique-se de criá-lo
 # dentro da pasta (em Linux/macOS) e ativá-lo
@@ -110,3 +109,4 @@ $ http://localhost:5000
 $ http://localhost:5000/admin
 
 ```
+
