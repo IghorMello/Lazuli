@@ -407,7 +407,7 @@ function drawIntervalChart(data) {
   var tickDistance = 4.38;
 
   var tooltip;
-  if (document.body.classList.contains("night-mode"))
+  if (document.body.classList.contains("light-mode"))
     tooltip = d3
       .select("#timeChart")
       .append("div")
@@ -457,7 +457,7 @@ function drawIntervalChart(data) {
 
   //create the svg
   var svg;
-  if (document.body.classList.contains("night-mode"))
+  if (document.body.classList.contains("light-mode"))
     svg = d3
       .select("#timeChart")
       .append("svg")

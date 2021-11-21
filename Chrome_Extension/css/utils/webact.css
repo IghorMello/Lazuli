@@ -529,49 +529,49 @@ input[type="checkbox"] {
   color: yellow;
 }
 
-.night-mode {
+.light-mode {
   color: #11151c !important;
   background-color: #fff !important;
 }
 
-.night-mode .span-active-time {
+.light-mode .span-active-time {
   color: #11151c;
 }
 
-.night-mode .span-url {
+.light-mode .span-url {
   color: #11151c;
 }
 
-.night-mode h1.title {
+.light-mode h1.title {
   margin: 0;
   color: #c5c3c3;
 }
 
-.night-mode .table-header {
+.light-mode .table-header {
   color: #11151c;
   background-color: #dbdbdb;
 }
 
-.night-mode .span-percentage {
+.light-mode .span-percentage {
   color: #c5c3c3;
 }
 
-.night-mode .block .value-block {
+.light-mode .block .value-block {
   color: #11151c !important;
 }
 
-.night-mode .inline-flex:hover .span-time {
+.light-mode .inline-flex:hover .span-time {
   color: #11151c;
 }
 
-.night-mode .span-time {
+.light-mode .span-time {
   color: #c5c3c3;
 }
 
-.night-mode .summary-title {
+.light-mode .summary-title {
   color: #11151c !important;
 }
 
-.night-mode .value-block {
+.light-mode .value-block {
   color: #11151c !important;
 }

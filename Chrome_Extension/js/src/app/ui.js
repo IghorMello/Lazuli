@@ -561,7 +561,7 @@ class UI {
   }
 
   setMode() {
-    if (setting_dark_mode) document.body.classList.add("night-mode");
+    if (setting_dark_mode) document.body.classList.add("light-mode");
   }
 
   removePreloader() {
