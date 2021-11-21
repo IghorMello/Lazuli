@@ -1,7 +1,7 @@
 function donutChart() {
   var width,
     height,
-    darkMode,
+    lightMode,
     margin = { top: 10, right: 10, bottom: 10, left: 10 },
     colour = d3.scaleOrdinal(d3.schemeCategory20), // colour scheme
     variable, // value in data that will dictate proportions on chart
@@ -97,7 +97,7 @@ function donutChart() {
         })
         .attr("class", "legend");
 
-      if (darkMode) legendG.style("fill", "#ffffff");
+      if (lightMode) legendG.style("fill", "#ffffff");
       else legendG.style("fill", "black");
 
       legendG
@@ -108,7 +108,7 @@ function donutChart() {
           return colour(d.data[category]);
         });
 
-      if (darkMode)
+      if (lightMode)
         legendG
           .append("text") // add the text
           .text(function (d) {
@@ -147,7 +147,7 @@ function donutChart() {
         // add tooltip (svg circle element) when mouse enters label or slice
         selection.on("mouseenter", function (data) {
           d3.selectAll(".toolCircle").remove();
-          if (darkMode)
+          if (lightMode)
             svg
               .append("text")
               .attr("class", "toolCircle")
@@ -232,9 +232,9 @@ function donutChart() {
     return chart;
   };
 
-  chart.darkMode = function (value) {
-    if (!arguments.length) return darkMode;
-    darkMode = value;
+  chart.lightMode = function (value) {
+    if (!arguments.length) return lightMode;
+    lightMode = value;
     return chart;
   };
 

@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("change", function () {
       storage.saveValue(SETTINGS_BLOCK_DEFERRAL, this.checked);
     });
-  document.getElementById("darkMode").addEventListener("change", function () {
+  document.getElementById("lightMode").addEventListener("change", function () {
     storage.saveValue(SETTINGS_DARK_MODE, this.checked);
   });
   document
@@ -142,7 +142,7 @@ function loadSettings() {
     document.getElementById("blockDeferral").checked = item;
   });
   storage.getValue(SETTINGS_DARK_MODE, function (item) {
-    document.getElementById("darkMode").checked = item;
+    document.getElementById("lightMode").checked = item;
   });
   storage.getMemoryUse(STORAGE_TABS, function (integer) {
     document.getElementById("memoryUse").innerHTML =

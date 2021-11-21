@@ -153,8 +153,8 @@ class UI {
       .variable("percentage")
       .category("url");
 
-    if (setting_dark_mode) donut.darkMode(true);
-    else donut.darkMode(false);
+    if (setting_dark_mode) donut.lightMode(true);
+    else donut.lightMode(false);
 
     d3.select("#chart")
       .datum(tabs) // bind data to the div

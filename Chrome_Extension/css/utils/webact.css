@@ -1,6 +1,7 @@
 body {
   font-family: "Roboto", sans-serif !important;
-  color: #262626;
+  color: #fff;
+  background-color: #2d2f33;
 }
 
 h1.title {
@@ -9,7 +10,6 @@ h1.title {
   font-size: 30px;
   font-weight: 600;
   line-height: 72px;
-  color: #5679bf;
   font-family: "Roboto", sans-serif;
 }
 
