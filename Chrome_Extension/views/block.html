@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Access to the site is limited</title>
+
+    <link href="css/utils/block.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div>
+      <img src="assets/img/time.svg" height="50" />
+      <p class="title">Time limit</p>
+
+      <div class="description">
+        You've reached your limit today on
+        <span id="site" class="current-site"></span>
+      </div>
+
+      <div class="description margin-top-10">
+        Seu limite diário atual é
+        <span id="limit" class="current-limit"></span>
+      </div>
+
+      <div class="margin-top-10">
+        <a id="deffererBtn" class="defferer-link">Reserve por 5 minutos</a>
+      </div>
+    </div>
+
+    <p class="product-title">Extension of mental health support</p>
+
+    <!-- Scritps -->
+
+    <script src="js/src/app/storage.js"></script>
+    <script src="js/src/app/common.js"></script>
+    <script src="js/src/app/block.js"></script>
+    <script src="js/src/app/restriction.js"></script>
+    <script src="js/src/app/url.js"></script>
+  </body>
+</html>

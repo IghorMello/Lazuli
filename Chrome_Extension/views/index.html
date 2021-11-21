@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Extension of mental health support</title>
+
+    <link href="../css/utils/webact.css" rel="stylesheet" />
+    <link href="../css/utils/chart.css" rel="stylesheet" />
+    <link href="../css/utils/login.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
+  </head>
+
+  <body>
+    <div id="preloader" class="preloader">
+      <div class="preloader__image">
+        <div class="title">Loading...</div>
+      </div>
+    </div>
+    <svg class="height-0">
+      <filter id="dropShadow">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+        <feOffset dx="0" dy="1" />
+        <feMerge>
+          <feMergeNode />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </svg>
+
+    <br />
+
+    <!-- Login -->
+
+    <div id="loginForm">
+      <header>
+        <div class="nav__base"></div>
+      </header>
+      <main class="app__content">
+        <div class="header__logo"></div>
+        <div class="header__content">
+          <h1 class="header__content__heading">Welcome Back</h1>
+          <p class="header__content__subheading">
+            Remember to take care of your mental health and be concerned about
+            improving your productivity
+          </p>
+        </div>
+        <form id="login-form" class="login__form" method="post">
+          <div class="form__input--floating">
+            <label class="form__label--floating" id="label--password"
+              >User code</label
+            >
+            <input id="code_user" type="password" />
+          </div>
+          <div
+            class="
+              login__form_action_container
+              login__form_action_container--multiple-actions
+            "
+          >
+            <button
+              style="cursor: pointer"
+              class="btn__primary--large from__button--floating"
+              type="submit"
+              aria-label="Sign in"
+            >
+              Sign in
+            </button>
+            <button
+              style="cursor: pointer"
+              class="btn__secondary--large from__button--floating"
+              aria-label="Cancel"
+              id="cancelLogin"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <!-- Inicio do Titulo -->
+
+    <div id="extensionVersion" class="hide">
+      <br /><br />
+
+      <div id="extensionTitle">
+        <h1 class="title">Extension of mental health support</h1>
+      </div>
+
+      <!-- Inicio do Menu -->
+
+      <br /><br />
+
+      <div id="buttons" class="btn-block">
+        <a class="active" id="btnToday">Hoje</a>
+        <a id="btnAll">Todo o tempo</a>
+        <a id="btnByDays">Por dias</a>
+        <a id="settings">Configurações</a>
+        <div id="hintForUsers" class="hide">
+          <div id="closeHintBtn"></div>
+        </div>
+      </div>
+
+      <!-- Estatísitcas gerais -->
+
+      <br />
+
+      <div id="stats" class="hide">
+        <p class="table-header">Estatísticas gerais</p>
+        <div id="statsBlock">
+          <div class="title-block">
+            <div class="block-additional">
+              <div class="summary-title">Primeiro dia</div>
+              <div class="value-block" id="statFirstDay"></div>
+            </div>
+
+            <div class="block-additional">
+              <div class="summary-title">Dias ativos</div>
+              <div class="value-block" id="statActiveDays"></div>
+            </div>
+
+            <div class="block-additional">
+              <div class="summary-title">Total de dias</div>
+              <div class="value-block" id="statTotalDays"></div>
+            </div>
+          </div>
+
+          <!-- Estatísitcas de sites rastreados -->
+
+          <br />
+
+          <div class="title-block">
+            <div class="block-additional">
+              <div class="summary-title">Hoje</div>
+              <div class="span-time" id="statTodayTime"></div>
+            </div>
+
+            <div class="block-additional">
+              <div class="summary-title">Todo o tempo</div>
+              <div class="span-time" id="statAllDaysTime"></div>
+            </div>
+
+            <div class="block-additional">
+              <div class="summary-title">Média por dias ativos</div>
+              <div class="span-time" id="statAverageTime"></div>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="title-block">
+            <div class="block">
+              <div class="summary-title">
+                Dia mais ativo
+                <div class="tooltip today-icon">
+                  <img
+                    id="statActiveDayIcon"
+                    data-today="true"
+                    src="../assets/img/today.svg"
+                    height="17"
+                    class="margin-left-5"
+                  /><span class="tooltiptext" id="statActiveDayTitle">
+                    Não inclua o dia atual no cálculo das estatísticas
+                  </span>
+                </div>
+              </div>
+
+              <div class="inline-block">
+                <div class="value-block" id="statActiveDay"></div>
+                <div class="span-time" id="statActiveDayTime"></div>
+                <div
+                  class="value-block hide"
+                  id="statActiveDayWithoutCurrentDay"
+                ></div>
+                <div
+                  class="span-time hide"
+                  id="statActiveDayTimeWithoutCurrentDay"
+                ></div>
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="summary-title">
+                Dia mais inativo
+                <div class="tooltip today-icon">
+                  <img
+                    id="statInActiveDayIcon"
+                    data-today="true"
+                    src="../assets/img/today.svg"
+                    height="17"
+                    class="margin-left-5"
+                  /><span class="tooltiptext" id="statInActiveDayTitle">
+                    Não inclua o dia atual no cálculo das estatísticas
+                  </span>
+                </div>
+              </div>
+
+              <div class="inline-block">
+                <div class="value-block" id="statInActiveDay"></div>
+                <div class="span-time" id="statInActiveDayTime"></div>
+                <div
+                  class="value-block hide"
+                  id="statInActiveDayWithoutCurrentDay"
+                ></div>
+                <div
+                  class="span-time hide"
+                  id="statInActiveDayTimeWithoutCurrentDay"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <div id="blockForChartBtn">
+        <a class="button active chart-btn chart-btn-donut" id="donutChartBtn">
+          Gráfico comum</a
+        >
+        <a class="button chart-btn chart-btn-heatmap" id="heatMapChartBtn"
+          >Gráfico de tempo
+        </a>
+      </div>
+
+      <br />
+
+      <div id="chart"></div>
+
+      <br />
+
+      <div id="labelForTimeInterval" class="warning hide">
+        <label
+          >Apenas intervalos de tempo maiores que 3 segundos são
+          mostrados</label
+        >
+      </div>
+
+      <br />
+
+      <div id="timeChart"></div>
+      <div id="resultTable" class="list-of-site"></div>
+      <div id="total" class="inline-flex"></div>
+      <div id="byDays" class="calendar-block"></div>
+    </div>
+
+    <!-- Scripts -->
+
+    <script src="../js/src/lib/jquery-3.3.1.min.js"></script>
+    <script src="../js/src/app/login.js"></script>
+    <script src="../js/src/app/form.js"></script>
+    <script src="../js/src/lib/sweetalert2.min.js"></script>
+    <script src="../js/src/chart/d3.v4.min.js"></script>
+    <script src="../js/src/chart/chart-core.js"></script>
+    <script src="../js/src/app/storage.js"></script>
+    <script src="../js/src/app/common.js"></script>
+    <script src="../js/src/app/timeInterval.js"></script>
+    <script src="../js/src/app/restriction.js"></script>
+    <script src="../js/src/app/ui.js"></script>
+    <script src="../js/src/app/url.js"></script>
+    <script src="../js/src/app/webact.js"></script>
+  </body>
+</html>

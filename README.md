@@ -31,7 +31,7 @@ $ py -3 -m venv venv
 $ venv\Scripts\activate
 
 # Acesse a pasta da API
-$ cd lazuli/api
+$ cd lazuli/Client
 
 # Instale as depedências
 $ pip install -r requirements.txt
@@ -53,13 +53,16 @@ $ python3 app.py
 # Clone este repositório
 $ git clone -b extension https://github.com/IghorMello/Lazuli.git
 
+# Acesse a pasta da extensão
+$ cd lazuli/Chrome_Extension
+
 # Acesse o navegador e pesquise o nome do navegador com ://extension
 # Exemplo.
 $ edge://extensions/
 
 # Habilite o "Modo do desenvolvedor"
 # Clique em "Carregar sem pacote"
-# Carregue a pasta extension.
+# Carregue a pasta Chrome_Extension.
 
 ```
 
@@ -91,7 +94,7 @@ $ py -3 -m venv venv
 $ venv\Scripts\activate
 
 # Acesse a pasta da web
-$ cd lazuli/web
+$ cd lazuli/Server
 
 # Instale as depedências
 $ pip install -r requirements.txt
