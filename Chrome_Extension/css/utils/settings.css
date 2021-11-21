@@ -222,7 +222,8 @@ input[type="button"][disabled] {
   display: inline-block;
 }
 
-/* Tooltip text */
+/* Texto de dica de ferramenta */
+
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 250px;
@@ -231,18 +232,15 @@ input[type="button"][disabled] {
   text-align: center;
   padding: 5px;
   border-radius: 6px;
-
-  /* Position the tooltip text */
   position: absolute;
   z-index: 1;
   transform: translateX(-50%) translateY(-120%);
-
-  /* Fade in tooltip */
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
+/* Mostra o texto da dica de ferramenta ao passar o mouse sobre o contêiner de dica de ferramenta */
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
@@ -256,8 +254,8 @@ input[type="button"][disabled] {
   width: 220px;
   height: 27px;
   margin: auto;
-  background-color: rgb(21, 104, 0);
-  color: rgb(255, 255, 255);
+  background-color: #90dfaa;
+  color: #fff;
   text-align: center;
   font-weight: 600;
   border-radius: 5px;
@@ -276,7 +274,7 @@ input[type="button"][disabled] {
   height: 120px;
   padding: 3px;
   padding: 3px 5px 3px 5px;
-  border: 1px solid rgb(172, 169, 169);
+  border: 1px solid #fff;
 }
 
 .listbox img {

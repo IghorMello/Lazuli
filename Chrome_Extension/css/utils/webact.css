@@ -76,7 +76,6 @@ h1.title {
 
 .span-visits {
   width: 40px;
-  /* padding: 0 10px 0 10px; */
   color: rgb(137, 154, 190);
   font-size: 11px;
 }
@@ -84,7 +83,6 @@ h1.title {
 .visits {
   text-decoration: underline;
   text-decoration-style: solid;
-  /* border-bottom: 1px dotted #ccc; */
 }
 
 .span-percentage {
@@ -283,7 +281,6 @@ input[type="checkbox"] {
   border-bottom-right-radius: 7px;
   padding: 7px;
   overflow-y: auto;
-  /* border-left: 3px solid rgb(151, 218, 52); */
 }
 
 .margin-left-5 {
@@ -295,7 +292,7 @@ input[type="checkbox"] {
   display: inline-block;
 }
 
-/* Tooltip text */
+/* Texto de dica de ferramenta */
 
 .tooltip .tooltiptext {
   font-size: 11px;
@@ -307,11 +304,9 @@ input[type="checkbox"] {
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
-  /* Position the tooltip text */
   position: absolute;
   z-index: 1;
   transform: translateX(-40%) translateY(-120%);
-  /* Fade in tooltip */
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -326,7 +321,7 @@ input[type="checkbox"] {
   transform: translateX(-50%) translateY(-120%);
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
+/* Mostra o texto da dica de ferramenta ao passar o mouse sobre o contêiner de dica de ferramenta */
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
