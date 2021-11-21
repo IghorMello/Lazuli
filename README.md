@@ -59,7 +59,7 @@ $ python3 app.py
 $ git clone -b extension https://github.com/IghorMello/Lazuli.git
 
 # Acesse a pasta da extensão
-$ cd lazuli/Chrome_Extension
+$ cd lazuli/Extension
 
 # Acesse o navegador e pesquise o nome do navegador com ://extension
 # Exemplo.
@@ -67,7 +67,7 @@ $ edge://extensions/
 
 # Habilite o "Modo do desenvolvedor"
 # Clique em "Carregar sem pacote"
-# Carregue a pasta Chrome_Extension.
+# Carregue a pasta Extension.
 
 ```
 

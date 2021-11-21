@@ -22,12 +22,14 @@ class UI {
     document.getElementById("btnAll").classList.remove("active");
     document.getElementById("btnByDays").classList.remove("active");
 
-    document.getElementById("blockForChartBtn").classList.add("hide");
     document.getElementById("statTodayTime").classList.add("hide");
     document.getElementById("stats").classList.add("hide");
-    document.getElementById("labelForTimeInterval").classList.add("hide");
-    this.setUIForDonutChart();
+    document.getElementById("blockForChartBtn").classList.remove("hide");
+    document.getElementById("resultTable").classList.remove("hide");
+    document.getElementById("chart").classList.remove("hide");
+    document.getElementById("labelForTimeInterval").classList.remove("hide");
 
+    this.setUIForDonutChart();
     this.clearUI();
   }
 
