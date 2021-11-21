@@ -531,7 +531,7 @@ input[type="checkbox"] {
 
 .night-mode {
   color: #11151c !important;
-  background-color: rgb(94, 88, 88) !important;
+  background-color: #fff !important;
 }
 
 .night-mode .span-active-time {
