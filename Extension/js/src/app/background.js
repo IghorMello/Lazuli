@@ -2,6 +2,7 @@
 
 var tabs;
 var timeIntervalList;
+var dataIntervalList;
 var currentTab;
 var isNeedDeleteTimeIntervalFromTabs = false;
 var activity = new Activity();
@@ -388,6 +389,7 @@ function loadBlackList() {
 function loadTimeIntervals() {
   storage.getValue(STORAGE_TIMEINTERVAL_LIST, function (items) {
     timeIntervalList = [];
+    dataIntervalList = [];
     items = items || [];
 
     for (var i = 0; i < items.length; i++) {

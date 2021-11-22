@@ -16,6 +16,8 @@
     "tabs",
     "activeTab",
     "storage",
+    "notifications",
+    "alarms",
     "idle",
     "chrome://favicon/*",
     "webNavigation",
@@ -23,8 +25,7 @@
   ],
   "optional_permissions": [
     "https://www.youtube.com/*",
-    "https://www.netflix.com/*",
-    "notifications"
+    "https://www.netflix.com/*"
   ],
   "offline_enabled": true,
   "background": {
