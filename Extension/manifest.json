@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Extension of support for IT professional well-being",
   "short_name": "Extension of mental health support",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "minimum_chrome_version": "26",
   "description": "Extension support for IT professional well-being, monitoring your problem situation.",
   "options_page": "views/settings.html",
