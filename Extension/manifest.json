@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Extension of support for IT professional well-being",
+  "name": "Extension to support well-being",
   "short_name": "Extension of mental health support",
   "version": "1.0.1",
   "minimum_chrome_version": "26",
@@ -45,7 +45,7 @@
   },
   "browser_action": {
     "default_popup": "views/index.html",
-    "default_title": "Extension of support for IT professional well-being",
+    "default_title": "Extension to support well-being",
     "default_icon": "assets/img/48x48.png"
   }
 }
