@@ -1,32 +1,32 @@
-const toggle = {
-  status: true,
-};
-const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-const myDelay = async (interval) => {
-  console.log("waiting!");
-  await delay(interval);
-  console.log("waiting!");
-  return;
-};
-
-const notification = async () => {
-  const interval = 36000;
-  while (toggle.status) {
-    await myDelay(interval);
-    if (toggle.status == false) {
-      break;
-    }
-    const notification = new Notification("New message incoming", {
-      body: "Ei! É hora de beber um pouco de água, estique as costas e descanse os olhos. \nLembre-se de manter as costas retas.",
+function notifyMe() {
+  if (!("Notification" in window)) {
+    alert("This browser does not support system notifications");
+  } else if (Notification.permission === "granted") {
+    notify();
+  } else if (Notification.permission !== "denied") {
+    Notification.requestPermission(function (permission) {
+      if (permission === "granted") {
+        notify();
+      }
     });
-    notification.onclick = (e) => {
-      window.location.href = "views/settings.html";
-    };
   }
-};
 
-notification();
+  function playSound() {
+    const audio = new Audio("../assets/audio/notification.mp3");
+    audio.play();
+  }
 
-chrome.browserAction.onClicked.addListener(function (tab) {
-  switchToggle(toggle);
-});
+  function notify() {
+    playSound();
+    var notification = new Notification("Lembrete para ajustar a postura", {
+      icon: "../assets/img/posture.png",
+      body: "Hey! Lembre-se de ajustar sua postura e manter as costas retas!",
+    });
+
+    notification.onclick = function () {
+      window.open("../views/settings.html");
+    };
+    setTimeout(notification.close.bind(notification), 7000);
+  }
+}
+notifyMe();
