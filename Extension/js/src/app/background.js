@@ -111,7 +111,7 @@ function showNotification(activeUrl, tab) {
         {
           type: "basic",
           iconUrl: "assets/img/128x128.png",
-          title: "Extension of mental health support",
+          title: "Extension of support for IT professional well-being",
           contextMessage:
             activeUrl +
             " " +
@@ -138,7 +138,7 @@ function notificationAction(activeUrl, tab) {
   chrome.notifications.create("watt-site-notification", {
     type: "basic",
     iconUrl: "assets/img/128x128.png",
-    title: "Extension of mental health support",
+    title: "Extension of support for IT professional well-being",
     contextMessage:
       activeUrl + " " + convertShortSummaryTimeToString(tab.getTodayTime()),
     message: setting_notification_message,
