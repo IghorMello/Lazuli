@@ -2,6 +2,7 @@
 
 var tabs;
 var timeIntervalList;
+var dataIntervalList;
 var currentTab;
 var isNeedDeleteTimeIntervalFromTabs = false;
 var activity = new Activity();
@@ -110,7 +111,7 @@ function showNotification(activeUrl, tab) {
         {
           type: "basic",
           iconUrl: "assets/img/128x128.png",
-          title: "Extension of mental health support",
+          title: "Extension to support well-being",
           contextMessage:
             activeUrl +
             " " +
@@ -137,7 +138,7 @@ function notificationAction(activeUrl, tab) {
   chrome.notifications.create("watt-site-notification", {
     type: "basic",
     iconUrl: "assets/img/128x128.png",
-    title: "Extension of mental health support",
+    title: "Extension to support well-being",
     contextMessage:
       activeUrl + " " + convertShortSummaryTimeToString(tab.getTodayTime()),
     message: setting_notification_message,
@@ -145,7 +146,8 @@ function notificationAction(activeUrl, tab) {
 }
 
 function setBlockPageToCurrent(currentUrl) {
-  var blockUrl = chrome.runtime.getURL("block.html") + "?url=" + currentUrl;
+  var blockUrl =
+    chrome.runtime.getURL("views/block.html") + "?url=" + currentUrl;
   chrome.tabs.query({ currentWindow: true, active: true }, function (tab) {
     chrome.tabs.update(tab.id, { url: blockUrl });
   });
@@ -387,6 +389,7 @@ function loadBlackList() {
 function loadTimeIntervals() {
   storage.getValue(STORAGE_TIMEINTERVAL_LIST, function (items) {
     timeIntervalList = [];
+    dataIntervalList = [];
     items = items || [];
 
     for (var i = 0; i < items.length; i++) {

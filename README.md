@@ -1,7 +1,6 @@
 ## 🚀 Como executar o projeto
 
-
-:book:  Para acessar a página [clique aqui](https://extensiontimind.herokuapp.com) e para acessar o acessar a API [clique aqui](https://flaskapideploy.herokuapp.com).
+:book:  Para acessar a página [clique aqui](https://extensionlazuli.herokuapp.com/) e para acessar o acessar a API [clique aqui](https://flaskapideploy.herokuapp.com).
 
 <br>
 

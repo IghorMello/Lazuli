@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "Extension of mental health support",
+  "name": "Extension to support well-being",
   "short_name": "Extension of mental health support",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "minimum_chrome_version": "26",
-  "description": "Extension of mental health support.",
+  "description": "Extension support for IT professional well-being, monitoring your problem situation.",
   "options_page": "views/settings.html",
   "icons": {
     "16": "assets/img/16x16.png",
@@ -16,6 +16,8 @@
     "tabs",
     "activeTab",
     "storage",
+    "notifications",
+    "alarms",
     "idle",
     "chrome://favicon/*",
     "webNavigation",
@@ -23,12 +25,12 @@
   ],
   "optional_permissions": [
     "https://www.youtube.com/*",
-    "https://www.netflix.com/*",
-    "notifications"
+    "https://www.netflix.com/*"
   ],
   "offline_enabled": true,
   "background": {
     "scripts": [
+      "js/src/app/notifications.js",
       "js/src/lib/jquery-3.3.1.min.js",
       "js/src/app/common.js",
       "js/src/app/storage.js",
@@ -43,7 +45,7 @@
   },
   "browser_action": {
     "default_popup": "views/index.html",
-    "default_title": "Extension of mental health support",
+    "default_title": "Extension to support well-being",
     "default_icon": "assets/img/48x48.png"
   }
 }
