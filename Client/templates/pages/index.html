@@ -18,9 +18,10 @@ stylesheets %}
 {% endwith %}
 
 <!-- Header -->
-<nav class="navbar navbar-expand-lg fixed-top navbar-blue navbar-dark bg-light">
-  <div class="mt-3 mb-2 container">
-    <a href="#" class="navbar-brand d-none d-md-block">
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-blue bg-light">
+  <div class="container mt-3 mb-2">
+    <a href="#" class="navbar-brand">
       <h3 class="logo">Extension</h3>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -28,28 +29,15 @@ stylesheets %}
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <ul class="navbar-nav mx-auto mb-2">
-        <li class="nav-item text-white">
-          <a class="nav-link  text-white" href="#hero">Home</a>
-        </li>
-        <li class="nav-item text-white">
-          <a class="nav-link text-white" href="#about">About</a>
-        </li>
-        <li class="nav-item text-white">
-          <a class="nav-link text-white" href="#services">Instructions</a>
-        </li>
-        <li class="nav-item text-white">
-          <a class="nav-link text-white" href="#team">Team</a>
-        </li>
-        <li class="nav-item text-white">
-          <a class="nav-link text-white" href="#contact">Contact</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item text-white">
-          <a class="nav-link text-white scrollto" href="/login">Log-in</a>
-        </li>
-      </ul>
+      <div class="navbar-nav mx-auto">
+        <a class="nav-link  text-white" href="#hero">Home</a>
+        <a class="nav-link text-white" href="#about">About</a>
+        <a class="nav-link text-white" href="#team">Team</a>
+        <a class="nav-link text-white" href="#contact">Contact</a>
+      </div>
+      <div class="navbar-nav">
+        <a class="nav-link text-white" href="/login">Log-in</a>
+      </div>
     </div>
   </div>
 </nav>
@@ -70,7 +58,8 @@ stylesheets %}
       </div>
     </div>
     <div class="text-center">
-      <a href="https://github.com/IghorMello/Lazuli/archive/refs/heads/main.zip" class="btn-get-started scrollto">GitHub Repo
+      <a href="https://github.com/IghorMello/Lazuli/archive/refs/heads/main.zip" class="btn-get-started scrollto">GitHub
+        Repo
         (File An Issue)
       </a>
     </div>
@@ -92,8 +81,8 @@ stylesheets %}
             medical solution.
           </p>
         </div>
-        <div class="row justify-content-md-center">
-          <div class="row">
+        <div class="row">
+          <div class="d-flex justify-content-center">
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
               <img draggable="false" class="screenshot" src="../../static/assets/img/example-login.png"
                 alt="screenshot" />
@@ -113,7 +102,7 @@ stylesheets %}
 
   <!-- Seção de Instruções -->
 
-  <section id="services" class="services section-bg">
+  <!--<section id="services" class="services section-bg">
     <div class="container" data-aos="fade-up">
       <div class="section-title">
         <h2>Instruction</h2>
@@ -138,7 +127,7 @@ stylesheets %}
             <p style="margin-top: 1rem">
               3. Navigate to
               <a href="chrome://extensions/">chrome://extensions/</a> in
-              your Google Chrome browser window. --> (link doesn't work;
+              your Google Chrome browser window.  (link doesn't work;
               copy and paste)
             </p>
             <p style="margin-top: 1rem">4. Check to enable "Developer Mode."</p>
@@ -150,6 +139,7 @@ stylesheets %}
         </div>
       </div>
   </section>
+-->
 
   <!-- Seção da Equipe -->
 
@@ -169,7 +159,7 @@ stylesheets %}
                 justify-content-center
                 align-items-center align-self-center
               ">
-          <div class="col-lg-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-3 col-md-5 align-items-stretch ml-1" data-aos="fade-up" data-aos-delay="100">
             <div class="member">
               <div class="member-img">
                 <img draggable="false" src="https://avatars.githubusercontent.com/u/64975022?v=4" class="img-fluid"
@@ -189,7 +179,7 @@ stylesheets %}
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-3 col-md-5 align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="member">
               <div class="member-img">
                 <img draggable="false" src="https://avatars.githubusercontent.com/u/60948849?v=4" class="img-fluid"
@@ -344,23 +334,23 @@ stylesheets %}
             <div class="row">
               <div class="col-md-6 form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required />
-                <label style="display:none"for="name">Nome</label>
+                <label style="display:none" for="name">Nome</label>
               </div>
 
               <div class="col-md-6 form-group">
                 <input type="email" class="form-control" name="email" id="email" placeholder="Seu E-mail" required />
-                <label style="display:none"for="email">E-mail</label>
+                <label style="display:none" for="email">E-mail</label>
               </div>
             </div>
 
             <div class="form-group mt-3">
               <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" required />
-              <label style="display:none"for="subject">Subject</label>
+              <label style="display:none" for="subject">Subject</label>
             </div>
 
             <div class="form-group mt-3">
               <textarea class="form-control" name="message" rows="5" placeholder="Mensagem" required></textarea>
-              <label style="display:none"for="message">Message</label>
+              <label style="display:none" for="message">Message</label>
             </div>
 
             <div class="text-center mt-4">
