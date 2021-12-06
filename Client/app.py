@@ -269,24 +269,6 @@ def edit_employees(id):
       return render_template('medical/edit-employee.html', all_data=all_data, current=current_user)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #------------------------------------------------------------------------
 # Erro 404
 #------------------------------------------------------------------------
@@ -328,8 +310,8 @@ def send_email(result, charset='utf-8'):
 
 @app.route('/logout')
 def sign_out():
-    session.pop('user_id')
     flash("Logout realizado com sucesso!", 'success')
+    session.pop('user_id')
     return redirect(url_for('login'))
 
 if __name__ == "__main__":

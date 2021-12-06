@@ -2,31 +2,62 @@
 <html lang="pt-br">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="title" content="Extensão" />
+  <meta charSet="UTF-8" />
   <meta name="description"
-    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora et nihil enim minus voluptatem, aut vitae! Blanditiis perferendis adipisci, iure mollitia fugiat quibusdam aliquid, consequatur recusandae minus voluptate accusamus eos." />
-  <meta name="keywords" content="" />
+    content="Extended support for the well-being of IT professionals, monitoring and helping to improve their productivity" />
+  <meta name="image" content="https://extensionlazuli.herokuapp.com/static/assets/img/example-dark-mode.jpeg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="theme-color" content="#8257e5" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="msapplication-TileColor" content="#8257e5" />
+  <meta name="google" content="notranslate" />
+  <meta property="og:url" content="https://extensionlazuli.herokuapp.com" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://extensiontimind.herokuapp.com/" />
-  <meta property="og:title" content="Extensão" />
+  <meta property="og:title"
+    content="ExtensionLazuli · Extension of support for the well-being of the IT professional." />
   <meta property="og:description"
-    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora et nihil enim minus voluptatem, aut vitae! Blanditiis perferendis adipisci, iure mollitia fugiat quibusdam aliquid, consequatur recusandae minus voluptate accusamus eos." />
-  <meta property="og:image" content="/static/assets/img/icons/favicon.png" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://extensiontimind.herokuapp.com/" />
-  <meta property="twitter:title" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. " />
-  <meta property="twitter:description" content="" />
-  <meta property="twitter:image" content="/static/assets/img/icons/favicon.png" />
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="theme-color" content="#ffffff" />
+    content="Extended support for the well-being of IT professionals, monitoring and helping to improve their productivity." />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name"
+    content="ExtensionLazuli · Extension of support for the well-being of the IT professional." />
+  <meta property="og:image" content="https://extensionlazuli.herokuapp.com/static/assets/img/example-dark-mode.jpeg" />
+  <meta property="og:image:secure_url"
+    content="https://extensionlazuli.herokuapp.com/static/assets/img/example-dark-mode.jpeg" />
+  <meta property="og:image:alt" content="Extension of support for the well-being." />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title"
+    content="Lazuli · Extension of support for the well-being of the IT professional." />
+  <meta name="next-head-count" content="43" />
 
-  <title>ExtensionTI | {% block title %}{% endblock %}</title>
+  <title>Lazuli · {% block title %}{% endblock %}</title>
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/static/assets/img/icons/favicon.png" />
+  <link rel="canonical" href="https://extensionlazuli.herokuapp.com/" data-baseprotocol="https:"
+    data-basehost="extensionlazuli.herokuapp.com/" />
+
+  <!-- Logo -->
+  <link rel="apple-touch-icon" sizes="48x48" href="/static/assets/img/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/static/assets/img/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="96x96" href="/static/assets/img/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/static/assets/img/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/static/assets/img/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="256x256" href="/static/assets/img/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="384x384" href="/static/assets/img/icons/favicon.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/static/assets/img/icons/favicon.png" />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
     crossorigin="anonymous" />
@@ -36,9 +67,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="../../static/assets/css/utils.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../static/assets/css/utils.css" />
   <style>
     .form-signin {
       width: 100%;
@@ -91,13 +122,13 @@
     }
 
     #login_form h1 {
-  margin: 0;
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 72px;
-  color: #5679bf;
-  font-family: "Poppins", sans-serif;
-}
+      margin: 0;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 72px;
+      color: #5679bf;
+      font-family: "Poppins", sans-serif;
+    }
 
     .btnSubmit {
       width: 50%;
@@ -191,28 +222,73 @@
     }
   </style>
 
-  <!-- Sweetalert2 -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
-
   {% block stylesheets %}{% endblock stylesheets %}
 </head>
 
 <body>
   {% block content %}{% endblock content %}
-
   <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
+  
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Custom Scripts -->
   <script src="../../static/assets/js/utils.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var cookieAlert = document.querySelector(".cookiealert");
+      var acceptCookies = document.querySelector(".acceptcookies");
+      if (!cookieAlert) {
+        return;
+      }
+
+      // Force browser to trigger reflow (https://stackoverflow.com/a/39451131)
+
+      cookieAlert.offsetHeight; 
+      if (!getCookie("acceptCookies")) {
+        cookieAlert.classList.add("show");
+      }
+      acceptCookies.addEventListener("click", function () {
+        setCookie("acceptCookies", true, 365);
+        cookieAlert.classList.remove("show");
+        window.dispatchEvent(new Event("cookieAlertAccept"))
+      });
+
+      // Cookie functions from w3schools
+
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+    })();
+  </script>
 </body>
 
 </html>
