@@ -1,7 +1,7 @@
 {% extends "layouts/base-init.html" %} {% block title %} Home {% endblock %} {% block stylesheets %}{% endblock
   stylesheets %}
   {% block content %}
-  
+
   {% with messages = get_flashed_messages() %}
   {% if messages %}
   {% for message in messages %}
@@ -18,9 +18,9 @@
   {% endfor %}
   {% endif %}
   {% endwith %}
-  
+
   <!-- Header -->
-  
+
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-blue bg-light">
     <div class="container mt-3 mb-2">
       <a href="#" class="navbar-brand">
@@ -43,9 +43,9 @@
       </div>
     </div>
   </nav>
-  
+
   <!-- Seção Hero -->
-  
+
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
@@ -67,7 +67,7 @@
     </div>
   </section>
   <!-- End Hero -->
-  
+
   <main id="main">
     <!-- Seção Sobre -->
     <div data-aos="zoom-in" data-aos-delay="200">
@@ -100,9 +100,9 @@
         </div>
       </section>
     </div>
-  
+
     <!-- Seção da Equipe -->
-  
+
     <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
@@ -112,7 +112,7 @@
             questions:
           </p>
         </div>
-  
+
         <div class="row">
           <div class="
                   d-flex
@@ -138,7 +138,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div class="col-lg-3 col-md-5 align-items-stretch" data-aos="fade-up" data-aos-delay="200">
               <div class="member">
                 <div class="member-img">
@@ -161,9 +161,9 @@
         </div>
       </div>
     </section>
-  
+
     <!-- Contato -->
-  
+
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
@@ -175,7 +175,7 @@
             If you want to get in touch about the application more directly, you can use the contact form below:
           </p>
         </div>
-  
+
         <div class="row mt-5">
           <div class="col-lg-12 mt-5 mt-lg-0">
             <form method="POST" role="form" class="email-form">
@@ -184,23 +184,23 @@
                   <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required />
                   <label style="display:none" for="name">Nome</label>
                 </div>
-  
+
                 <div class="col-md-6 form-group">
                   <input type="email" class="form-control" name="email" id="email" placeholder="Seu E-mail" required />
                   <label style="display:none" for="email">E-mail</label>
                 </div>
               </div>
-  
+
               <div class="form-group mt-3">
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required />
                 <label style="display:none" for="subject">Subject</label>
               </div>
-  
+
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                 <label style="display:none" for="message">Message</label>
               </div>
-  
+
               <div class="text-center mt-4">
                 <button type="submit">Send message</button>
               </div>
@@ -210,17 +210,19 @@
       </div>
     </section>
   </main>
-  
-  <div class="alert text-center cookiealert" style="z-index: 999 !important;" role="alert">
-    This website uses cookies to improve your experience. It is assumed to be in accordance with practice, but you may elect not to allow this use.  <a
-      href="https://cookiesandyou.com/" target="_blank">Read more</a>
+
+  <!-- Cookie Consent -->
+
+  <div class="alert text-center cookie cookiealert" role="alert">
+    This website uses cookies to improve your experience. It is assumed to be in accordance with practice, but you may elect not to allow this use.
+    <a href="https://cookiesandyou.com/" target="_blank">Read more</a>
     <button type="button" class="btn btn-primary btn-sm acceptcookies">
       I accept
     </button>
   </div>
-  
+
   <!-- Footer -->
-  
+
   <footer id="footer">
     <div class="container d-md-flex py-4">
       <div class="me-md-auto mt-2 text-center text-md-start">
@@ -239,8 +241,8 @@
   </footer>
 
   <!-- End Footer -->
-  
+
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
-  
+
   {% endblock content %} {% block javascripts %}{% endblock javascripts %}

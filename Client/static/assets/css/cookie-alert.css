@@ -4,23 +4,38 @@
  * Released under MIT license
 */
 
-.cookiealert {
-  position: fixed;
+/* .cookiealert {
   bottom: 0;
   left: 0;
   width: 100%;
   margin: 0 !important;
-  visibility: hidden;
   border-radius: 0;
-  z-index: 999 !important;
   transform: translateY(100%);
   transition: all 500ms ease-out;
   color: #282829;
   background-color: rgba(209, 207, 207, 0.4);
+} */
+
+.cookie {
+  position: fixed;
+  background-color: #ebf3fb;
+  z-index: 9999 !important;
+  opacity: 1
+}
+
+.cookiealert {
+  opacity: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 !important;
+  border-radius: 0;
+  transform: translateY(100%);
+  transition: all 500ms ease-out;
+  color: #2c2c34;
 }
 
 .cookiealert.show {
-  visibility: visible;
   z-index: 999 !important;
   transform: translateY(0%);
   transition-delay: 1000ms;
