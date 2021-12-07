@@ -26,6 +26,7 @@ mongo = PyMongo(employee)
 
 @employee_views.route('/', methods=['POST'])
 def login():
+  # Mongo
   employees = mongo.db.employees
   data_search = mongo.db.employees.find()
 
@@ -41,23 +42,23 @@ def login():
   # Se o código for existente
   if code_found:
     result = {}
+
     for data_verify in data_search:
       if codigo_usuario == data_verify['codigo_usuario']:
-        new_data = data_verify
+        local_id_new_data = data_verify
 
     # Obtendo seção atual
-    clean_objId = new_data['_id']
-    session['userId'] = str(clean_objId)
+    clean_obj_id = local_id_new_data['_id']
+    session['userId'] = str(clean_obj_id)
 
     # Dados a serem enviados por email
-    result['codigo_usuario']=codigo_usuario
-    result['email']=new_data['email']
-    result['nome']=new_data['nome']
-    result['type_user'] = "admin"
-    result['id']=local_id
-    result['time']=time
-    result['data']=data
-    print('Dados para serem enviados por email', result)
+    result['codigo_usuario'] = codigo_usuario
+    result['email'] = local_id_new_data['email']
+    result['name'] = local_id_new_data['name']
+    result['type_user'] = "employee"
+    result['id'] = local_id
+    result['time'] = time
+    result['data'] = data
 
     # Habilitar função de envio de e-mail
     send_email_employees(result)
@@ -101,41 +102,43 @@ def delete_employees(id):
 
 @employee_views.route('/employees/<_id>', methods=['PUT'])
 def update_employees(_id):
-  nome = request.json['nome'] 
-  sexo = request.json['sexo']
+  name = request.json['name']
   email = request.json['email']
-  horario = request.json['horario']
-  endereco = request.json['endereco']
-  telefone = request.json['telefone']
-  deficiencia = request.json['deficiencia']
-  tipo_sanguineo = request.json['tipo_sanguineo']
-  data_nascimento = request.json['data_nascimento']
-  disturbio_detectado = request.json['disturbio_detectado']
-  acompanhamento_medico = request.json['acompanhamento_medico']
-  uso_medicacao_controlada = request.json['uso_medicacao_controlada']
+  phone = request.json['phone']
+  gender = request.json['gender']
+  address = request.json['address']
+  work_time = request.json['work_time']
+  type_user = request.json['type_user']
+  blood_type = request.json['blood_type']
+  birth_date = request.json['birth_date']
+  responsible = request.json['responsible'] 
+  disorder_detected = request.json['disorder_detected']
+  medical_follow_up = request.json['medical_follow_up']
+  use_controlled_medication = request.json['use_controlled_medication']
 
   # Se os dados estiverem existentes
-  if nome and sexo and disturbio_detectado and data_nascimento and email and endereco and telefone and tipo_sanguineo and deficiencia and horario and acompanhamento_medico and uso_medicacao_controlada and _id:
+  if name and email and phone and gender and address and work_time and type_user and blood_type and birth_date and responsible and disorder_detected and medical_follow_up and use_controlled_medication and _id:
     mongo.db.employees.update_one(
       { '_id': ObjectId(_id['$oid']) if '$oid' in _id else ObjectId(_id) }, 
       { '$set': { 
-        "sexo": sexo, 
-        "nome": nome,
-        'email': email, 
-        "horario": horario,
-        "telefone": telefone,
-        "endereco": endereco,
-        "deficiencia": deficiencia,
-        "tipo_sanguineo": tipo_sanguineo,
-        "data_nascimento": data_nascimento,
-        "disturbio_detectado": disturbio_detectado,
-        "acompanhamento_medico": acompanhamento_medico,
-        "uso_medicacao_controlada": uso_medicacao_controlada,
+        "name":  name,
+        "email": email,
+        "phone": phone,
+        "gender": gender,
+        "address": address,
+        "work_time": work_time,
+        "type_user": type_user,
+        "blood_type": blood_type,
+        "birth_date": birth_date,
+        "responsible": responsible, 
+        "disorder_detected": disorder_detected,
+        "medical_follow_up": medical_follow_up,
+        "use_controlled_medication": use_controlled_medication,
       }}
     )
 
     #  Retorna resposta
-    response = jsonify({'message': 'Funcionário ' + nome + ", com código " + _id + ' foi atualizado com sucesso'})
+    response = jsonify({'message': 'IT professional ' + name + ", with code " + _id + ' has been updated successfully'})
     response.status_code = 200
     return response 
 

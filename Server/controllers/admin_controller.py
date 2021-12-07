@@ -1,5 +1,6 @@
 import random
 import string
+import bcrypt
 import json
 import os
 
@@ -37,30 +38,31 @@ def login_admin():
   email = request.json['email']
   password = request.json['password']
   email_found = admindata.find_one({"email": email})
-  password_found = admindata.find_one({"password": password})
 
   # Se o email e a senha estiverem cadastrados
-  if email_found and password_found:
-    for data_verify in admindata_search:
-      if password == data_verify['password']:
-        new_data = data_verify
+  if email_found:
+    password_check = email_found['password']
 
-    # Obtendo o id da seção
-    clean_objId = new_data['_id']
-    local_id = str(clean_objId)
+    if bcrypt.checkpw(password.encode('utf-8'), password_check):
+      for data_verify in admindata_search:
+        local_id_data = data_verify
 
-    # Obtendo seção atual
-    session['userId']=local_id
-    print('\nSessão atual', session['userId'])
+      # Obtendo o id da seção
+      clean_obj_id = local_id_data['_id']
+      session['userId'] = str(clean_obj_id)
+      print('\nSessão atual', session['userId'])
 
-    result = {}
-    result['email'] = request.json['email']
-    result['localId'] = session['userId']
-    result['password'] = request.json['password']
-    result['type_user'] = "admin"
-    result['data'] = data
-    result['time'] = time
-  response = json_util.dumps(result)
+      result = {}
+      result['email'] = request.json['email']
+      result['localId'] = session['userId']
+      result['password'] = password_check
+      result['type_user'] = "admin"
+      result['data'] = data
+      result['time'] = time
+      response = json_util.dumps(result)
+
+    else: # Do contrário será retornado tela de erro 
+      return not_found()
   return Response(response, mimetype='application/json')
 
 #---------------------------------------
@@ -71,43 +73,44 @@ def login_admin():
 def register_admin():
   status = 1
   date = datetime.now()
-  createdAt = date.strftime('%d/%m/%Y %H:%M') 
+  created_at = date.strftime('%d/%m/%Y %H:%M') 
   password = request.json['password']
-  nome = request.json['nome'] 
+  name = request.json['name'] 
   email = request.json['email']
 
   # Listar dados do admin
-  admindata_data = mongo.db.admindata
-  email_found = admindata_data.find_one({"email": email})
+  admin_data = mongo.db.admindata
+  email_found = admin_data.find_one({"email": email})
 
   # Se o e-mail já existe
   if email_found:
-    response = jsonify({'message': 'Email já existente'})
+    response = jsonify({'message': 'Existing Email'})
     response.status_code = 200
     return response
 
-  elif password and nome and email: # Do contrário
+  elif password and name and email: # Do contrário
+    hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     # Realiza o cadastro
     id = mongo.db.admindata.insert({ 
       "email": email,
-      "nome": nome,
+      "name": name,
       "type_user": "admin",
       "status": 1,
-      "password": password,
+      "password": hashed,
     })
 
     # Retorna a lista de dados 
     response = jsonify({
       '_id': str(id),
-      "password": password,
+      "created_at": created_at,
       "type_user": "admin",
-      "status": 1,
-      "nome": nome,
+      "password": hashed,
       "email": email,
-      "createdAt": createdAt,
+      "name": name,
+      "status": 1,
     })
     session['localIdAdmin'] = str(id)
-    print('\n\nDados obtidos\n\n', session['localIdAdmin'])
+    print(session['localIdAdmin'])
 
     # Retorna status positivo
     response.status_code = 201
@@ -123,7 +126,7 @@ def register_admin():
 @admin_views.route('/admin/<id>', methods=['DELETE'])
 def delete_admin(id):
   mongo.db.admindata.delete_one({'_id': ObjectId(id)})
-  response = jsonify({'message': 'Administrador com código ' + id + ' foi deletado com sucesso'})
+  response = jsonify({'message': 'Admin with code ' + id + ' was successfully deleted'})
   response.status_code = 200
   return response
 
@@ -145,9 +148,9 @@ def get_all_admin():
 def register_medical():
   status = 1
   date = datetime.now()
-  createdAt = date.strftime('%d/%m/%Y %H:%M') 
-  crm = request.json['crm']
-  nome = request.json['nome'] 
+  created_at = date.strftime('%d/%m/%Y %H:%M') 
+  password = request.json['password']
+  name = request.json['name'] 
   email = request.json['email']
 
   # Listar dados do responsável médico
@@ -156,29 +159,31 @@ def register_medical():
 
   # Se o e-mail já existe
   if email_found:
-    response = jsonify({'message': 'Email já existente'})
+    response = jsonify({'message': 'Existing Email'})
     response.status_code = 200
     return response
 
-  elif crm and nome and email: # Do contrário
+  elif password and name and email: # Do contrário
+    hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
     # Realiza o cadastro
     id = mongo.db.medical.insert({ 
-      "email": email,
-      "type_user": "responsavel_medico",
-      "nome": nome,
       "status": 1,
-      "crm": crm,
+      "name": name,
+      "email": email,
+      "password": hashed,
+      "type_user": "medical",
     })
 
     # Retorna a lista de dados 
     response = jsonify({
       '_id': str(id),
-      "crm": crm,
       "status": 1,
-      "type_user": "responsavel_medico",
-      "nome": nome,
+      "name": name,
       "email": email,
-      "createdAt": createdAt,
+      "password": hashed,
+      "type_user": "medical",
+      "created_at": created_at,
     })
 
     # Retorna status positivo

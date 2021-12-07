@@ -1,4 +1,5 @@
 import random
+import bcrypt
 import string
 import json
 import os
@@ -24,23 +25,24 @@ mongo = PyMongo(medical)
 
 @medical_views.route('/medical/<_id>', methods=['PUT'])
 def update_medical(_id):
-  crm = request.json['crm']
-  nome = request.json['nome'] 
+  password = request.json['password']
   email = request.json['email']
+  name = request.json['name'] 
 
-  # Se o CRM, Nome, email já estiverem cadastrados
-  if crm and nome and email and _id:
+  # Se a senha, nome, email já estiverem cadastrados
+  if password and name and email and _id:
     mongo.db.medical.update_one(
       { '_id': ObjectId(_id['$oid']) if '$oid' in _id else ObjectId(_id) }, 
       { '$set': { 
-        "crm": crm, 
-        "nome": nome,
+        "password": password,
+        "name": name,
         'email': email
       }}
     )
-    response = jsonify({'message': 'Responsável médico ' + nome + ", com código " + _id + ' foi atualizado com sucesso'})
+    response = jsonify({'message': 'Medical officer ' + name + ", with code " + _id + ' has been updated successfully'})
     response.status_code = 200
     return response 
+
   else: 
     return not_found()
 
@@ -60,30 +62,34 @@ def login_medical():
   
   # Obter dados
   email = request.json['email']
-  crm = request.json['crm']
+  password = request.json['password']
   email_found = medical.find_one({"email": email})
-  crm_found = medical.find_one({"crm": crm})
   
-  # Se o email e o CRM estiverem cadastrados
-  if email_found and crm_found:
-    for data_verify in data_search:
-      if crm == data_verify['crm']:
-        new_data = data_verify
-    
-    # Obtendo o id da seção
-    clean_objId = new_data['_id']
+  # Se o email e senha estiverem cadastrados
+  if email_found:
+    password_check = email_found['password']
 
-    # Obtendo seção atual
-    session['userId'] = str(clean_objId)
+    if bcrypt.checkpw(password.encode('utf-8'), password_check):
+      for data_verify in data_search:
+        local_id_data = data_verify
     
-    result = {}
-    result['email'] = request.json['email']
-    result['localId'] = session['userId']
-    result['crm'] = request.json['crm']
-    result['data'] = data
-    result['type_user'] = "responsavel_medico"
-    result['time'] = time
-  response = json_util.dumps(result)
+      # Obtendo o id da seção
+      clean_obj_id = local_id_data['_id']
+
+      # Obtendo seção atual
+      session['userId'] = str(clean_obj_id)
+      
+      result = {}
+      result['email'] = request.json['email']
+      result['localId'] = session['userId']
+      result['password'] = password_check
+      result['type_user'] = "medical"
+      result['data'] = data
+      result['time'] = time
+      response = json_util.dumps(result)
+
+    else: # Do contrário será retornado tela de erro 
+      return not_found()
   return Response(response, mimetype='application/json')
 
 #---------------------------------------
@@ -94,24 +100,23 @@ def login_medical():
 def register_medical_file():
   status = 1
   date = datetime.now()
-  nome = request.json['nome'] 
-  sexo = request.json['sexo']
+  name = request.json['name'] 
   email = request.json['email']
-  responsavel = session['userId']
-  horario = request.json['horario']
-  endereco = request.json['endereco']
-  telefone = request.json['telefone']
-  deficiencia = request.json['deficiencia']
-  tipo_sanguineo = request.json['tipo_sanguineo']
-  data_nascimento = request.json['data_nascimento']
-  disturbio_detectado =  request.json['disturbio_detectado']
-  acompanhamento_medico = request.json['acompanhamento_medico']
-  uso_medicacao_controlada = request.json['uso_medicacao_controlada']
+  phone = request.json['phone']
+  gender = request.json['gender']
+  responsible = session['userId']
+  address = request.json['address']
+  work_time = request.json['work_time']
+  blood_type = request.json['blood_type']
+  birth_date = request.json['birth_date']
+  disorder_detected =  request.json['disorder_detected']
+  medical_follow_up = request.json['medical_follow_up']
+  use_controlled_medication = request.json['use_controlled_medication']
   
   # Criando o código do usuário
   letters = string.ascii_lowercase
-  createdAt = date.strftime('%d/%m/%Y %H:%M') 
-  codigo_usuario = ''.join(random.choice(letters) for i in range(10))
+  created_at = date.strftime('%d/%m/%Y %H:%M') 
+  user_code = ''.join(random.choice(letters) for i in range(10))
 
   # Listando os dados do funcionário
   employees_data = mongo.db.employees
@@ -123,45 +128,41 @@ def register_medical_file():
     response.status_code = 200
     return response
 
-  elif nome and sexo and email and data_nascimento and endereco and telefone and tipo_sanguineo and deficiencia and horario and disturbio_detectado and acompanhamento_medico and uso_medicacao_controlada and codigo_usuario:
+  elif name and email and phone and gender and address and user_code and work_time and type_user and blood_type and birth_date and disorder_detected and medical_follow_up and use_controlled_medication:
     id = mongo.db.employees.insert({ 
-      "nome": nome,
-      "sexo": sexo, 
+      "name":  name,
       "email": email,
-      "status": status,
-      "horario": horario,
-      "telefone": telefone,
-      "endereco": endereco,
-      "createdAt": createdAt,
-      'responsavel':responsavel,
-      "type_user": "funcionario",
-      "deficiencia": deficiencia,
-      "codigo_usuario": codigo_usuario,
-      "tipo_sanguineo": tipo_sanguineo,
-      "data_nascimento": data_nascimento,
-      "disturbio_detectado": disturbio_detectado,
-      "acompanhamento_medico": acompanhamento_medico,
-      "uso_medicacao_controlada": uso_medicacao_controlada,
+      "phone": phone,
+      "gender": gender,
+      "address": address,
+      "user_code": user_code,
+      "work_time": work_time,
+      "type_user": "employee",
+      "blood_type": blood_type,
+      "created_at": created_at,
+      "birth_date": birth_date,
+      "responsible": responsible, 
+      "disorder_detected": disorder_detected,
+      "medical_follow_up": medical_follow_up,
+      "use_controlled_medication": use_controlled_medication,
     })
     response = jsonify({
       '_id': str(id),
-      "nome": nome,
-      "sexo": sexo, 
+      "name":  name,
       "email": email,
-      "status": status,
-      "horario": horario,
-      "telefone": telefone,
-      "endereco": endereco,
-      "createdAt": createdAt,
-      'responsavel':responsavel,
-      "type_user": "funcionario",
-      "deficiencia": deficiencia,
-      "codigo_usuario": codigo_usuario,
-      "tipo_sanguineo": tipo_sanguineo,
-      "data_nascimento": data_nascimento,
-      "disturbio_detectado": disturbio_detectado,
-      "acompanhamento_medico": acompanhamento_medico,
-      "uso_medicacao_controlada": uso_medicacao_controlada,
+      "phone": phone,
+      "gender": gender,
+      "address": address,
+      "user_code": user_code,
+      "work_time": work_time,
+      "type_user": "employee",
+      "blood_type": blood_type,
+      "created_at": created_at,
+      "birth_date": birth_date,
+      "responsible": responsible, 
+      "disorder_detected": disorder_detected,
+      "medical_follow_up": medical_follow_up,
+      "use_controlled_medication": use_controlled_medication,
     })
     response.status_code = 201
     return response
