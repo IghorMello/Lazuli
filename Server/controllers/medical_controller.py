@@ -128,7 +128,7 @@ def register_medical_file():
     response.status_code = 200
     return response
 
-  elif name and email and phone and gender and address and user_code and work_time and type_user and blood_type and birth_date and disorder_detected and medical_follow_up and use_controlled_medication:
+  elif name and email and phone and gender and address and work_time and blood_type and birth_date and disorder_detected and medical_follow_up and use_controlled_medication:
     id = mongo.db.employees.insert({ 
       "name":  name,
       "email": email,

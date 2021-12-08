@@ -36,15 +36,15 @@ def login():
   data = date.strftime('%d/%m/%Y') 
 
   # Verificar código de usuário
-  codigo_usuario = request.json['codigo_usuario']
-  code_found = employees.find_one({"codigo_usuario": codigo_usuario})
+  user_code = request.json['user_code']
+  code_found = employees.find_one({"user_code": user_code})
 
   # Se o código for existente
   if code_found:
     result = {}
 
     for data_verify in data_search:
-      if codigo_usuario == data_verify['codigo_usuario']:
+      if user_code == data_verify['user_code']:
         local_id_new_data = data_verify
 
     # Obtendo seção atual
@@ -52,7 +52,7 @@ def login():
     session['userId'] = str(clean_obj_id)
 
     # Dados a serem enviados por email
-    result['codigo_usuario'] = codigo_usuario
+    result['user_code'] = user_code
     result['email'] = local_id_new_data['email']
     result['name'] = local_id_new_data['name']
     result['type_user'] = "employee"

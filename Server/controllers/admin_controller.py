@@ -154,8 +154,8 @@ def register_medical():
   email = request.json['email']
 
   # Listar dados do responsável médico
-  medical_data = mongo.db.medical
   email_found = medical_data.find_one({"email": email})
+  medical_data = mongo.db.medical
 
   # Se o e-mail já existe
   if email_found:
