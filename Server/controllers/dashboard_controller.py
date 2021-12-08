@@ -46,17 +46,12 @@ def dashboard_medical():
   for i in response_employee:
     data_employee = json.loads(response_employee)
     responsible_medical = data_employee[0]['responsible']
-    print('\n\nId do responsável médico obtido', responsible_medical)
-
     # Verificar se o id do responsável médico atual
     # e se o id do responsável médico que cadastrou o profissional
     # de TI forem iguais
     if responsible_medical == responsible_medical_id: 
-      user_id = mongo.db.employee.find_one({'_id': ObjectId(responsible_medical)})
-      response = json_util.dumps(employee)
-      responsible_medical_data.append(response)
-      print('\nTodos os dados obtidos', responsible_medical_data)
-      return Response(responsible_medical_data, mimetype='application/json')
+      responsible_medical_data = data_employee[0]
+      return responsible_medical_data
 
     else: # Do contrário será retornado tela de erro 
       return response

@@ -51,16 +51,18 @@ def login():
 
     # Obtendo seção atual
     clean_obj_id = local_id_new_data['_id']
-    session['userId'] = str(clean_obj_id)
+    session['employee_local_id'] = str(clean_obj_id)
 
     # Dados a serem enviados por email
-    result['user_code'] = user_code
     result['email'] = local_id_new_data['email']
+    result['id'] = session['employee_local_id']
     result['name'] = local_id_new_data['name']
+    result['user_code'] = user_code
     result['type_user'] = "employee"
-    result['id'] = session['userId']
     result['time'] = time
     result['data'] = data
+
+    print('\n\nDados obtidos\n\n', result)
 
     # Habilitar função de envio de e-mail
     send_email_employees(result)

@@ -63,3 +63,4 @@ def send_email_forced_finish(charset='utf-8'):
     msg = Message("Programador {} desabilitou a extensão!".format(dados[0]['email']), sender = 'lazuli@mailtrap.io', recipients = ['lazuli@mailtrap.io'])
     Mensagem = "Boa tarde.<br>O programador {} desabilitou a extensão {}".format(dados[0]['email'], datetime.today())
     msg.html = Mensagem.encode('ascii', 'xmlcharrefreplace')
+    mail.send(msg)
