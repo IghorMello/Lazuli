@@ -11,6 +11,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from datetime import date, datetime
 from flask import Flask, flash, jsonify, request, Response, session, Blueprint, render_template
+from models.error import not_found
 
 admin_views = Blueprint('admin', __name__)
 
@@ -50,20 +51,19 @@ def login_admin():
       # Obtendo o id da seção
       clean_obj_id = local_id_data['_id']
       session['userId'] = str(clean_obj_id)
-      print('\nSessão atual', session['userId'])
 
       result = {}
       result['email'] = request.json['email']
       result['localId'] = session['userId']
-      result['password'] = password_check
       result['type_user'] = "admin"
       result['data'] = data
       result['time'] = time
       response = json_util.dumps(result)
+      return Response(response, mimetype='application/json')
 
     else: # Do contrário será retornado tela de erro 
       return not_found()
-  return Response(response, mimetype='application/json')
+  return not_found()
 
 #---------------------------------------
 # Cadastrar admin
@@ -109,9 +109,7 @@ def register_admin():
       "name": name,
       "status": 1,
     })
-    session['localIdAdmin'] = str(id)
-    print(session['localIdAdmin'])
-
+    
     # Retorna status positivo
     response.status_code = 201
     return response
@@ -154,8 +152,8 @@ def register_medical():
   email = request.json['email']
 
   # Listar dados do responsável médico
-  email_found = medical_data.find_one({"email": email})
   medical_data = mongo.db.medical
+  email_found = medical_data.find_one({"email": email})
 
   # Se o e-mail já existe
   if email_found:
@@ -181,7 +179,6 @@ def register_medical():
       "status": 1,
       "name": name,
       "email": email,
-      "password": hashed,
       "type_user": "medical",
       "created_at": created_at,
     })

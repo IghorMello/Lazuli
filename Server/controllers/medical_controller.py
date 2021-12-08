@@ -11,6 +11,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from datetime import date, datetime
 from flask import Flask, flash, jsonify, request, Response, session, Blueprint, render_template
+from models.error import not_found
 
 medical_views = Blueprint('medical', __name__)
 
@@ -52,6 +53,7 @@ def update_medical(_id):
 
 @medical_views.route('/medical', methods=['POST'])
 def login_medical():
+  # Obter dados do responsável médico
   medical = mongo.db.medical
   data_search = mongo.db.medical.find()
 
@@ -87,10 +89,11 @@ def login_medical():
       result['data'] = data
       result['time'] = time
       response = json_util.dumps(result)
+      return Response(response, mimetype='application/json')
 
     else: # Do contrário será retornado tela de erro 
       return not_found()
-  return Response(response, mimetype='application/json')
+  return not_found()
 
 #---------------------------------------
 # Cadastrar funcionário
@@ -99,6 +102,8 @@ def login_medical():
 @medical_views.route('/medical/register-employee', methods=['POST'])
 def register_medical_file():
   status = 1
+  
+  # Dados para cadastro do profissional de TI
   date = datetime.now()
   name = request.json['name'] 
   email = request.json['email']

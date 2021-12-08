@@ -11,6 +11,8 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from datetime import date, datetime
 from flask import Flask, flash, jsonify, request, Response, session, Blueprint, render_template
+from controllers.send_email_controller import send_email_employees
+from models.error import not_found
 
 employee_views = Blueprint('employee', __name__)
 
@@ -56,7 +58,7 @@ def login():
     result['email'] = local_id_new_data['email']
     result['name'] = local_id_new_data['name']
     result['type_user'] = "employee"
-    result['id'] = local_id
+    result['id'] = session['userId']
     result['time'] = time
     result['data'] = data
 
@@ -64,6 +66,9 @@ def login():
     send_email_employees(result)
     response = json_util.dumps(result)
     return Response(response, mimetype='application/json')
+
+  else: # Do contrário será retornado tela de erro 
+    return not_found()
 
 #---------------------------------------
 # Listar usuário

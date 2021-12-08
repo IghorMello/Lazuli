@@ -12,6 +12,7 @@ from datetime import date, datetime
 from flask_mail import Mail, Message
 from flask import Flask, flash, jsonify, request, Response, session, Blueprint, render_template
 from flask_pymongo import PyMongo
+from models.error import not_found
 
 send_email_views = Blueprint('send_email', __name__)
 
