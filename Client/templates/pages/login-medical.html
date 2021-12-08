@@ -1,10 +1,24 @@
-{% extends "layouts/base-init.html" %} {% block title %} Login {% endblock %} {% block stylesheets %}{% endblock
-stylesheets %}
-{% block content %}
+{% extends "layouts/base-init.html" %} {% block title %} Login {% endblock %} {%
+block stylesheets %}{% endblock stylesheets %} {% block content %}
 
 <!-- Script -->
 
 <script src="../../static/assets/js/medical/login-medical.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#showPassword").on("click", function () {
+      var passwordField = $("#password_medical_login");
+      var passwordFieldType = passwordField.attr("type");
+      if (passwordFieldType == "password") {
+        passwordField.attr("type", "text");
+        $(this).val("Hide");
+      } else {
+        passwordField.attr("type", "password");
+        $(this).val("Show");
+      }
+    });
+  });
+</script>
 
 <!-- Navegação -->
 
@@ -13,8 +27,15 @@ stylesheets %}
     <a href="#" class="navbar-brand">
       <h4 class="logo">Lazuli</h4>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -28,29 +49,48 @@ stylesheets %}
 
 <!-- Conteúdo principal  -->
 
-<main class="container mt-5 position-relative" data-aos="fade-up" data-aos-delay="100">
+<main
+  class="container mt-5 position-relative"
+  data-aos="fade-up"
+  data-aos-delay="100"
+>
   <section class="vh-lg-100 mt-lg-0 bg-soft d-flex align-items-center">
     <div class="container">
       <div class="row justify-content-center">
-        <div class=" col-md-8 login-form-1">
+        <div class="col-md-8 login-form-1">
           <div id="login_form">
             <div class="text-center">
-              <h1>Medical Officer Login</h1>
+              <h1>Login</h1>
             </div>
           </div>
           <form method="post" id="login-form" class="mt-5">
             <div class="form-floating">
-              <input type="email" required class="form-control" id="email_medical_login"
-                placeholder="name@example.com" />
+              <input
+                type="email"
+                required
+                class="form-control"
+                id="email_medical_login"
+                placeholder="name@example.com"
+              />
               <label for="email_medical_login">E-mail</label>
             </div>
+
             <div class="form-floating mt-3">
-              <input type="password" required class="form-control" id="crm_medical_login" placeholder="Password" />
-              <label for="floatingPassword">CRM</label>
+              <input
+                type="password"
+                required
+                class="form-control"
+                name="password"
+                id="password_medical_login"
+                placeholder="Password"
+              />
+              <label for="floatingPassword">Password</label>
             </div>
+
             <div class="checkbox mb-3 mt-3">
               <label>
-                <input type="checkbox" value="remember-me" /> Remember-me
+                <input type="checkbox" id="showPassword" value="show" />
+                Show Password
               </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">
@@ -66,7 +106,8 @@ stylesheets %}
 <!-- Cookie Consent -->
 
 <div class="alert text-center cookie cookiealert" role="alert">
-  This website uses cookies to improve your experience. It is assumed to be in accordance with practice, but you may elect not to allow this use.
+  This website uses cookies to improve your experience. It is assumed to be in
+  accordance with practice, but you may elect not to allow this use.
   <a href="https://cookiesandyou.com/" target="_blank">Read more</a>
   <button type="button" class="btn btn-primary btn-sm acceptcookies">
     I accept
@@ -79,7 +120,8 @@ stylesheets %}
   <div class="container d-md-flex py-4">
     <div class="me-md-auto mt-3 text-center text-md-start">
       <div class="copyright">
-        &copy; Copyright <strong><span>Lazuli</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Lazuli</span></strong
+        >. All Rights Reserved
       </div>
     </div>
     <div class="social-links text-center text-md-right pt-3 pt-md-0">
